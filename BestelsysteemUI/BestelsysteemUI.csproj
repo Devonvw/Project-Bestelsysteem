@@ -82,21 +82,21 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SomerenDAL\BestelsysteemDAL.csproj">
+    <None Include="Resources\someren.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BestelsysteemDAL\BestelsysteemDAL.csproj">
       <Project>{5c8bda73-f134-4af6-bb41-dbe88eba2615}</Project>
       <Name>BestelsysteemDAL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SomerenLogic\BestelsysteemLogic.csproj">
+    <ProjectReference Include="..\BestelsysteemLogic\BestelsysteemLogic.csproj">
       <Project>{715fc326-1104-4e49-8df2-a36e0458067d}</Project>
       <Name>BestelsysteemLogic</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SomerenModel\BestelsysteemModel.csproj">
+    <ProjectReference Include="..\BestelsysteemModel\BestelsysteemModel.csproj">
       <Project>{90a9ed02-35d3-4d84-80e4-458bc835c722}</Project>
       <Name>BestelsysteemModel</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\someren.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
