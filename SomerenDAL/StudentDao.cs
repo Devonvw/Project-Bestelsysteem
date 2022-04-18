@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
 using System.Collections.ObjectModel;
-using SomerenModel;
+using BestelsysteemModel;
 
-namespace SomerenDAL
+namespace BestelsysteemDAL
 {
     public class StudentDao : BaseDao
     {      

@@ -1,5 +1,5 @@
-﻿using SomerenLogic;
-using SomerenModel;
+﻿using BestelsysteemLogic;
+using BestelsysteemModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,9 +12,9 @@ using System.Windows.Forms;
 
 namespace SomerenUI
 {
-    public partial class SomerenUI : Form
+    public partial class BestelsysteemUI : Form
     {
-        public SomerenUI()
+        public BestelsysteemUI()
         {
             InitializeComponent();
         }

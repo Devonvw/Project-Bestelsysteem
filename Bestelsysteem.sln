@@ -1,15 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32407.343
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SomerenLogic", "SomerenLogic\SomerenLogic.csproj", "{715FC326-1104-4E49-8DF2-A36E0458067D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BestelsysteemLogic", "SomerenLogic\BestelsysteemLogic.csproj", "{715FC326-1104-4E49-8DF2-A36E0458067D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SomerenDAL", "SomerenDAL\SomerenDAL.csproj", "{5C8BDA73-F134-4AF6-BB41-DBE88EBA2615}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BestelsysteemDAL", "SomerenDAL\BestelsysteemDAL.csproj", "{5C8BDA73-F134-4AF6-BB41-DBE88EBA2615}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SomerenModel", "SomerenModel\SomerenModel.csproj", "{90A9ED02-35D3-4D84-80E4-458BC835C722}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BestelsysteemModel", "SomerenModel\BestelsysteemModel.csproj", "{90A9ED02-35D3-4D84-80E4-458BC835C722}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SomerenUI", "SomerenUI\SomerenUI.csproj", "{8086AFF6-7CAB-4421-87B8-719B409533AB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BestelsysteemUI", "SomerenUI\BestelsysteemUI.csproj", "{8086AFF6-7CAB-4421-87B8-719B409533AB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

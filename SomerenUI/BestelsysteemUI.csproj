@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SomerenUI</RootNamespace>
     <AssemblyName>SomerenUI</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TargetFrameworkProfile />
@@ -47,16 +47,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="SomerenUI.cs">
+    <Compile Include="BestelsysteemUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SomerenUI.Designer.cs">
-      <DependentUpon>SomerenUI.cs</DependentUpon>
+    <Compile Include="BestelsysteemUI.Designer.cs">
+      <DependentUpon>BestelsysteemUI.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="SomerenUI.resx">
-      <DependentUpon>SomerenUI.cs</DependentUpon>
+    <EmbeddedResource Include="BestelsysteemUI.resx">
+      <DependentUpon>BestelsysteemUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -82,17 +82,17 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SomerenDAL\SomerenDAL.csproj">
+    <ProjectReference Include="..\SomerenDAL\BestelsysteemDAL.csproj">
       <Project>{5c8bda73-f134-4af6-bb41-dbe88eba2615}</Project>
-      <Name>SomerenDAL</Name>
+      <Name>BestelsysteemDAL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SomerenLogic\SomerenLogic.csproj">
+    <ProjectReference Include="..\SomerenLogic\BestelsysteemLogic.csproj">
       <Project>{715fc326-1104-4e49-8df2-a36e0458067d}</Project>
-      <Name>SomerenLogic</Name>
+      <Name>BestelsysteemLogic</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SomerenModel\SomerenModel.csproj">
+    <ProjectReference Include="..\SomerenModel\BestelsysteemModel.csproj">
       <Project>{90a9ed02-35d3-4d84-80e4-458bc835c722}</Project>
-      <Name>SomerenModel</Name>
+      <Name>BestelsysteemModel</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
