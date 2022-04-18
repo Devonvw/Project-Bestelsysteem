@@ -1,2 +1,1 @@
-# Project-Bestelsysteem
- 
+# Someren starting project for InHolland project 'Databases'
