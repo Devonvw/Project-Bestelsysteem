@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BestelsysteemModel
+namespace Model
 {
-    public class Teacher
-    {
+    public class Student
+    { 
         public string Name { get; set; }
-        public int Number { get; set; } // LecturerNumber, e.g. 47198
+        public int Number { get; set; } // StudentNumber, e.g. 474791
+        public DateTime BirthDate { get; set; }
     }
 }

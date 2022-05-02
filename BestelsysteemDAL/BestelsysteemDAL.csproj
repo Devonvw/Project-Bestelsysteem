@@ -48,9 +48,9 @@
     <Compile Include="StudentDao.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BestelsysteemModel\BestelsysteemModel.csproj">
+    <ProjectReference Include="..\BestelsysteemModel\Model.csproj">
       <Project>{90a9ed02-35d3-4d84-80e4-458bc835c722}</Project>
-      <Name>BestelsysteemModel</Name>
+      <Name>Model</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
