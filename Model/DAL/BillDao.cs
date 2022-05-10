@@ -10,7 +10,7 @@ using Model;
 
 namespace Model
 {
-    public class OrderDao : BaseDao
+    public class BillDao : BaseDao
     {      
         public List<OrderItem> GetOrderItems()
         {
@@ -18,21 +18,14 @@ namespace Model
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadOrderItems(ExecuteSelectQuery(query, sqlParameters));
         }
-        public void AddOrder(Order order)
+        
+        public void CloseBill(Bill bill)
         {
-            /*Add order to the bill (BillItems), also add to price*/
+            /*Close the bill (Update)*/
         }
-        public void AddTip(float tip)
+        private void PostOrders(List<OrderItem> orders)
         {
-            /*Add tip to the bill (Bill)*/
-        }
-        public void AddComment(string comment)
-        {
-            /*Add comment to the bill (Bill)*/
-        }
-        public void Payed(int paymentMethodId)
-        {
-            /*Set Payed bill to true (Bill) and add paymentMethod*/
+            /*Post all orders in the koppeltabel*/
         }
         private List<OrderItem> ReadOrderItems(DataTable dataTable)
         {

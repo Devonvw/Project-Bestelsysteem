@@ -35,5 +35,9 @@ namespace Model
         {
             OrderItems.Add(orderItem);
         }
+        public void RemoveOrderItem(OrderItem orderItem)
+        {
+            OrderItems.Remove(orderItem);
+        }
     }
 }

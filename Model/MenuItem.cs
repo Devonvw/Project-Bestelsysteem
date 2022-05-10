@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public class Product
+    public class MenuItem
     {
         public int Id { get; } 
         public string ShortName { get; }
@@ -15,7 +15,7 @@ namespace Model
         public string SubcategoryId { get; }
         public float PriceEx { get; }
 
-        public Product(int id, string shortName, string fullName, string categoryId, string subcategoryId, float priceEx)
+        public MenuItem(int id, string shortName, string fullName, string categoryId, string subcategoryId, float priceEx)
         {
             Id = id;
             ShortName = shortName;

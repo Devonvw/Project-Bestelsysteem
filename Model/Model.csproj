@@ -67,6 +67,9 @@
     <Compile Include="DAL\BillDao.cs" />
     <Compile Include="DAL\OrderDao.cs" />
     <Compile Include="Bill.cs" />
+    <Compile Include="Enums\Category.cs" />
+    <Compile Include="Enums\Course.cs" />
+    <Compile Include="Enums\PaymentMethod.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="OrderItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -75,9 +78,14 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Enums\Roles.cs" />
+    <Compile Include="Reservation.cs" />
     <Compile Include="Room.cs" />
     <Compile Include="DAL\StudentDao.cs" />
-    <Compile Include="Product.cs" />
+    <Compile Include="MenuItem.cs" />
+    <Compile Include="Staff.cs" />
+    <Compile Include="Subcategory.cs" />
+    <Compile Include="Table.cs" />
     <Compile Include="Teacher.cs" />
     <Compile Include="Student.cs" />
   </ItemGroup>
@@ -88,8 +96,6 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Enums\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

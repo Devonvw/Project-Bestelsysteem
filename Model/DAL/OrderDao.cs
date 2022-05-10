@@ -10,7 +10,7 @@ using Model;
 
 namespace Model
 {
-    public class BillDao : BaseDao
+    public class OrderDao : BaseDao
     {      
         public List<OrderItem> GetOrderItems()
         {
