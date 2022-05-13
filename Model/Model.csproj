@@ -68,7 +68,6 @@
     <Compile Include="DAL\OrderDao.cs" />
     <Compile Include="Bill.cs" />
     <Compile Include="Enums\Category.cs" />
-    <Compile Include="Enums\Course.cs" />
     <Compile Include="Enums\PaymentMethod.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="OrderItem.cs" />

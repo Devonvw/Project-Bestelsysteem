@@ -14,24 +14,21 @@ namespace Model
         public int Amount { get; set; }
         public string Comment { get; set; }
         public bool Ready { get; set; }
-        public Course Course { get; set; }
-        public OrderItem(int id, int orderId, MenuItem menuItem, int amount, string comment, bool ready, Course course)
+        public OrderItem(int id, int orderId, MenuItem menuItem, int amount, string comment, bool ready)
         {
             Id = id;
             OrderId = orderId;
             MenuItem = menuItem;
             Comment = comment;
             Ready = ready;
-            Course = course;
             Amount = amount;
         }
-        public OrderItem(int orderId, MenuItem menuItem, int amount, string comment, Course course)
+        public OrderItem(int orderId, MenuItem menuItem, int amount, string comment)
         {
             OrderId = orderId;
             MenuItem = menuItem;
             Comment = comment;
             Ready = false;
-            Course = course;
             Amount = amount;
         }
     }

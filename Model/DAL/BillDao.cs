@@ -21,6 +21,7 @@ namespace Model
         
         public void CloseBill(Bill bill)
         {
+            string query = "";
             /*Close the bill (Update)*/
         }
         private void PostOrders(List<OrderItem> orders)
