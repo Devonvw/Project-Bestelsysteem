@@ -17,7 +17,7 @@ namespace Model
         public float TotalPriceEx { get; }
         public float Tip { get; }
         public bool Payed { get; }
-        public PaymentMethod PaymentMethod { get; }
+        public PaymentMethod PaymentMethod { get; set; }
         public List<Order> BillItems { get; }
 
         public Bill(int id, int tableId, Staff staff, DateTime dateTime, string comment, float totalPrice, float totalPriceEx, float tip, bool payed, PaymentMethod paymentMethod)

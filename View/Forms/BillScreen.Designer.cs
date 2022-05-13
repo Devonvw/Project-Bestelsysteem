@@ -32,7 +32,7 @@
             this.txtOpmerkingInput = new System.Windows.Forms.TextBox();
             this.lblOpmerkingen = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.pnlPaymentMethod = new System.Windows.Forms.Panel();
             this.rbCreditcard = new System.Windows.Forms.RadioButton();
             this.rbPin = new System.Windows.Forms.RadioButton();
             this.rbContant = new System.Windows.Forms.RadioButton();
@@ -40,9 +40,9 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.txtTipInput = new System.Windows.Forms.TextBox();
             this.lblTip = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.pnlPaymentMethod.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,9 +61,9 @@
             this.txtOpmerkingInput.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtOpmerkingInput.BackColor = System.Drawing.Color.Silver;
             this.txtOpmerkingInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.txtOpmerkingInput.Location = new System.Drawing.Point(23, 69);
+            this.txtOpmerkingInput.Location = new System.Drawing.Point(23, 85);
             this.txtOpmerkingInput.Name = "txtOpmerkingInput";
-            this.txtOpmerkingInput.Size = new System.Drawing.Size(549, 60);
+            this.txtOpmerkingInput.Size = new System.Drawing.Size(549, 39);
             this.txtOpmerkingInput.TabIndex = 1;
             // 
             // lblOpmerkingen
@@ -91,17 +91,17 @@
             this.panel1.Size = new System.Drawing.Size(601, 166);
             this.panel1.TabIndex = 7;
             // 
-            // panel2
+            // pnlPaymentMethod
             // 
-            this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Controls.Add(this.rbCreditcard);
-            this.panel2.Controls.Add(this.rbPin);
-            this.panel2.Controls.Add(this.rbContant);
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Location = new System.Drawing.Point(1032, 329);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(601, 213);
-            this.panel2.TabIndex = 8;
+            this.pnlPaymentMethod.BackColor = System.Drawing.Color.White;
+            this.pnlPaymentMethod.Controls.Add(this.rbCreditcard);
+            this.pnlPaymentMethod.Controls.Add(this.rbPin);
+            this.pnlPaymentMethod.Controls.Add(this.rbContant);
+            this.pnlPaymentMethod.Controls.Add(this.label1);
+            this.pnlPaymentMethod.Location = new System.Drawing.Point(1032, 329);
+            this.pnlPaymentMethod.Name = "pnlPaymentMethod";
+            this.pnlPaymentMethod.Size = new System.Drawing.Size(601, 219);
+            this.pnlPaymentMethod.TabIndex = 8;
             // 
             // rbCreditcard
             // 
@@ -144,6 +144,7 @@
             this.rbContant.TabStop = true;
             this.rbContant.Text = "Contant";
             this.rbContant.UseVisualStyleBackColor = true;
+            this.rbContant.CheckedChanged += new System.EventHandler(this.rbContant_CheckedChanged);
             // 
             // label1
             // 
@@ -155,9 +156,9 @@
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
             this.label1.Padding = new System.Windows.Forms.Padding(10, 10, 0, 0);
-            this.label1.Size = new System.Drawing.Size(218, 66);
+            this.label1.Size = new System.Drawing.Size(279, 66);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Opmerking";
+            this.label1.Text = "Betaalmethode";
             // 
             // panel3
             // 
@@ -176,7 +177,7 @@
             this.txtTipInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.txtTipInput.Location = new System.Drawing.Point(23, 69);
             this.txtTipInput.Name = "txtTipInput";
-            this.txtTipInput.Size = new System.Drawing.Size(549, 60);
+            this.txtTipInput.Size = new System.Drawing.Size(549, 39);
             this.txtTipInput.TabIndex = 1;
             // 
             // lblTip
@@ -193,17 +194,18 @@
             this.lblTip.TabIndex = 2;
             this.lblTip.Text = "Tip";
             // 
-            // button1
+            // btnSave
             // 
-            this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(0)))), ((int)(((byte)(77)))));
-            this.button1.Location = new System.Drawing.Point(1032, 793);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(600, 83);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "Opslaan";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnSave.BackColor = System.Drawing.Color.White;
+            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.btnSave.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(0)))), ((int)(((byte)(77)))));
+            this.btnSave.Location = new System.Drawing.Point(1032, 793);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(600, 83);
+            this.btnSave.TabIndex = 10;
+            this.btnSave.Text = "Opslaan";
+            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // BillScreen
             // 
@@ -211,17 +213,19 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(0)))), ((int)(((byte)(77)))));
             this.ClientSize = new System.Drawing.Size(1711, 956);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.pnlPaymentMethod);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.listBox1);
             this.Name = "BillScreen";
             this.Text = "c";
             this.Load += new System.EventHandler(this.BillScreen_Load);
             this.panel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.pnlPaymentMethod.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -232,7 +236,7 @@
         private System.Windows.Forms.TextBox txtOpmerkingInput;
         private System.Windows.Forms.Label lblOpmerkingen;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel pnlPaymentMethod;
         private System.Windows.Forms.RadioButton rbCreditcard;
         private System.Windows.Forms.RadioButton rbPin;
         private System.Windows.Forms.RadioButton rbContant;
@@ -240,6 +244,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TextBox txtTipInput;
         private System.Windows.Forms.Label lblTip;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSave;
     }
 }

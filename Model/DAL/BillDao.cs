@@ -23,7 +23,8 @@ namespace Model
         }
         public Bill GetCurrentBillByTable(Table table)
         {
-            string query = "SELECT TOP 1 * FROM Bills AS B INNER JOIN Staff AS S ON B.staffId = S.id WHERE tableId = @tableId ORDER BY [datetime] DESC";
+            string query = "SELECT TOP 1 * FROM Bills AS B INNER JOIN Staff AS S ON B.staffId = S.id WHERE tableId = 1 ORDER BY [datetime] DESC";
+
             SqlParameter[] sqlParameters = new SqlParameter[]
             {
                 new SqlParameter("@tableId", SqlDbType.Int) { Value = table.Id }
@@ -38,7 +39,8 @@ namespace Model
             {
                 new SqlParameter("@id", SqlDbType.Int) { Value = billId }
             };
-            return (totalPrice: (float)ExecuteSelectQuery(query, sqlParameters).Rows[0]["totalPrice"], totalPriceEx: (float)ExecuteSelectQuery(query, sqlParameters).Rows[0]["totalPriceEx"]);
+            DataTable dt = ExecuteSelectQuery(query, sqlParameters);
+            return (totalPrice: float.Parse(dt.Rows[0]["totalPrice"].ToString()), totalPriceEx: float.Parse(dt.Rows[0]["totalPriceEx"].ToString()));
         }
 
         public void CloseBill(Bill bill)
@@ -75,7 +77,7 @@ namespace Model
 
             (float totalPrice, float totalPriceEx) totalPrice = GetTotalBillPrice((int)firstRow["id"]);
 
-            Bill bill = new Bill((int)firstRow["id"], (int)firstRow["tableId"], new Staff((int)firstRow["staffId"], firstRow["firstName"].ToString(), firstRow["lastName"].ToString(), DateTime.Parse(firstRow["birthDate"].ToString()), (Roles)(int)firstRow["staffId"]), DateTime.Parse(firstRow["datetime"].ToString()), firstRow["comment"].ToString(), totalPrice.totalPrice, totalPrice.totalPriceEx, (float)firstRow["tip"], (bool)firstRow["payed"], (PaymentMethod)(int)firstRow["paymentMethodId"]);
+            Bill bill = new Bill((int)firstRow["id"], (int)firstRow["tableId"], new Staff((int)firstRow["staffId"], firstRow["firstName"].ToString(), firstRow["lastName"].ToString(), DateTime.Parse(firstRow["birthDate"].ToString()), (Roles)(int)firstRow["staffId"]), DateTime.Parse(firstRow["datetime"].ToString()), firstRow["comment"].ToString(), totalPrice.totalPrice, totalPrice.totalPriceEx, float.Parse(firstRow["tip"].ToString()), (bool)firstRow["payed"], (PaymentMethod)(int)firstRow["paymentMethodId"]);
             return bill;
         }
     }

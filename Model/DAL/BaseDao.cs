@@ -2,6 +2,7 @@
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Data;
+using System.Diagnostics;
 
 namespace Model
 {
@@ -29,6 +30,7 @@ namespace Model
             catch (Exception e)
             {
                 //Print.ErrorLog(e);
+                Debug.WriteLine(e);
                 throw;
             }
             return conn;
