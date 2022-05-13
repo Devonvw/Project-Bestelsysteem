@@ -13,33 +13,25 @@ namespace Model
         public Staff Staff { get; }
         public DateTime DateTime { get; }
         public string Comment { get; set; }
-        public float Price { get; }
+        public float TotalPrice { get; }
+        public float TotalPriceEx { get; }
         public float Tip { get; }
         public bool Payed { get; }
         public PaymentMethod PaymentMethod { get; }
         public List<Order> BillItems { get; }
 
-        public Bill(int id, int tableId, Staff staff, DateTime dateTime, string comment, float price, float tip, bool payed, PaymentMethod paymentMethod)
+        public Bill(int id, int tableId, Staff staff, DateTime dateTime, string comment, float totalPrice, float totalPriceEx, float tip, bool payed, PaymentMethod paymentMethod)
         {
             Id = id;
             TableId = tableId;
             Staff = staff;
             DateTime = dateTime;
             Comment = comment;
-            Price = price;
+            TotalPrice = totalPrice;
+            TotalPriceEx = totalPriceEx;
             Tip = tip;
             Payed = payed;
             PaymentMethod = paymentMethod;
-        }
-        public Bill(int tableId, DateTime dateTime, Staff staff)
-        {
-            TableId = tableId;
-            DateTime = dateTime;
-            Staff = staff;
-            Comment = null;
-            Price = 0;
-            Tip = 0;
-            Payed = false;
         }
         public void AddOrder(Order order)
         {

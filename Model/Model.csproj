@@ -7,8 +7,8 @@
     <ProjectGuid>{90A9ED02-35D3-4D84-80E4-458BC835C722}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SomerenModel</RootNamespace>
-    <AssemblyName>SomerenModel</AssemblyName>
+    <RootNamespace>Model</RootNamespace>
+    <AssemblyName>Model</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />

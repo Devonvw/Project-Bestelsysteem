@@ -11,16 +11,16 @@ namespace Model
         public int Id { get; } 
         public string ShortName { get; }
         public string FullName { get; }
-        public string CategoryId { get; }
-        public string SubcategoryId { get; }
+        public Category Category { get; }
+        public int SubcategoryId { get; }
         public float PriceEx { get; }
 
-        public MenuItem(int id, string shortName, string fullName, string categoryId, string subcategoryId, float priceEx)
+        public MenuItem(int id, string shortName, string fullName, Category category, int subcategoryId, float priceEx)
         {
             Id = id;
             ShortName = shortName;
             FullName = fullName;
-            CategoryId = categoryId;
+            Category = category;
             SubcategoryId = subcategoryId;
             PriceEx = priceEx;
         }

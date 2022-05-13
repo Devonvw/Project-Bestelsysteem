@@ -109,5 +109,9 @@ namespace Model
             }
             return dataTable;
         }
+        protected string GetFirstCellString(string query, SqlParameter[] sqlParameters, string colName)
+        {
+            return ExecuteSelectQuery(query, sqlParameters).Rows[0][colName].ToString();
+        }
     }
 }
