@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,6 +29,9 @@ namespace Controller
         }
         public void CloseBill(Bill bill)
         {
+            if (bill.Comment.Length > 255) throw new Exception("De opmerking is langer dan 255 letters");
+            if (bill.PaymentMethod == PaymentMethod.None) throw new Exception("Kies een betaalmethode");
+
             billDB.CloseBill(bill);
         }
     }

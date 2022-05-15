@@ -15,7 +15,7 @@ namespace Model
         public string Comment { get; set; }
         public float TotalPrice { get; }
         public float TotalPriceEx { get; }
-        public float Tip { get; }
+        public float Tip { get; set; }
         public bool Payed { get; }
         public PaymentMethod PaymentMethod { get; set; }
         public List<Order> BillItems { get; }

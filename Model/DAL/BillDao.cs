@@ -52,7 +52,7 @@ namespace Model
             {
                 new SqlParameter("@paymentMethodId", SqlDbType.Int) { Value = bill.PaymentMethod },
                 new SqlParameter("@tip", SqlDbType.Int) { Value = bill.Tip },
-                new SqlParameter("@comment", SqlDbType.Int) { Value = bill.Comment },
+                new SqlParameter("@comment", SqlDbType.VarChar ) { Value = bill.Comment },
                 new SqlParameter("@id", SqlDbType.Int) { Value = bill.Id },
 
             };

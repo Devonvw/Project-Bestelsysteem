@@ -38,12 +38,13 @@
             this.rbContant = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.txtTipInput = new System.Windows.Forms.TextBox();
             this.lblTip = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
+            this.numTip = new System.Windows.Forms.NumericUpDown();
             this.panel1.SuspendLayout();
             this.pnlPaymentMethod.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numTip)).BeginInit();
             this.SuspendLayout();
             // 
             // listBox1
@@ -116,6 +117,7 @@
             this.rbCreditcard.TabStop = true;
             this.rbCreditcard.Text = "Creditcard";
             this.rbCreditcard.UseVisualStyleBackColor = true;
+            this.rbCreditcard.CheckedChanged += new System.EventHandler(this.rbCreditcard_CheckedChanged);
             // 
             // rbPin
             // 
@@ -130,6 +132,7 @@
             this.rbPin.TabStop = true;
             this.rbPin.Text = "Pin";
             this.rbPin.UseVisualStyleBackColor = true;
+            this.rbPin.CheckedChanged += new System.EventHandler(this.rbPin_CheckedChanged);
             // 
             // rbContant
             // 
@@ -163,22 +166,12 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
-            this.panel3.Controls.Add(this.txtTipInput);
+            this.panel3.Controls.Add(this.numTip);
             this.panel3.Controls.Add(this.lblTip);
             this.panel3.Location = new System.Drawing.Point(1032, 587);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(601, 166);
+            this.panel3.Size = new System.Drawing.Size(601, 142);
             this.panel3.TabIndex = 9;
-            // 
-            // txtTipInput
-            // 
-            this.txtTipInput.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtTipInput.BackColor = System.Drawing.Color.Silver;
-            this.txtTipInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.txtTipInput.Location = new System.Drawing.Point(23, 69);
-            this.txtTipInput.Name = "txtTipInput";
-            this.txtTipInput.Size = new System.Drawing.Size(549, 39);
-            this.txtTipInput.TabIndex = 1;
             // 
             // lblTip
             // 
@@ -207,6 +200,15 @@
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // numTip
+            // 
+            this.numTip.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.numTip.Location = new System.Drawing.Point(23, 69);
+            this.numTip.Name = "numTip";
+            this.numTip.Size = new System.Drawing.Size(183, 39);
+            this.numTip.TabIndex = 3;
+            this.numTip.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
+            // 
             // BillScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -225,7 +227,7 @@
             this.panel1.PerformLayout();
             this.pnlPaymentMethod.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numTip)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -242,8 +244,8 @@
         private System.Windows.Forms.RadioButton rbContant;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.TextBox txtTipInput;
         private System.Windows.Forms.Label lblTip;
         private System.Windows.Forms.Button btnSave;
+        protected System.Windows.Forms.NumericUpDown numTip;
     }
 }
