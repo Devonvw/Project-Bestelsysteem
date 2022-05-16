@@ -80,5 +80,21 @@ namespace Model
             Bill bill = new Bill((int)firstRow["id"], (int)firstRow["tableId"], new Staff((int)firstRow["staffId"], firstRow["firstName"].ToString(), firstRow["lastName"].ToString(), DateTime.Parse(firstRow["birthDate"].ToString()), (Roles)(int)firstRow["staffId"]), DateTime.Parse(firstRow["datetime"].ToString()), firstRow["comment"].ToString(), totalPrice.totalPrice, totalPrice.totalPriceEx, float.Parse(firstRow["tip"].ToString()), (bool)firstRow["payed"], (PaymentMethod)(int)firstRow["paymentMethodId"]);
             return bill;
         }
+
+        public void CreateBill(Bill bill, Staff staff)
+        {
+            string query = "INSERT INTO Bills VALUES (@tableID, @staffId, @datetime, @comment, @tip, @payed, @paymentMethodId";
+            SqlParameter[] sqlParameters = new SqlParameter[]
+            {
+                new SqlParameter("@tableID", bill.TableId),
+                new SqlParameter("@staffId", staff.Id),
+                new SqlParameter("@datetime", bill.DateTime),
+                new SqlParameter("@comment", bill.Comment),
+                new SqlParameter("@tip", bill.Tip),
+                new SqlParameter("@payed", bill.Payed),
+                new SqlParameter("paymentMethodId", bill.PaymentMethod)
+            };
+            ExecuteEditQuery(query, sqlParameters);
+        }
     }
 }

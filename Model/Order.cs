@@ -8,24 +8,20 @@ namespace Model
 {
     public class Order
     {
-        public int Id { get; }
-        public int TableId { get; } 
+        public int Id { get; set; }
         public int Staff { get; } // Moet staff object worden
         public DateTime DateTime { get; }
         public List<OrderItem> OrderItems { get; }
 
-        public Order(int id, int tableId, int staff, DateTime dateTime)
+        public Order(int id, int staff, DateTime dateTime)
         {
-            Id = id;
-            TableId = tableId;
             Staff = staff;
             DateTime = dateTime;
             OrderItems = new List<OrderItem>();
         }
 
-        public Order(int tableId, int staff, DateTime dateTime)
+        public Order(int staff, DateTime dateTime)
         {
-            TableId = tableId;
             Staff = staff;
             DateTime = dateTime;
             OrderItems = new List<OrderItem>();
