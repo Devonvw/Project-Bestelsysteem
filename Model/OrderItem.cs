@@ -10,27 +10,24 @@ namespace Model
     {
         public int Id { get; } 
         public int OrderId { get; }
-        public int MenuItemId { get; set; } //Needs to be product object
+        public MenuItem MenuItem { get; set; }
         public int Amount { get; set; }
         public string Comment { get; set; }
         public bool Ready { get; set; }
-        public string CourseId { get; set; }
-        public OrderItem(int id, int orderId, int menuItemId, int amount, string comment, bool ready, string courseId)
+        public OrderItem(int id, int orderId, MenuItem menuItem, int amount, string comment, bool ready)
         {
-            Id = id;
-            OrderId = orderId;
-            MenuItemId = menuItemId;
+            MenuItem = menuItem;
             Comment = comment;
             Ready = ready;
-            CourseId = courseId;
+            Amount = amount;
         }
-        public OrderItem(int orderId, int menuItemId, string comment, string courseId)
+        public OrderItem(int orderId, MenuItem menuItem, int amount, string comment)
         {
             OrderId = orderId;
-            MenuItemId = menuItemId;
+            MenuItem = menuItem;
             Comment = comment;
             Ready = false;
-            CourseId = courseId;
+            Amount = amount;
         }
     }
 }

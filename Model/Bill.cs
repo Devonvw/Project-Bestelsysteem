@@ -10,36 +10,44 @@ namespace Model
     {
         public int Id { get; }
         public int TableId { get; }
-        public int Staff { get; } // Moet staff object worden
+        public Staff Staff { get; }
         public DateTime DateTime { get; }
         public string Comment { get; set; }
-        public float Price { get; }
+        public float TotalPrice { get; }
+        public float TotalPriceEx { get; }
         public float Tip { get; }
         public bool Payed { get; }
-        public int PaymentMethodId { get; }
+        public PaymentMethod PaymentMethod { get; set; }
         public List<Order> BillItems { get; }
 
-        public Bill(int id, int tableId, int staff, DateTime dateTime, string comment, float price, float tip, bool payed, int paymentMethodId)
+        public Bill(int id, int tableId, Staff staff, DateTime dateTime, string comment, float totalPrice, float totalPriceEx, float tip, bool payed, PaymentMethod paymentMethod)
         {
             Id = id;
             TableId = tableId;
             Staff = staff;
             DateTime = dateTime;
             Comment = comment;
-            Price = price;
+            TotalPrice = totalPrice;
+            TotalPriceEx = totalPriceEx;
             Tip = tip;
             Payed = payed;
-            PaymentMethodId = paymentMethodId;
+            PaymentMethod = paymentMethod;
         }
-        public Bill(int tableId, DateTime dateTime, string comment, float price, float tip, bool payed, int paymentMethodId)
+        public void AddOrder(Order order)
         {
-            TableId = tableId;
-            DateTime = dateTime;
-            Comment = comment;
-            Price = price;
-            Tip = tip;
-            Payed = payed;
-            PaymentMethodId = paymentMethodId;
+            /*Add order to the bill (BillItems), also add to price*/
+        }
+        public void AddTip(float tip)
+        {
+            /*Add tip to the bill (Bill)*/
+        }
+        public void AddComment(string comment)
+        {
+            /*Add comment to the bill (Bill)*/
+        }
+        public void Pay(int paymentMethodId)
+        {
+            /*Set Payed bill to true (Bill) and add paymentMethod*/
         }
     }
 }

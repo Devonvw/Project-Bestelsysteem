@@ -7,8 +7,8 @@
     <ProjectGuid>{8086AFF6-7CAB-4421-87B8-719B409533AB}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SomerenUI</RootNamespace>
-    <AssemblyName>SomerenUI</AssemblyName>
+    <RootNamespace>View</RootNamespace>
+    <AssemblyName>View</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -53,10 +53,19 @@
     <Compile Include="BestelsysteemUI.Designer.cs">
       <DependentUpon>BestelsysteemUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\BillScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\BillScreen.Designer.cs">
+      <DependentUpon>BillScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="BestelsysteemUI.resx">
       <DependentUpon>BestelsysteemUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BillScreen.resx">
+      <DependentUpon>BillScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -94,6 +103,7 @@
       <Name>Model</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

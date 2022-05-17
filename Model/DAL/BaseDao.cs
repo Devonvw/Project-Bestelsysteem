@@ -2,6 +2,7 @@
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Data;
+using System.Diagnostics;
 
 namespace Model
 {
@@ -29,6 +30,7 @@ namespace Model
             catch (Exception e)
             {
                 //Print.ErrorLog(e);
+                Debug.WriteLine(e);
                 throw;
             }
             return conn;
@@ -108,6 +110,10 @@ namespace Model
                 CloseConnection();
             }
             return dataTable;
+        }
+        protected string GetFirstCellString(string query, SqlParameter[] sqlParameters, string colName)
+        {
+            return ExecuteSelectQuery(query, sqlParameters).Rows[0][colName].ToString();
         }
     }
 }
