@@ -23,7 +23,7 @@ namespace Model
         }
         public Bill GetCurrentBillByTable(Table table)
         {
-            string query = "SELECT TOP 1 * FROM Bills AS B INNER JOIN Staff AS S ON B.staffId = S.id WHERE tableId = 1 ORDER BY [datetime] DESC";
+            string query = "SELECT TOP 1 * FROM Bills AS B INNER JOIN Staff AS S ON B.staffId = S.id WHERE tableId = @tableId ORDER BY [datetime] DESC";
 
             SqlParameter[] sqlParameters = new SqlParameter[]
             {
@@ -81,20 +81,17 @@ namespace Model
             return bill;
         }
 
-        //public void CreateBill(Bill bill, Staff staff)
-        //{
-        //    string query = "INSERT INTO Bills VALUES (@tableID, @staffId, @datetime, @comment, @tip, @payed, @paymentMethodId)";
-        //    SqlParameter[] sqlParameters = new SqlParameter[]
-        //    {
-        //        new SqlParameter("@tableID", bill.TableId),
-        //        new SqlParameter("@staffId", staff.Id),
-        //        new SqlParameter("@datetime", bill.DateTime),
-        //        new SqlParameter("@comment", bill.Comment),
-        //        new SqlParameter("@tip", bill.Tip),
-        //        new SqlParameter("@payed", bill.Payed),
-        //        new SqlParameter("@paymentMethodId", bill.PaymentMethod)
-        //    };
-        //    ExecuteEditQuery(query, sqlParameters);
-        //}
+        public void CreateBill(Bill bill, Staff staff)
+        {
+            string query = "INSERT INTO Bills (tableId, staffId, tip, payed) VALUES (@tableID, @staffId, @tip, @payed)";
+            SqlParameter[] sqlParameters = new SqlParameter[]
+            {
+                new SqlParameter("@tableID", bill.TableId),
+                new SqlParameter("@staffId", staff.Id),
+                new SqlParameter("@tip", bill.Tip),
+                new SqlParameter("@payed", bill.Payed),
+            };
+            ExecuteEditQuery(query, sqlParameters);
+        }
     }
 }
