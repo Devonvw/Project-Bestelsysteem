@@ -24,9 +24,20 @@ namespace Model
             DataTable datatable = ExecuteSelectQuery(query, sqlParameters);
             order.Id = (int)datatable.Rows[0]["OrderId"];           
             InsertOrderItems(order);
-            //InsertBillItems(order, bill)
+            InsertBillItems(bill, order);
         }
-       
+
+        public void InsertBillItems(Bill bill, Order order)
+        {
+            string query = "INSERT INTO BillItems VALUES (@orderId, @billId)";
+            SqlParameter[] sqlParameters = new SqlParameter[]
+            {
+                    new SqlParameter("@orderId", order.Id),
+                    new SqlParameter("@billId", bill.Id)
+            };
+            ExecuteEditQuery(query, sqlParameters);
+        }
+
         private void InsertOrderItems(Order order)
         {
             foreach (OrderItem orderItem in order.OrderItems)
@@ -43,9 +54,7 @@ namespace Model
                 ExecuteEditQuery(query, sqlParameters);
             }
         }
- 
-        
-        
+                
         // update functions
         private void UpdateOrderItem(OrderItem orderItem)
         {
@@ -66,10 +75,22 @@ namespace Model
             sqlParameters[0] = new SqlParameter("@id", orderItem.Id);
             ExecuteEditQuery(query, sqlParameters);
         }
-
-        private void DeleteOrder(Order order, BillItem billItem)
+        private void DeleteOrder(Order order, BillItem billItem, Bill bill)
         {
             // delete an order
+            foreach (OrderItem orderItem in order.OrderItems)
+            {
+                DeleteOrderItem(orderItem);
+            }
+            DeleteBillItems(bill, order);
+        }
+        public void DeleteBillItems(Bill bill, Order order)
+        {
+            string query = "DELETE FROM BillItems WHERE billId=@billId AND orderId=@orderId";
+            SqlParameter[] sqlParameters = new SqlParameter[2];
+            sqlParameters[0] = new SqlParameter("@billId", bill.Id);
+            sqlParameters[1] = new SqlParameter("@orderId", order.Id);
+            ExecuteEditQuery(query, sqlParameters);
         }
 
     }

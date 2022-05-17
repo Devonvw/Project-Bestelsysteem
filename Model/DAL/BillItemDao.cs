@@ -35,27 +35,6 @@ namespace Model
             SqlParameter[] sqlParameters = new SqlParameter[1];
             sqlParameters[0] = new SqlParameter("@billId", bill.Id);
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
-        }
-        public void InsertBillItems(Bill bill, Order order)
-        {
-            string query = "INSERT INTO BillItems VALUES (@orderId, @billId)";
-            SqlParameter[] sqlParameters = new SqlParameter[]
-            {
-                    new SqlParameter("@orderId", order.Id),
-                    new SqlParameter("@billId", bill.Id)
-            };
-            ExecuteEditQuery(query, sqlParameters);
-        }
-
-        public void DeleteBillItems(Bill bill, Order order)
-        {
-            string query = "DELETE FROM BillItems WHERE billId=@billId AND orderId=@orderId";
-            SqlParameter[] sqlParameters = new SqlParameter[2];
-            sqlParameters[0] = new SqlParameter("@billId", bill.Id);
-            sqlParameters[1] = new SqlParameter("@orderId", order.Id);
-            ExecuteEditQuery(query, sqlParameters);
-        }
-
-        
+        }        
     }
 }
