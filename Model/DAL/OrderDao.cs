@@ -11,33 +11,9 @@ using Model;
 namespace Model
 {
     public class OrderDao : BaseDao
-    {
-        private List<OrderItem> ReadOrderItems(DataTable dataTable)
-        {
-            // read all orderitems from the database
-            List<OrderItem> orderItems = new List<OrderItem>();
-
-            foreach (DataRow dr in dataTable.Rows)
-            {
-                OrderItem orderItem = new OrderItem((int)dr["id"], (int)dr["orderId"], new MenuItem((int)dr["menuItemId"], dr["shortName"].ToString(), dr["fullName"].ToString(), (Category)(int)dr["categoryId"], (int)dr["subcategoryId"], (float)dr["priceEx"]), (int)dr["amount"], dr["comment"].ToString(), (bool)dr["ready"]);
-                orderItems.Add(orderItem);
-            }
-            return orderItems;
-        }
-
-        private List<Order> ReadOrders(DataTable dataTable)
-        {
-            // read all orders from the database
-            List<Order> orders = new List<Order>();
-            foreach (DataRow dr in dataTable.Rows)
-            {
-                Order order = new Order((int)dr["id"], (int)dr["staffId"], (DateTime)dr["dateTime"]);
-                orders.Add(order);
-            }
-            return orders;
-        }
-
-        private void InsertOrder(Order order)
+    {      
+        // insert functions
+        private void InsertOrder(Order order, Bill bill)
         {
             string query = "INSERT INTO Orders VALUES (@staffId, @datetime) SELECT SCOPE_IDENTITY() AS OrderId";
             SqlParameter[] sqlParameters = new SqlParameter[]
@@ -45,11 +21,12 @@ namespace Model
                 new SqlParameter("staffId", order.Staff),
                 new SqlParameter("datetime", order.DateTime),
             };
-            ExecuteSelectQuery(query, sqlParameters);                       
+            DataTable datatable = ExecuteSelectQuery(query, sqlParameters);
+            order.Id = (int)datatable.Rows[0]["OrderId"];           
             InsertOrderItems(order);
-            // nog niet GOED
+            //InsertBillItems(order, bill)
         }
-
+       
         private void InsertOrderItems(Order order)
         {
             foreach (OrderItem orderItem in order.OrderItems)
@@ -57,16 +34,19 @@ namespace Model
                 string query = "INSERT INTO OrderItems Values (@orderId, @menuItemId, @amount, @comment, @ready)";
                 SqlParameter[] sqlParameters = new SqlParameter[]
                 {
-                    new SqlParameter("orderId", order.Id),
+                    new SqlParameter("@orderId", order.Id),
                     new SqlParameter("@menuItemId", orderItem.MenuItem),
-                    new SqlParameter("amount", orderItem.Amount),
-                    new SqlParameter("comment", orderItem.Comment),
-                    new SqlParameter("ready", orderItem.Ready)
+                    new SqlParameter("@amount", orderItem.Amount),
+                    new SqlParameter("@comment", orderItem.Comment),
+                    new SqlParameter("@ready", orderItem.Ready)
                 };
                 ExecuteEditQuery(query, sqlParameters);
             }
         }
-
+ 
+        
+        
+        // update functions
         private void UpdateOrderItem(OrderItem orderItem)
         {
             string query = "UPDATE OrderItems SET amount=@amount, comment=@comment WHERE id=@id";
@@ -77,12 +57,19 @@ namespace Model
             ExecuteEditQuery(query, sqlParameters);
         }
 
+
+        // delete functions
         private void DeleteOrderItem(OrderItem orderItem)
         {
             string query = "DELETE FROM OrderItems WHERE id=@id";
             SqlParameter[] sqlParameters = new SqlParameter[1];
             sqlParameters[0] = new SqlParameter("@id", orderItem.Id);
             ExecuteEditQuery(query, sqlParameters);
+        }
+
+        private void DeleteOrder(Order order, BillItem billItem)
+        {
+            // delete an order
         }
 
     }
