@@ -63,19 +63,18 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BillItem.cs" />
     <Compile Include="DAL\BaseDao.cs" />
+    <Compile Include="DAL\BillItemDao.cs" />
     <Compile Include="DAL\BillDao.cs" />
     <Compile Include="DAL\LoginDao.cs" />
     <Compile Include="DAL\OrderDao.cs" />
     <Compile Include="Bill.cs" />
-
     <Compile Include="DAL\ReservationDao.cs" />
     <Compile Include="DAL\TableDao.cs" />
     <Compile Include="Login.cs" />
-
     <Compile Include="Enums\Category.cs" />
     <Compile Include="Enums\PaymentMethod.cs" />
-
     <Compile Include="Order.cs" />
     <Compile Include="OrderItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -84,17 +83,13 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-
     <Compile Include="Reservation.cs" />
-    <Compile Include="Product.cs" />
-
     <Compile Include="Enums\Roles.cs" />
     <Compile Include="Room.cs" />
     <Compile Include="DAL\StudentDao.cs" />
     <Compile Include="MenuItem.cs" />
     <Compile Include="Staff.cs" />
     <Compile Include="Subcategory.cs" />
-
     <Compile Include="Table.cs" />
     <Compile Include="Teacher.cs" />
     <Compile Include="Student.cs" />
