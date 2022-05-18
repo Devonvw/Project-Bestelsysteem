@@ -30,5 +30,16 @@ namespace Controller
         {
             billDB.CloseBill(bill);
         }
+
+        public void CreateBill(Bill bill, Staff staff)
+        {
+            billDB.CreateBill(bill, staff);
+        }
+
+        public Bill CheckForOpenBillOnTable(Table table)
+        {
+            Bill bill = billDB.CheckForOpenBillOnTable(table);
+            return bill;
+        }
     }
 }
