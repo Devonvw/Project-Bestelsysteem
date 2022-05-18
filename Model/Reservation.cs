@@ -8,17 +8,25 @@ namespace Model
 {
     public class Reservation
     {
-        public int Id { get; }
-        public DateTime DateTime { get; }
-        public Table Table { get; }
-        public int Persons { get; }
 
-        public Reservation(int id, DateTime dateTime, Table table, int persons)
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public DateTime DateTime { get; set; }  
+        public int Persons { get; set; }    
+        public int TableId { get; set; }
+
+        public Reservation(int id, string name, DateTime dateTime, int persons, int tableId)
         {
             Id = id;
+            Name = name;
             DateTime = dateTime;
-            Table = table;
             Persons = persons;
+            TableId = tableId;
+        }
+
+        public Reservation()
+        {
         }
     }
+
 }
