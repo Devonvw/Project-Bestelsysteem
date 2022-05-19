@@ -59,17 +59,20 @@
     <Compile Include="Forms\BillScreen.Designer.cs">
       <DependentUpon>BillScreen.cs</DependentUpon>
     </Compile>
+
+    <Compile Include="Forms\OrderScreen.cs">
+
     <Compile Include="Forms\LoginScreen.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\LoginScreen.Designer.cs">
       <DependentUpon>LoginScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Order screen.cs">
+
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Order screen.Designer.cs">
-      <DependentUpon>Order screen.cs</DependentUpon>
+    <Compile Include="Forms\OrderScreen.Designer.cs">
+      <DependentUpon>OrderScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\RequestPasswordScreen.cs">
       <SubType>Form</SubType>
@@ -85,11 +88,14 @@
     <EmbeddedResource Include="Forms\BillScreen.resx">
       <DependentUpon>BillScreen.cs</DependentUpon>
     </EmbeddedResource>
+
+    <EmbeddedResource Include="Forms\OrderScreen.resx">
+      <DependentUpon>OrderScreen.cs</DependentUpon>
+
     <EmbeddedResource Include="Forms\LoginScreen.resx">
       <DependentUpon>LoginScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Order screen.resx">
-      <DependentUpon>Order screen.cs</DependentUpon>
+
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\RequestPasswordScreen.resx">
       <DependentUpon>RequestPasswordScreen.cs</DependentUpon>
