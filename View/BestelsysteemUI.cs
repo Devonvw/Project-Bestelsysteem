@@ -52,9 +52,10 @@ namespace View
             activeForm.Show();
         }
 
-
-        private void button2_Click(object sender, EventArgs e)
+        private void button2_Click_1(object sender, EventArgs e)
         {
+            if (activeForm != null)
+                activeForm.Close();
             activeForm = new Forms.BillScreen();
             activeForm.TopLevel = false;
             activeForm.FormBorderStyle = FormBorderStyle.None;

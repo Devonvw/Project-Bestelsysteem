@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.pnlForms = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.pnlForms.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,6 +48,16 @@
             this.pnlForms.Size = new System.Drawing.Size(1707, 864);
             this.pnlForms.TabIndex = 0;
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(260, 66);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(162, 120);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "BillScreen";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(64, 66);
@@ -57,15 +67,6 @@
             this.button1.Text = "OrderScreen";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(270, 66);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(162, 120);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "BillScreen";
-            this.button2.UseVisualStyleBackColor = true;
             // 
             // BestelsysteemUI
             // 
