@@ -24,21 +24,21 @@ namespace View.Forms
             InitializeComponent();
             this.table = table;
             tableNumberLabel.Text = $"Table {table.Id}";
-            //Bill bill = billController.GetCurrentBillByTable(table);
-            //List<OrderItem> orderItems = billController.GetOrderItems(bill);
-            //listBox1.Items.Clear();
-            //try
-            //{
-            //    foreach (OrderItem item in orderItems)
-            //    {
-            //        ListViewItem li = new ListViewItem(item.MenuItem.ShortName);
-            //        listBox1.Items.Add(li);
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show($"Something went wrong : {ex}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
+            Bill bill = billController.GetCurrentBillByTable(table);
+            List<OrderItem> orderItems = billController.GetOrderItems(bill);
+            listBox1.Items.Clear();
+            try
+            {
+                foreach (OrderItem item in orderItems)
+                {
+                    ListViewItem li = new ListViewItem(item.MenuItem.ShortName);
+                    listBox1.Items.Add(li);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Something went wrong : {ex}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
