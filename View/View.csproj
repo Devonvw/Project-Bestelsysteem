@@ -53,6 +53,9 @@
     <Compile Include="BestelsysteemUI.Designer.cs">
       <DependentUpon>BestelsysteemUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomControls\ToggleButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Forms\BillScreen.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -50,6 +50,7 @@ namespace View
             this.pnlForms.Tag = activeForm;
             activeForm.BringToFront();
             activeForm.Show();
+            this.Size = activeForm.Size;
         }
 
         private void button2_Click_1(object sender, EventArgs e)
