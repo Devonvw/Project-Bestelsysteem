@@ -63,7 +63,7 @@ namespace Model
 
             ExecuteEditQuery(query, sqlParameters);
         }
-        private List<OrderItem> ReadOrderItems(DataTable dataTable)
+        public List<OrderItem> ReadOrderItems(DataTable dataTable)
         {
             List<OrderItem> orderItems = new List<OrderItem>();
 
@@ -96,6 +96,16 @@ namespace Model
                 new SqlParameter("@payed", bill.Payed),
             };
             ExecuteEditQuery(query, sqlParameters);
+        }
+
+        public Bill CheckForOpenBillOnTable(Table table)
+        {
+            string query = "SELECT * FROM Bills WHERE tableId = @tableId AND Payed = 'false'";
+            SqlParameter[] sqlParameters = new SqlParameter[]
+            {
+                new SqlParameter("@tableId", SqlDbType.Int) { Value = table.Id }
+            };
+            return ReadBill(ExecuteSelectQuery(query, sqlParameters));
         }
     }
 }
