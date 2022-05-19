@@ -24,7 +24,7 @@ namespace View.Forms
             InitializeComponent();
             this.table = table;
             tableNumberLabel.Text = $"Table {table.Id}";
- 
+            //Bill bill = billController.GetCurrentBillByTable(table);
             //List<OrderItem> orderItems = billController.GetOrderItems(bill);
             //listBox1.Items.Clear();
             //try
