@@ -19,13 +19,11 @@ namespace Controller
 
         public List<OrderItem> GetOrderItems(Bill bill)
         {
-            List<OrderItem> orderItems = billDB.GetOrderItems(bill);
-            return orderItems;
+            return billDB.GetOrderItems(bill);
         }
         public Bill GetCurrentBillByTable(Table table)
         {
-            Bill bill = billDB.GetCurrentBillByTable(table);
-            return bill;
+            return billDB.GetCurrentBillByTable(table);
         }
         public void CloseBill(Bill bill)
         {
@@ -33,6 +31,17 @@ namespace Controller
             if (bill.PaymentMethod == PaymentMethod.None) throw new Exception("Kies een betaalmethode");
 
             billDB.CloseBill(bill);
+        }
+
+        public void CreateBill(Bill bill, Staff staff)
+        {
+            billDB.CreateBill(bill, staff);
+        }
+
+        public Bill CheckForOpenBillOnTable(Table table)
+        {
+            Bill bill = billDB.CheckForOpenBillOnTable(table);
+            return bill;
         }
     }
 }

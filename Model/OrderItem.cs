@@ -16,8 +16,6 @@ namespace Model
         public bool Ready { get; set; }
         public OrderItem(int id, int orderId, MenuItem menuItem, int amount, string comment, bool ready)
         {
-            Id = id;
-            OrderId = orderId;
             MenuItem = menuItem;
             Comment = comment;
             Ready = ready;

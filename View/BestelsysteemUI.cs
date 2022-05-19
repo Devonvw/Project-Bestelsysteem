@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Model;
 
 namespace View
 {
@@ -16,14 +17,6 @@ namespace View
         public BestelsysteemUI()
         {
             InitializeComponent();
-            activeForm = new Forms.BillScreen();
-            activeForm.TopLevel = false;
-            activeForm.FormBorderStyle = FormBorderStyle.None;
-            activeForm.Dock = DockStyle.Fill;
-            this.pnlForms.Controls.Add(activeForm);
-            this.pnlForms.Tag = activeForm;
-            activeForm.BringToFront();
-            activeForm.Show();
         }
         private void OpenChildForm(Form childForm, object btnSender)
         {
@@ -37,6 +30,39 @@ namespace View
             this.pnlForms.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
+        }
+
+        private void orderScreenButton_Click(object sender, EventArgs e)
+        {
+            activeForm = new Forms.BillScreen();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (activeForm != null)
+                activeForm.Close();
+            Table table = new Table();
+            table.Id = 1;
+            table.Occupied = true;
+            activeForm = new Forms.OrderScreen(table);
+            activeForm.TopLevel = false;
+            this.pnlForms.Controls.Add(activeForm);
+            this.pnlForms.Tag = activeForm;
+            activeForm.BringToFront();
+            activeForm.Show();
+        }
+
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            activeForm = new Forms.BillScreen();
+            activeForm.TopLevel = false;
+            activeForm.FormBorderStyle = FormBorderStyle.None;
+            activeForm.Dock = DockStyle.Fill;
+            this.pnlForms.Controls.Add(activeForm);
+            this.pnlForms.Tag = activeForm;
+            activeForm.BringToFront();
+            activeForm.Show();
         }
     }
 }
