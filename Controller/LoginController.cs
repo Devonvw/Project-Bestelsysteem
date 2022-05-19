@@ -53,9 +53,5 @@ namespace Controller
                 numBytesRequested: 256 / 8));
             return hashed;
         }
-        public void AddUser(Login newUser)
-        {
-            logindb.AddUser(newUser);
-        }
     }
 }

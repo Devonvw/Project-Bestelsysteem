@@ -13,14 +13,14 @@ namespace Model
     {
         public List<Login> GetAllUsers()
         {
-            string query = "SELECT firstname, lastname, [password] FROM Staff";
+            string query = "SELECT email, [password] FROM Staff";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
 
-        public void AddUser(Login login)
+        /*public void AddUser(Login login)
         {
-            string query = "INSERT INTO Staff VALUES (@firstname, @lastname, @password);";
+            string query = "INSERT INTO Staff VALUES (@firstname, @lastname, @password, @email);";
             SqlParameter[] sqlParameters = new SqlParameter[]
             {
                 new SqlParameter("@firstname", login.Firstname),
@@ -28,7 +28,7 @@ namespace Model
                 new SqlParameter("@password", login.Password),
             };
             ExecuteEditQuery(query, sqlParameters);
-        }
+        }*/
 
         private List<Login> ReadTables(DataTable dataTable)
         {
@@ -38,8 +38,7 @@ namespace Model
             {
                 Login user = new Login()
                 {
-                    Firstname = (string)dr["firstname"],
-                    Lastname = (string)dr["lastname"],
+                    UserName = (string)dr["email"],
                     Password = (string)dr["password"],
                 };
                 Users.Add(user);
