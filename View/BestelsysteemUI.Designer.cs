@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.pnlForms = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.pnlForms.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlForms
@@ -53,6 +56,7 @@
             this.Controls.Add(this.pnlForms);
             this.Name = "BestelsysteemUI";
             this.Text = "BestelsysteemUI";
+            this.pnlForms.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

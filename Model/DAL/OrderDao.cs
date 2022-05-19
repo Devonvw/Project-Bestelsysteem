@@ -11,9 +11,9 @@ using Model;
 namespace Model
 {
     public class OrderDao : BaseDao
-    {      
+    {   
         // insert functions
-        private void InsertOrder(Order order, Bill bill)
+        public void InsertOrder(Bill bill, Order order)
         {
             string query = "INSERT INTO Orders VALUES (@staffId, @datetime) SELECT SCOPE_IDENTITY() AS OrderId";
             SqlParameter[] sqlParameters = new SqlParameter[]
@@ -38,7 +38,7 @@ namespace Model
             ExecuteEditQuery(query, sqlParameters);
         }
 
-        private void InsertOrderItems(Order order)
+        public void InsertOrderItems(Order order)
         {
             foreach (OrderItem orderItem in order.OrderItems)
             {
@@ -56,7 +56,7 @@ namespace Model
         }
                 
         // update functions
-        private void UpdateOrderItem(OrderItem orderItem)
+        public void UpdateOrderItem(OrderItem orderItem)
         {
             string query = "UPDATE OrderItems SET amount=@amount, comment=@comment WHERE id=@id";
             SqlParameter[] sqlParameters = new SqlParameter[3];
@@ -67,17 +67,18 @@ namespace Model
         }
 
 
+
+
         // delete functions
-        private void DeleteOrderItem(OrderItem orderItem)
+        public void DeleteOrderItem(OrderItem orderItem)
         {
             string query = "DELETE FROM OrderItems WHERE id=@id";
             SqlParameter[] sqlParameters = new SqlParameter[1];
             sqlParameters[0] = new SqlParameter("@id", orderItem.Id);
             ExecuteEditQuery(query, sqlParameters);
         }
-        private void DeleteOrder(Order order, BillItem billItem, Bill bill)
+        public void DeleteOrder(Bill bill, Order order)
         {
-            // delete an order
             foreach (OrderItem orderItem in order.OrderItems)
             {
                 DeleteOrderItem(orderItem);
