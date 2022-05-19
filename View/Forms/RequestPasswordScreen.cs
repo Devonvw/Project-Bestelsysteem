@@ -7,21 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Model;
-using Controller;
 
 namespace View.Forms
 {
-    public partial class Order_screen : Form
+    public partial class RequestPasswordScreen : Form
     {
-        public Order_screen()
+        public RequestPasswordScreen()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }
