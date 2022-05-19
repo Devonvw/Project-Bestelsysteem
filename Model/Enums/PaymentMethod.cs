@@ -8,6 +8,6 @@ namespace Model
 {
     public enum PaymentMethod
     {
-        Cash, Pin, Creditcard
+        None, Cash, Pin, Creditcard
     }
 }

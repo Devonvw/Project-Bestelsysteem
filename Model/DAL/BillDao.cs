@@ -56,7 +56,7 @@ namespace Model
             {
                 new SqlParameter("@paymentMethodId", SqlDbType.Int) { Value = bill.PaymentMethod },
                 new SqlParameter("@tip", SqlDbType.Int) { Value = bill.Tip },
-                new SqlParameter("@comment", SqlDbType.Int) { Value = bill.Comment },
+                new SqlParameter("@comment", SqlDbType.VarChar ) { Value = bill.Comment },
                 new SqlParameter("@id", SqlDbType.Int) { Value = bill.Id },
 
             };
@@ -69,7 +69,8 @@ namespace Model
 
             foreach (DataRow dr in dataTable.Rows)
             {
-                OrderItem orderItem = new OrderItem((int)dr["id"], (int)dr["orderId"], new MenuItem((int)dr["menuItemId"], dr["shortName"].ToString(), dr["fullName"].ToString(), (Category)(int)dr["categoryId"], (int)dr["subcategoryId"], (float)dr["priceEx"]), (int)dr["amount"], dr["comment"].ToString(), (bool)dr["isReady"]);
+
+                OrderItem orderItem = new OrderItem((int)dr["id"], (int)dr["orderId"], new MenuItem((int)dr["menuItemId"], dr["shortName"].ToString(), dr["fullName"].ToString(), (Category)(int)dr["categoryId"], (int)dr["subcategoryId"], float.Parse(dr["priceEx"].ToString())), (int)dr["amount"], dr["comment"].ToString(), (bool)dr["isReady"]);
                 orderItems.Add(orderItem);
             }
             return orderItems;
