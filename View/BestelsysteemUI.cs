@@ -52,16 +52,17 @@ namespace View
             activeForm.Show();
         }
 
+
         private void button2_Click(object sender, EventArgs e)
         {
-            //activeForm = new Forms.BillScreen();
-            //activeForm.TopLevel = false;
-            //activeForm.FormBorderStyle = FormBorderStyle.None;
-            //activeForm.Dock = DockStyle.Fill;
-            //this.pnlForms.Controls.Add(activeForm);
-            //this.pnlForms.Tag = activeForm;
-            //activeForm.BringToFront();
-            //activeForm.Show();
+            activeForm = new Forms.BillScreen();
+            activeForm.TopLevel = false;
+            activeForm.FormBorderStyle = FormBorderStyle.None;
+            activeForm.Dock = DockStyle.Fill;
+            this.pnlForms.Controls.Add(activeForm);
+            this.pnlForms.Tag = activeForm;
+            activeForm.BringToFront();
+            activeForm.Show();
         }
     }
 }
