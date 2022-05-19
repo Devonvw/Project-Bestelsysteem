@@ -38,5 +38,10 @@ namespace View
             childForm.BringToFront();
             childForm.Show();
         }
+
+        private void orderScreenButton_Click(object sender, EventArgs e)
+        {
+            activeForm = new Forms.BillScreen();
+        }
     }
 }
