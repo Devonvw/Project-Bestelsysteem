@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Collections.ObjectModel;
 using Model;
+using System.Diagnostics;
 
 namespace Model
 {
@@ -40,6 +41,9 @@ namespace Model
                 new SqlParameter("@id", SqlDbType.Int) { Value = billId }
             };
             DataTable dt = ExecuteSelectQuery(query, sqlParameters);
+
+            if (string.IsNullOrEmpty(dt.Rows[0]["totalPrice"].ToString()) || string.IsNullOrEmpty(dt.Rows[0]["totalPriceEx"].ToString())) return (totalPrice: 0, totalPriceEx: 0);
+
             return (totalPrice: float.Parse(dt.Rows[0]["totalPrice"].ToString()), totalPriceEx: float.Parse(dt.Rows[0]["totalPriceEx"].ToString()));
         }
 
@@ -65,7 +69,7 @@ namespace Model
 
             foreach (DataRow dr in dataTable.Rows)
             {
-                OrderItem orderItem = new OrderItem((int)dr["id"], (int)dr["orderId"], new MenuItem((int)dr["menuItemId"], dr["shortName"].ToString(), dr["fullName"].ToString(), (Category)(int)dr["categoryId"], (int)dr["subcategoryId"], (float)dr["priceEx"]), (int)dr["amount"], dr["comment"].ToString(), (bool)dr["ready"]);
+                OrderItem orderItem = new OrderItem((int)dr["id"], (int)dr["orderId"], new MenuItem((int)dr["menuItemId"], dr["shortName"].ToString(), dr["fullName"].ToString(), (Category)(int)dr["categoryId"], (int)dr["subcategoryId"], (float)dr["priceEx"]), (int)dr["amount"], dr["comment"].ToString(), (bool)dr["isReady"]);
                 orderItems.Add(orderItem);
             }
             return orderItems;

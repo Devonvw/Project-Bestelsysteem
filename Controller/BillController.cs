@@ -18,13 +18,11 @@ namespace Controller
 
         public List<OrderItem> GetOrderItems(Bill bill)
         {
-            List<OrderItem> orderItems = billDB.GetOrderItems(bill);
-            return orderItems;
+            return billDB.GetOrderItems(bill);
         }
         public Bill GetCurrentBillByTable(Table table)
         {
-            Bill bill = billDB.GetCurrentBillByTable(table);
-            return bill;
+            return billDB.GetCurrentBillByTable(table);
         }
         public void CloseBill(Bill bill)
         {
