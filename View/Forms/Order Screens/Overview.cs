@@ -16,7 +16,7 @@ namespace View.Forms.Order_Screens
         public Overview(List<OrderItem> orderItems)
         {
             InitializeComponent();
-            UpdateListBox(listBox1, orderItems);
+            UpdateListBox(BillOverview, orderItems);
         }
 
         public void UpdateListBox(ListBox listBox, List<OrderItem> orderItems)

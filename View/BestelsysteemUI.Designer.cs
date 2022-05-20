@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.pnlForms = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.customButton1 = new View.CustomControls.CustomButton();
             this.toggleButton1 = new View.CustomControls.ToggleButton();
+            this.billScreenButton = new System.Windows.Forms.Button();
+            this.orderScreenButton = new System.Windows.Forms.Button();
             this.pnlForms.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -44,33 +44,13 @@
             this.pnlForms.BackColor = System.Drawing.Color.Transparent;
             this.pnlForms.Controls.Add(this.customButton1);
             this.pnlForms.Controls.Add(this.toggleButton1);
-            this.pnlForms.Controls.Add(this.button2);
-            this.pnlForms.Controls.Add(this.button1);
+            this.pnlForms.Controls.Add(this.billScreenButton);
+            this.pnlForms.Controls.Add(this.orderScreenButton);
             this.pnlForms.Location = new System.Drawing.Point(-4, -3);
             this.pnlForms.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlForms.Name = "pnlForms";
             this.pnlForms.Size = new System.Drawing.Size(1707, 864);
             this.pnlForms.TabIndex = 0;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(260, 66);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(162, 120);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "BillScreen";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click_1);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(64, 66);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(162, 120);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "OrderScreen";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // customButton1
             // 
@@ -104,6 +84,26 @@
             this.toggleButton1.TabIndex = 2;
             this.toggleButton1.UseVisualStyleBackColor = true;
             // 
+            // billScreenButton
+            // 
+            this.billScreenButton.Location = new System.Drawing.Point(260, 66);
+            this.billScreenButton.Name = "billScreenButton";
+            this.billScreenButton.Size = new System.Drawing.Size(162, 120);
+            this.billScreenButton.TabIndex = 1;
+            this.billScreenButton.Text = "BillScreen";
+            this.billScreenButton.UseVisualStyleBackColor = true;
+            this.billScreenButton.Click += new System.EventHandler(this.billScreenButton_click);
+            // 
+            // orderScreenButton
+            // 
+            this.orderScreenButton.Location = new System.Drawing.Point(64, 66);
+            this.orderScreenButton.Name = "orderScreenButton";
+            this.orderScreenButton.Size = new System.Drawing.Size(162, 120);
+            this.orderScreenButton.TabIndex = 0;
+            this.orderScreenButton.Text = "OrderScreen";
+            this.orderScreenButton.UseVisualStyleBackColor = true;
+            this.orderScreenButton.Click += new System.EventHandler(this.orderScreenButton_click);
+            // 
             // BestelsysteemUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -123,8 +123,8 @@
         #endregion
 
         private System.Windows.Forms.Panel pnlForms;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button orderScreenButton;
+        private System.Windows.Forms.Button billScreenButton;
         private CustomControls.ToggleButton toggleButton1;
         private CustomControls.CustomButton customButton1;
     }

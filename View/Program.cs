@@ -17,9 +17,9 @@ namespace View
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new BestelsysteemUI());
-            //Table table = new Table(1, true);
-            //Application.Run(new Forms.OrderScreenParent(table));
+            //Application.Run(new BestelsysteemUI());
+
+            Application.Run(new Forms.OrderScreenParent());
         }
     }
 }

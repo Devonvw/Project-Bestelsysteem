@@ -86,15 +86,13 @@ namespace Model
             return bill;
         }
 
-        public void CreateBill(Bill bill, Staff staff)
+        public void CreateBill(Table table, Staff staff)
         {
-            string query = "INSERT INTO Bills (tableId, staffId, tip, payed) VALUES (@tableID, @staffId, @tip, @payed)";
+            string query = "INSERT INTO Bills (tableId, staffId) VALUES (@tableID, @staffId)";
             SqlParameter[] sqlParameters = new SqlParameter[]
             {
-                new SqlParameter("@tableID", bill.TableId),
+                new SqlParameter("@tableID", table.Id),
                 new SqlParameter("@staffId", staff.Id),
-                new SqlParameter("@tip", bill.Tip),
-                new SqlParameter("@payed", bill.Payed),
             };
             ExecuteEditQuery(query, sqlParameters);
         }

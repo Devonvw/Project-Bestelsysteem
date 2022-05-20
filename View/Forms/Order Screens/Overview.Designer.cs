@@ -28,26 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.BillOverview = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
-            // listBox1
+            // BillOverview
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(12, 12);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(529, 292);
-            this.listBox1.TabIndex = 2;
-            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            this.BillOverview.FormattingEnabled = true;
+            this.BillOverview.ItemHeight = 16;
+            this.BillOverview.Location = new System.Drawing.Point(12, 12);
+            this.BillOverview.MultiColumn = true;
+            this.BillOverview.Name = "BillOverview";
+            this.BillOverview.Size = new System.Drawing.Size(529, 292);
+            this.BillOverview.TabIndex = 2;
+            this.BillOverview.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // Overview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(0)))), ((int)(((byte)(77)))));
-            this.ClientSize = new System.Drawing.Size(553, 932);
-            this.Controls.Add(this.listBox1);
+            this.ClientSize = new System.Drawing.Size(571, 979);
+            this.Controls.Add(this.BillOverview);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Overview";
             this.Text = "Overview";
@@ -58,6 +59,6 @@
 
         #endregion
 
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox BillOverview;
     }
 }
