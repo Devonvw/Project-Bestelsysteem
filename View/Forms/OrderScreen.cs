@@ -14,7 +14,6 @@ namespace View.Forms
 {
     public partial class OrderScreen : Form
     {
-        private Bill bill;
         private BillController billController = new BillController();
         private OrderController orderController = new OrderController();
         private Table table;

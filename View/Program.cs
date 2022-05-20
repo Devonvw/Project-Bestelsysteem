@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Model;
 
 namespace View
 {
@@ -16,7 +17,9 @@ namespace View
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new BestelsysteemUI());
+            //Application.Run(new BestelsysteemUI());
+            Table table = new Table(1, true);
+            Application.Run(new Forms.OrderScreen(table));
         }
     }
 }
