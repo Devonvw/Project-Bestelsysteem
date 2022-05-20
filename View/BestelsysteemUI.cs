@@ -44,7 +44,7 @@ namespace View
             Table table = new Table();
             table.Id = 1;
             table.Occupied = true;
-            activeForm = new Forms.OrderScreen(table);
+            activeForm = new Forms.OrderScreenParent(table);
             activeForm.TopLevel = false;
             this.pnlForms.Controls.Add(activeForm);
             this.pnlForms.Tag = activeForm;

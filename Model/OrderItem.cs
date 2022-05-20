@@ -29,5 +29,10 @@ namespace Model
             Ready = false;
             Amount = amount;
         }
+
+        public string shortName
+        {
+            get { return this.MenuItem.ShortName; }
+        }
     }
 }
