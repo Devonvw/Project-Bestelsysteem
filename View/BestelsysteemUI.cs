@@ -17,15 +17,13 @@ namespace View
 
         public struct Colors
         {
-            public static Color blue = Color.FromArgb(09, 00, 30);
+            public static Color blue = Color.FromArgb(09, 00, 30); // test voor iets 
         }
         public BestelsysteemUI()
         {
             InitializeComponent();
             this.BackColor = Colors.blue;
         }
-
-
 
 
         private void OpenChildForm(Form childForm, object btnSender)
@@ -44,32 +42,8 @@ namespace View
 
         private void orderScreenButton_click(object sender, EventArgs e)
         {
-            Table table = new Table();
-            table.Id = 1;
-            table.Occupied = true;
-            if (checkForBill(table))
-            {
-                if (activeForm != null)
-                    activeForm.Close();
-                activeForm = new Forms.OrderScreenParent();
-                activeForm.TopLevel = false;
-                this.pnlForms.Controls.Add(activeForm);
-                this.pnlForms.Tag = activeForm;
-                activeForm.BringToFront();
-                activeForm.Show();
-                this.Size = activeForm.Size;
-            }
-            else
-            {
-                
-            }
+            OpenChildForm(new Forms.OrderScreenParent(), sender);            
         }
-
-        private bool checkForBill(Table table)
-        {
-            throw new NotImplementedException();
-        }
-
         private void billScreenButton_click(object sender, EventArgs e)
         {
             if (activeForm != null)
