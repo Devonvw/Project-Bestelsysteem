@@ -13,6 +13,7 @@ namespace View.Forms.Order_Screens
 {
     public partial class Overview : Form
     {
+        private Form activeForm;
         public Overview(List<OrderItem> orderItems)
         {
             InitializeComponent();
@@ -45,6 +46,16 @@ namespace View.Forms.Order_Screens
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void newOrderButton_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

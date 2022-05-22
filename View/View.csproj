@@ -65,6 +65,24 @@
     <Compile Include="Forms\BillScreen.Designer.cs">
       <DependentUpon>BillScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Order Screens\AddOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Order Screens\AddOrder.Designer.cs">
+      <DependentUpon>AddOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Order Screens\ChangeBill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Order Screens\ChangeBill.Designer.cs">
+      <DependentUpon>ChangeBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Order Screens\ChangeOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Order Screens\ChangeOrder.Designer.cs">
+      <DependentUpon>ChangeOrder.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Order Screens\OrderScreenParent.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,6 +102,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\BillScreen.resx">
       <DependentUpon>BillScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Order Screens\AddOrder.resx">
+      <DependentUpon>AddOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Order Screens\ChangeBill.resx">
+      <DependentUpon>ChangeBill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Order Screens\ChangeOrder.resx">
+      <DependentUpon>ChangeOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Order Screens\OrderScreenParent.resx">
       <DependentUpon>OrderScreenParent.cs</DependentUpon>

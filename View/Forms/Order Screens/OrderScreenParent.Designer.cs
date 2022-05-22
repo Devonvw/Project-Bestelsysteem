@@ -35,6 +35,7 @@
             this.table3Button = new View.CustomControls.CustomButton();
             this.table2Button = new View.CustomControls.CustomButton();
             this.table1Button = new View.CustomControls.CustomButton();
+            this.staffNameLabel = new System.Windows.Forms.Label();
             this.topPanel.SuspendLayout();
             this.childFormPanel.SuspendLayout();
             this.SuspendLayout();
@@ -42,12 +43,12 @@
             // topPanel
             // 
             this.topPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(0)))), ((int)(((byte)(77)))));
+            this.topPanel.Controls.Add(this.staffNameLabel);
             this.topPanel.Controls.Add(this.tableNumberLabel);
             this.topPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.topPanel.Location = new System.Drawing.Point(0, 0);
-            this.topPanel.Margin = new System.Windows.Forms.Padding(4);
             this.topPanel.Name = "topPanel";
-            this.topPanel.Size = new System.Drawing.Size(571, 123);
+            this.topPanel.Size = new System.Drawing.Size(428, 100);
             this.topPanel.TabIndex = 0;
             this.topPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.topPanel_MouseDown);
             // 
@@ -56,12 +57,11 @@
             this.tableNumberLabel.AutoSize = true;
             this.tableNumberLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tableNumberLabel.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.tableNumberLabel.Location = new System.Drawing.Point(204, 36);
-            this.tableNumberLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.tableNumberLabel.Location = new System.Drawing.Point(153, 29);
             this.tableNumberLabel.Name = "tableNumberLabel";
-            this.tableNumberLabel.Size = new System.Drawing.Size(164, 54);
+            this.tableNumberLabel.Size = new System.Drawing.Size(123, 44);
             this.tableNumberLabel.TabIndex = 0;
-            this.tableNumberLabel.Text = "Tables";
+            this.tableNumberLabel.Text = "Tafels";
             this.tableNumberLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.topPanel_MouseDown);
             // 
             // childFormPanel
@@ -72,10 +72,9 @@
             this.childFormPanel.Controls.Add(this.table2Button);
             this.childFormPanel.Controls.Add(this.table1Button);
             this.childFormPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.childFormPanel.Location = new System.Drawing.Point(0, 123);
-            this.childFormPanel.Margin = new System.Windows.Forms.Padding(4);
+            this.childFormPanel.Location = new System.Drawing.Point(0, 100);
             this.childFormPanel.Name = "childFormPanel";
-            this.childFormPanel.Size = new System.Drawing.Size(571, 979);
+            this.childFormPanel.Size = new System.Drawing.Size(428, 794);
             this.childFormPanel.TabIndex = 2;
             // 
             // table4Button
@@ -89,9 +88,10 @@
             this.table4Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.table4Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.table4Button.ForeColor = System.Drawing.Color.White;
-            this.table4Button.Location = new System.Drawing.Point(336, 161);
+            this.table4Button.Location = new System.Drawing.Point(252, 131);
+            this.table4Button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.table4Button.Name = "table4Button";
-            this.table4Button.Size = new System.Drawing.Size(140, 69);
+            this.table4Button.Size = new System.Drawing.Size(105, 56);
             this.table4Button.TabIndex = 3;
             this.table4Button.Text = "4";
             this.table4Button.TextColor = System.Drawing.Color.White;
@@ -109,9 +109,10 @@
             this.table3Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.table3Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.table3Button.ForeColor = System.Drawing.Color.White;
-            this.table3Button.Location = new System.Drawing.Point(83, 161);
+            this.table3Button.Location = new System.Drawing.Point(62, 131);
+            this.table3Button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.table3Button.Name = "table3Button";
-            this.table3Button.Size = new System.Drawing.Size(140, 69);
+            this.table3Button.Size = new System.Drawing.Size(105, 56);
             this.table3Button.TabIndex = 2;
             this.table3Button.Text = "3";
             this.table3Button.TextColor = System.Drawing.Color.White;
@@ -129,9 +130,10 @@
             this.table2Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.table2Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.table2Button.ForeColor = System.Drawing.Color.White;
-            this.table2Button.Location = new System.Drawing.Point(336, 55);
+            this.table2Button.Location = new System.Drawing.Point(252, 45);
+            this.table2Button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.table2Button.Name = "table2Button";
-            this.table2Button.Size = new System.Drawing.Size(140, 69);
+            this.table2Button.Size = new System.Drawing.Size(105, 56);
             this.table2Button.TabIndex = 1;
             this.table2Button.Text = "2";
             this.table2Button.TextColor = System.Drawing.Color.White;
@@ -149,24 +151,35 @@
             this.table1Button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.table1Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.table1Button.ForeColor = System.Drawing.Color.White;
-            this.table1Button.Location = new System.Drawing.Point(83, 55);
+            this.table1Button.Location = new System.Drawing.Point(62, 45);
+            this.table1Button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.table1Button.Name = "table1Button";
-            this.table1Button.Size = new System.Drawing.Size(140, 69);
+            this.table1Button.Size = new System.Drawing.Size(105, 56);
             this.table1Button.TabIndex = 0;
             this.table1Button.Text = "1";
             this.table1Button.TextColor = System.Drawing.Color.White;
             this.table1Button.UseVisualStyleBackColor = false;
             this.table1Button.Click += new System.EventHandler(this.table1Button_Click_1);
             // 
+            // staffNameLabel
+            // 
+            this.staffNameLabel.AutoSize = true;
+            this.staffNameLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(0)))), ((int)(((byte)(77)))));
+            this.staffNameLabel.ForeColor = System.Drawing.SystemColors.Control;
+            this.staffNameLabel.Location = new System.Drawing.Point(12, 9);
+            this.staffNameLabel.Name = "staffNameLabel";
+            this.staffNameLabel.Size = new System.Drawing.Size(69, 13);
+            this.staffNameLabel.TabIndex = 1;
+            this.staffNameLabel.Text = "Medewerker:";
+            // 
             // OrderScreenParent
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(571, 1102);
+            this.ClientSize = new System.Drawing.Size(428, 894);
             this.Controls.Add(this.childFormPanel);
             this.Controls.Add(this.topPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "OrderScreenParent";
             this.Text = "Order screen";
             this.topPanel.ResumeLayout(false);
@@ -185,5 +198,6 @@
         private CustomControls.CustomButton table3Button;
         private CustomControls.CustomButton table2Button;
         private CustomControls.CustomButton table1Button;
+        private System.Windows.Forms.Label staffNameLabel;
     }
 }
