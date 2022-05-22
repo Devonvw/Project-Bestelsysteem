@@ -17,14 +17,15 @@ namespace View.Forms
     {
         private BillController billController = new BillController();
         private OrderController orderController = new OrderController();
-        private Form activeForm;
+        public Form activeForm;
         private Bill bill;
         private List<OrderItem> orderItems;
         private Staff staff = new Staff(1, "Jacky", "Eichenberger", DateTime.Now, Roles.Waiter, "test", "test");
 
         public OrderScreenParent()
         {
-            InitializeComponent();           
+            InitializeComponent();
+            staffNameLabel.Text = $"Medewerker: {staff.FirstName}";
         }
 
         // Open childform into panel
