@@ -16,9 +16,21 @@ namespace View.Forms.Order_Screens
         public Overview(List<OrderItem> orderItems)
         {
             InitializeComponent();
-            UpdateListBox(BillOverview, orderItems);
+            //UpdateListBox(BillOverview, orderItems);
+            FillListView(bonOverzichtListView, orderItems);
         }
 
+        public void FillListView(ListView listView, List<OrderItem> orderItems)
+        {
+            bonOverzichtListView.Items.Clear();
+            foreach (OrderItem item in orderItems)
+            {
+                ListViewItem listViewItem = new ListViewItem(item.MenuItem.ShortName.ToString());
+                listViewItem.SubItems.Add(item.Amount.ToString());
+                listViewItem.SubItems.Add(item.Comment.ToString());
+                listView.Items.Add(listViewItem);
+            }
+        }
         public void UpdateListBox(ListBox listBox, List<OrderItem> orderItems)
         {
             listBox.Items.Clear();
