@@ -68,6 +68,7 @@
     <Compile Include="DAL\BillItemDao.cs" />
     <Compile Include="DAL\BillDao.cs" />
     <Compile Include="DAL\LoginDao.cs" />
+    <Compile Include="DAL\MenuDao.cs" />
     <Compile Include="DAL\OrderDao.cs" />
     <Compile Include="Bill.cs" />
     <Compile Include="DAL\ReservationDao.cs" />

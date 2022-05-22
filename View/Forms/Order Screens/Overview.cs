@@ -9,15 +9,22 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Model;
 
+
 namespace View.Forms.Order_Screens
 {
     public partial class Overview : Form
     {
         private Form activeForm;
-        public Overview(List<OrderItem> orderItems)
+        private List<OrderItem> orderItems;
+        private Staff staff;
+        private Bill bill;
+
+        public Overview(List<OrderItem> orderItems, Bill bill, Staff staff)
         {
             InitializeComponent();
-            //UpdateListBox(BillOverview, orderItems);
+            this.orderItems = orderItems;
+            this.staff = staff;
+            this.bill = bill;
             FillListView(bonOverzichtListView, orderItems);
         }
 
@@ -32,30 +39,32 @@ namespace View.Forms.Order_Screens
                 listView.Items.Add(listViewItem);
             }
         }
-        public void UpdateListBox(ListBox listBox, List<OrderItem> orderItems)
-        {
-            listBox.Items.Clear();
-            listBox.DataSource = orderItems;
-            listBox.DisplayMember = "ShortName";
-        }
-        private void Overview_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void newOrderButton_Click(object sender, EventArgs e)
         {
-            Close();
+            OpenChildForm(new Forms.Order_Screens.AddOrder());
         }
 
         private void backButton_Click(object sender, EventArgs e)
         {
             Close();
         }
+
+
+        public void OpenChildForm(Form childForm)
+        {
+            if (activeForm != null)
+                activeForm.Close();
+            activeForm = childForm;
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            this.overViewPanel.Controls.Add(childForm);
+            this.overViewPanel.Tag = childForm;
+            childForm.Size = overViewPanel.Size;
+            childForm.BringToFront();
+            childForm.Show();
+        }
+
     }
 }

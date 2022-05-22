@@ -17,15 +17,15 @@ namespace View.Forms
     {
         private BillController billController = new BillController();
         private OrderController orderController = new OrderController();
-        public Form activeForm;
         private Bill bill;
         private List<OrderItem> orderItems;
-        private Staff staff = new Staff(1, "Jacky", "Eichenberger", DateTime.Now, Roles.Waiter, "test", "test");
+        private Staff staff = new Staff(1, "Jacky", "Eichenberger", DateTime.Now, Roles.Waiter, "test", "test");       
+        public Form activeForm;
 
-        public OrderScreenParent()
+        public OrderScreenParent() // staff moet meegegeven vanuit UI / login
         {
             InitializeComponent();
-            staffNameLabel.Text = $"Medewerker: {staff.FirstName}";
+            staffNameLabel.Text = $"Medewerker: {staff.FirstName}";            
         }
 
         // Open childform into panel
@@ -68,9 +68,10 @@ namespace View.Forms
             }
             else
             {                
-                billController.CreateBill(table, staff);
+                billController.CreateBill(table, staff); 
+                this.bill = billController.GetCurrentBillByTable(table);               
             }
-            OpenChildForm(new Order_Screens.Overview(orderItems));
+            OpenChildForm(new Order_Screens.Overview(orderItems, bill, staff));
         }
 
 
