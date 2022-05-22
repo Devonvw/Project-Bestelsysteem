@@ -43,6 +43,9 @@
             this.toggleButton2 = new View.CustomControls.ToggleButton();
             this.label4 = new System.Windows.Forms.Label();
             this.toggleButton1 = new View.CustomControls.ToggleButton();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.overViewPanel = new System.Windows.Forms.Panel();
+            this.overViewPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // bonOverzichtListView
@@ -52,7 +55,7 @@
             this.Amount,
             this.Comment});
             this.bonOverzichtListView.HideSelection = false;
-            this.bonOverzichtListView.Location = new System.Drawing.Point(10, 31);
+            this.bonOverzichtListView.Location = new System.Drawing.Point(13, 25);
             this.bonOverzichtListView.Name = "bonOverzichtListView";
             this.bonOverzichtListView.Size = new System.Drawing.Size(406, 456);
             this.bonOverzichtListView.TabIndex = 3;
@@ -78,7 +81,7 @@
             // 
             this.bonOverzichtLabel.AutoSize = true;
             this.bonOverzichtLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.bonOverzichtLabel.Location = new System.Drawing.Point(10, 12);
+            this.bonOverzichtLabel.Location = new System.Drawing.Point(10, 9);
             this.bonOverzichtLabel.Name = "bonOverzichtLabel";
             this.bonOverzichtLabel.Size = new System.Drawing.Size(74, 13);
             this.bonOverzichtLabel.TabIndex = 4;
@@ -94,7 +97,7 @@
             this.backButton.FlatAppearance.BorderSize = 0;
             this.backButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backButton.ForeColor = System.Drawing.Color.White;
-            this.backButton.Location = new System.Drawing.Point(224, 684);
+            this.backButton.Location = new System.Drawing.Point(224, 697);
             this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(192, 70);
             this.backButton.TabIndex = 10;
@@ -113,7 +116,7 @@
             this.changeOrderButton.FlatAppearance.BorderSize = 0;
             this.changeOrderButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.changeOrderButton.ForeColor = System.Drawing.Color.White;
-            this.changeOrderButton.Location = new System.Drawing.Point(10, 684);
+            this.changeOrderButton.Location = new System.Drawing.Point(10, 697);
             this.changeOrderButton.Name = "changeOrderButton";
             this.changeOrderButton.Size = new System.Drawing.Size(193, 70);
             this.changeOrderButton.TabIndex = 9;
@@ -131,7 +134,7 @@
             this.changeBillButton.FlatAppearance.BorderSize = 0;
             this.changeBillButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.changeBillButton.ForeColor = System.Drawing.Color.White;
-            this.changeBillButton.Location = new System.Drawing.Point(224, 599);
+            this.changeBillButton.Location = new System.Drawing.Point(224, 612);
             this.changeBillButton.Name = "changeBillButton";
             this.changeBillButton.Size = new System.Drawing.Size(192, 70);
             this.changeBillButton.TabIndex = 8;
@@ -149,7 +152,7 @@
             this.newOrderButton.FlatAppearance.BorderSize = 0;
             this.newOrderButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.newOrderButton.ForeColor = System.Drawing.Color.White;
-            this.newOrderButton.Location = new System.Drawing.Point(10, 599);
+            this.newOrderButton.Location = new System.Drawing.Point(10, 612);
             this.newOrderButton.Name = "newOrderButton";
             this.newOrderButton.Size = new System.Drawing.Size(193, 70);
             this.newOrderButton.TabIndex = 7;
@@ -171,7 +174,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.Control;
-            this.label2.Location = new System.Drawing.Point(12, 497);
+            this.label2.Location = new System.Drawing.Point(12, 496);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(184, 20);
             this.label2.TabIndex = 13;
@@ -207,13 +210,13 @@
             this.label4.ForeColor = System.Drawing.SystemColors.Control;
             this.label4.Location = new System.Drawing.Point(12, 526);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(235, 20);
+            this.label4.Size = new System.Drawing.Size(230, 20);
             this.label4.TabIndex = 16;
-            this.label4.Text = "Laat producten in bereiding zien";
+            this.label4.Text = "Laat bestelling in bereiding zien";
             // 
             // toggleButton1
             // 
-            this.toggleButton1.Location = new System.Drawing.Point(315, 497);
+            this.toggleButton1.Location = new System.Drawing.Point(315, 494);
             this.toggleButton1.MinimumSize = new System.Drawing.Size(45, 22);
             this.toggleButton1.Name = "toggleButton1";
             this.toggleButton1.OffBackColor = System.Drawing.Color.Gray;
@@ -224,29 +227,47 @@
             this.toggleButton1.TabIndex = 17;
             this.toggleButton1.UseVisualStyleBackColor = true;
             // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(-189, -91);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(200, 100);
+            this.panel1.TabIndex = 18;
+            // 
+            // overViewPanel
+            // 
+            this.overViewPanel.Controls.Add(this.bonOverzichtLabel);
+            this.overViewPanel.Controls.Add(this.toggleButton2);
+            this.overViewPanel.Controls.Add(this.toggleButton1);
+            this.overViewPanel.Controls.Add(this.backButton);
+            this.overViewPanel.Controls.Add(this.bonOverzichtListView);
+            this.overViewPanel.Controls.Add(this.changeOrderButton);
+            this.overViewPanel.Controls.Add(this.label4);
+            this.overViewPanel.Controls.Add(this.changeBillButton);
+            this.overViewPanel.Controls.Add(this.newOrderButton);
+            this.overViewPanel.Controls.Add(this.label2);
+            this.overViewPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.overViewPanel.Location = new System.Drawing.Point(0, 0);
+            this.overViewPanel.Name = "overViewPanel";
+            this.overViewPanel.Size = new System.Drawing.Size(428, 795);
+            this.overViewPanel.TabIndex = 19;
+            // 
             // Overview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(0)))), ((int)(((byte)(77)))));
             this.ClientSize = new System.Drawing.Size(428, 795);
-            this.Controls.Add(this.toggleButton1);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.toggleButton2);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.backButton);
-            this.Controls.Add(this.changeOrderButton);
-            this.Controls.Add(this.changeBillButton);
-            this.Controls.Add(this.newOrderButton);
-            this.Controls.Add(this.bonOverzichtLabel);
-            this.Controls.Add(this.bonOverzichtListView);
+            this.Controls.Add(this.overViewPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Overview";
             this.Text = "Overview";
-            this.Load += new System.EventHandler(this.Overview_Load);
+            this.overViewPanel.ResumeLayout(false);
+            this.overViewPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -268,5 +289,7 @@
         private CustomControls.ToggleButton toggleButton2;
         private System.Windows.Forms.Label label4;
         private CustomControls.ToggleButton toggleButton1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel overViewPanel;
     }
 }
