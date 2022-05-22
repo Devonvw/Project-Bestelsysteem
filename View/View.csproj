@@ -47,13 +47,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\..\..\BestelsysteemUI.cs">
+    <Compile Include="BestelsysteemUI.cs">
       <SubType>Form</SubType>
-      <Link>BestelsysteemUI.cs</Link>
     </Compile>
-    <Compile Include="..\..\..\BestelsysteemUI.Designer.cs">
+    <Compile Include="BestelsysteemUI.Designer.cs">
       <DependentUpon>BestelsysteemUI.cs</DependentUpon>
-      <Link>BestelsysteemUI.Designer.cs</Link>
     </Compile>
     <Compile Include="CustomControls\CustomButton.cs">
       <SubType>Component</SubType>
@@ -99,9 +97,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="..\..\..\BestelsysteemUI.resx">
+    <EmbeddedResource Include="BestelsysteemUI.resx">
       <DependentUpon>BestelsysteemUI.cs</DependentUpon>
-      <Link>BestelsysteemUI.resx</Link>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\BillScreen.resx">
       <DependentUpon>BillScreen.cs</DependentUpon>

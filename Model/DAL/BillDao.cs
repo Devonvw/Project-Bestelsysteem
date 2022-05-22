@@ -12,7 +12,10 @@ using System.Diagnostics;
 namespace Model
 {
     public class BillDao : BaseDao
-    {      
+    {
+        const float highBtw = 1.21F;
+        const float lowBtw = 1.09F;
+
         public List<OrderItem> GetOrderItems(Bill bill)
         {
             string query = "SELECT OI.*, MI.id as menuItemId, MI.shortName, MI.fullName, MI.categoryId, MI.subcategoryId, MI.priceEx FROM BillItems AS BI INNER JOIN Orders AS O ON BI.orderId = O.id INNER JOIN OrderItems AS OI ON O.id = OI.orderId INNER JOIN MenuItems AS MI ON OI.menuItemId = MI.id WHERE BI.billId = @id";
@@ -35,9 +38,11 @@ namespace Model
 
         private (float totalPrice, float totalPriceEx) GetTotalBillPrice(int billId)
         {
-            string query = "SELECT Cast(SUM(MI.priceEx * OI.amount * CASE WHEN SC.highBtw = 'true' THEN 1.21 ELSE 1.09 END) AS DECIMAL(5, 2)) as totalPrice, SUM(MI.priceEx * OI.amount) as totalPriceEx FROM BillItems AS BI INNER JOIN Orders AS O ON BI.orderId = O.id INNER JOIN OrderItems AS OI ON O.id = OI.orderId INNER JOIN MenuItems AS MI ON OI.menuItemId = MI.id INNER JOIN Subcategory AS SC ON MI.subcategoryId = SC.id WHERE BI.billId = @id";
+            string query = "SELECT Cast(SUM(MI.priceEx * OI.amount * CASE WHEN SC.highBtw = 'true' THEN @highBtw ELSE @lowBtw END) AS DECIMAL(5, 2)) as totalPrice, SUM(MI.priceEx * OI.amount) as totalPriceEx FROM BillItems AS BI INNER JOIN Orders AS O ON BI.orderId = O.id INNER JOIN OrderItems AS OI ON O.id = OI.orderId INNER JOIN MenuItems AS MI ON OI.menuItemId = MI.id INNER JOIN Subcategory AS SC ON MI.subcategoryId = SC.id WHERE BI.billId = @id";
             SqlParameter[] sqlParameters = new SqlParameter[]
             {
+                new SqlParameter("@highBtw", SqlDbType.Float) { Value = highBtw },
+                new SqlParameter("@lowBtw", SqlDbType.Float) { Value = lowBtw },
                 new SqlParameter("@id", SqlDbType.Int) { Value = billId }
             };
             DataTable dt = ExecuteSelectQuery(query, sqlParameters);

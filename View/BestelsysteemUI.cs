@@ -42,7 +42,7 @@ namespace View
 
         private void orderScreenButton_click(object sender, EventArgs e)
         {
-            OpenChildForm(new Forms.OrderScreenParent(), sender);            
+            OpenChildForm(new Forms.OrderScreenParent(), sender);
         }
         private void billScreenButton_click(object sender, EventArgs e)
         {
