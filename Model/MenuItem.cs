@@ -12,7 +12,7 @@ namespace Model
         public string ShortName { get; set; }
         public string FullName { get; set; }
         public Category Category { get; set; }
-        public int SubcategoryId { get; set; }
+        public int SubcategoryId { get; set; } // subcategory class/enum
         public float PriceEx { get; set; }
 
 
