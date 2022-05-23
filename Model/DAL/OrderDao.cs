@@ -22,7 +22,8 @@ namespace Model
                 new SqlParameter("datetime", order.DateTime),
             };
             DataTable datatable = ExecuteSelectQuery(query, sqlParameters);
-            order.Id = (int)datatable.Rows[0]["OrderId"];           
+            int id = (int)datatable.Rows[0]["OrderId"];
+            order.Id = id;         
             InsertOrderItems(order);
             InsertBillItems(bill, order);
         }

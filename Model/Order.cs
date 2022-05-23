@@ -11,7 +11,7 @@ namespace Model
         public int Id { get; set; }
         public int Staff { get; } // Moet staff object worden
         public DateTime DateTime { get; } //
-        public List<OrderItem> OrderItems { get; }
+        public List<OrderItem> OrderItems { get; set; }
 
         public Order(int id, int staff, DateTime dateTime)
         {

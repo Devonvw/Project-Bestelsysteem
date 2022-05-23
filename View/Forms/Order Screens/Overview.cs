@@ -42,7 +42,7 @@ namespace View.Forms.Order_Screens
 
         private void newOrderButton_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Forms.Order_Screens.AddOrder());
+            OpenChildForm(new Forms.Order_Screens.AddOrder(bill, staff));
         }
 
         private void backButton_Click(object sender, EventArgs e)
