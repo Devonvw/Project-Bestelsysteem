@@ -75,7 +75,7 @@ namespace Model
             foreach (DataRow dr in dataTable.Rows)
             {
 
-                OrderItem orderItem = new OrderItem((int)dr["id"], (int)dr["orderId"], new MenuItem((int)dr["menuItemId"], dr["shortName"].ToString(), dr["fullName"].ToString(), (Category)(int)dr["categoryId"], (int)dr["subcategoryId"], float.Parse(dr["priceEx"].ToString())), (int)dr["amount"], dr["comment"].ToString(), (bool)dr["isReady"]);
+                OrderItem orderItem = new OrderItem((int)dr["id"], (int)dr["orderId"], new MenuItem((int)dr["menuItemId"], dr["shortName"].ToString(), dr["fullName"].ToString(), (Category)(int)dr["categoryId"], (SubCategory)(int)dr["subcategoryId"], float.Parse(dr["priceEx"].ToString())), (int)dr["amount"], dr["comment"].ToString(), (bool)dr["isReady"]);
                 orderItems.Add(orderItem);
             }
             return orderItems;

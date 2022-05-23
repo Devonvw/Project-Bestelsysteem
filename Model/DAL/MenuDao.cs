@@ -57,7 +57,7 @@ namespace Model
                     ShortName = (string)dr["shortName"],
                     FullName = (string)dr["fullName"],
                     Category = (Category)(int)dr["categoryId"],
-                    SubcategoryId = (int)dr["subcategoryId"],
+                    SubCategory = (SubCategory)(int)dr["subcategoryId"],
                     PriceEx = float.Parse(dr["priceEx"].ToString())
                 };
                 menuItems.Add(menuItem);

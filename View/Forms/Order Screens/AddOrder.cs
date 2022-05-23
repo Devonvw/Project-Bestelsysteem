@@ -37,7 +37,7 @@ namespace View.Forms.Order_Screens
                 ListViewItem listViewItem = new ListViewItem(item.Id.ToString());
                 listViewItem.SubItems.Add(item.ShortName.ToString());
                 listViewItem.SubItems.Add(item.Category.ToString());
-                listViewItem.SubItems.Add(item.SubcategoryId.ToString());
+                listViewItem.SubItems.Add(item.SubCategory.ToString());
                 listView.Items.Add(listViewItem);
             }
         }
