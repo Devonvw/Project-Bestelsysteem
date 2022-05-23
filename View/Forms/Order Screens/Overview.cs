@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Model;
+using Controller;
 
 
 namespace View.Forms.Order_Screens
@@ -16,8 +17,12 @@ namespace View.Forms.Order_Screens
     {
         private Form activeForm;
         private List<OrderItem> orderItems;
+        private List<OrderItem> lastOrderItems;
         private Staff staff;
         private Bill bill;
+        private OrderController orderController;
+        private BillController billController;
+
 
         public Overview(List<OrderItem> orderItems, Bill bill, Staff staff)
         {
@@ -25,7 +30,10 @@ namespace View.Forms.Order_Screens
             this.orderItems = orderItems;
             this.staff = staff;
             this.bill = bill;
-            FillListView(bonOverzichtListView, orderItems);
+            if (orderItems != null)
+            {
+                FillListView(bonOverzichtListView, orderItems);
+            }
         }
 
         public void FillListView(ListView listView, List<OrderItem> orderItems)
@@ -41,8 +49,8 @@ namespace View.Forms.Order_Screens
         }
 
         private void newOrderButton_Click(object sender, EventArgs e)
-        {
-            OpenChildForm(new Forms.Order_Screens.AddOrder(bill, staff));
+        {           
+            OpenChildForm(new Forms.Order_Screens.AddOrder(orderItems, bill, staff));
         }
 
         private void backButton_Click(object sender, EventArgs e)
@@ -66,5 +74,23 @@ namespace View.Forms.Order_Screens
             childForm.Show();
         }
 
+        private void toggleButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!orderInPreparationToggle.Checked)
+            {
+                // show orderitems where isReady = false
+            }
+        }
+
+        private void changeOrderButton_Click(object sender, EventArgs e)
+        {
+            // get orderitems where isReady = false
+            // change values/amount of items
+        }
+
+        private void groupItemsToggle_CheckedChanged(object sender, EventArgs e)
+        {
+            // search for similar items and group them ignoring ready/not ready and comments
+        }
     }
 }

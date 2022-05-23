@@ -22,7 +22,7 @@ namespace Model
                 new SqlParameter("datetime", order.DateTime),
             };
             DataTable datatable = ExecuteSelectQuery(query, sqlParameters);
-            order.Id = (int)datatable.Rows[0]["OrderId"];                   
+            order.Id = Convert.ToInt32((decimal)datatable.Rows[0]["OrderId"]);           
             InsertOrderItems(order);
             InsertBillItems(bill, order);
         }
@@ -42,12 +42,12 @@ namespace Model
         {
             foreach (OrderItem orderItem in order.OrderItems)
             {
-                string query = "INSERT INTO OrderItems Values (@orderId, @menuItemId, @amount, @comment, @ready)";
+                string query = "INSERT INTO OrderItems Values (@orderId, @amount, @menuItemId, @comment, @ready)";
                 SqlParameter[] sqlParameters = new SqlParameter[]
                 {
-                    new SqlParameter("@orderId", order.Id),
-                    new SqlParameter("@menuItemId", orderItem.MenuItem),
+                    new SqlParameter("@orderId", order.Id),                   
                     new SqlParameter("@amount", orderItem.Amount),
+                    new SqlParameter("@menuItemId", orderItem.MenuItem.Id),
                     new SqlParameter("@comment", orderItem.Comment),
                     new SqlParameter("@ready", orderItem.Ready)
                 };

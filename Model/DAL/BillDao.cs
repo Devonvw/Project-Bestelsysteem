@@ -36,6 +36,11 @@ namespace Model
             return ReadBill(ExecuteSelectQuery(query, sqlParameters));
         }
 
+        //public void GetLastOrderItems(Bill bill)
+        //{
+        //    
+        //}
+
         private (float totalPrice, float totalPriceEx) GetTotalBillPrice(int billId)
         {
             string query = "SELECT Cast(SUM(MI.priceEx * OI.amount * CASE WHEN SC.highBtw = 'true' THEN @highBtw ELSE @lowBtw END) AS DECIMAL(5, 2)) as totalPrice, SUM(MI.priceEx * OI.amount) as totalPriceEx FROM BillItems AS BI INNER JOIN Orders AS O ON BI.orderId = O.id INNER JOIN OrderItems AS OI ON O.id = OI.orderId INNER JOIN MenuItems AS MI ON OI.menuItemId = MI.id INNER JOIN Subcategory AS SC ON MI.subcategoryId = SC.id WHERE BI.billId = @id";
