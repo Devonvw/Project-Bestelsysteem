@@ -9,17 +9,43 @@ using System.Collections.ObjectModel;
 using Model;
 using System.Diagnostics;
 
-namespace Model.DAL
+namespace Model
 {
     public class MenuDao : BaseDao
     {
-        public void AddMenuItem(MenuItem menuItem)
-        {
+        //public void AddMenuItem(MenuItem menuItem)
+        //{
             
+        //}
+       
+        //public void UpdateMenuItem(MenuItem menuItem)
+        //{
+        //    List<MenuItem> menuItems = new List<MenuItem>();
+
+        //    foreach (DataRow dr in dataTable.Rows)
+        //    {
+        //        MenuItem menuItem = new MenuItem()
+        //        {
+        //            Id = (int)dr["id"],
+        //            ShortName = (string)dr["shortName"],
+        //            FullName = (string)dr["fullName"],
+        //            Category = (Category)(int)dr["categoryId"],
+        //            SubcategoryId = (int)dr["subcategoryId"],
+        //            PriceEx = float.Parse(dr["priceEx"].ToString())
+        //        };
+        //        menuItems.Add(menuItem);
+        //    }
+        //    return menuItems;
+        //}
+
+        public List<MenuItem> GetAllMenuItems()
+        {
+            string query = "SELECT * FROM MenuItems"; // netjes uitschrijven
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
 
-        }
-        public void UpdateMenuItem(MenuItem menuItem)
+        private List<MenuItem> ReadTables(DataTable dataTable)
         {
             List<MenuItem> menuItems = new List<MenuItem>();
 
