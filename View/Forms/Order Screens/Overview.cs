@@ -323,7 +323,7 @@ namespace View.Forms.Order_Screens
         private List<Model.MenuItem> DistinctMenuByCategory(Category category)
         {
             List<Model.MenuItem> items = new List<Model.MenuItem>();
-            foreach (var item in menuItems)
+            foreach (Model.MenuItem item in menuItems)
             {
                 if (item.Category == category)
                 {
@@ -338,7 +338,7 @@ namespace View.Forms.Order_Screens
             List<Model.MenuItem> items = new List<Model.MenuItem>();
             foreach (var item in menuItems)
             {
-                if (item.SubCategory.ToString() == subCategory.ToString())
+                if (item.SubCategory == subCategory)
                 {
                     items.Add(item);
                 }
