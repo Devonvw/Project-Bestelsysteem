@@ -29,7 +29,7 @@ namespace Model
                 new SqlParameter("@shortName", SqlDbType.VarChar) { Value = menuItem.ShortName },
                 new SqlParameter("@fullName", SqlDbType.VarChar) { Value = menuItem.FullName },
                 new SqlParameter("@categoryId", SqlDbType.Int) { Value = menuItem.Category },
-                new SqlParameter("@subcategoryId", SqlDbType.Int) { Value = menuItem.SubCategory.Id },
+                new SqlParameter("@subcategoryId", SqlDbType.Int) { Value = menuItem.SubCategory },
                 new SqlParameter("@priceEx", SqlDbType.Float) { Value = menuItem.PriceEx },
                 new SqlParameter("@stock", SqlDbType.Int) { Value = menuItem.Stock },
                 new SqlParameter("@inMenu", SqlDbType.Bit) { Value = menuItem.InMenu }
@@ -54,7 +54,7 @@ namespace Model
         private List<MenuItem> ReadTables(DataTable dataTable) {
             List<MenuItem> menuItems = new List<MenuItem>();
 
-            /*foreach (DataRow dr in dataTable.Rows)
+            foreach (DataRow dr in dataTable.Rows)
             {
                 MenuItem menuItem = new MenuItem()
                 {
@@ -63,10 +63,12 @@ namespace Model
                     FullName = (string)dr["fullName"],
                     Category = (Category)(int)dr["categoryId"],
                     SubCategory = (SubCategory)(int)dr["subcategoryId"],
-                    PriceEx = float.Parse(dr["priceEx"].ToString())
+                    PriceEx = float.Parse(dr["priceEx"].ToString()),
+                    Stock = (int)dr["stock"],
+                    InMenu = (bool)dr["inMenu"]
                 };
                 menuItems.Add(menuItem);
-            }*/
+            }
             return menuItems;
         }
     }

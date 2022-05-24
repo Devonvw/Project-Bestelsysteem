@@ -10,24 +10,24 @@ namespace Model
     {
         public int Id { get; set; } 
         public string ShortName { get; set;  }
-        public string FullName { get; }
-        public Category Category { get; }
-        public Subcategory SubCategory { get; set; }
-        public float PriceEx { get; }
-        public bool InMenu { get; }
+        public string FullName { get; set; }
+        public Category Category { get; set;  }
+        public SubCategory SubCategory { get; set; }
+        public float PriceEx { get; set; }
         public int Stock { get; set; }
+        public bool InMenu { get; set;  }
 
-        public MenuItem(string shortName, string fullName, Category category, Subcategory subCategory, float priceEx, bool inMenu, int stock)
+        public MenuItem(string shortName, string fullName, Category category, SubCategory subCategory, float priceEx, int stock, bool inMenu)
         {
             ShortName = shortName;
             FullName = fullName;
             Category = category;
             SubCategory = subCategory;
             PriceEx = priceEx;
-            InMenu = inMenu;
             Stock = stock;
+            InMenu = inMenu;
         }
-        public MenuItem(int id, string shortName, string fullName, Category category, Subcategory subCategory, float priceEx, bool inMenu, int stock)
+        public MenuItem(int id, string shortName, string fullName, Category category, SubCategory subCategory, float priceEx, int stock, bool inMenu)
         {
             Id = id;
             ShortName = shortName;
@@ -35,8 +35,8 @@ namespace Model
             Category = category;
             SubCategory = subCategory;
             PriceEx = priceEx;
-            InMenu = inMenu;
             Stock = stock;
+            InMenu = inMenu;
         }
         public MenuItem()
         {
