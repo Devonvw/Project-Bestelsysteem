@@ -9,20 +9,19 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Model;
 using Controller;
-
+using View.Forms.Order_Screens.Observer;
 
 namespace View.Forms.Order_Screens
 {
-    public partial class Overview : Form
+    public partial class Overview : Form, IObserver
     {
         private Form activeForm;
-        private List<OrderItem> orderItems;
-        private List<OrderItem> lastOrderItems;
+        private List<OrderItem> orderItems;       
         private Staff staff;
         private Bill bill;
         private OrderController orderController;
         private BillController billController;
-
+        private OrderStatus OrderStatus;
 
         public Overview(List<OrderItem> orderItems, Bill bill, Staff staff)
         {
@@ -30,6 +29,9 @@ namespace View.Forms.Order_Screens
             this.orderItems = orderItems;
             this.staff = staff;
             this.bill = bill;
+            OrderStatus = new OrderStatus(bill);
+            OrderStatus.Register(this);
+
             if (orderItems != null)
             {
                 FillListView(bonOverzichtListView, orderItems);
@@ -91,6 +93,20 @@ namespace View.Forms.Order_Screens
         private void groupItemsToggle_CheckedChanged(object sender, EventArgs e)
         {
             // search for similar items and group them ignoring ready/not ready and comments
+        }
+
+        // Update
+
+        public void Update(OrderStatus orderStatus)
+        {
+            OrderStatus.Bill = orderStatus.Bill;
+            OrderStatus.Timer = orderStatus.Timer;            
+        }
+
+        public void UpdateOrderItems()
+        {
+            this.orderItems = billController.GetOrderItems(bill);
+            FillListView(bonOverzichtListView, orderItems);
         }
     }
 }

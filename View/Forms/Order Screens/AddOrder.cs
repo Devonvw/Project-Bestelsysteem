@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Model;
 using Controller;
 using View.Forms.Order_Screens;
+using View.Forms.Order_Screens.Observer;
 
 namespace View.Forms.Order_Screens
 {
@@ -25,6 +26,8 @@ namespace View.Forms.Order_Screens
         private List<OrderItem> newOrderItems = new List<OrderItem>();
         private int amount = 1;
         private Form activeForm;
+        private OrderStatus status;
+        
 
         // constructor
         public AddOrder(List<OrderItem> orderItems, Bill bill, Staff staff)
@@ -215,7 +218,7 @@ namespace View.Forms.Order_Screens
         {
             Order order = new Order(staff.Id, DateTime.Now);
             order.OrderItems = newOrderItems;
-            orderController.InsertOrder(bill, order);
+            orderController.InsertOrder(bill, order);           
             OpenChildForm(new Forms.Order_Screens.Overview(oldOrderItems, bill, staff));
         }
 
@@ -384,6 +387,5 @@ namespace View.Forms.Order_Screens
             childForm.BringToFront();
             childForm.Show();
         }
-
     }
 }
