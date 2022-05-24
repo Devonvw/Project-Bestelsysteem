@@ -38,6 +38,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.overViewPanel = new System.Windows.Forms.Panel();
+            this.ChangeOrderButton = new View.CustomControls.CustomButton();
             this.orderInPreparationToggle = new View.CustomControls.ToggleButton();
             this.groupItemsToggle = new View.CustomControls.ToggleButton();
             this.backToTablesButton = new View.CustomControls.CustomButton();
@@ -101,6 +102,8 @@
             this.MenuItem,
             this.Amount,
             this.Comment});
+            this.billOverViewListView.FullRowSelect = true;
+            this.billOverViewListView.GridLines = true;
             this.billOverViewListView.HideSelection = false;
             this.billOverViewListView.Location = new System.Drawing.Point(10, 25);
             this.billOverViewListView.Name = "billOverViewListView";
@@ -176,6 +179,7 @@
             // 
             // overViewPanel
             // 
+            this.overViewPanel.Controls.Add(this.ChangeOrderButton);
             this.overViewPanel.Controls.Add(this.bonOverzichtLabel);
             this.overViewPanel.Controls.Add(this.orderInPreparationToggle);
             this.overViewPanel.Controls.Add(this.groupItemsToggle);
@@ -188,6 +192,25 @@
             this.overViewPanel.Name = "overViewPanel";
             this.overViewPanel.Size = new System.Drawing.Size(428, 795);
             this.overViewPanel.TabIndex = 19;
+            // 
+            // ChangeOrderButton
+            // 
+            this.ChangeOrderButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(58)))), ((int)(((byte)(118)))));
+            this.ChangeOrderButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(58)))), ((int)(((byte)(118)))));
+            this.ChangeOrderButton.BorderColor = System.Drawing.Color.White;
+            this.ChangeOrderButton.BorderRadius = 20;
+            this.ChangeOrderButton.BorderSize = 1;
+            this.ChangeOrderButton.FlatAppearance.BorderSize = 0;
+            this.ChangeOrderButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ChangeOrderButton.ForeColor = System.Drawing.Color.White;
+            this.ChangeOrderButton.Location = new System.Drawing.Point(223, 621);
+            this.ChangeOrderButton.Name = "ChangeOrderButton";
+            this.ChangeOrderButton.Size = new System.Drawing.Size(193, 70);
+            this.ChangeOrderButton.TabIndex = 18;
+            this.ChangeOrderButton.Text = "Wijzig bestelling";
+            this.ChangeOrderButton.TextColor = System.Drawing.Color.White;
+            this.ChangeOrderButton.UseVisualStyleBackColor = false;
+            this.ChangeOrderButton.Click += new System.EventHandler(this.ChangeOrderButton_Click);
             // 
             // orderInPreparationToggle
             // 
@@ -452,7 +475,7 @@
             this.changeItemButton.FlatAppearance.BorderSize = 0;
             this.changeItemButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.changeItemButton.ForeColor = System.Drawing.Color.White;
-            this.changeItemButton.Location = new System.Drawing.Point(304, 583);
+            this.changeItemButton.Location = new System.Drawing.Point(308, 638);
             this.changeItemButton.Name = "changeItemButton";
             this.changeItemButton.Size = new System.Drawing.Size(103, 37);
             this.changeItemButton.TabIndex = 27;
@@ -473,7 +496,7 @@
             this.clearOrderButton.FlatAppearance.BorderSize = 0;
             this.clearOrderButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.clearOrderButton.ForeColor = System.Drawing.Color.Black;
-            this.clearOrderButton.Location = new System.Drawing.Point(10, 583);
+            this.clearOrderButton.Location = new System.Drawing.Point(14, 638);
             this.clearOrderButton.Name = "clearOrderButton";
             this.clearOrderButton.Size = new System.Drawing.Size(109, 37);
             this.clearOrderButton.TabIndex = 26;
@@ -593,7 +616,7 @@
             this.deleteItemFromOrderButton.FlatAppearance.BorderSize = 0;
             this.deleteItemFromOrderButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.deleteItemFromOrderButton.ForeColor = System.Drawing.Color.Black;
-            this.deleteItemFromOrderButton.Location = new System.Drawing.Point(124, 583);
+            this.deleteItemFromOrderButton.Location = new System.Drawing.Point(128, 638);
             this.deleteItemFromOrderButton.Name = "deleteItemFromOrderButton";
             this.deleteItemFromOrderButton.Size = new System.Drawing.Size(109, 37);
             this.deleteItemFromOrderButton.TabIndex = 25;
@@ -854,9 +877,9 @@
             this.backToOverviewButton.FlatAppearance.BorderSize = 0;
             this.backToOverviewButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backToOverviewButton.ForeColor = System.Drawing.Color.White;
-            this.backToOverviewButton.Location = new System.Drawing.Point(21, 713);
+            this.backToOverviewButton.Location = new System.Drawing.Point(10, 713);
             this.backToOverviewButton.Name = "backToOverviewButton";
-            this.backToOverviewButton.Size = new System.Drawing.Size(184, 70);
+            this.backToOverviewButton.Size = new System.Drawing.Size(195, 70);
             this.backToOverviewButton.TabIndex = 12;
             this.backToOverviewButton.Text = "Annuleer bestelling";
             this.backToOverviewButton.TextColor = System.Drawing.Color.White;
@@ -869,12 +892,13 @@
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3});
+            this.newOrderItemsListView.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.newOrderItemsListView.FullRowSelect = true;
             this.newOrderItemsListView.GridLines = true;
             this.newOrderItemsListView.HideSelection = false;
             this.newOrderItemsListView.Location = new System.Drawing.Point(10, 453);
             this.newOrderItemsListView.Name = "newOrderItemsListView";
-            this.newOrderItemsListView.Size = new System.Drawing.Size(397, 124);
+            this.newOrderItemsListView.Size = new System.Drawing.Size(397, 179);
             this.newOrderItemsListView.TabIndex = 5;
             this.newOrderItemsListView.UseCompatibleStateImageBehavior = false;
             this.newOrderItemsListView.View = System.Windows.Forms.View.Details;
@@ -907,7 +931,7 @@
             this.insertOrderButton.ForeColor = System.Drawing.Color.White;
             this.insertOrderButton.Location = new System.Drawing.Point(226, 713);
             this.insertOrderButton.Name = "insertOrderButton";
-            this.insertOrderButton.Size = new System.Drawing.Size(183, 70);
+            this.insertOrderButton.Size = new System.Drawing.Size(190, 70);
             this.insertOrderButton.TabIndex = 11;
             this.insertOrderButton.Text = "Plaats bestelling";
             this.insertOrderButton.TextColor = System.Drawing.Color.White;
@@ -941,8 +965,8 @@
             this.ClientSize = new System.Drawing.Size(428, 795);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.addOrderPanel);
             this.Controls.Add(this.overViewPanel);
+            this.Controls.Add(this.addOrderPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Overview";
@@ -1024,5 +1048,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private CustomControls.CustomButton insertOrderButton;
         private CustomControls.CustomButton addItemButton;
+        private CustomControls.CustomButton ChangeOrderButton;
     }
 }

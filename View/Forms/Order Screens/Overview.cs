@@ -25,6 +25,7 @@ namespace View.Forms.Order_Screens
         private List<Model.MenuItem> menuItems;
         private List<OrderItem> newOrderItems = new List<OrderItem>();
         private List<OrderItem> orderItemsInPreparation = new List<OrderItem>();
+        private List<OrderItem> rearrangedList = new List<OrderItem>();
 
         // Controllers
         private MenuController menuController = new MenuController();
@@ -41,7 +42,6 @@ namespace View.Forms.Order_Screens
             this.staff = staff;
             this.bill = bill;
             this.menuItems = menuController.GetMenuItems();
-
             // Init
             SetActivePanel(overViewPanel);
             if (orderItems != null)
@@ -86,7 +86,10 @@ namespace View.Forms.Order_Screens
         {
             SetActivePanel(addOrderPanel);
         }
-
+        private void ChangeOrderButton_Click(object sender, EventArgs e)
+        {
+            
+        }
         private void backToTablesButton_Click(object sender, EventArgs e)
         {
             Close();
@@ -95,7 +98,6 @@ namespace View.Forms.Order_Screens
         // Panel Overview: Toggles
         private void orderInPreparationToggle_CheckedChanged(object sender, EventArgs e)
         {
-            orderItemsInPreparation.Clear();
             if (!orderInPreparationToggle.Checked)
             {
                 foreach (OrderItem item in orderItems)
@@ -109,14 +111,22 @@ namespace View.Forms.Order_Screens
             }
             else
             {
+                orderItemsInPreparation.Clear();
                 FillBillOverView(orderItems);
             }
         }
         private void groupItemsToggle_CheckedChanged(object sender, EventArgs e)
         {
+            rearrangedList.Clear();
             if (groupItemsToggle.Checked)
             {
-                // search for similar items and group them ignoring ready/not ready and commnts
+                foreach(OrderItem item in orderItems)
+                {
+                    if (true)
+                    {
+                        rearrangedList.Add(item);
+                    }
+                }
             }
         }
 
@@ -455,5 +465,7 @@ namespace View.Forms.Order_Screens
         {
             SetActivePanel(overViewPanel);
         }
+
+
     }
 }
