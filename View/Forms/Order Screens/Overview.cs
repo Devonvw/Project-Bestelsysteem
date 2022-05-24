@@ -386,8 +386,6 @@ namespace View.Forms.Order_Screens
             dinerSubPanel.Hide();
         }
 
-
-
         // nav buttons subcategories
         private void bierButton_Click(object sender, EventArgs e)
         {
