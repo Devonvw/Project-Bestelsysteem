@@ -14,8 +14,20 @@ namespace Model
         public Category Category { get; }
         public int SubcategoryId { get; }
         public float PriceEx { get; }
+        public bool InMenu { get; }
+        public int Stock { get; set; }
 
-        public MenuItem(int id, string shortName, string fullName, Category category, int subcategoryId, float priceEx)
+        public MenuItem(string shortName, string fullName, Category category, int subcategoryId, float priceEx, bool inMenu, int stock)
+        {
+            ShortName = shortName;
+            FullName = fullName;
+            Category = category;
+            SubcategoryId = subcategoryId;
+            PriceEx = priceEx;
+            InMenu = inMenu;
+            Stock = stock;
+        }
+        public MenuItem(int id, string shortName, string fullName, Category category, int subcategoryId, float priceEx, bool inMenu, int stock)
         {
             Id = id;
             ShortName = shortName;
@@ -23,6 +35,8 @@ namespace Model
             Category = category;
             SubcategoryId = subcategoryId;
             PriceEx = priceEx;
+            InMenu = inMenu;
+            Stock = stock;
         }
     }
 }

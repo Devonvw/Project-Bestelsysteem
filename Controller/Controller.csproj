@@ -52,6 +52,7 @@
     <Compile Include="OrderController.cs" />
     <Compile Include="BillController.cs" />
     <Compile Include="LoginController.cs" />
+    <Compile Include="StockController.cs" />
     <Compile Include="StudentService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
