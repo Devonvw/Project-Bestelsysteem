@@ -15,6 +15,10 @@ namespace Model
         public SubCategory SubCategory { get; set; } // subcategory class/enum
         public float PriceEx { get; set; }
 
+        public int Stock { get; set; }
+
+        public bool inMenu { get; set; }
+
 
         public MenuItem(int id, string shortName, string fullName, Category category, SubCategory subCategory, float priceEx)
         {

@@ -13,96 +13,447 @@ using View.Forms.Order_Screens.Observer;
 
 namespace View.Forms.Order_Screens
 {
-    public partial class Overview : Form/*, IObserver*/
+    public partial class Overview : Form
     {
-        private Form activeForm;
-        private List<OrderItem> orderItems;       
+        // fields     
         private Staff staff;
         private Bill bill;
-        private OrderController orderController;
-        private BillController billController;
+        private int amount;
+        private Panel activePanel;
+        // Lists
+        private List<OrderItem> orderItems;
+        private List<Model.MenuItem> menuItems;
+        private List<OrderItem> newOrderItems = new List<OrderItem>();
+        private List<OrderItem> orderItemsInPreparation = new List<OrderItem>();
 
+        // Controllers
+        private MenuController menuController = new MenuController();
+        private OrderController orderController = new OrderController();
+        private BillController billController = new BillController();
+
+
+        // constructor
         public Overview(List<OrderItem> orderItems, Bill bill, Staff staff)
         {
             InitializeComponent();
+            // set fields
             this.orderItems = orderItems;
             this.staff = staff;
             this.bill = bill;
+            this.menuItems = menuController.GetMenuItems();
+
+            // Init
+            SetActivePanel(overViewPanel);
             if (orderItems != null)
             {
-                FillListView(bonOverzichtListView, orderItems);
+                FillBillOverView(orderItems);
             }
+            FillMenuListView(menuItems);
         }
 
-        public void FillListView(ListView listView, List<OrderItem> orderItems)
+
+        // method for setting panel
+        public void SetActivePanel(Panel panel)
         {
-            bonOverzichtListView.Items.Clear();
+            if (activePanel != null)
+            {
+                activePanel.Hide();
+            }
+            activePanel = panel;
+            panel.Show();
+        }
+
+        // Panel Overview
+        public void FillBillOverView(List<OrderItem> orderItems)
+        {
+            billOverViewListView.Items.Clear();
             foreach (OrderItem item in orderItems)
             {
                 ListViewItem listViewItem = new ListViewItem(item.MenuItem.ShortName.ToString());
                 listViewItem.SubItems.Add(item.Amount.ToString());
                 listViewItem.SubItems.Add(item.Comment.ToString());
-                listView.Items.Add(listViewItem);
+                billOverViewListView.Items.Add(listViewItem);
             }
         }
 
+        public void UpdateBillOverview()
+        {
+            orderItems = billController.GetOrderItems(bill);
+            FillBillOverView(orderItems);
+        }
+        // Panel Overview: Button Clicks
         private void newOrderButton_Click(object sender, EventArgs e)
-        {           
-            OpenChildForm(new Forms.Order_Screens.AddOrder(orderItems, bill, staff));
+        {
+            SetActivePanel(addOrderPanel);
         }
 
-        private void backButton_Click(object sender, EventArgs e)
+        private void backToTablesButton_Click(object sender, EventArgs e)
         {
             Close();
         }
 
-
-        public void OpenChildForm(Form childForm)
+        // Panel Overview: Toggles
+        private void orderInPreparationToggle_CheckedChanged(object sender, EventArgs e)
         {
-            if (activeForm != null)
-                activeForm.Close();
-            activeForm = childForm;
-            childForm.TopLevel = false;
-            childForm.FormBorderStyle = FormBorderStyle.None;
-            childForm.Dock = DockStyle.Fill;
-            this.overViewPanel.Controls.Add(childForm);
-            this.overViewPanel.Tag = childForm;
-            childForm.Size = overViewPanel.Size;
-            childForm.BringToFront();
-            childForm.Show();
-        }
-
-        private void toggleButton2_CheckedChanged(object sender, EventArgs e)
-        {
+            orderItemsInPreparation.Clear();
             if (!orderInPreparationToggle.Checked)
             {
-                // show orderitems where isReady = false
+                foreach (OrderItem item in orderItems)
+                {
+                    if (item.Ready == false)
+                    {
+                        orderItemsInPreparation.Add(item);
+                        FillBillOverView(orderItemsInPreparation);
+                    }
+                }
+            }
+            else
+            {
+                FillBillOverView(orderItems);
+            }
+        }
+        private void groupItemsToggle_CheckedChanged(object sender, EventArgs e)
+        {
+            if (groupItemsToggle.Checked)
+            {
+                // search for similar items and group them ignoring ready/not ready and commnts
             }
         }
 
-        private void changeOrderButton_Click(object sender, EventArgs e)
+
+
+
+
+
+        // Panel Add Order
+        // Panel Add Order: Listviews
+        private void FillMenuListView(List<Model.MenuItem> menuItems)
         {
-            // get orderitems where isReady = false
-            // change values/amount of items
+            menuItemsListView.Items.Clear();
+            foreach (Model.MenuItem item in menuItems)
+            {
+                ListViewItem listViewItem = new ListViewItem(item.Id.ToString());
+                listViewItem.SubItems.Add(item.ShortName.ToString());
+                menuItemsListView.Items.Add(listViewItem);
+            }
         }
 
-        private void groupItemsToggle_CheckedChanged(object sender, EventArgs e)
+        public void FillNewOrderListView(List<OrderItem> orderItems)
         {
-            // search for similar items and group them ignoring ready/not ready and comments
+            newOrderItemsListView.Items.Clear();
+            foreach (OrderItem item in orderItems)
+            {
+                ListViewItem listViewItem = new ListViewItem(item.MenuItem.ShortName.ToString());
+                listViewItem.SubItems.Add(item.Amount.ToString());
+                listViewItem.SubItems.Add(item.Comment.ToString());
+                newOrderItemsListView.Items.Add(listViewItem);
+            }
         }
 
-        // Update
+        private void RearrangeOrderList(List<OrderItem> newOrderItems)
+        {
+            // create a new order lists where same items get added 
+            throw new NotImplementedException();
+        }
 
-        //public void Update(OrderStatus orderStatus)
-        //{
-        //    OrderStatus.Bill = orderStatus.Bill;
-        //    OrderStatus.Timer = orderStatus.Timer;            
-        //}
+        private void menuItemsListView_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
+        {
+            hideButtons();
+            addItemButton.BackgroundColor = Color.MediumSlateBlue;
+            addItemButton.Enabled = true;
+            commentAndAmountPanel.Visible = true;
+        }
+        private void newOrderItemsListView_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
+        {
+            hideButtons();
+            deleteItemFromOrderButton.Visible = true;
+            deleteItemFromOrderButton.Enabled = true;
+            commentAndAmountPanel.Visible = true;
+            clearOrderButton.Visible = true;
+            changeItemButton.Visible = true;
+            changeItemButton.Enabled = true;
+            changeItemButton.BackColor = Color.MediumSlateBlue;
+        }
 
-        //public void UpdateOrderItems()
-        //{
-        //    this.orderItems = billController.GetOrderItems(bill);
-        //    FillListView(bonOverzichtListView, orderItems);
-        //}
+        private void hideButtons()
+        {
+            addItemButton.BackgroundColor = Color.LightSlateGray;
+            addItemButton.Enabled = false;
+            changeItemButton.BackgroundColor = Color.LightSlateGray;
+            changeItemButton.Enabled = false;
+            deleteItemFromOrderButton.Visible = false;
+            clearOrderButton.Visible = false;
+        }
+
+        // methods for adding items
+        private void addItemButton_Click(object sender, EventArgs e)
+        {
+            addItemToOrderList(newOrderItems);
+            //RearrangeOrderList(newOrderItems);
+            FillNewOrderListView(newOrderItems);
+            clearOrderButton.Enabled = true;
+        }
+
+        private void addItemToOrderList(List<OrderItem> newOrderItems)
+        {
+            Model.MenuItem menuItem = new Model.MenuItem();
+            menuItem.Id = int.Parse(menuItemsListView.SelectedItems[0].SubItems[0].Text);
+            menuItem.ShortName = menuItemsListView.SelectedItems[0].SubItems[1].Text;
+            OrderItem orderItem = new OrderItem();
+            orderItem.MenuItem = menuItem;
+            orderItem.Amount = amount;
+            orderItem.Comment = addCommentTextBox.Text;
+            if (orderItem.Amount != 0)
+            {
+                newOrderItems.Add(orderItem);
+            }
+            amount = 1;
+            SetAmount();
+            addCommentTextBox.Clear();
+        }
+
+        private void SetAmount()
+        {
+            amountLabel.Text = amount.ToString();
+        }
+        private void GetAmount()
+        {
+            amount = int.Parse(amountLabel.Text);
+        }
+
+
+
+        // methods for deleting/change/clearing new order
+
+        private void deleteOrderItemFromList()
+        {
+            foreach (OrderItem orderItem in newOrderItems)
+            {
+                if (orderItem.MenuItem.ShortName == newOrderItemsListView.SelectedItems[0].SubItems[0].Text)
+                {
+                    newOrderItems.Remove(orderItem);
+                    break;
+                }
+            }
+            FillNewOrderListView(newOrderItems);
+        }
+
+        private void changeOrderItem()
+        {
+            foreach (OrderItem orderItem in newOrderItems)
+            {
+                if (orderItem.MenuItem.ShortName == newOrderItemsListView.SelectedItems[0].SubItems[0].Text && (orderItem.Amount).ToString() == newOrderItemsListView.SelectedItems[0].SubItems[1].Text && orderItem.Comment == newOrderItemsListView.SelectedItems[0].SubItems[2].Text)
+                {
+                    GetAmount();
+                    orderItem.MenuItem.ShortName = newOrderItemsListView.SelectedItems[0].SubItems[0].Text;
+                    orderItem.Amount = amount;
+                    orderItem.Comment = addCommentTextBox.Text;
+                    break;
+                }
+            }
+            FillNewOrderListView(newOrderItems);
+            amount = 1;
+            SetAmount();
+            addCommentTextBox.Clear();
+            hideButtons();
+        }
+
+
+        // button clicks deleting/change/clearing new order
+        private void deleteItemFromOrderButton_Click(object sender, EventArgs e)
+        {
+            deleteOrderItemFromList();
+        }
+
+
+        private void changeButton_Click(object sender, EventArgs e)
+        {
+            changeOrderItem();
+        }
+
+        private void clearOrderButton_Click(object sender, EventArgs e)
+        {
+            newOrderItems.Clear();
+            FillNewOrderListView(newOrderItems);
+        }
+
+        private void plusButton_Click(object sender, EventArgs e)
+        {
+            GetAmount();
+            amount++;
+            SetAmount();
+        }
+
+        private void minusButton_Click(object sender, EventArgs e)
+        {
+            GetAmount();
+            amount--;
+            SetAmount();
+        }
+
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            //if (newOrderItems != null)
+            //{
+
+            //}
+            this.Close();
+        }
+
+        private void insertOrderButton_Click(object sender, EventArgs e)
+        {
+            Order order = new Order(staff.Id, DateTime.Now);
+            order.OrderItems = newOrderItems;
+            orderController.InsertOrder(bill, order);
+            SetActivePanel(overViewPanel);
+            UpdateBillOverview();
+        }
+
+        // navigation methods
+        private List<Model.MenuItem> DistinctMenuByCategory(Category category)
+        {
+            List<Model.MenuItem> items = new List<Model.MenuItem>();
+            foreach (var item in menuItems)
+            {
+                if (item.Category == category)
+                {
+                    items.Add(item);
+                }
+            }
+            return items;
+        }
+
+        private List<Model.MenuItem> DistinctMenuBySubCategory(SubCategory subCategory)
+        {
+            List<Model.MenuItem> items = new List<Model.MenuItem>();
+            foreach (var item in menuItems)
+            {
+                if (item.SubCategory == subCategory)
+                {
+                    items.Add(item);
+                }
+            }
+            return items;
+        }
+
+        private void lunchButton_Click(object sender, EventArgs e)
+        {
+            List<Model.MenuItem> menuItems = DistinctMenuByCategory(Category.Lunch);
+            FillMenuListView(menuItems);
+            hideSubNavPanels();
+            lunchSubPanel.Show();
+        }
+
+        private void dinerButton_Click(object sender, EventArgs e)
+        {
+            List<Model.MenuItem> menuItems = DistinctMenuByCategory(Category.Diner);
+            FillMenuListView(menuItems);
+            hideSubNavPanels();
+            dinerSubPanel.Show();
+        }
+
+        private void drankenButton_Click(object sender, EventArgs e)
+        {
+            List<Model.MenuItem> menuItems = DistinctMenuByCategory(Category.NonAlcoholDrinks);
+            FillMenuListView(menuItems);
+            hideSubNavPanels();
+            drankenSubPanel.Show();
+        }
+
+        private void alcoholButton_Click(object sender, EventArgs e)
+        {
+            List<Model.MenuItem> menuItems = DistinctMenuByCategory(Category.AlcoholDrinks);
+            FillMenuListView(menuItems);
+            hideSubNavPanels();
+            alchoholSubPanel.Show();
+        }
+
+        private void hideSubNavPanels()
+        {
+            alchoholSubPanel.Hide();
+            drankenSubPanel.Hide();
+            lunchSubPanel.Hide();
+            dinerSubPanel.Hide();
+        }
+
+
+
+        // nav buttons subcategories
+        private void bierButton_Click(object sender, EventArgs e)
+        {
+            List<Model.MenuItem> menuItems = DistinctMenuBySubCategory(SubCategory.Bier);
+            FillMenuListView(menuItems);
+        }
+
+        private void wijnButton_Click(object sender, EventArgs e)
+        {
+            List<Model.MenuItem> menuItems = DistinctMenuBySubCategory(SubCategory.Wijn);
+            FillMenuListView(menuItems);
+        }
+
+        private void gedestilleerdButton_Click(object sender, EventArgs e)
+        {
+            List<Model.MenuItem> menuItems = DistinctMenuBySubCategory(SubCategory.GedistilleerdeDranken);
+            FillMenuListView(menuItems);
+        }
+
+        private void warmeDrankenButton_Click(object sender, EventArgs e)
+        {
+            List<Model.MenuItem> menuItems = DistinctMenuBySubCategory(SubCategory.WarmeDranken);
+            FillMenuListView(menuItems);
+        }
+
+        private void frisdrankButton_Click(object sender, EventArgs e)
+        {
+            List<Model.MenuItem> menuItems = DistinctMenuBySubCategory(SubCategory.Frisdrank);
+            FillMenuListView(menuItems);
+        }
+
+        private void lunchStarterButton_Click(object sender, EventArgs e)
+        {
+            List<Model.MenuItem> menuItems = DistinctMenuBySubCategory(SubCategory.LunchStarter);
+            FillMenuListView(menuItems);
+        }
+
+        private void lunchMainButton_Click(object sender, EventArgs e)
+        {
+            List<Model.MenuItem> menuItems = DistinctMenuBySubCategory(SubCategory.LunchMain);
+            FillMenuListView(menuItems);
+        }
+
+        private void lunchDesertButton_Click(object sender, EventArgs e)
+        {
+            List<Model.MenuItem> menuItems = DistinctMenuBySubCategory(SubCategory.LunchDesert);
+            FillMenuListView(menuItems);
+        }
+
+        private void dinerStarterButton_Click(object sender, EventArgs e)
+        {
+            List<Model.MenuItem> menuItems = DistinctMenuBySubCategory(SubCategory.Starter);
+            FillMenuListView(menuItems);
+        }
+
+        private void dinerSideButton_Click(object sender, EventArgs e)
+        {
+            List<Model.MenuItem> menuItems = DistinctMenuBySubCategory(SubCategory.Side);
+            FillMenuListView(menuItems);
+        }
+
+        private void dinerMainButton_Click(object sender, EventArgs e)
+        {
+            List<Model.MenuItem> menuItems = DistinctMenuBySubCategory(SubCategory.Main);
+            FillMenuListView(menuItems);
+        }
+
+        private void dinerDesertButton_Click(object sender, EventArgs e)
+        {
+            List<Model.MenuItem> menuItems = DistinctMenuBySubCategory(SubCategory.Desert);
+            FillMenuListView(menuItems);
+        }
+
+        private void backToOverviewButton_Click(object sender, EventArgs e)
+        {
+            SetActivePanel(overViewPanel);
+        }
     }
 }
