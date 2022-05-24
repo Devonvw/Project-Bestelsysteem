@@ -73,6 +73,7 @@
     <Compile Include="Bill.cs" />
     <Compile Include="DAL\ReservationDao.cs" />
     <Compile Include="DAL\StaffDao.cs" />
+    <Compile Include="DAL\StockDao.cs" />
     <Compile Include="DAL\TableDao.cs" />
     <Compile Include="Enums\SubCategory.cs" />
     <Compile Include="Login.cs" />
