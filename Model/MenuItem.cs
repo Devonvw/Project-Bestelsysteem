@@ -8,8 +8,8 @@ namespace Model
 {
     public class MenuItem
     {
-        public int Id { get; } 
-        public string ShortName { get; }
+        public int Id { get; set; } 
+        public string ShortName { get; set;  }
         public string FullName { get; }
         public Category Category { get; }
         public Subcategory SubCategory { get; set; }
@@ -37,6 +37,10 @@ namespace Model
             PriceEx = priceEx;
             InMenu = inMenu;
             Stock = stock;
+        }
+        public MenuItem()
+        {
+
         }
     }
 }

@@ -328,7 +328,7 @@ namespace View.Forms.Order_Screens
             List<Model.MenuItem> items = new List<Model.MenuItem>();
             foreach (var item in menuItems)
             {
-                if (item.SubCategory == subCategory)
+                if (item.SubCategory.ToString() == subCategory.ToString())
                 {
                     items.Add(item);
                 }
