@@ -23,7 +23,7 @@ namespace View.Forms.Order_Screens.Observer
 
         public void UpdateOrderItems()
         {
-
+            
         }
     }
 }

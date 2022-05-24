@@ -13,7 +13,7 @@ using View.Forms.Order_Screens.Observer;
 
 namespace View.Forms.Order_Screens
 {
-    public partial class Overview : Form, IObserver
+    public partial class Overview : Form/*, IObserver*/
     {
         private Form activeForm;
         private List<OrderItem> orderItems;       
@@ -21,7 +21,6 @@ namespace View.Forms.Order_Screens
         private Bill bill;
         private OrderController orderController;
         private BillController billController;
-        private OrderStatus OrderStatus;
 
         public Overview(List<OrderItem> orderItems, Bill bill, Staff staff)
         {
@@ -29,9 +28,6 @@ namespace View.Forms.Order_Screens
             this.orderItems = orderItems;
             this.staff = staff;
             this.bill = bill;
-            OrderStatus = new OrderStatus(bill);
-            OrderStatus.Register(this);
-
             if (orderItems != null)
             {
                 FillListView(bonOverzichtListView, orderItems);
@@ -97,16 +93,16 @@ namespace View.Forms.Order_Screens
 
         // Update
 
-        public void Update(OrderStatus orderStatus)
-        {
-            OrderStatus.Bill = orderStatus.Bill;
-            OrderStatus.Timer = orderStatus.Timer;            
-        }
+        //public void Update(OrderStatus orderStatus)
+        //{
+        //    OrderStatus.Bill = orderStatus.Bill;
+        //    OrderStatus.Timer = orderStatus.Timer;            
+        //}
 
-        public void UpdateOrderItems()
-        {
-            this.orderItems = billController.GetOrderItems(bill);
-            FillListView(bonOverzichtListView, orderItems);
-        }
+        //public void UpdateOrderItems()
+        //{
+        //    this.orderItems = billController.GetOrderItems(bill);
+        //    FillListView(bonOverzichtListView, orderItems);
+        //}
     }
 }

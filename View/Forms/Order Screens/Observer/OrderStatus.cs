@@ -11,7 +11,7 @@ namespace View.Forms.Order_Screens
 {
     public class OrderStatus : ISubject
     {
-        public List<IObserver> observers;
+        private List<IObserver> Observers { get; set; }
 
         public Bill Bill { get; set; }
 
@@ -19,7 +19,7 @@ namespace View.Forms.Order_Screens
 
         public OrderStatus(Bill bill)
         {
-            observers = new List<IObserver>();
+            Observers = new List<IObserver>();
             Bill = bill;
         }
 
@@ -31,22 +31,22 @@ namespace View.Forms.Order_Screens
 
         public void Register(IObserver observer)
         {
-            observers.Add(observer);
+            Observers.Add(observer);
         }
 
         public void Notify()
         {
-            foreach (IObserver observer in observers)
+            foreach (IObserver observer in Observers)
             {
                 OrderStatus orderStatus = new OrderStatus(Bill, Timer);
                 observer.Update(orderStatus);
-                observer.UpdateOrderItems();
+                observer.UpdateOrderItems();                
             }             
         }
 
         public void Unregister(IObserver observer)
         {
-            observers.Remove(observer);
+            Observers.Remove(observer);
         }
     }
 }
