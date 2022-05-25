@@ -28,5 +28,10 @@ namespace View.Forms.ManagementScreens
         {
 
         }
+
+        private void cbtnMenu_Click(object sender, EventArgs e)
+        {
+            mainForm.OpenChildForm(new MenuManagement(), sender);
+        }
     }
 }

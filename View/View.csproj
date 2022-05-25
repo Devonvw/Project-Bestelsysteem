@@ -71,6 +71,12 @@
     <Compile Include="Forms\Management.Designer.cs">
       <DependentUpon>Management.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ManagementScreens\MenuManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ManagementScreens\MenuManagement.Designer.cs">
+      <DependentUpon>MenuManagement.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ManagementScreens\OverviewManagement.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +115,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Management.resx">
       <DependentUpon>Management.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ManagementScreens\MenuManagement.resx">
+      <DependentUpon>MenuManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ManagementScreens\OverviewManagement.resx">
       <DependentUpon>OverviewManagement.cs</DependentUpon>

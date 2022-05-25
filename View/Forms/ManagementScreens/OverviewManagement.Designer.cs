@@ -75,6 +75,7 @@
             this.cbtnMenu.Text = "Menu";
             this.cbtnMenu.TextColor = System.Drawing.Color.White;
             this.cbtnMenu.UseVisualStyleBackColor = false;
+            this.cbtnMenu.Click += new System.EventHandler(this.cbtnMenu_Click);
             // 
             // cbtnWerknemers
             // 
