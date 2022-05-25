@@ -14,10 +14,18 @@ namespace View
     public partial class BestelsysteemUI : Form
     {
         private Form activeForm;
+
+        public struct Colors
+        {
+            public static Color blue = Color.FromArgb(09, 00, 30); // test voor iets 
+        }
         public BestelsysteemUI()
         {
             InitializeComponent();
+            this.BackColor = Colors.blue;
         }
+
+
         private void OpenChildForm(Form childForm, object btnSender)
         {
             if (activeForm != null)
@@ -32,27 +40,11 @@ namespace View
             childForm.Show();
         }
 
-        private void orderScreenButton_Click(object sender, EventArgs e)
+        private void orderScreenButton_click(object sender, EventArgs e)
         {
-            activeForm = new Forms.BillScreen();
+            OpenChildForm(new Forms.OrderScreenParent(), sender);
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if (activeForm != null)
-                activeForm.Close();
-            Table table = new Table();
-            table.Id = 1;
-            table.Occupied = true;
-            activeForm = new Forms.OrderScreen(table);
-            activeForm.TopLevel = false;
-            this.pnlForms.Controls.Add(activeForm);
-            this.pnlForms.Tag = activeForm;
-            activeForm.BringToFront();
-            activeForm.Show();
-        }
-
-        private void button2_Click_1(object sender, EventArgs e)
+        private void billScreenButton_click(object sender, EventArgs e)
         {
             if (activeForm != null)
                 activeForm.Close();

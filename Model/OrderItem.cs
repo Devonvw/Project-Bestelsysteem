@@ -29,5 +29,15 @@ namespace Model
             Ready = false;
             Amount = amount;
         }
+
+        public OrderItem(MenuItem menuItem, int amount)
+        {
+
+        }
+
+        public OrderItem()
+        {
+
+        }
     }
 }

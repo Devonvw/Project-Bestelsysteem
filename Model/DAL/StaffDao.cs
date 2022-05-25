@@ -30,6 +30,15 @@ namespace Model
             };
             ExecuteEditQuery(query, sqlParameters);
         }
+        public void RemoveStaff(Staff staff)
+        {
+            string query = "";
+            SqlParameter[] sqlParameters = new SqlParameter[]
+            {
+                new SqlParameter("@id", SqlDbType.Int) { Value = staff.Id },
+            };
+            ExecuteEditQuery(query, sqlParameters);
+        }
 
         private List<Staff> ReadTables(DataTable dataTable)
         {

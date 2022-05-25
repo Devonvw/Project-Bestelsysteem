@@ -12,10 +12,13 @@ using System.Diagnostics;
 namespace Model
 {
     public class BillDao : BaseDao
-    {      
+    {
+        const float highBtw = 1.21F;
+        const float lowBtw = 1.09F;
+
         public List<OrderItem> GetOrderItems(Bill bill)
         {
-            string query = "SELECT OI.*, MI.id as menuItemId, MI.shortName, MI.fullName, MI.categoryId, MI.subcategoryId, MI.priceEx FROM BillItems AS BI INNER JOIN Orders AS O ON BI.orderId = O.id INNER JOIN OrderItems AS OI ON O.id = OI.orderId INNER JOIN MenuItems AS MI ON OI.menuItemId = MI.id WHERE BI.billId = @id";
+            string query = "SELECT OI.*, MI.id as menuItemId, MI.shortName, MI.fullName, MI.categoryId, MI.subcategoryId, MI.priceEx, MI.stock, MI.inMenu FROM BillItems AS BI INNER JOIN Orders AS O ON BI.orderId = O.id INNER JOIN OrderItems AS OI ON O.id = OI.orderId INNER JOIN MenuItems AS MI ON OI.menuItemId = MI.id WHERE BI.billId = @id";
             SqlParameter[] sqlParameters = new SqlParameter[]
             {
                 new SqlParameter("@id", SqlDbType.Int) { Value = bill.Id }
@@ -33,11 +36,18 @@ namespace Model
             return ReadBill(ExecuteSelectQuery(query, sqlParameters));
         }
 
+        //public void GetLastOrderItems(Bill bill)
+        //{
+        //    
+        //}
+
         private (float totalPrice, float totalPriceEx) GetTotalBillPrice(int billId)
         {
-            string query = "SELECT Cast(SUM(MI.priceEx * OI.amount * CASE WHEN SC.highBtw = 'true' THEN 1.21 ELSE 1.09 END) AS DECIMAL(5, 2)) as totalPrice, SUM(MI.priceEx * OI.amount) as totalPriceEx FROM BillItems AS BI INNER JOIN Orders AS O ON BI.orderId = O.id INNER JOIN OrderItems AS OI ON O.id = OI.orderId INNER JOIN MenuItems AS MI ON OI.menuItemId = MI.id INNER JOIN Subcategory AS SC ON MI.subcategoryId = SC.id WHERE BI.billId = @id";
+            string query = "SELECT Cast(SUM(MI.priceEx * OI.amount * CASE WHEN SC.highBtw = 'true' THEN @highBtw ELSE @lowBtw END) AS DECIMAL(5, 2)) as totalPrice, SUM(MI.priceEx * OI.amount) as totalPriceEx FROM BillItems AS BI INNER JOIN Orders AS O ON BI.orderId = O.id INNER JOIN OrderItems AS OI ON O.id = OI.orderId INNER JOIN MenuItems AS MI ON OI.menuItemId = MI.id INNER JOIN Subcategory AS SC ON MI.subcategoryId = SC.id WHERE BI.billId = @id";
             SqlParameter[] sqlParameters = new SqlParameter[]
             {
+                new SqlParameter("@highBtw", SqlDbType.Float) { Value = highBtw },
+                new SqlParameter("@lowBtw", SqlDbType.Float) { Value = lowBtw },
                 new SqlParameter("@id", SqlDbType.Int) { Value = billId }
             };
             DataTable dt = ExecuteSelectQuery(query, sqlParameters);
@@ -69,8 +79,7 @@ namespace Model
 
             foreach (DataRow dr in dataTable.Rows)
             {
-
-                OrderItem orderItem = new OrderItem((int)dr["id"], (int)dr["orderId"], new MenuItem((int)dr["menuItemId"], dr["shortName"].ToString(), dr["fullName"].ToString(), (Category)(int)dr["categoryId"], (int)dr["subcategoryId"], float.Parse(dr["priceEx"].ToString())), (int)dr["amount"], dr["comment"].ToString(), (bool)dr["isReady"]);
+                OrderItem orderItem = new OrderItem((int)dr["id"], (int)dr["orderId"], new MenuItem((int)dr["menuItemId"], dr["shortName"].ToString(), dr["fullName"].ToString(), (Category)(int)dr["categoryId"], (SubCategory)(int)dr["subcategoryId"], float.Parse(dr["priceEx"].ToString()), (int)dr["stock"], (bool)dr["inMenu"]), (int)dr["amount"], dr["comment"].ToString(), (bool)dr["isReady"]);
                 orderItems.Add(orderItem);
             }
             return orderItems;
@@ -82,19 +91,17 @@ namespace Model
 
             (float totalPrice, float totalPriceEx) totalPrice = GetTotalBillPrice((int)firstRow["id"]);
 
-            Bill bill = new Bill((int)firstRow["id"], (int)firstRow["tableId"], new Staff((int)firstRow["staffId"], firstRow["firstName"].ToString(), firstRow["lastName"].ToString(), DateTime.Parse(firstRow["birthDate"].ToString()), (Roles)(int)firstRow["staffId"]), DateTime.Parse(firstRow["datetime"].ToString()), firstRow["comment"].ToString(), totalPrice.totalPrice, totalPrice.totalPriceEx, float.Parse(firstRow["tip"].ToString()), (bool)firstRow["payed"], (PaymentMethod)(int)firstRow["paymentMethodId"]);
+            Bill bill = new Bill((int)firstRow["id"], (int)firstRow["tableId"], new Staff((int)firstRow["staffId"], firstRow["firstName"].ToString(), firstRow["lastName"].ToString(), DateTime.Parse(firstRow["birthDate"].ToString()), (Roles)(int)firstRow["staffId"], firstRow["password"].ToString(), firstRow["email"].ToString()), DateTime.Parse(firstRow["datetime"].ToString()), firstRow["comment"].ToString(), totalPrice.totalPrice, totalPrice.totalPriceEx, float.Parse(firstRow["tip"].ToString()), (bool)firstRow["payed"], (PaymentMethod)(int)firstRow["paymentMethodId"]);
             return bill;
         }
 
-        public void CreateBill(Bill bill, Staff staff)
+        public void CreateBill(Table table, Staff staff)
         {
-            string query = "INSERT INTO Bills (tableId, staffId, tip, payed) VALUES (@tableID, @staffId, @tip, @payed)";
+            string query = "INSERT INTO Bills (tableId, staffId) VALUES (@tableID, @staffId)";
             SqlParameter[] sqlParameters = new SqlParameter[]
             {
-                new SqlParameter("@tableID", bill.TableId),
+                new SqlParameter("@tableID", table.Id),
                 new SqlParameter("@staffId", staff.Id),
-                new SqlParameter("@tip", bill.Tip),
-                new SqlParameter("@payed", bill.Payed),
             };
             ExecuteEditQuery(query, sqlParameters);
         }

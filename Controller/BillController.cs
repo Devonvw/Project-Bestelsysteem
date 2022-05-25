@@ -33,9 +33,9 @@ namespace Controller
             billDB.CloseBill(bill);
         }
 
-        public void CreateBill(Bill bill, Staff staff)
+        public void CreateBill(Table table, Staff staff)
         {
-            billDB.CreateBill(bill, staff);
+            billDB.CreateBill(table, staff);
         }
 
         public Bill CheckForOpenBillOnTable(Table table)
@@ -43,5 +43,10 @@ namespace Controller
             Bill bill = billDB.CheckForOpenBillOnTable(table);
             return bill;
         }
+
+        //public List<OrderItem> GetLastOrderItems(Bill bill)
+        //{
+        //    billDB.GetLastOrderItems(Bill bill);
+        //}
     }
 }

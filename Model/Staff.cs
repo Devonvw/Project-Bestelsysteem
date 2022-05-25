@@ -26,9 +26,9 @@ namespace Model
             Email = email;
             Password = password;
         }
+
         public Staff()
         {
-
         }
     }
 }

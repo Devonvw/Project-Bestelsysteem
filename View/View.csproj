@@ -53,32 +53,33 @@
     <Compile Include="BestelsysteemUI.Designer.cs">
       <DependentUpon>BestelsysteemUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomControls\CustomButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomControls\ToggleButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Forms\BillScreen.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\BillScreen.Designer.cs">
       <DependentUpon>BillScreen.cs</DependentUpon>
     </Compile>
-
-    <Compile Include="Forms\OrderScreen.cs">
-
-    <Compile Include="Forms\LoginScreen.cs">
+    <Compile Include="Forms\Order Screens\Observer\IObserver.cs" />
+    <Compile Include="Forms\Order Screens\Observer\ISubject.cs" />
+    <Compile Include="Forms\Order Screens\Observer\Observer.cs" />
+    <Compile Include="Forms\Order Screens\OrderScreenParent.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\LoginScreen.Designer.cs">
-      <DependentUpon>LoginScreen.cs</DependentUpon>
+    <Compile Include="Forms\Order Screens\OrderScreenParent.Designer.cs">
+      <DependentUpon>OrderScreenParent.cs</DependentUpon>
     </Compile>
-
+    <Compile Include="Forms\Order Screens\Observer\OrderStatus.cs" />
+    <Compile Include="Forms\Order Screens\Overview.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\OrderScreen.Designer.cs">
-      <DependentUpon>OrderScreen.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\RequestPasswordScreen.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\RequestPasswordScreen.Designer.cs">
-      <DependentUpon>RequestPasswordScreen.cs</DependentUpon>
+    <Compile Include="Forms\Order Screens\Overview.Designer.cs">
+      <DependentUpon>Overview.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -88,17 +89,11 @@
     <EmbeddedResource Include="Forms\BillScreen.resx">
       <DependentUpon>BillScreen.cs</DependentUpon>
     </EmbeddedResource>
-
-    <EmbeddedResource Include="Forms\OrderScreen.resx">
-      <DependentUpon>OrderScreen.cs</DependentUpon>
-
-    <EmbeddedResource Include="Forms\LoginScreen.resx">
-      <DependentUpon>LoginScreen.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Order Screens\OrderScreenParent.resx">
+      <DependentUpon>OrderScreenParent.cs</DependentUpon>
     </EmbeddedResource>
-
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\RequestPasswordScreen.resx">
-      <DependentUpon>RequestPasswordScreen.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Order Screens\Overview.resx">
+      <DependentUpon>Overview.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -136,7 +131,12 @@
       <Name>Model</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\icons8-tablecloth-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-tablecloth-100.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
