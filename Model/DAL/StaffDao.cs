@@ -39,7 +39,20 @@ namespace Model
             };
             ExecuteEditQuery(query, sqlParameters);
         }
-
+        public void UpdateStaff(Staff staff)
+        { 
+            string query = "UPDATE Staff SET firstName = @firstName, lastName = @lastName, birthDate = @birthdate, roleId = @roleId, email = @email WHERE id = @id";
+            SqlParameter[] sqlParameters = new SqlParameter[]
+            {
+                new SqlParameter("@id", SqlDbType.Int) { Value = staff.Id },
+                new SqlParameter("@firstName", SqlDbType.VarChar) { Value = staff.FirstName },
+                new SqlParameter("@lastName", SqlDbType.VarChar) { Value = staff.LastName },
+                new SqlParameter("@birthdate", SqlDbType.DateTime) { Value = staff.BirthDate },
+                new SqlParameter("@roleId", SqlDbType.Int) { Value = staff.Role },
+                new SqlParameter("@email", SqlDbType.VarChar) { Value = staff.Email },
+            };
+            ExecuteEditQuery(query, sqlParameters);
+        }
         private List<Staff> ReadTables(DataTable dataTable)
         {
             List<Staff> staffList = new List<Staff>();

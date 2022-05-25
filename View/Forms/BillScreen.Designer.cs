@@ -38,9 +38,9 @@
             this.rbContant = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.numTip = new System.Windows.Forms.NumericUpDown();
             this.lblTip = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
-            this.numTip = new System.Windows.Forms.NumericUpDown();
             this.panel1.SuspendLayout();
             this.pnlPaymentMethod.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -103,6 +103,7 @@
             this.pnlPaymentMethod.Name = "pnlPaymentMethod";
             this.pnlPaymentMethod.Size = new System.Drawing.Size(601, 219);
             this.pnlPaymentMethod.TabIndex = 8;
+            this.pnlPaymentMethod.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlPaymentMethod_Paint);
             // 
             // rbCreditcard
             // 
@@ -162,6 +163,7 @@
             this.label1.Size = new System.Drawing.Size(279, 66);
             this.label1.TabIndex = 2;
             this.label1.Text = "Betaalmethode";
+            this.label1.Click += new System.EventHandler(this.label1_Click_2);
             // 
             // panel3
             // 
@@ -172,6 +174,15 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(601, 142);
             this.panel3.TabIndex = 9;
+            // 
+            // numTip
+            // 
+            this.numTip.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.numTip.Location = new System.Drawing.Point(23, 69);
+            this.numTip.Name = "numTip";
+            this.numTip.Size = new System.Drawing.Size(183, 39);
+            this.numTip.TabIndex = 3;
+            this.numTip.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
             // 
             // lblTip
             // 
@@ -199,15 +210,6 @@
             this.btnSave.Text = "Opslaan";
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // numTip
-            // 
-            this.numTip.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.numTip.Location = new System.Drawing.Point(23, 69);
-            this.numTip.Name = "numTip";
-            this.numTip.Size = new System.Drawing.Size(183, 39);
-            this.numTip.TabIndex = 3;
-            this.numTip.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
             // 
             // BillScreen
             // 

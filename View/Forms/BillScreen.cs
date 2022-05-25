@@ -94,5 +94,15 @@ namespace View.Forms
         {
 
         }
+
+        private void pnlPaymentMethod_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label1_Click_2(object sender, EventArgs e)
+        {
+
+        }
     }
 }

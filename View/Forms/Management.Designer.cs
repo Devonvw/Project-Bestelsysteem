@@ -47,7 +47,7 @@
             // 
             this.pnlChild.Location = new System.Drawing.Point(4, 188);
             this.pnlChild.Name = "pnlChild";
-            this.pnlChild.Size = new System.Drawing.Size(1949, 840);
+            this.pnlChild.Size = new System.Drawing.Size(1949, 906);
             this.pnlChild.TabIndex = 4;
             // 
             // Management
@@ -55,7 +55,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(0)))), ((int)(((byte)(77)))));
-            this.ClientSize = new System.Drawing.Size(1953, 1040);
+            this.ClientSize = new System.Drawing.Size(1954, 1094);
             this.Controls.Add(this.pnlChild);
             this.Controls.Add(this.lblManagement);
             this.Name = "Management";

@@ -27,5 +27,13 @@ namespace Controller
         {
             menuDb.RemoveStaff(staff);
         }
+        public void UpdateStaff(Staff staff)
+        {
+            if (string.IsNullOrEmpty(staff.FirstName)) throw new Exception("De voornaam is nog niet ingevuld");
+            if (string.IsNullOrEmpty(staff.LastName)) throw new Exception("De achternaam is nog niet ingevuld");
+            if (string.IsNullOrEmpty(staff.Email)) throw new Exception("De email is nog niet ingevuld");
+
+            menuDb.UpdateStaff(staff);
+        }
     }
 }

@@ -15,15 +15,13 @@ namespace View.Forms.ManagementScreens
     public partial class StaffManagement : Form
     {
         private StaffController staffController;
-        public StaffManagement()
-        {
-            staffController = new StaffController();
-            InitializeComponent();
-        }
+        private List<Staff> staffList;
+        private Staff selectedStaff;
 
-        private void StaffManagement_Load(object sender, EventArgs e)
+        private void Reload()
         {
-            List<Staff> staffList = staffController.GetAllStaff();
+            staffList = staffController.GetAllStaff();
+            ltvStaff.Items.Clear();
             staffList.ForEach(staff =>
             {
                 ListViewItem listViewItem = new ListViewItem(staff.FirstName);
@@ -35,7 +33,115 @@ namespace View.Forms.ManagementScreens
                 ltvStaff.Items.Add(listViewItem);
             });
         }
+        public StaffManagement()
+        {
+            staffController = new StaffController();
+            InitializeComponent();
+        }
 
+        private void StaffManagement_Load(object sender, EventArgs e)
+        {
+            Reload();
+        }
 
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ltvStaff_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ltvStaff.SelectedItems.Count > 0)
+            {
+                selectedStaff = (Staff)staffList.Where(staff => staff.Id == int.Parse(ltvStaff.SelectedItems[0].Tag.ToString())).ToList()[0].Clone();
+                tbxFirstName.Text = selectedStaff.FirstName;
+                tbxLastname.Text = selectedStaff.LastName;
+                tbxEmail.Text = selectedStaff.Email;
+                dtpBirthdate.Value = selectedStaff.BirthDate;
+                switch (selectedStaff.Role)
+                {
+                    case Roles.Manager:
+                        rbtnManager.Checked = true;
+                        break;
+                    case Roles.Bartender:
+                        rbtnBartender.Checked = true;
+                        break;
+                    case Roles.Waiter:
+                        rbtnWaiter.Checked = true;
+                        break;
+                    case Roles.Chef:
+                        rbtnChef.Checked = true;
+                        break;
+                }
+            }
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbxFirstName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Roles selectedRole = Roles.None;
+                if (rbtnManager.Checked) selectedRole = Roles.Manager;
+                else if (rbtnBartender.Checked) selectedRole = Roles.Bartender;
+                else if (rbtnWaiter.Checked) selectedRole = Roles.Waiter;
+                else if (rbtnChef.Checked) selectedRole = Roles.Chef;
+
+                if (ltvStaff.SelectedItems.Count > 0)
+                {
+                    selectedStaff.FirstName = tbxFirstName.Text;
+                    selectedStaff.LastName = tbxLastname.Text;
+                    selectedStaff.Email = tbxEmail.Text;
+                    selectedStaff.BirthDate = dtpBirthdate.Value;
+                    selectedStaff.Role = selectedRole;
+                    staffController.UpdateStaff(selectedStaff);
+                    Reload();
+                }
+                else
+                {
+                    //staffController.AddStaff(new Staff(tbxFirstName.Text, tbxLastname.Text, dtpBirthdate.Value, selectedRole, tbxEmail.Text));
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ltvStaff.SelectedItems.Count > 0)
+                {
+                    staffController.RemoveStaff(selectedStaff);
+                    Reload();
+                }
+                else throw new Exception("Selecteer eerst een werknemer");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }
