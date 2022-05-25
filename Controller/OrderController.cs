@@ -46,9 +46,9 @@ namespace Controller
             orderDB.DeleteOrder(bill, order);
         }
 
-        public void DeleteBillItems(Bill bill, Order order)
-        {
-            orderDB.DeleteBillItems(bill, order); // Wss niet nodig
-        }      
+        //public void GetLastOrder(Bill bill)
+        //{
+        //    orderDB.GetLastOrder(bill);
+        //}
     }
 }

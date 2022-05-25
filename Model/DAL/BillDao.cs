@@ -97,7 +97,7 @@ namespace Model
 
         public void CreateBill(Table table, Staff staff)
         {
-            string query = "INSERT INTO Bills (tableId, staffId) VALUES (@tableID, @staffId)";
+            string query = "INSERT INTO Bills (tableId, staffId, tip, payed) VALUES (@tableID, @staffId, 0, 'false')";
             SqlParameter[] sqlParameters = new SqlParameter[]
             {
                 new SqlParameter("@tableID", table.Id),

@@ -26,6 +26,8 @@ namespace View.Forms.Order_Screens
         private List<OrderItem> newOrderItems = new List<OrderItem>();
         private List<OrderItem> orderItemsInPreparation = new List<OrderItem>();
         private List<OrderItem> rearrangedList = new List<OrderItem>();
+        private List<Order> orders = new List<Order>();
+        private List<OrderItem> lastOrderItems = new List<OrderItem>();
 
         // Controllers
         private MenuController menuController = new MenuController();
@@ -53,7 +55,7 @@ namespace View.Forms.Order_Screens
 
 
         // method for setting panel
-        public void SetActivePanel(Panel panel)
+        private void SetActivePanel(Panel panel)
         {
             if (activePanel != null)
             {
@@ -64,7 +66,7 @@ namespace View.Forms.Order_Screens
         }
 
         // Panel Overview
-        public void FillBillOverView(List<OrderItem> orderItems)
+        private void FillBillOverView(List<OrderItem> orderItems)
         {
             billOverViewListView.Items.Clear();
             foreach (OrderItem item in orderItems)
@@ -88,8 +90,28 @@ namespace View.Forms.Order_Screens
         }
         private void ChangeOrderButton_Click(object sender, EventArgs e)
         {
-            
+            this.overViewPanel.Controls.Add(commentAndAmountPanel);
+            commentAndAmountPanel.BringToFront();
+            commentAndAmountPanel.Show();
+            commentAndAmountPanel.Location = new Point(10, 487);
+            ChangeOrderButton.Hide();
+            togglePanel.Hide();
+            updateItemButton.Show();
+            //lastOrderItems = GetLastOrderItems();
+            FillBillOverView(lastOrderItems);
         }
+
+        //private List<OrderItem> GetLastOrderItems()
+        //{
+        //    GetLastOrderID(bill);
+        //    return orderItems;
+        //}
+
+        //private void GetLastOrderID()
+        //{
+        //    orderController.GetLastOrderId(bill);
+        //}
+
         private void backToTablesButton_Click(object sender, EventArgs e)
         {
             Close();
@@ -199,9 +221,10 @@ namespace View.Forms.Order_Screens
         private void addItemButton_Click(object sender, EventArgs e)
         {
             addItemToOrderList(newOrderItems);
-            //RearrangeOrderList(newOrderItems);
+            //RearrangeOrderList(newOrderItems); // not yet implemented
             FillNewOrderListView(newOrderItems);
             clearOrderButton.Enabled = true;
+            insertOrderButton.Enabled = true;
         }
 
         private void addItemToOrderList(List<OrderItem> newOrderItems)
@@ -211,12 +234,14 @@ namespace View.Forms.Order_Screens
             menuItem.ShortName = menuItemsListView.SelectedItems[0].SubItems[1].Text;
             OrderItem orderItem = new OrderItem();
             orderItem.MenuItem = menuItem;
+            GetAmount();
             orderItem.Amount = amount;
             orderItem.Comment = addCommentTextBox.Text;
             if (orderItem.Amount != 0)
             {
                 newOrderItems.Add(orderItem);
             }
+            clearOrderButton.Visible = true;
             amount = 1;
             SetAmount();
             addCommentTextBox.Clear();
@@ -242,6 +267,11 @@ namespace View.Forms.Order_Screens
                 if (orderItem.MenuItem.ShortName == newOrderItemsListView.SelectedItems[0].SubItems[0].Text)
                 {
                     newOrderItems.Remove(orderItem);
+                    if (newOrderItems.Count == 0)
+                    {
+                        insertOrderButton.Enabled = false;
+                        clearOrderButton.Enabled = false;
+                    }
                     break;
                 }
             }
@@ -285,19 +315,32 @@ namespace View.Forms.Order_Screens
         {
             newOrderItems.Clear();
             FillNewOrderListView(newOrderItems);
+            insertOrderButton.Enabled = false;
         }
 
         private void plusButton_Click(object sender, EventArgs e)
         {
             GetAmount();
             amount++;
+            if (amount > 0)
+            {
+                minusButton.Visible = true;
+            }
             SetAmount();
         }
 
         private void minusButton_Click(object sender, EventArgs e)
         {
             GetAmount();
-            amount--;
+            if (amount > 1)
+            {
+                amount--;
+            }
+            else
+            {
+                amount = 0;
+                minusButton.Visible = false;
+            }
             SetAmount();
         }
 
@@ -312,11 +355,14 @@ namespace View.Forms.Order_Screens
 
         private void insertOrderButton_Click(object sender, EventArgs e)
         {
-            Order order = new Order(staff.Id, DateTime.Now);
-            order.OrderItems = newOrderItems;
-            orderController.InsertOrder(bill, order);
-            SetActivePanel(overViewPanel);
-            UpdateBillOverview();
+            if (newOrderItems != null)
+            {
+                Order order = new Order(staff.Id, DateTime.Now);
+                order.OrderItems = newOrderItems;
+                orderController.InsertOrder(bill, order);
+                SetActivePanel(overViewPanel);
+                UpdateBillOverview();
+            }
         }
 
         // navigation methods
@@ -465,5 +511,11 @@ namespace View.Forms.Order_Screens
         }
 
 
+
+        // change last order
+        private void updateItemButton_Click(object sender, EventArgs e)
+        {
+            //orderController.UpdateOrderItem(orderItem);
+        }
     }
 }

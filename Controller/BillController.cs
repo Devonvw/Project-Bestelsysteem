@@ -34,7 +34,7 @@ namespace Controller
         }
 
         public void CreateBill(Table table, Staff staff)
-        {
+        {            
             billDB.CreateBill(table, staff);
         }
 
