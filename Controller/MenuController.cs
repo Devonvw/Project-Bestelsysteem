@@ -27,7 +27,13 @@ namespace Controller
         }
         public void AddMenuItem(MenuItem menuItem)
         {
-            menuDb.AddMenuItem(menuItem);
+            if (string.IsNullOrEmpty(menuItem.ShortName)) throw new Exception("De korte naam is nog niet ingevuld");
+            if (string.IsNullOrEmpty(menuItem.FullName)) throw new Exception("De volledige naam is nog niet ingevuld");
+            if (menuItem.Category == 0) throw new Exception("Kies een categorie");
+            if (menuItem.SubCategory == 0) throw new Exception("Kies een subcategorie");
+            if (menuItem.PriceEx <= 0) throw new Exception("Klopt de prijs?");
+            Debug.WriteLine(menuItem.InMenu);
+            //menuDb.AddMenuItem(menuItem);
         }
         public void ChangeMenu(bool addOrRemove, MenuItem menuItem)
         {
@@ -36,6 +42,11 @@ namespace Controller
         }
         public void UpdateMenuItem(MenuItem menuItem)
         {
+            if (string.IsNullOrEmpty(menuItem.ShortName)) throw new Exception("De korte naam is nog niet ingevuld");
+            if (string.IsNullOrEmpty(menuItem.FullName)) throw new Exception("De volledige naam is nog niet ingevuld");
+            if (menuItem.Category == 0) throw new Exception("Kies een categorie");
+            if (menuItem.SubCategory == 0) throw new Exception("Kies een subcategorie");
+            if (menuItem.PriceEx <= 0) throw new Exception("Klopt de prijs?");
             menuDb.UpdateMenuItem(menuItem);
         }
     }

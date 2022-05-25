@@ -38,6 +38,15 @@ namespace Model
             Stock = stock;
             InMenu = inMenu;
         }
+        public MenuItem(string shortName, string fullName, Category category, SubCategory subCategory, float priceEx, bool inMenu)
+        {
+            ShortName = shortName;
+            FullName = fullName;
+            Category = category;
+            SubCategory = subCategory;
+            PriceEx = priceEx;
+            InMenu = inMenu;
+        }
         public MenuItem()
         {
 

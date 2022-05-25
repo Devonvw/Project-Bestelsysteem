@@ -62,14 +62,17 @@ namespace Model
         }
         public void UpdateMenuItem(MenuItem menuItem)
         {
-            string query = "UPDATE MenuItems SET shortName = @shortName, fullName = @fullName, categoryId = @categoryId, subcategoryId = @subcategoryId, priceEx = @priceEx WHERE id = @id";
+            Debug.WriteLine("update");
+            string query = "UPDATE MenuItems SET shortName = @shortName, fullName = @fullName, categoryId = @categoryId, subcategoryId = @subcategoryId, priceEx = @priceEx, inMenu = @inMenu WHERE id = @id";
             SqlParameter[] sqlParameters = new SqlParameter[]
             {
+                new SqlParameter("@id", SqlDbType.Int) { Value = menuItem.Id },
                 new SqlParameter("@shortName", SqlDbType.VarChar) { Value = menuItem.ShortName },
                 new SqlParameter("@fullName", SqlDbType.VarChar) { Value = menuItem.FullName },
                 new SqlParameter("@categoryId", SqlDbType.Int) { Value = menuItem.Category },
                 new SqlParameter("@subcategoryId", SqlDbType.Int) { Value = menuItem.SubCategory },
                 new SqlParameter("@priceEx", SqlDbType.Float) { Value = menuItem.PriceEx },
+                new SqlParameter("@inMenu", SqlDbType.Bit) { Value = menuItem.InMenu },
             };
             ExecuteEditQuery(query, sqlParameters);
         }

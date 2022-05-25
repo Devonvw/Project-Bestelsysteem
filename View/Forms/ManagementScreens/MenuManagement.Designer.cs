@@ -30,6 +30,13 @@
         {
             this.lblMenu = new System.Windows.Forms.Label();
             this.pnlInputs = new System.Windows.Forms.Panel();
+            this.btnClear = new View.CustomControls.CustomButton();
+            this.rbtnInMenuFalse = new System.Windows.Forms.RadioButton();
+            this.rbtnInMenuTrue = new System.Windows.Forms.RadioButton();
+            this.label1 = new System.Windows.Forms.Label();
+            this.numPriceEx = new System.Windows.Forms.NumericUpDown();
+            this.cbxSubcategory = new System.Windows.Forms.ComboBox();
+            this.cbxCategory = new System.Windows.Forms.ComboBox();
             this.btnRemove = new View.CustomControls.CustomButton();
             this.btnSave = new View.CustomControls.CustomButton();
             this.lblInMenu = new System.Windows.Forms.Label();
@@ -46,12 +53,6 @@
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.cbxCategory = new System.Windows.Forms.ComboBox();
-            this.cbxSubcategory = new System.Windows.Forms.ComboBox();
-            this.numPriceEx = new System.Windows.Forms.NumericUpDown();
-            this.label1 = new System.Windows.Forms.Label();
-            this.rbtnInMenuTrue = new System.Windows.Forms.RadioButton();
-            this.rbtnInMenuFalse = new System.Windows.Forms.RadioButton();
             this.pnlInputs.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numPriceEx)).BeginInit();
             this.SuspendLayout();
@@ -70,6 +71,7 @@
             // pnlInputs
             // 
             this.pnlInputs.BackColor = System.Drawing.Color.White;
+            this.pnlInputs.Controls.Add(this.btnClear);
             this.pnlInputs.Controls.Add(this.rbtnInMenuFalse);
             this.pnlInputs.Controls.Add(this.rbtnInMenuTrue);
             this.pnlInputs.Controls.Add(this.label1);
@@ -90,6 +92,92 @@
             this.pnlInputs.Size = new System.Drawing.Size(479, 741);
             this.pnlInputs.TabIndex = 10;
             this.pnlInputs.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlInputs_Paint);
+            // 
+            // btnClear
+            // 
+            this.btnClear.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.btnClear.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.btnClear.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnClear.BorderRadius = 20;
+            this.btnClear.BorderSize = 0;
+            this.btnClear.FlatAppearance.BorderSize = 0;
+            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClear.Font = new System.Drawing.Font("Myanmar Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClear.ForeColor = System.Drawing.Color.White;
+            this.btnClear.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnClear.Location = new System.Drawing.Point(20, 16);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(440, 55);
+            this.btnClear.TabIndex = 31;
+            this.btnClear.Text = "Clear";
+            this.btnClear.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnClear.TextColor = System.Drawing.Color.White;
+            this.btnClear.UseVisualStyleBackColor = false;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
+            // rbtnInMenuFalse
+            // 
+            this.rbtnInMenuFalse.Font = new System.Drawing.Font("Myanmar Text", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbtnInMenuFalse.Location = new System.Drawing.Point(282, 600);
+            this.rbtnInMenuFalse.Name = "rbtnInMenuFalse";
+            this.rbtnInMenuFalse.Size = new System.Drawing.Size(161, 45);
+            this.rbtnInMenuFalse.TabIndex = 30;
+            this.rbtnInMenuFalse.TabStop = true;
+            this.rbtnInMenuFalse.Text = "Nee";
+            this.rbtnInMenuFalse.UseVisualStyleBackColor = true;
+            this.rbtnInMenuFalse.CheckedChanged += new System.EventHandler(this.rbtnInMenuFalse_CheckedChanged);
+            // 
+            // rbtnInMenuTrue
+            // 
+            this.rbtnInMenuTrue.Font = new System.Drawing.Font("Myanmar Text", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbtnInMenuTrue.Location = new System.Drawing.Point(17, 600);
+            this.rbtnInMenuTrue.Name = "rbtnInMenuTrue";
+            this.rbtnInMenuTrue.Size = new System.Drawing.Size(161, 45);
+            this.rbtnInMenuTrue.TabIndex = 29;
+            this.rbtnInMenuTrue.TabStop = true;
+            this.rbtnInMenuTrue.Text = "Ja";
+            this.rbtnInMenuTrue.UseVisualStyleBackColor = true;
+            this.rbtnInMenuTrue.CheckedChanged += new System.EventHandler(this.rbtnInMenuTrue_CheckedChanged);
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Myanmar Text", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(20, 468);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(276, 30);
+            this.label1.TabIndex = 28;
+            this.label1.Text = "Prijs Ex";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // numPriceEx
+            // 
+            this.numPriceEx.DecimalPlaces = 2;
+            this.numPriceEx.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.numPriceEx.Location = new System.Drawing.Point(17, 501);
+            this.numPriceEx.Name = "numPriceEx";
+            this.numPriceEx.Size = new System.Drawing.Size(183, 39);
+            this.numPriceEx.TabIndex = 27;
+            this.numPriceEx.ValueChanged += new System.EventHandler(this.numPriceEx_ValueChanged);
+            // 
+            // cbxSubcategory
+            // 
+            this.cbxSubcategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxSubcategory.FormattingEnabled = true;
+            this.cbxSubcategory.Location = new System.Drawing.Point(17, 415);
+            this.cbxSubcategory.Name = "cbxSubcategory";
+            this.cbxSubcategory.Size = new System.Drawing.Size(444, 28);
+            this.cbxSubcategory.TabIndex = 26;
+            // 
+            // cbxCategory
+            // 
+            this.cbxCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxCategory.FormattingEnabled = true;
+            this.cbxCategory.Location = new System.Drawing.Point(17, 315);
+            this.cbxCategory.Name = "cbxCategory";
+            this.cbxCategory.Size = new System.Drawing.Size(444, 28);
+            this.cbxCategory.TabIndex = 25;
+            this.cbxCategory.SelectedIndexChanged += new System.EventHandler(this.cbxCategory_SelectedIndexChanged);
             // 
             // btnRemove
             // 
@@ -130,22 +218,24 @@
             this.btnSave.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnSave.TextColor = System.Drawing.Color.White;
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // lblInMenu
             // 
             this.lblInMenu.BackColor = System.Drawing.Color.Transparent;
             this.lblInMenu.Font = new System.Drawing.Font("Myanmar Text", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInMenu.Location = new System.Drawing.Point(20, 516);
+            this.lblInMenu.Location = new System.Drawing.Point(20, 555);
             this.lblInMenu.Name = "lblInMenu";
             this.lblInMenu.Size = new System.Drawing.Size(276, 30);
             this.lblInMenu.TabIndex = 21;
             this.lblInMenu.Text = "In Menu";
+            this.lblInMenu.Click += new System.EventHandler(this.lblInMenu_Click);
             // 
             // lblSubcategory
             // 
             this.lblSubcategory.BackColor = System.Drawing.Color.Transparent;
             this.lblSubcategory.Font = new System.Drawing.Font("Myanmar Text", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSubcategory.Location = new System.Drawing.Point(20, 311);
+            this.lblSubcategory.Location = new System.Drawing.Point(20, 382);
             this.lblSubcategory.Name = "lblSubcategory";
             this.lblSubcategory.Size = new System.Drawing.Size(276, 30);
             this.lblSubcategory.TabIndex = 17;
@@ -155,7 +245,7 @@
             // 
             this.lblCategory.BackColor = System.Drawing.Color.Transparent;
             this.lblCategory.Font = new System.Drawing.Font("Myanmar Text", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCategory.Location = new System.Drawing.Point(20, 211);
+            this.lblCategory.Location = new System.Drawing.Point(20, 282);
             this.lblCategory.Name = "lblCategory";
             this.lblCategory.Size = new System.Drawing.Size(276, 30);
             this.lblCategory.TabIndex = 12;
@@ -165,7 +255,7 @@
             // 
             this.lblFullName.BackColor = System.Drawing.Color.Transparent;
             this.lblFullName.Font = new System.Drawing.Font("Myanmar Text", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFullName.Location = new System.Drawing.Point(20, 118);
+            this.lblFullName.Location = new System.Drawing.Point(20, 189);
             this.lblFullName.Name = "lblFullName";
             this.lblFullName.Size = new System.Drawing.Size(276, 30);
             this.lblFullName.TabIndex = 10;
@@ -175,7 +265,7 @@
             // 
             this.tbxFullName.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.tbxFullName.Font = new System.Drawing.Font("Myanmar Text", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxFullName.Location = new System.Drawing.Point(17, 151);
+            this.tbxFullName.Location = new System.Drawing.Point(17, 222);
             this.tbxFullName.Name = "tbxFullName";
             this.tbxFullName.Size = new System.Drawing.Size(444, 41);
             this.tbxFullName.TabIndex = 9;
@@ -184,7 +274,7 @@
             // 
             this.tbxShortName.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.tbxShortName.Font = new System.Drawing.Font("Myanmar Text", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxShortName.Location = new System.Drawing.Point(17, 53);
+            this.tbxShortName.Location = new System.Drawing.Point(17, 124);
             this.tbxShortName.Name = "tbxShortName";
             this.tbxShortName.Size = new System.Drawing.Size(444, 41);
             this.tbxShortName.TabIndex = 0;
@@ -193,7 +283,7 @@
             // 
             this.lblShortName.BackColor = System.Drawing.Color.Transparent;
             this.lblShortName.Font = new System.Drawing.Font("Myanmar Text", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblShortName.Location = new System.Drawing.Point(20, 20);
+            this.lblShortName.Location = new System.Drawing.Point(20, 91);
             this.lblShortName.Name = "lblShortName";
             this.lblShortName.Size = new System.Drawing.Size(276, 30);
             this.lblShortName.TabIndex = 1;
@@ -251,63 +341,6 @@
             this.columnHeader1.Text = "In menu";
             this.columnHeader1.Width = 70;
             // 
-            // cbxCategory
-            // 
-            this.cbxCategory.FormattingEnabled = true;
-            this.cbxCategory.Location = new System.Drawing.Point(17, 244);
-            this.cbxCategory.Name = "cbxCategory";
-            this.cbxCategory.Size = new System.Drawing.Size(444, 28);
-            this.cbxCategory.TabIndex = 25;
-            // 
-            // cbxSubcategory
-            // 
-            this.cbxSubcategory.FormattingEnabled = true;
-            this.cbxSubcategory.Location = new System.Drawing.Point(17, 344);
-            this.cbxSubcategory.Name = "cbxSubcategory";
-            this.cbxSubcategory.Size = new System.Drawing.Size(444, 28);
-            this.cbxSubcategory.TabIndex = 26;
-            // 
-            // numPriceEx
-            // 
-            this.numPriceEx.DecimalPlaces = 2;
-            this.numPriceEx.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.numPriceEx.Location = new System.Drawing.Point(17, 442);
-            this.numPriceEx.Name = "numPriceEx";
-            this.numPriceEx.Size = new System.Drawing.Size(183, 39);
-            this.numPriceEx.TabIndex = 27;
-            // 
-            // label1
-            // 
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Myanmar Text", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(20, 409);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(276, 30);
-            this.label1.TabIndex = 28;
-            this.label1.Text = "Prijs Ex";
-            // 
-            // rbtnInMenuTrue
-            // 
-            this.rbtnInMenuTrue.Font = new System.Drawing.Font("Myanmar Text", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbtnInMenuTrue.Location = new System.Drawing.Point(17, 561);
-            this.rbtnInMenuTrue.Name = "rbtnInMenuTrue";
-            this.rbtnInMenuTrue.Size = new System.Drawing.Size(161, 45);
-            this.rbtnInMenuTrue.TabIndex = 29;
-            this.rbtnInMenuTrue.TabStop = true;
-            this.rbtnInMenuTrue.Text = "Ja";
-            this.rbtnInMenuTrue.UseVisualStyleBackColor = true;
-            // 
-            // rbtnInMenuFalse
-            // 
-            this.rbtnInMenuFalse.Font = new System.Drawing.Font("Myanmar Text", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbtnInMenuFalse.Location = new System.Drawing.Point(282, 561);
-            this.rbtnInMenuFalse.Name = "rbtnInMenuFalse";
-            this.rbtnInMenuFalse.Size = new System.Drawing.Size(161, 45);
-            this.rbtnInMenuFalse.TabIndex = 30;
-            this.rbtnInMenuFalse.TabStop = true;
-            this.rbtnInMenuFalse.Text = "Nee";
-            this.rbtnInMenuFalse.UseVisualStyleBackColor = true;
-            // 
             // MenuManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -354,5 +387,6 @@
         protected System.Windows.Forms.NumericUpDown numPriceEx;
         private System.Windows.Forms.RadioButton rbtnInMenuFalse;
         private System.Windows.Forms.RadioButton rbtnInMenuTrue;
+        private CustomControls.CustomButton btnClear;
     }
 }
