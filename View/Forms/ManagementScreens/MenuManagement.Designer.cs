@@ -36,7 +36,7 @@
             this.lblSubcategory = new System.Windows.Forms.Label();
             this.lblCategory = new System.Windows.Forms.Label();
             this.lblFullName = new System.Windows.Forms.Label();
-            this.tbxLastname = new System.Windows.Forms.TextBox();
+            this.tbxFullName = new System.Windows.Forms.TextBox();
             this.tbxShortName = new System.Windows.Forms.TextBox();
             this.lblShortName = new System.Windows.Forms.Label();
             this.ltvMenuItems = new System.Windows.Forms.ListView();
@@ -82,7 +82,7 @@
             this.pnlInputs.Controls.Add(this.lblSubcategory);
             this.pnlInputs.Controls.Add(this.lblCategory);
             this.pnlInputs.Controls.Add(this.lblFullName);
-            this.pnlInputs.Controls.Add(this.tbxLastname);
+            this.pnlInputs.Controls.Add(this.tbxFullName);
             this.pnlInputs.Controls.Add(this.tbxShortName);
             this.pnlInputs.Controls.Add(this.lblShortName);
             this.pnlInputs.Location = new System.Drawing.Point(1383, 160);
@@ -171,14 +171,14 @@
             this.lblFullName.TabIndex = 10;
             this.lblFullName.Text = "Volledige naam";
             // 
-            // tbxLastname
+            // tbxFullName
             // 
-            this.tbxLastname.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.tbxLastname.Font = new System.Drawing.Font("Myanmar Text", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxLastname.Location = new System.Drawing.Point(17, 151);
-            this.tbxLastname.Name = "tbxLastname";
-            this.tbxLastname.Size = new System.Drawing.Size(444, 41);
-            this.tbxLastname.TabIndex = 9;
+            this.tbxFullName.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.tbxFullName.Font = new System.Drawing.Font("Myanmar Text", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxFullName.Location = new System.Drawing.Point(17, 151);
+            this.tbxFullName.Name = "tbxFullName";
+            this.tbxFullName.Size = new System.Drawing.Size(444, 41);
+            this.tbxFullName.TabIndex = 9;
             // 
             // tbxShortName
             // 
@@ -269,6 +269,7 @@
             // 
             // numPriceEx
             // 
+            this.numPriceEx.DecimalPlaces = 2;
             this.numPriceEx.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.numPriceEx.Location = new System.Drawing.Point(17, 442);
             this.numPriceEx.Name = "numPriceEx";
@@ -337,7 +338,7 @@
         private System.Windows.Forms.Label lblSubcategory;
         private System.Windows.Forms.Label lblCategory;
         private System.Windows.Forms.Label lblFullName;
-        private System.Windows.Forms.TextBox tbxLastname;
+        private System.Windows.Forms.TextBox tbxFullName;
         private System.Windows.Forms.TextBox tbxShortName;
         private System.Windows.Forms.Label lblShortName;
         private System.Windows.Forms.ListView ltvMenuItems;

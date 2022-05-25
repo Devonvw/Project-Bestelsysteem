@@ -32,6 +32,14 @@ namespace View.Forms.ManagementScreens
                 listViewItem.Tag = menuItem.Id;
                 ltvMenuItems.Items.Add(listViewItem);
             });
+            foreach (Category i in Enum.GetValues(typeof(Category)))
+            {
+                cbxCategory.Items.Add(i);
+            }
+            foreach (SubCategory i in Enum.GetValues(typeof(SubCategory)))
+            {
+                cbxSubcategory.Items.Add(i);
+            }
         }
         public MenuManagement()
         {
@@ -48,6 +56,13 @@ namespace View.Forms.ManagementScreens
             if (ltvMenuItems.SelectedItems.Count > 0)
             {
                 selectedMenuItem = (Model.MenuItem)menuItemList.Where(menuItem => menuItem.Id == int.Parse(ltvMenuItems.SelectedItems[0].Tag.ToString())).ToList()[0].Clone();
+                tbxShortName.Text = selectedMenuItem.ShortName;
+                tbxFullName.Text = selectedMenuItem.FullName;
+                cbxCategory.SelectedIndex = (int)selectedMenuItem.Category -1;
+                cbxSubcategory.SelectedIndex = (int)selectedMenuItem.SubCategory - 1;
+                numPriceEx.Value = (decimal)selectedMenuItem.PriceEx;
+                if (selectedMenuItem.InMenu) rbtnInMenuTrue.Checked = true;
+                else rbtnInMenuFalse.Checked = true;
             }
         }
 
@@ -55,5 +70,8 @@ namespace View.Forms.ManagementScreens
         {
 
         }
+        /*bool selectedInMenu = true;
+            if (rbtnInMenuTrue.Checked) selectedInMenu = true;
+            else selectedInMenu = false;*/
     }
 }
