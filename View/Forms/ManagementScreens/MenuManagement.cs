@@ -50,5 +50,10 @@ namespace View.Forms.ManagementScreens
                 selectedMenuItem = (Model.MenuItem)menuItemList.Where(menuItem => menuItem.Id == int.Parse(ltvMenuItems.SelectedItems[0].Tag.ToString())).ToList()[0].Clone();
             }
         }
+
+        private void pnlInputs_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

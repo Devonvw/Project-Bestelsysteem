@@ -32,14 +32,9 @@
             this.pnlInputs = new System.Windows.Forms.Panel();
             this.btnRemove = new View.CustomControls.CustomButton();
             this.btnSave = new View.CustomControls.CustomButton();
-            this.tbxEmail = new System.Windows.Forms.TextBox();
-            this.lblEmail = new System.Windows.Forms.Label();
-            this.rbtnChef = new System.Windows.Forms.RadioButton();
-            this.rbtnWaiter = new System.Windows.Forms.RadioButton();
-            this.rbtnBartender = new System.Windows.Forms.RadioButton();
-            this.lblRole = new System.Windows.Forms.Label();
-            this.rbtnManager = new System.Windows.Forms.RadioButton();
-            this.lblBirthdate = new System.Windows.Forms.Label();
+            this.lblInMenu = new System.Windows.Forms.Label();
+            this.lblSubcategory = new System.Windows.Forms.Label();
+            this.lblCategory = new System.Windows.Forms.Label();
             this.lblFullName = new System.Windows.Forms.Label();
             this.tbxLastname = new System.Windows.Forms.TextBox();
             this.tbxShortName = new System.Windows.Forms.TextBox();
@@ -51,7 +46,14 @@
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.cbxCategory = new System.Windows.Forms.ComboBox();
+            this.cbxSubcategory = new System.Windows.Forms.ComboBox();
+            this.numPriceEx = new System.Windows.Forms.NumericUpDown();
+            this.label1 = new System.Windows.Forms.Label();
+            this.rbtnInMenuTrue = new System.Windows.Forms.RadioButton();
+            this.rbtnInMenuFalse = new System.Windows.Forms.RadioButton();
             this.pnlInputs.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numPriceEx)).BeginInit();
             this.SuspendLayout();
             // 
             // lblMenu
@@ -68,16 +70,17 @@
             // pnlInputs
             // 
             this.pnlInputs.BackColor = System.Drawing.Color.White;
+            this.pnlInputs.Controls.Add(this.rbtnInMenuFalse);
+            this.pnlInputs.Controls.Add(this.rbtnInMenuTrue);
+            this.pnlInputs.Controls.Add(this.label1);
+            this.pnlInputs.Controls.Add(this.numPriceEx);
+            this.pnlInputs.Controls.Add(this.cbxSubcategory);
+            this.pnlInputs.Controls.Add(this.cbxCategory);
             this.pnlInputs.Controls.Add(this.btnRemove);
             this.pnlInputs.Controls.Add(this.btnSave);
-            this.pnlInputs.Controls.Add(this.tbxEmail);
-            this.pnlInputs.Controls.Add(this.lblEmail);
-            this.pnlInputs.Controls.Add(this.rbtnChef);
-            this.pnlInputs.Controls.Add(this.rbtnWaiter);
-            this.pnlInputs.Controls.Add(this.rbtnBartender);
-            this.pnlInputs.Controls.Add(this.lblRole);
-            this.pnlInputs.Controls.Add(this.rbtnManager);
-            this.pnlInputs.Controls.Add(this.lblBirthdate);
+            this.pnlInputs.Controls.Add(this.lblInMenu);
+            this.pnlInputs.Controls.Add(this.lblSubcategory);
+            this.pnlInputs.Controls.Add(this.lblCategory);
             this.pnlInputs.Controls.Add(this.lblFullName);
             this.pnlInputs.Controls.Add(this.tbxLastname);
             this.pnlInputs.Controls.Add(this.tbxShortName);
@@ -86,6 +89,7 @@
             this.pnlInputs.Name = "pnlInputs";
             this.pnlInputs.Size = new System.Drawing.Size(479, 741);
             this.pnlInputs.TabIndex = 10;
+            this.pnlInputs.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlInputs_Paint);
             // 
             // btnRemove
             // 
@@ -127,89 +131,35 @@
             this.btnSave.TextColor = System.Drawing.Color.White;
             this.btnSave.UseVisualStyleBackColor = false;
             // 
-            // tbxEmail
+            // lblInMenu
             // 
-            this.tbxEmail.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.tbxEmail.Font = new System.Drawing.Font("Myanmar Text", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxEmail.Location = new System.Drawing.Point(17, 596);
-            this.tbxEmail.Name = "tbxEmail";
-            this.tbxEmail.Size = new System.Drawing.Size(444, 41);
-            this.tbxEmail.TabIndex = 22;
+            this.lblInMenu.BackColor = System.Drawing.Color.Transparent;
+            this.lblInMenu.Font = new System.Drawing.Font("Myanmar Text", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInMenu.Location = new System.Drawing.Point(20, 516);
+            this.lblInMenu.Name = "lblInMenu";
+            this.lblInMenu.Size = new System.Drawing.Size(276, 30);
+            this.lblInMenu.TabIndex = 21;
+            this.lblInMenu.Text = "In Menu";
             // 
-            // lblEmail
+            // lblSubcategory
             // 
-            this.lblEmail.BackColor = System.Drawing.Color.Transparent;
-            this.lblEmail.Font = new System.Drawing.Font("Myanmar Text", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmail.Location = new System.Drawing.Point(20, 563);
-            this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(276, 30);
-            this.lblEmail.TabIndex = 21;
-            this.lblEmail.Text = "Email";
+            this.lblSubcategory.BackColor = System.Drawing.Color.Transparent;
+            this.lblSubcategory.Font = new System.Drawing.Font("Myanmar Text", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSubcategory.Location = new System.Drawing.Point(20, 311);
+            this.lblSubcategory.Name = "lblSubcategory";
+            this.lblSubcategory.Size = new System.Drawing.Size(276, 30);
+            this.lblSubcategory.TabIndex = 17;
+            this.lblSubcategory.Text = "Subcategory";
             // 
-            // rbtnChef
+            // lblCategory
             // 
-            this.rbtnChef.Font = new System.Drawing.Font("Myanmar Text", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbtnChef.Location = new System.Drawing.Point(27, 497);
-            this.rbtnChef.Name = "rbtnChef";
-            this.rbtnChef.Size = new System.Drawing.Size(443, 45);
-            this.rbtnChef.TabIndex = 20;
-            this.rbtnChef.TabStop = true;
-            this.rbtnChef.Text = "Chef";
-            this.rbtnChef.UseVisualStyleBackColor = true;
-            // 
-            // rbtnWaiter
-            // 
-            this.rbtnWaiter.Font = new System.Drawing.Font("Myanmar Text", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbtnWaiter.Location = new System.Drawing.Point(27, 446);
-            this.rbtnWaiter.Name = "rbtnWaiter";
-            this.rbtnWaiter.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.rbtnWaiter.Size = new System.Drawing.Size(443, 45);
-            this.rbtnWaiter.TabIndex = 19;
-            this.rbtnWaiter.TabStop = true;
-            this.rbtnWaiter.Text = "Serveren";
-            this.rbtnWaiter.UseVisualStyleBackColor = true;
-            // 
-            // rbtnBartender
-            // 
-            this.rbtnBartender.Font = new System.Drawing.Font("Myanmar Text", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbtnBartender.Location = new System.Drawing.Point(27, 395);
-            this.rbtnBartender.Name = "rbtnBartender";
-            this.rbtnBartender.Size = new System.Drawing.Size(443, 45);
-            this.rbtnBartender.TabIndex = 18;
-            this.rbtnBartender.TabStop = true;
-            this.rbtnBartender.Text = "Bar";
-            this.rbtnBartender.UseVisualStyleBackColor = true;
-            // 
-            // lblRole
-            // 
-            this.lblRole.BackColor = System.Drawing.Color.Transparent;
-            this.lblRole.Font = new System.Drawing.Font("Myanmar Text", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRole.Location = new System.Drawing.Point(20, 311);
-            this.lblRole.Name = "lblRole";
-            this.lblRole.Size = new System.Drawing.Size(276, 30);
-            this.lblRole.TabIndex = 17;
-            this.lblRole.Text = "Functie";
-            // 
-            // rbtnManager
-            // 
-            this.rbtnManager.Font = new System.Drawing.Font("Myanmar Text", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbtnManager.Location = new System.Drawing.Point(27, 344);
-            this.rbtnManager.Name = "rbtnManager";
-            this.rbtnManager.Size = new System.Drawing.Size(443, 45);
-            this.rbtnManager.TabIndex = 13;
-            this.rbtnManager.TabStop = true;
-            this.rbtnManager.Text = "Manager";
-            this.rbtnManager.UseVisualStyleBackColor = true;
-            // 
-            // lblBirthdate
-            // 
-            this.lblBirthdate.BackColor = System.Drawing.Color.Transparent;
-            this.lblBirthdate.Font = new System.Drawing.Font("Myanmar Text", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBirthdate.Location = new System.Drawing.Point(20, 211);
-            this.lblBirthdate.Name = "lblBirthdate";
-            this.lblBirthdate.Size = new System.Drawing.Size(276, 30);
-            this.lblBirthdate.TabIndex = 12;
-            this.lblBirthdate.Text = "Geboortedatum";
+            this.lblCategory.BackColor = System.Drawing.Color.Transparent;
+            this.lblCategory.Font = new System.Drawing.Font("Myanmar Text", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCategory.Location = new System.Drawing.Point(20, 211);
+            this.lblCategory.Name = "lblCategory";
+            this.lblCategory.Size = new System.Drawing.Size(276, 30);
+            this.lblCategory.TabIndex = 12;
+            this.lblCategory.Text = "Category";
             // 
             // lblFullName
             // 
@@ -301,6 +251,62 @@
             this.columnHeader1.Text = "In menu";
             this.columnHeader1.Width = 70;
             // 
+            // cbxCategory
+            // 
+            this.cbxCategory.FormattingEnabled = true;
+            this.cbxCategory.Location = new System.Drawing.Point(17, 244);
+            this.cbxCategory.Name = "cbxCategory";
+            this.cbxCategory.Size = new System.Drawing.Size(444, 28);
+            this.cbxCategory.TabIndex = 25;
+            // 
+            // cbxSubcategory
+            // 
+            this.cbxSubcategory.FormattingEnabled = true;
+            this.cbxSubcategory.Location = new System.Drawing.Point(17, 344);
+            this.cbxSubcategory.Name = "cbxSubcategory";
+            this.cbxSubcategory.Size = new System.Drawing.Size(444, 28);
+            this.cbxSubcategory.TabIndex = 26;
+            // 
+            // numPriceEx
+            // 
+            this.numPriceEx.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.numPriceEx.Location = new System.Drawing.Point(17, 442);
+            this.numPriceEx.Name = "numPriceEx";
+            this.numPriceEx.Size = new System.Drawing.Size(183, 39);
+            this.numPriceEx.TabIndex = 27;
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Myanmar Text", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(20, 409);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(276, 30);
+            this.label1.TabIndex = 28;
+            this.label1.Text = "Prijs Ex";
+            // 
+            // rbtnInMenuTrue
+            // 
+            this.rbtnInMenuTrue.Font = new System.Drawing.Font("Myanmar Text", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbtnInMenuTrue.Location = new System.Drawing.Point(17, 561);
+            this.rbtnInMenuTrue.Name = "rbtnInMenuTrue";
+            this.rbtnInMenuTrue.Size = new System.Drawing.Size(161, 45);
+            this.rbtnInMenuTrue.TabIndex = 29;
+            this.rbtnInMenuTrue.TabStop = true;
+            this.rbtnInMenuTrue.Text = "Ja";
+            this.rbtnInMenuTrue.UseVisualStyleBackColor = true;
+            // 
+            // rbtnInMenuFalse
+            // 
+            this.rbtnInMenuFalse.Font = new System.Drawing.Font("Myanmar Text", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbtnInMenuFalse.Location = new System.Drawing.Point(282, 561);
+            this.rbtnInMenuFalse.Name = "rbtnInMenuFalse";
+            this.rbtnInMenuFalse.Size = new System.Drawing.Size(161, 45);
+            this.rbtnInMenuFalse.TabIndex = 30;
+            this.rbtnInMenuFalse.TabStop = true;
+            this.rbtnInMenuFalse.Text = "Nee";
+            this.rbtnInMenuFalse.UseVisualStyleBackColor = true;
+            // 
             // MenuManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -315,6 +321,7 @@
             this.Load += new System.EventHandler(this.MenuManagement_Load);
             this.pnlInputs.ResumeLayout(false);
             this.pnlInputs.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numPriceEx)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -326,14 +333,9 @@
         private System.Windows.Forms.Panel pnlInputs;
         private CustomControls.CustomButton btnRemove;
         private CustomControls.CustomButton btnSave;
-        private System.Windows.Forms.TextBox tbxEmail;
-        private System.Windows.Forms.Label lblEmail;
-        private System.Windows.Forms.RadioButton rbtnChef;
-        private System.Windows.Forms.RadioButton rbtnWaiter;
-        private System.Windows.Forms.RadioButton rbtnBartender;
-        private System.Windows.Forms.Label lblRole;
-        private System.Windows.Forms.RadioButton rbtnManager;
-        private System.Windows.Forms.Label lblBirthdate;
+        private System.Windows.Forms.Label lblInMenu;
+        private System.Windows.Forms.Label lblSubcategory;
+        private System.Windows.Forms.Label lblCategory;
         private System.Windows.Forms.Label lblFullName;
         private System.Windows.Forms.TextBox tbxLastname;
         private System.Windows.Forms.TextBox tbxShortName;
@@ -345,5 +347,11 @@
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ComboBox cbxCategory;
+        private System.Windows.Forms.ComboBox cbxSubcategory;
+        private System.Windows.Forms.Label label1;
+        protected System.Windows.Forms.NumericUpDown numPriceEx;
+        private System.Windows.Forms.RadioButton rbtnInMenuFalse;
+        private System.Windows.Forms.RadioButton rbtnInMenuTrue;
     }
 }
