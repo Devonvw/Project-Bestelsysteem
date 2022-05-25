@@ -12,6 +12,22 @@ namespace Model
 {
     public class OrderDao : BaseDao
     {   
+
+        // select functions
+
+        //public List<Order> ReadOrderTables(DataTable dataTable)
+        //{
+        //    List<Order> orders = new List<Order>();
+        //    foreach (DataRow dr in dataTable.Rows)
+        //    {
+        //        Order order = new Order()
+        //        {
+        //            Id = (int)dr["id"],
+
+        //        }
+        //    }
+        //}
+
         // insert functions
         public void InsertOrder(Bill bill, Order order)
         {
@@ -65,9 +81,6 @@ namespace Model
             sqlParameters[2] = new SqlParameter("id", orderItem.Id);
             ExecuteEditQuery(query, sqlParameters);
         }
-
-
-
 
         // delete functions
         public void DeleteOrderItem(OrderItem orderItem)
