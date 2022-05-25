@@ -14,7 +14,7 @@ namespace Model
         //staff nog niet kloppend gemaakt
         public List<Staff> GetAllStaff()
         {
-            string query = "";
+            string query = "SELECT * FROM Staff ORDER BY firstName";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
@@ -32,26 +32,34 @@ namespace Model
         }
         public void RemoveStaff(Staff staff)
         {
-            string query = "";
+            string query = "DELETE FROM Staff WHERE id = @id";
             SqlParameter[] sqlParameters = new SqlParameter[]
             {
                 new SqlParameter("@id", SqlDbType.Int) { Value = staff.Id },
             };
             ExecuteEditQuery(query, sqlParameters);
         }
-
+        public void UpdateStaff(Staff staff)
+        { 
+            string query = "UPDATE Staff SET firstName = @firstName, lastName = @lastName, birthDate = @birthdate, roleId = @roleId, email = @email WHERE id = @id";
+            SqlParameter[] sqlParameters = new SqlParameter[]
+            {
+                new SqlParameter("@id", SqlDbType.Int) { Value = staff.Id },
+                new SqlParameter("@firstName", SqlDbType.VarChar) { Value = staff.FirstName },
+                new SqlParameter("@lastName", SqlDbType.VarChar) { Value = staff.LastName },
+                new SqlParameter("@birthdate", SqlDbType.DateTime) { Value = staff.BirthDate },
+                new SqlParameter("@roleId", SqlDbType.Int) { Value = staff.Role },
+                new SqlParameter("@email", SqlDbType.VarChar) { Value = staff.Email },
+            };
+            ExecuteEditQuery(query, sqlParameters);
+        }
         private List<Staff> ReadTables(DataTable dataTable)
         {
             List<Staff> staffList = new List<Staff>();
 
             foreach (DataRow dr in dataTable.Rows)
             {
-                Staff staff = new Staff()
-                {
-                    FirstName = (string)dr["firstname"],
-                    LastName = (string)dr["lastname"],
-                    Password = (string)dr["password"],
-                };
+                Staff staff = new Staff((int)dr["id"], dr["firstName"].ToString(), dr["lastName"].ToString(), DateTime.Parse(dr["birthDate"].ToString()), (Roles)(int)dr["roleId"], dr["email"].ToString(), dr["password"].ToString());
                 staffList.Add(staff);
             }
             return staffList;

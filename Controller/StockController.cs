@@ -16,10 +16,13 @@ namespace Controller
         {
             stockDB = new StockDao();
         }
-        public void AdjustStock(bool addOrRemove, int amount)
+        public List<MenuItem> GetAllMenuItems()
         {
-            if (addOrRemove) stockDB.AddStock(amount);
-            else stockDB.RemoveStock(amount);
+            return stockDB.GetAllMenuItems();
+        }
+        public void AdjustStock(MenuItem menuItem)
+        {
+            stockDB.UpdateStock(menuItem);
         }
     }
 }

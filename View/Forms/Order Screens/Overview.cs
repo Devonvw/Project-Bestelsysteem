@@ -43,7 +43,7 @@ namespace View.Forms.Order_Screens
             this.orderItems = orderItems;
             this.staff = staff;
             this.bill = bill;
-            this.menuItems = menuController.GetMenuItems();
+            this.menuItems = menuController.GetAllMenuItems();
             // Init
             SetActivePanel(overViewPanel);
             if (orderItems != null)

@@ -26,9 +26,21 @@ namespace Model
             Email = email;
             Password = password;
         }
+        public Staff(string firstName, string lastName, DateTime birthDate, Roles role, string email)
+        {
+            FirstName = firstName;
+            LastName = lastName;
+            BirthDate = birthDate;
+            Role = role;
+            Email = email;
+        }
 
         public Staff()
         {
+        }
+        public object Clone()
+        {
+            return this.MemberwiseClone();
         }
     }
 }
