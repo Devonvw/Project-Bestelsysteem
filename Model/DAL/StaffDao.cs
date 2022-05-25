@@ -14,7 +14,7 @@ namespace Model
         //staff nog niet kloppend gemaakt
         public List<Staff> GetAllStaff()
         {
-            string query = "";
+            string query = "SELECT * FROM Staff ORDER BY firstName";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
@@ -32,7 +32,7 @@ namespace Model
         }
         public void RemoveStaff(Staff staff)
         {
-            string query = "";
+            string query = "DELETE FROM Staff WHERE id = @id";
             SqlParameter[] sqlParameters = new SqlParameter[]
             {
                 new SqlParameter("@id", SqlDbType.Int) { Value = staff.Id },
@@ -46,12 +46,7 @@ namespace Model
 
             foreach (DataRow dr in dataTable.Rows)
             {
-                Staff staff = new Staff()
-                {
-                    FirstName = (string)dr["firstname"],
-                    LastName = (string)dr["lastname"],
-                    Password = (string)dr["password"],
-                };
+                Staff staff = new Staff((int)dr["id"], dr["firstName"].ToString(), dr["lastName"].ToString(), DateTime.Parse(dr["birthDate"].ToString()), (Roles)(int)dr["roleId"], dr["email"].ToString(), dr["password"].ToString());
                 staffList.Add(staff);
             }
             return staffList;

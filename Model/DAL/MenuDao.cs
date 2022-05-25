@@ -17,7 +17,13 @@ namespace Model
     {
         public List<MenuItem> GetAllMenuItems()
         {
-            string query = "SELECT * FROM MenuItems"; // netjes uitschrijven
+            string query = "SELECT * FROM MenuItems";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            return ReadTables(ExecuteSelectQuery(query, sqlParameters));
+        }
+        public List<MenuItem> GetMenu()
+        {
+            string query = "SELECT * FROM MenuItems WHERE inMenu = 'true'";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
@@ -36,9 +42,17 @@ namespace Model
             };
             ExecuteEditQuery(query, sqlParameters);
         }
-        public void RemoveMenuItem(MenuItem menuItem)
+        public void AddToMenu(MenuItem menuItem)
         {
-
+            string query = "UPDATE MenuItems SET inMenu = 'true' WHERE id = @id";
+            SqlParameter[] sqlParameters = new SqlParameter[]
+            {
+                new SqlParameter("@id", SqlDbType.Int) { Value = menuItem.Id }
+            };
+            ExecuteEditQuery(query, sqlParameters);
+        }
+        public void RemoveFromMenu(MenuItem menuItem)
+        {
             string query = "UPDATE MenuItems SET inMenu = 'false' WHERE id = @id";
             SqlParameter[] sqlParameters = new SqlParameter[]
             {
@@ -48,7 +62,16 @@ namespace Model
         }
         public void UpdateMenuItem(MenuItem menuItem)
         {
-
+            string query = "UPDATE MenuItems SET shortName = @shortName, fullName = @fullName, categoryId = @categoryId, subcategoryId = @subcategoryId, priceEx = @priceEx WHERE id = @id";
+            SqlParameter[] sqlParameters = new SqlParameter[]
+            {
+                new SqlParameter("@shortName", SqlDbType.VarChar) { Value = menuItem.ShortName },
+                new SqlParameter("@fullName", SqlDbType.VarChar) { Value = menuItem.FullName },
+                new SqlParameter("@categoryId", SqlDbType.Int) { Value = menuItem.Category },
+                new SqlParameter("@subcategoryId", SqlDbType.Int) { Value = menuItem.SubCategory },
+                new SqlParameter("@priceEx", SqlDbType.Float) { Value = menuItem.PriceEx },
+            };
+            ExecuteEditQuery(query, sqlParameters);
         }
 
         private List<MenuItem> ReadTables(DataTable dataTable) {

@@ -8,6 +8,6 @@ namespace Model
 {
     public enum Roles
     {
-        Manager, Bartender, Waiter, Chef
+        Manager = 1, Bartender, Waiter, Chef
     }
 }
