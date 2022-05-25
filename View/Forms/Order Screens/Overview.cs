@@ -27,6 +27,7 @@ namespace View.Forms.Order_Screens
         private List<OrderItem> orderItemsInPreparation = new List<OrderItem>();
         private List<OrderItem> rearrangedList = new List<OrderItem>();
         private List<Order> orders = new List<Order>();
+        private List<OrderItem> lastOrderItems = new List<OrderItem>();
 
         // Controllers
         private MenuController menuController = new MenuController();
@@ -89,12 +90,28 @@ namespace View.Forms.Order_Screens
         }
         private void ChangeOrderButton_Click(object sender, EventArgs e)
         {
-            SetActivePanel(changeOrderPanel);
-            this.changeOrderPanel.Controls.Add(commentAndAmountPanel);
+            this.overViewPanel.Controls.Add(commentAndAmountPanel);
             commentAndAmountPanel.BringToFront();
             commentAndAmountPanel.Show();
-            commentAndAmountPanel.Location = new Point(10, 446);
+            commentAndAmountPanel.Location = new Point(10, 487);
+            ChangeOrderButton.Hide();
+            togglePanel.Hide();
+            updateItemButton.Show();
+            //lastOrderItems = GetLastOrderItems();
+            FillBillOverView(lastOrderItems);
         }
+
+        //private List<OrderItem> GetLastOrderItems()
+        //{
+        //    GetLastOrderID(bill);
+        //    return orderItems;
+        //}
+
+        //private void GetLastOrderID()
+        //{
+        //    orderController.GetLastOrderId(bill);
+        //}
+
         private void backToTablesButton_Click(object sender, EventArgs e)
         {
             Close();
@@ -493,31 +510,12 @@ namespace View.Forms.Order_Screens
             SetActivePanel(overViewPanel);
         }
 
-        // Panel Change Order
 
-        private void FillOrderItemsInPreparationListView()
-        {
-            // check orderItems where ready = false
-        }
 
-        private DateTime GetDateTime(Order order)
+        // change last order
+        private void updateItemButton_Click(object sender, EventArgs e)
         {
-            DateTime dateTime = order.DateTime;
-            // get the time of placed order
-            return dateTime;
-        }
-
-        private bool changeOrderAllowed(DateTime dateTime)
-        {
-            return true;
-        }
-
-        private void changeOrderButton2_Click(object sender, EventArgs e)
-        {
-            
-            //GetDateTime(order);
-            
-            // change the orderItem
+            //orderController.UpdateOrderItem(orderItem);
         }
     }
 }
