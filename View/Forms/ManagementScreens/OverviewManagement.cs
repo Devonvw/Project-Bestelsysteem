@@ -33,5 +33,10 @@ namespace View.Forms.ManagementScreens
         {
             mainForm.OpenChildForm(new MenuManagement(), sender);
         }
+
+        private void cbtnInventory_Click(object sender, EventArgs e)
+        {
+            mainForm.OpenChildForm(new StockManagement(), sender);
+        }
     }
 }

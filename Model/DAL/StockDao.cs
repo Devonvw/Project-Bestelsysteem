@@ -21,6 +21,7 @@ namespace Model
             string query = "UPDATE MenuItems SET stock = @stock WHERE id = @id";
             SqlParameter[] sqlParameters = new SqlParameter[]
             {
+                new SqlParameter("@id", SqlDbType.Int) { Value = menuItem.Id },
                 new SqlParameter("@stock", SqlDbType.VarChar) { Value = menuItem.Stock },
             };
             ExecuteEditQuery(query, sqlParameters);

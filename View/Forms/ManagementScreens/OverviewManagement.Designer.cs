@@ -54,6 +54,7 @@
             this.cbtnInventory.TextColor = System.Drawing.Color.White;
             this.cbtnInventory.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.cbtnInventory.UseVisualStyleBackColor = false;
+            this.cbtnInventory.Click += new System.EventHandler(this.cbtnInventory_Click);
             // 
             // cbtnMenu
             // 
