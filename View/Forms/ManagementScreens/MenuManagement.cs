@@ -152,10 +152,8 @@ namespace View.Forms.ManagementScreens
 
         private void cbxCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Debug.WriteLine("kaas");
-            Debug.WriteLine(cbxCategory.SelectedIndex);
-
-            switch ((Category)(cbxCategory.SelectedIndex - 1))
+            cbxSubcategory.Items.Clear();
+            switch ((Category)(cbxCategory.SelectedIndex + 1))
             {
                 case Category.AlcoholDrinks:
                     AlcoholSubs.ForEach(subcategory => cbxSubcategory.Items.Add(subcategory));

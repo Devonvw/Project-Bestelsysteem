@@ -37,7 +37,6 @@
             this.numPriceEx = new System.Windows.Forms.NumericUpDown();
             this.cbxSubcategory = new System.Windows.Forms.ComboBox();
             this.cbxCategory = new System.Windows.Forms.ComboBox();
-            this.btnRemove = new View.CustomControls.CustomButton();
             this.btnSave = new View.CustomControls.CustomButton();
             this.lblInMenu = new System.Windows.Forms.Label();
             this.lblSubcategory = new System.Windows.Forms.Label();
@@ -78,7 +77,6 @@
             this.pnlInputs.Controls.Add(this.numPriceEx);
             this.pnlInputs.Controls.Add(this.cbxSubcategory);
             this.pnlInputs.Controls.Add(this.cbxCategory);
-            this.pnlInputs.Controls.Add(this.btnRemove);
             this.pnlInputs.Controls.Add(this.btnSave);
             this.pnlInputs.Controls.Add(this.lblInMenu);
             this.pnlInputs.Controls.Add(this.lblSubcategory);
@@ -179,26 +177,6 @@
             this.cbxCategory.TabIndex = 25;
             this.cbxCategory.SelectedIndexChanged += new System.EventHandler(this.cbxCategory_SelectedIndexChanged);
             // 
-            // btnRemove
-            // 
-            this.btnRemove.BackColor = System.Drawing.Color.Red;
-            this.btnRemove.BackgroundColor = System.Drawing.Color.Red;
-            this.btnRemove.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnRemove.BorderRadius = 20;
-            this.btnRemove.BorderSize = 0;
-            this.btnRemove.FlatAppearance.BorderSize = 0;
-            this.btnRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRemove.Font = new System.Drawing.Font("Myanmar Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRemove.ForeColor = System.Drawing.Color.White;
-            this.btnRemove.Location = new System.Drawing.Point(241, 660);
-            this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(220, 63);
-            this.btnRemove.TabIndex = 24;
-            this.btnRemove.Text = "Verwijder";
-            this.btnRemove.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnRemove.TextColor = System.Drawing.Color.White;
-            this.btnRemove.UseVisualStyleBackColor = false;
-            // 
             // btnSave
             // 
             this.btnSave.BackColor = System.Drawing.Color.MediumSlateBlue;
@@ -212,7 +190,7 @@
             this.btnSave.ForeColor = System.Drawing.Color.White;
             this.btnSave.Location = new System.Drawing.Point(17, 660);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(220, 63);
+            this.btnSave.Size = new System.Drawing.Size(443, 63);
             this.btnSave.TabIndex = 23;
             this.btnSave.Text = "Opslaan";
             this.btnSave.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -365,7 +343,6 @@
 
         private System.Windows.Forms.Label lblMenu;
         private System.Windows.Forms.Panel pnlInputs;
-        private CustomControls.CustomButton btnRemove;
         private CustomControls.CustomButton btnSave;
         private System.Windows.Forms.Label lblInMenu;
         private System.Windows.Forms.Label lblSubcategory;
