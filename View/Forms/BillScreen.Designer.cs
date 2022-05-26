@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.txtOpmerkingInput = new System.Windows.Forms.TextBox();
             this.lblOpmerkingen = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -40,29 +39,40 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.numTip = new System.Windows.Forms.NumericUpDown();
             this.lblTip = new System.Windows.Forms.Label();
-            this.btnSave = new System.Windows.Forms.Button();
+            this.ltvBillItems = new System.Windows.Forms.ListView();
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.lblRekening = new System.Windows.Forms.Label();
+            this.btnSave = new View.CustomControls.CustomButton();
+            this.rbCashCreditcard = new System.Windows.Forms.RadioButton();
+            this.rbCashPin = new System.Windows.Forms.RadioButton();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblSplitPrice = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.lblLowBtwOutput = new System.Windows.Forms.Label();
+            this.lblHighBtwOutput = new System.Windows.Forms.Label();
+            this.lblTotalOutput = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.pnlPaymentMethod.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numTip)).BeginInit();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 20;
-            this.listBox1.Location = new System.Drawing.Point(42, 132);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(881, 744);
-            this.listBox1.TabIndex = 0;
-            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // txtOpmerkingInput
             // 
             this.txtOpmerkingInput.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtOpmerkingInput.BackColor = System.Drawing.Color.Silver;
             this.txtOpmerkingInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.txtOpmerkingInput.Location = new System.Drawing.Point(23, 85);
+            this.txtOpmerkingInput.Location = new System.Drawing.Point(23, 59);
             this.txtOpmerkingInput.Name = "txtOpmerkingInput";
             this.txtOpmerkingInput.Size = new System.Drawing.Size(549, 39);
             this.txtOpmerkingInput.TabIndex = 1;
@@ -89,19 +99,22 @@
             this.panel1.Controls.Add(this.lblOpmerkingen);
             this.panel1.Location = new System.Drawing.Point(1032, 132);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(601, 166);
+            this.panel1.Size = new System.Drawing.Size(601, 124);
             this.panel1.TabIndex = 7;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // pnlPaymentMethod
             // 
             this.pnlPaymentMethod.BackColor = System.Drawing.Color.White;
+            this.pnlPaymentMethod.Controls.Add(this.rbCashPin);
+            this.pnlPaymentMethod.Controls.Add(this.rbCashCreditcard);
             this.pnlPaymentMethod.Controls.Add(this.rbCreditcard);
             this.pnlPaymentMethod.Controls.Add(this.rbPin);
             this.pnlPaymentMethod.Controls.Add(this.rbContant);
             this.pnlPaymentMethod.Controls.Add(this.label1);
-            this.pnlPaymentMethod.Location = new System.Drawing.Point(1032, 329);
+            this.pnlPaymentMethod.Location = new System.Drawing.Point(1032, 272);
             this.pnlPaymentMethod.Name = "pnlPaymentMethod";
-            this.pnlPaymentMethod.Size = new System.Drawing.Size(601, 219);
+            this.pnlPaymentMethod.Size = new System.Drawing.Size(601, 318);
             this.pnlPaymentMethod.TabIndex = 8;
             this.pnlPaymentMethod.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlPaymentMethod_Paint);
             // 
@@ -118,7 +131,6 @@
             this.rbCreditcard.TabStop = true;
             this.rbCreditcard.Text = "Creditcard";
             this.rbCreditcard.UseVisualStyleBackColor = true;
-            this.rbCreditcard.CheckedChanged += new System.EventHandler(this.rbCreditcard_CheckedChanged);
             // 
             // rbPin
             // 
@@ -133,7 +145,6 @@
             this.rbPin.TabStop = true;
             this.rbPin.Text = "Pin";
             this.rbPin.UseVisualStyleBackColor = true;
-            this.rbPin.CheckedChanged += new System.EventHandler(this.rbPin_CheckedChanged);
             // 
             // rbContant
             // 
@@ -148,7 +159,6 @@
             this.rbContant.TabStop = true;
             this.rbContant.Text = "Contant";
             this.rbContant.UseVisualStyleBackColor = true;
-            this.rbContant.CheckedChanged += new System.EventHandler(this.rbContant_CheckedChanged);
             // 
             // label1
             // 
@@ -163,22 +173,22 @@
             this.label1.Size = new System.Drawing.Size(279, 66);
             this.label1.TabIndex = 2;
             this.label1.Text = "Betaalmethode";
-            this.label1.Click += new System.EventHandler(this.label1_Click_2);
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
             this.panel3.Controls.Add(this.numTip);
             this.panel3.Controls.Add(this.lblTip);
-            this.panel3.Location = new System.Drawing.Point(1032, 587);
+            this.panel3.Location = new System.Drawing.Point(1032, 740);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(601, 142);
+            this.panel3.Size = new System.Drawing.Size(601, 113);
             this.panel3.TabIndex = 9;
+            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // numTip
             // 
             this.numTip.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.numTip.Location = new System.Drawing.Point(23, 69);
+            this.numTip.Location = new System.Drawing.Point(23, 53);
             this.numTip.Name = "numTip";
             this.numTip.Size = new System.Drawing.Size(183, 39);
             this.numTip.TabIndex = 3;
@@ -198,30 +208,238 @@
             this.lblTip.TabIndex = 2;
             this.lblTip.Text = "Tip";
             // 
+            // ltvBillItems
+            // 
+            this.ltvBillItems.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader5});
+            this.ltvBillItems.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ltvBillItems.FullRowSelect = true;
+            this.ltvBillItems.GridLines = true;
+            this.ltvBillItems.HideSelection = false;
+            this.ltvBillItems.Location = new System.Drawing.Point(130, 132);
+            this.ltvBillItems.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ltvBillItems.Name = "ltvBillItems";
+            this.ltvBillItems.Size = new System.Drawing.Size(653, 721);
+            this.ltvBillItems.TabIndex = 11;
+            this.ltvBillItems.UseCompatibleStateImageBehavior = false;
+            this.ltvBillItems.View = System.Windows.Forms.View.Details;
+            this.ltvBillItems.SelectedIndexChanged += new System.EventHandler(this.ltvBillItems_SelectedIndexChanged);
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Kort";
+            this.columnHeader2.Width = 139;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Hoeveel";
+            this.columnHeader3.Width = 160;
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Totaal";
+            this.columnHeader5.Width = 133;
+            // 
+            // lblRekening
+            // 
+            this.lblRekening.Font = new System.Drawing.Font("Myanmar Text", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRekening.ForeColor = System.Drawing.Color.White;
+            this.lblRekening.Location = new System.Drawing.Point(689, 9);
+            this.lblRekening.Name = "lblRekening";
+            this.lblRekening.Size = new System.Drawing.Size(401, 95);
+            this.lblRekening.TabIndex = 12;
+            this.lblRekening.Text = "Rekening";
+            // 
             // btnSave
             // 
-            this.btnSave.BackColor = System.Drawing.Color.White;
-            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.btnSave.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(0)))), ((int)(((byte)(77)))));
-            this.btnSave.Location = new System.Drawing.Point(1032, 793);
+            this.btnSave.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.btnSave.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.btnSave.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnSave.BorderRadius = 20;
+            this.btnSave.BorderSize = 0;
+            this.btnSave.FlatAppearance.BorderSize = 0;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Font = new System.Drawing.Font("Myanmar Text", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.ForeColor = System.Drawing.Color.White;
+            this.btnSave.Location = new System.Drawing.Point(1032, 871);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(600, 83);
-            this.btnSave.TabIndex = 10;
+            this.btnSave.Size = new System.Drawing.Size(601, 96);
+            this.btnSave.TabIndex = 13;
             this.btnSave.Text = "Opslaan";
+            this.btnSave.TextColor = System.Drawing.Color.White;
             this.btnSave.UseVisualStyleBackColor = false;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click_1);
+            // 
+            // rbCashCreditcard
+            // 
+            this.rbCashCreditcard.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(0)))), ((int)(((byte)(77)))));
+            this.rbCashCreditcard.FlatAppearance.BorderSize = 2;
+            this.rbCashCreditcard.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(0)))), ((int)(((byte)(77)))));
+            this.rbCashCreditcard.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.rbCashCreditcard.Location = new System.Drawing.Point(23, 253);
+            this.rbCashCreditcard.Name = "rbCashCreditcard";
+            this.rbCashCreditcard.Size = new System.Drawing.Size(315, 40);
+            this.rbCashCreditcard.TabIndex = 6;
+            this.rbCashCreditcard.TabStop = true;
+            this.rbCashCreditcard.Text = "Contact + Creditcard";
+            this.rbCashCreditcard.UseVisualStyleBackColor = true;
+            // 
+            // rbCashPin
+            // 
+            this.rbCashPin.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(0)))), ((int)(((byte)(77)))));
+            this.rbCashPin.FlatAppearance.BorderSize = 2;
+            this.rbCashPin.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(0)))), ((int)(((byte)(77)))));
+            this.rbCashPin.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.rbCashPin.Location = new System.Drawing.Point(23, 207);
+            this.rbCashPin.Name = "rbCashPin";
+            this.rbCashPin.Size = new System.Drawing.Size(256, 40);
+            this.rbCashPin.TabIndex = 7;
+            this.rbCashPin.TabStop = true;
+            this.rbCashPin.Text = "Contant + Pin";
+            this.rbCashPin.UseVisualStyleBackColor = true;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.lblSplitPrice);
+            this.panel2.Controls.Add(this.numericUpDown1);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Location = new System.Drawing.Point(1032, 607);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(601, 113);
+            this.panel2.TabIndex = 10;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.numericUpDown1.Location = new System.Drawing.Point(23, 53);
+            this.numericUpDown1.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(183, 39);
+            this.numericUpDown1.TabIndex = 3;
+            this.numericUpDown1.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged_1);
+            // 
+            // label2
+            // 
+            this.label2.BackColor = System.Drawing.Color.White;
+            this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(0)))), ((int)(((byte)(77)))));
+            this.label2.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.label2.Location = new System.Drawing.Point(0, 0);
+            this.label2.Name = "label2";
+            this.label2.Padding = new System.Windows.Forms.Padding(10, 10, 0, 0);
+            this.label2.Size = new System.Drawing.Size(218, 50);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Split";
+            // 
+            // lblSplitPrice
+            // 
+            this.lblSplitPrice.AutoSize = true;
+            this.lblSplitPrice.Font = new System.Drawing.Font("Myanmar Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSplitPrice.Location = new System.Drawing.Point(334, 37);
+            this.lblSplitPrice.Name = "lblSplitPrice";
+            this.lblSplitPrice.Size = new System.Drawing.Size(0, 65);
+            this.lblSplitPrice.TabIndex = 4;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.White;
+            this.panel4.Controls.Add(this.lblTotalOutput);
+            this.panel4.Controls.Add(this.lblHighBtwOutput);
+            this.panel4.Controls.Add(this.lblLowBtwOutput);
+            this.panel4.Controls.Add(this.label5);
+            this.panel4.Controls.Add(this.label4);
+            this.panel4.Controls.Add(this.label3);
+            this.panel4.Location = new System.Drawing.Point(130, 852);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(653, 115);
+            this.panel4.TabIndex = 14;
+            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
+            // 
+            // label3
+            // 
+            this.label3.Font = new System.Drawing.Font("Myanmar Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(322, 6);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(126, 36);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Laag btw";
+            // 
+            // label4
+            // 
+            this.label4.Font = new System.Drawing.Font("Myanmar Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(322, 42);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(136, 36);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Hoog btw";
+            // 
+            // label5
+            // 
+            this.label5.Font = new System.Drawing.Font("Myanmar Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(332, 79);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(126, 36);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "Totaal";
+            // 
+            // lblLowBtwOutput
+            // 
+            this.lblLowBtwOutput.Font = new System.Drawing.Font("Myanmar Text", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLowBtwOutput.Location = new System.Drawing.Point(474, 6);
+            this.lblLowBtwOutput.Name = "lblLowBtwOutput";
+            this.lblLowBtwOutput.Size = new System.Drawing.Size(179, 36);
+            this.lblLowBtwOutput.TabIndex = 3;
+            this.lblLowBtwOutput.Text = "Laag btw";
+            this.lblLowBtwOutput.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // lblHighBtwOutput
+            // 
+            this.lblHighBtwOutput.Font = new System.Drawing.Font("Myanmar Text", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHighBtwOutput.Location = new System.Drawing.Point(474, 42);
+            this.lblHighBtwOutput.Name = "lblHighBtwOutput";
+            this.lblHighBtwOutput.Size = new System.Drawing.Size(179, 36);
+            this.lblHighBtwOutput.TabIndex = 4;
+            this.lblHighBtwOutput.Text = "Laag btw";
+            this.lblHighBtwOutput.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // lblTotalOutput
+            // 
+            this.lblTotalOutput.Font = new System.Drawing.Font("Myanmar Text", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalOutput.Location = new System.Drawing.Point(474, 78);
+            this.lblTotalOutput.Name = "lblTotalOutput";
+            this.lblTotalOutput.Size = new System.Drawing.Size(179, 36);
+            this.lblTotalOutput.TabIndex = 5;
+            this.lblTotalOutput.Text = "Laag btw";
+            this.lblTotalOutput.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // BillScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(0)))), ((int)(((byte)(77)))));
-            this.ClientSize = new System.Drawing.Size(1711, 956);
+            this.ClientSize = new System.Drawing.Size(1711, 1024);
+            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.lblRekening);
+            this.Controls.Add(this.ltvBillItems);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.pnlPaymentMethod);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.listBox1);
             this.Name = "BillScreen";
             this.Text = "c";
             this.Load += new System.EventHandler(this.BillScreen_Load);
@@ -230,13 +448,15 @@
             this.pnlPaymentMethod.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.numTip)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            this.panel4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.TextBox txtOpmerkingInput;
         private System.Windows.Forms.Label lblOpmerkingen;
         private System.Windows.Forms.Panel panel1;
@@ -247,7 +467,25 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label lblTip;
-        private System.Windows.Forms.Button btnSave;
         protected System.Windows.Forms.NumericUpDown numTip;
+        private System.Windows.Forms.ListView ltvBillItems;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.Label lblRekening;
+        private CustomControls.CustomButton btnSave;
+        private System.Windows.Forms.RadioButton rbCashPin;
+        private System.Windows.Forms.RadioButton rbCashCreditcard;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label lblSplitPrice;
+        protected System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblTotalOutput;
+        private System.Windows.Forms.Label lblHighBtwOutput;
+        private System.Windows.Forms.Label lblLowBtwOutput;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
     }
 }

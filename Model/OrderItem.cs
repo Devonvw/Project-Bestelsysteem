@@ -14,12 +14,20 @@ namespace Model
         public int Amount { get; set; }
         public string Comment { get; set; }
         public bool Ready { get; set; }
+        public float TotalPrice { get; set; }
         public OrderItem(int id, int orderId, MenuItem menuItem, int amount, string comment, bool ready)
         {
             MenuItem = menuItem;
             Comment = comment;
             Ready = ready;
             Amount = amount;
+        }
+        public OrderItem(int id, MenuItem menuItem, int amount, float totalPrice)
+        {
+            Id = id;
+            MenuItem = menuItem;
+            Amount = amount;
+            TotalPrice = totalPrice;
         }
         public OrderItem(int orderId, MenuItem menuItem, int amount, string comment)
         {

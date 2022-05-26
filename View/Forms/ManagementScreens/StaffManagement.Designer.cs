@@ -36,6 +36,7 @@
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lblWerknemers = new System.Windows.Forms.Label();
             this.pnlInputs = new System.Windows.Forms.Panel();
+            this.btnRemove = new View.CustomControls.CustomButton();
             this.btnSave = new View.CustomControls.CustomButton();
             this.tbxEmail = new System.Windows.Forms.TextBox();
             this.lblEmail = new System.Windows.Forms.Label();
@@ -50,7 +51,6 @@
             this.tbxLastname = new System.Windows.Forms.TextBox();
             this.tbxFirstName = new System.Windows.Forms.TextBox();
             this.lblFirstName = new System.Windows.Forms.Label();
-            this.btnRemove = new View.CustomControls.CustomButton();
             this.pnlInputs.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,7 +69,7 @@
             this.ltvStaff.Location = new System.Drawing.Point(33, 163);
             this.ltvStaff.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ltvStaff.Name = "ltvStaff";
-            this.ltvStaff.Size = new System.Drawing.Size(1179, 741);
+            this.ltvStaff.Size = new System.Drawing.Size(1164, 741);
             this.ltvStaff.TabIndex = 6;
             this.ltvStaff.UseCompatibleStateImageBehavior = false;
             this.ltvStaff.View = System.Windows.Forms.View.Details;
@@ -135,6 +135,27 @@
             this.pnlInputs.TabIndex = 8;
             this.pnlInputs.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
+            // btnRemove
+            // 
+            this.btnRemove.BackColor = System.Drawing.Color.Red;
+            this.btnRemove.BackgroundColor = System.Drawing.Color.Red;
+            this.btnRemove.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnRemove.BorderRadius = 20;
+            this.btnRemove.BorderSize = 0;
+            this.btnRemove.FlatAppearance.BorderSize = 0;
+            this.btnRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRemove.Font = new System.Drawing.Font("Myanmar Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRemove.ForeColor = System.Drawing.Color.White;
+            this.btnRemove.Location = new System.Drawing.Point(241, 660);
+            this.btnRemove.Name = "btnRemove";
+            this.btnRemove.Size = new System.Drawing.Size(220, 63);
+            this.btnRemove.TabIndex = 24;
+            this.btnRemove.Text = "Verwijder";
+            this.btnRemove.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnRemove.TextColor = System.Drawing.Color.White;
+            this.btnRemove.UseVisualStyleBackColor = false;
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
+            // 
             // btnSave
             // 
             this.btnSave.BackColor = System.Drawing.Color.MediumSlateBlue;
@@ -159,10 +180,10 @@
             // tbxEmail
             // 
             this.tbxEmail.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.tbxEmail.Font = new System.Drawing.Font("Myanmar Text", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxEmail.Font = new System.Drawing.Font("Myanmar Text", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxEmail.Location = new System.Drawing.Point(17, 596);
             this.tbxEmail.Name = "tbxEmail";
-            this.tbxEmail.Size = new System.Drawing.Size(444, 41);
+            this.tbxEmail.Size = new System.Drawing.Size(444, 48);
             this.tbxEmail.TabIndex = 22;
             // 
             // lblEmail
@@ -243,7 +264,7 @@
             // 
             // dtpBirthdate
             // 
-            this.dtpBirthdate.CalendarFont = new System.Drawing.Font("Myanmar Text", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpBirthdate.CalendarFont = new System.Drawing.Font("Myanmar Text", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpBirthdate.Location = new System.Drawing.Point(17, 244);
             this.dtpBirthdate.Name = "dtpBirthdate";
             this.dtpBirthdate.Size = new System.Drawing.Size(422, 26);
@@ -264,19 +285,19 @@
             // tbxLastname
             // 
             this.tbxLastname.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.tbxLastname.Font = new System.Drawing.Font("Myanmar Text", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxLastname.Font = new System.Drawing.Font("Myanmar Text", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxLastname.Location = new System.Drawing.Point(17, 151);
             this.tbxLastname.Name = "tbxLastname";
-            this.tbxLastname.Size = new System.Drawing.Size(444, 41);
+            this.tbxLastname.Size = new System.Drawing.Size(444, 48);
             this.tbxLastname.TabIndex = 9;
             // 
             // tbxFirstName
             // 
             this.tbxFirstName.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.tbxFirstName.Font = new System.Drawing.Font("Myanmar Text", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxFirstName.Font = new System.Drawing.Font("Myanmar Text", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxFirstName.Location = new System.Drawing.Point(17, 53);
             this.tbxFirstName.Name = "tbxFirstName";
-            this.tbxFirstName.Size = new System.Drawing.Size(444, 41);
+            this.tbxFirstName.Size = new System.Drawing.Size(444, 48);
             this.tbxFirstName.TabIndex = 0;
             this.tbxFirstName.TextChanged += new System.EventHandler(this.tbxFirstName_TextChanged);
             // 
@@ -289,27 +310,6 @@
             this.lblFirstName.Size = new System.Drawing.Size(276, 30);
             this.lblFirstName.TabIndex = 1;
             this.lblFirstName.Text = "Voornaam";
-            // 
-            // btnRemove
-            // 
-            this.btnRemove.BackColor = System.Drawing.Color.Red;
-            this.btnRemove.BackgroundColor = System.Drawing.Color.Red;
-            this.btnRemove.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnRemove.BorderRadius = 20;
-            this.btnRemove.BorderSize = 0;
-            this.btnRemove.FlatAppearance.BorderSize = 0;
-            this.btnRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRemove.Font = new System.Drawing.Font("Myanmar Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRemove.ForeColor = System.Drawing.Color.White;
-            this.btnRemove.Location = new System.Drawing.Point(241, 660);
-            this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(220, 63);
-            this.btnRemove.TabIndex = 24;
-            this.btnRemove.Text = "Verwijder";
-            this.btnRemove.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnRemove.TextColor = System.Drawing.Color.White;
-            this.btnRemove.UseVisualStyleBackColor = false;
-            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
             // StaffManagement
             // 

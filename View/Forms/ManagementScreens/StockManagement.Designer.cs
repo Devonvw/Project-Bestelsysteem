@@ -48,7 +48,7 @@
             this.lblInventory.AutoSize = true;
             this.lblInventory.Font = new System.Drawing.Font("Myanmar Text", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInventory.ForeColor = System.Drawing.Color.White;
-            this.lblInventory.Location = new System.Drawing.Point(795, 41);
+            this.lblInventory.Location = new System.Drawing.Point(795, 9);
             this.lblInventory.Name = "lblInventory";
             this.lblInventory.Size = new System.Drawing.Size(312, 113);
             this.lblInventory.TabIndex = 9;

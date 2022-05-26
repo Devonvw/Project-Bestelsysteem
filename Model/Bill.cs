@@ -14,13 +14,14 @@ namespace Model
         public DateTime DateTime { get; }
         public string Comment { get; set; }
         public float TotalPrice { get; }
-        public float TotalPriceEx { get; }
+        public float LowBtwPrice { get; }
+        public float HighBtwPrice { get; }
         public float Tip { get; set; }
         public bool Payed { get; }
         public PaymentMethod PaymentMethod { get; set; }
         public List<Order> BillItems { get; }
 
-        public Bill(int id, int tableId, Staff staff, DateTime dateTime, string comment, float totalPrice, float totalPriceEx, float tip, bool payed, PaymentMethod paymentMethod)
+        public Bill(int id, int tableId, Staff staff, DateTime dateTime, string comment, float totalPrice, float lowBtwPrice, float highBtwPrice, float tip, bool payed, PaymentMethod paymentMethod)
         {
             Id = id;
             TableId = tableId;
@@ -28,7 +29,8 @@ namespace Model
             DateTime = dateTime;
             Comment = comment;
             TotalPrice = totalPrice;
-            TotalPriceEx = totalPriceEx;
+            LowBtwPrice = lowBtwPrice;
+            HighBtwPrice = highBtwPrice;
             Tip = tip;
             Payed = payed;
             PaymentMethod = paymentMethod;

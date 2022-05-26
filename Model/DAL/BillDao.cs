@@ -18,9 +18,11 @@ namespace Model
 
         public List<OrderItem> GetOrderItems(Bill bill)
         {
-            string query = "SELECT OI.*, MI.id as menuItemId, MI.shortName, MI.fullName, MI.categoryId, MI.subcategoryId, MI.priceEx, MI.stock, MI.inMenu FROM BillItems AS BI INNER JOIN Orders AS O ON BI.orderId = O.id INNER JOIN OrderItems AS OI ON O.id = OI.orderId INNER JOIN MenuItems AS MI ON OI.menuItemId = MI.id WHERE BI.billId = @id";
+            string query = "SELECT SUM(OI.amount) as totalAmount, (SUM(OI.amount) * MI.priceInc) as totalPrice, MI.id as menuItemId, MI.priceInc, MI.shortName, MI.fullName, MI.categoryId, MI.subcategoryId, MI.priceEx, MI.stock, MI.inMenu, SC.highBtw FROM BillItems AS BI INNER JOIN Orders AS O ON BI.orderId = O.id INNER JOIN OrderItems AS OI ON O.id = OI.orderId INNER JOIN (SELECT MI.id, MI.shortName, MI.fullName, MI.categoryId, MI.subcategoryId, MI.priceEx, MI.stock, MI.inMenu, Cast(SUM(MI.priceEx * CASE WHEN SC.highBtw = 'true' THEN @highBtw ELSE @lowBtw END) AS DECIMAL(5, 2)) as priceInc FROM MenuItems as MI INNER JOIN Subcategory as SC ON MI.subcategoryId = SC.id GROUP BY MI.id, MI.shortName, MI.fullName, MI.categoryId, MI.subcategoryId, MI.priceEx, MI.stock, MI.inMenu ) MI ON OI.menuItemId = MI.id INNER JOIN Subcategory as SC ON MI.subcategoryId = SC.id WHERE BI.billId = @id GROUP BY MI.id, MI.shortName, Mi.fullName, MI.categoryId, MI.subcategoryId, MI.priceEx, MI.priceInc, MI.stock, MI.inMenu, SC.highBtw";
             SqlParameter[] sqlParameters = new SqlParameter[]
             {
+                new SqlParameter("@highBtw", SqlDbType.Float) { Value = highBtw },
+                new SqlParameter("@lowBtw", SqlDbType.Float) { Value = lowBtw },
                 new SqlParameter("@id", SqlDbType.Int) { Value = bill.Id }
             };
             return ReadOrderItems(ExecuteSelectQuery(query, sqlParameters));
@@ -41,20 +43,22 @@ namespace Model
         //    
         //}
 
-        private (float totalPrice, float totalPriceEx) GetTotalBillPrice(int billId)
+        private (float totalPrice, float lowBtwPrice, float highBtwPrice) GetTotalBillPrice(int billId)
         {
-            string query = "SELECT Cast(SUM(MI.priceEx * OI.amount * CASE WHEN SC.highBtw = 'true' THEN @highBtw ELSE @lowBtw END) AS DECIMAL(5, 2)) as totalPrice, SUM(MI.priceEx * OI.amount) as totalPriceEx FROM BillItems AS BI INNER JOIN Orders AS O ON BI.orderId = O.id INNER JOIN OrderItems AS OI ON O.id = OI.orderId INNER JOIN MenuItems AS MI ON OI.menuItemId = MI.id INNER JOIN Subcategory AS SC ON MI.subcategoryId = SC.id WHERE BI.billId = @id";
+            string query = "SELECT Cast(SUM(MI.priceEx * OI.amount * CASE WHEN SC.highBtw = 'true' THEN @highBtw ELSE @lowBtw END) AS DECIMAL(5, 2)) as totalPrice, Cast(SUM(MI.priceEx * OI.amount * CASE WHEN SC.highBtw = 'true' THEN 0 ELSE @lowBtwPer END) AS DECIMAL(5, 2)) as lowBtwPrice, Cast(SUM(MI.priceEx * OI.amount * CASE WHEN SC.highBtw = 'true' THEN @highBtwPer ELSE 0 END) AS DECIMAL(5, 2)) as highBtwPrice FROM BillItems AS BI INNER JOIN Orders AS O ON BI.orderId = O.id INNER JOIN OrderItems AS OI ON O.id = OI.orderId INNER JOIN MenuItems AS MI ON OI.menuItemId = MI.id INNER JOIN Subcategory AS SC ON MI.subcategoryId = SC.id WHERE BI.billId = @id";
             SqlParameter[] sqlParameters = new SqlParameter[]
             {
                 new SqlParameter("@highBtw", SqlDbType.Float) { Value = highBtw },
                 new SqlParameter("@lowBtw", SqlDbType.Float) { Value = lowBtw },
+                new SqlParameter("@highBtwPer", SqlDbType.Float) { Value = highBtw - 1 },
+                new SqlParameter("@lowBtwPer", SqlDbType.Float) { Value = lowBtw - 1 },
                 new SqlParameter("@id", SqlDbType.Int) { Value = billId }
             };
             DataTable dt = ExecuteSelectQuery(query, sqlParameters);
 
-            if (string.IsNullOrEmpty(dt.Rows[0]["totalPrice"].ToString()) || string.IsNullOrEmpty(dt.Rows[0]["totalPriceEx"].ToString())) return (totalPrice: 0, totalPriceEx: 0);
+            if (string.IsNullOrEmpty(dt.Rows[0]["totalPrice"].ToString()) || string.IsNullOrEmpty(dt.Rows[0]["lowBtwPrice"].ToString()) || string.IsNullOrEmpty(dt.Rows[0]["highBtwPrice"].ToString())) return (totalPrice: 0, lowBtwPrice: 0, highBtwPrice: 0);
 
-            return (totalPrice: float.Parse(dt.Rows[0]["totalPrice"].ToString()), totalPriceEx: float.Parse(dt.Rows[0]["totalPriceEx"].ToString()));
+            return (totalPrice: float.Parse(dt.Rows[0]["totalPrice"].ToString()), lowBtwPrice: float.Parse(dt.Rows[0]["lowBtwPrice"].ToString()), highBtwPrice: float.Parse(dt.Rows[0]["highBtwPrice"].ToString()));
         }
 
         public void CloseBill(Bill bill)
@@ -76,10 +80,11 @@ namespace Model
         public List<OrderItem> ReadOrderItems(DataTable dataTable)
         {
             List<OrderItem> orderItems = new List<OrderItem>();
+            int index = 1;
 
             foreach (DataRow dr in dataTable.Rows)
             {
-                OrderItem orderItem = new OrderItem((int)dr["id"], (int)dr["orderId"], new MenuItem((int)dr["menuItemId"], dr["shortName"].ToString(), dr["fullName"].ToString(), (Category)(int)dr["categoryId"], (SubCategory)(int)dr["subcategoryId"], float.Parse(dr["priceEx"].ToString()), (int)dr["stock"], (bool)dr["inMenu"]), (int)dr["amount"], dr["comment"].ToString(), (bool)dr["isReady"]);
+                OrderItem orderItem = new OrderItem(index, new MenuItem((int)dr["menuItemId"], dr["shortName"].ToString(), dr["fullName"].ToString(), (Category)(int)dr["categoryId"], (SubCategory)(int)dr["subcategoryId"], float.Parse(dr["priceEx"].ToString()), (int)dr["stock"], (bool)dr["inMenu"]), (int)dr["totalAmount"], float.Parse(dr["totalPrice"].ToString()));
                 orderItems.Add(orderItem);
             }
             return orderItems;
@@ -89,9 +94,9 @@ namespace Model
         {
             DataRow firstRow = dataTable.Rows[0];
 
-            (float totalPrice, float totalPriceEx) totalPrice = GetTotalBillPrice((int)firstRow["id"]);
+            (float totalPrice, float lowBtwPrice, float highBtwPrice) totalPrice = GetTotalBillPrice((int)firstRow["id"]);
 
-            Bill bill = new Bill((int)firstRow["id"], (int)firstRow["tableId"], new Staff((int)firstRow["staffId"], firstRow["firstName"].ToString(), firstRow["lastName"].ToString(), DateTime.Parse(firstRow["birthDate"].ToString()), (Roles)(int)firstRow["staffId"], firstRow["email"].ToString(), firstRow["password"].ToString()), DateTime.Parse(firstRow["datetime"].ToString()), firstRow["comment"].ToString(), totalPrice.totalPrice, totalPrice.totalPriceEx, float.Parse(firstRow["tip"].ToString()), (bool)firstRow["payed"], (PaymentMethod)(int)firstRow["paymentMethodId"]);
+            Bill bill = new Bill((int)firstRow["id"], (int)firstRow["tableId"], new Staff((int)firstRow["staffId"], firstRow["firstName"].ToString(), firstRow["lastName"].ToString(), DateTime.Parse(firstRow["birthDate"].ToString()), (Roles)(int)firstRow["staffId"], firstRow["email"].ToString(), firstRow["password"].ToString()), DateTime.Parse(firstRow["datetime"].ToString()), firstRow["comment"].ToString(), totalPrice.totalPrice, totalPrice.lowBtwPrice, totalPrice.highBtwPrice, float.Parse(firstRow["tip"].ToString()), (bool)firstRow["payed"], (PaymentMethod)(int)firstRow["paymentMethodId"]);
             return bill;
         }
 

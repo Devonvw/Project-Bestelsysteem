@@ -30,6 +30,7 @@
         {
             this.lblManagement = new System.Windows.Forms.Label();
             this.pnlChild = new System.Windows.Forms.Panel();
+            this.btnBack = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblManagement
@@ -47,15 +48,30 @@
             // 
             this.pnlChild.Location = new System.Drawing.Point(4, 188);
             this.pnlChild.Name = "pnlChild";
-            this.pnlChild.Size = new System.Drawing.Size(1949, 906);
+            this.pnlChild.Size = new System.Drawing.Size(1949, 953);
             this.pnlChild.TabIndex = 4;
+            // 
+            // btnBack
+            // 
+            this.btnBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(0)))), ((int)(((byte)(77)))));
+            this.btnBack.BackgroundImage = global::View.Properties.Resources.icons8_arrow_96;
+            this.btnBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBack.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(0)))), ((int)(((byte)(77)))));
+            this.btnBack.Location = new System.Drawing.Point(60, 45);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(126, 110);
+            this.btnBack.TabIndex = 5;
+            this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.button1_Click);
             // 
             // Management
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(0)))), ((int)(((byte)(77)))));
-            this.ClientSize = new System.Drawing.Size(1954, 1094);
+            this.ClientSize = new System.Drawing.Size(1956, 1144);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.pnlChild);
             this.Controls.Add(this.lblManagement);
             this.Name = "Management";
@@ -69,5 +85,6 @@
         #endregion
         private System.Windows.Forms.Label lblManagement;
         private System.Windows.Forms.Panel pnlChild;
+        private System.Windows.Forms.Button btnBack;
     }
 }

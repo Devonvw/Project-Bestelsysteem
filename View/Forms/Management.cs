@@ -13,7 +13,7 @@ namespace View.Forms
     public partial class Management : Form
     {
         private Form activeForm;
-
+        
         public Management()
         {
             InitializeComponent();
@@ -35,6 +35,11 @@ namespace View.Forms
             this.pnlChild.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new ManagementScreens.OverviewManagement(this), sender);
         }
     }
 }

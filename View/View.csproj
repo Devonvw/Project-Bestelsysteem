@@ -186,6 +186,7 @@
     <None Include="Resources\inventory2.jpg" />
     <None Include="Resources\inventory.jpg" />
     <None Include="Resources\louis-hansel-lXLct9D-ARE-unsplash.jpg" />
+    <None Include="Resources\icons8-arrow-96.png" />
     <Content Include="Resources\waitress.jpeg" />
     <None Include="Resources\waitressSmall2.jpeg" />
     <None Include="Resources\waitress1.jpeg" />
