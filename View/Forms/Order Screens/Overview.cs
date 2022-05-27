@@ -21,12 +21,12 @@ namespace View.Forms.Order_Screens
         private int amount;
         private Panel activePanel;
         // Lists
-        private List<OrderItem> orderItems;
-        private List<Model.MenuItem> menuItems;
-        private List<OrderItem> newOrderItems = new List<OrderItem>();
-        private List<OrderItem> orderItemsInPreparation = new List<OrderItem>();
-        private List<OrderItem> rearrangedList = new List<OrderItem>();
-        private List<Order> orders = new List<Order>();
+        private List<OrderItem> orderItems { get; set; }
+        private List<Model.MenuItem> menuItems { get; set; }
+        private List<OrderItem> newOrderItems { get; set; }
+        private List<OrderItem> orderItemsInPreparation { get; set; }
+        private List<OrderItem> rearrangedList { get; set; }
+        private List<Order> orders {get; set;}
 
         // Controllers
         private MenuController menuController = new MenuController();
@@ -42,8 +42,8 @@ namespace View.Forms.Order_Screens
             this.orderItems = orderItems;
             this.staff = staff;
             this.bill = bill;
-            this.menuItems = menuController.GetAllMenuItems();
             this.orders = orderController.GetOrdersByTable(bill);
+            this.menuItems = menuController.GetAllMenuItems();
             this.rearrangedList = billController.GetOrderItems(bill);
             
             // Init
@@ -90,6 +90,7 @@ namespace View.Forms.Order_Screens
             newOrderItemsListView.Clear();
             FillNewOrderListView(newOrderItems);
         }
+
 
         // Panel Overview: Button Clicks
         private void newOrderButton_Click(object sender, EventArgs e)
@@ -160,18 +161,6 @@ namespace View.Forms.Order_Screens
             commentAndAmountPanel.Hide();
             togglePanel.Show();
             UpdateBillOverview();
-        }
-
-        private void CheckForEmptyOrder()
-        {
-            List<Order> orders = orderController.GetOrdersByTable(bill);
-            foreach (Order order in orders)
-            {
-                if (order.OrderItems.Count == 0)
-                {
-                    orderController.DeleteOrder(bill, order);
-                }
-            }
         }
         private void backToTablesButton_Click(object sender, EventArgs e)
         {
