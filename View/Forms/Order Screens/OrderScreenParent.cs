@@ -21,7 +21,7 @@ namespace View.Forms
         private Staff staff = new Staff(1, "Jacky", "Eichenberger", DateTime.Now, Roles.Waiter, "test", "test");               
         private Form activeForm;
         private List<OrderItem> orderItems;
-        private Table[] tables;
+        //private Table[] tables;
 
         public OrderScreenParent() // staff moet meegegeven vanuit UI / login
         {
@@ -65,7 +65,7 @@ namespace View.Forms
         {
             if (TableHasBill(table))
             {
-                this.orderItems = billController.GetOrderItems(bill);
+                this.orderItems = orderController.GetOrderItemsForOverview(bill);
             }
             else
             {                

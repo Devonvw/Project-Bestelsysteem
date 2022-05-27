@@ -27,6 +27,7 @@ namespace Model
             };
             return ReadOrderItems(ExecuteSelectQuery(query, sqlParameters));
         }
+
         public Bill GetCurrentBillByTable(Table table)
         {
             string query = "SELECT TOP 1 * FROM Bills AS B INNER JOIN Staff AS S ON B.staffId = S.id WHERE tableId = @tableId ORDER BY [datetime] DESC";

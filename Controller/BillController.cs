@@ -21,6 +21,7 @@ namespace Controller
         {
             return billDB.GetOrderItems(bill);
         }
+
         public Bill GetCurrentBillByTable(Table table)
         {
             return billDB.GetCurrentBillByTable(table);

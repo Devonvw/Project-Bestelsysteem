@@ -27,7 +27,6 @@ namespace View.Forms.Order_Screens
         private List<OrderItem> orderItemsInPreparation = new List<OrderItem>();
         private List<OrderItem> rearrangedList = new List<OrderItem>();
         private List<Order> orders = new List<Order>();
-        private List<OrderItem> lastOrderItems = new List<OrderItem>();
 
         // Controllers
         private MenuController menuController = new MenuController();
@@ -44,15 +43,17 @@ namespace View.Forms.Order_Screens
             this.staff = staff;
             this.bill = bill;
             this.menuItems = menuController.GetAllMenuItems();
+            this.orders = orderController.GetOrdersByTable(bill);
+            this.rearrangedList = billController.GetOrderItems(bill);
+            
             // Init
-            SetActivePanel(overViewPanel);
             if (orderItems != null)
             {
-                FillBillOverView(orderItems);
+                FillBillOverView(rearrangedList);
             }
             FillMenuListView(menuItems);
+            SetActivePanel(overViewPanel);
         }
-
 
         // method for setting panel
         private void SetActivePanel(Panel panel)
@@ -71,23 +72,53 @@ namespace View.Forms.Order_Screens
             billOverViewListView.Items.Clear();
             foreach (OrderItem item in orderItems)
             {
-                ListViewItem listViewItem = new ListViewItem(item.MenuItem.ShortName.ToString());
+                ListViewItem listViewItem = new ListViewItem(item.Id.ToString());
+                listViewItem.SubItems.Add(item.MenuItem.ShortName.ToString());
                 listViewItem.SubItems.Add(item.Amount.ToString());
-                listViewItem.SubItems.Add(item.Comment.ToString());
+                if (item.Comment != null)
+                {
+                    listViewItem.SubItems.Add(item.Comment.ToString());
+                }
                 billOverViewListView.Items.Add(listViewItem);
             }
         }
 
         public void UpdateBillOverview()
         {
-            orderItems = billController.GetOrderItems(bill);
+            orderItems = orderController.GetOrderItemsForOverview(bill);
             FillBillOverView(orderItems);
+            newOrderItemsListView.Clear();
+            FillNewOrderListView(newOrderItems);
         }
+
         // Panel Overview: Button Clicks
         private void newOrderButton_Click(object sender, EventArgs e)
         {
             SetActivePanel(addOrderPanel);
+            newOrderItems.Clear();
         }
+
+        private void deleteOrderInPreperationButton_Click(object sender, EventArgs e)
+        {
+            foreach (OrderItem orderItem in orderItemsInPreparation)
+            {
+                orderController.DeleteOrderItem(orderItem);
+            }
+            UpdateBillOverview();
+        }
+        private List<OrderItem> GetOrderItemsInPreparation(List<OrderItem> orderItems)
+        {
+            orderItemsInPreparation.Clear();
+            foreach (OrderItem item in orderItems)
+            {
+                if (item.Ready == false)
+                {
+                    orderItemsInPreparation.Add(item);
+                }
+            }
+            return orderItemsInPreparation;
+        }
+
         private void ChangeOrderButton_Click(object sender, EventArgs e)
         {
             this.overViewPanel.Controls.Add(commentAndAmountPanel);
@@ -97,65 +128,71 @@ namespace View.Forms.Order_Screens
             ChangeOrderButton.Hide();
             togglePanel.Hide();
             updateItemButton.Show();
-            //lastOrderItems = GetLastOrderItems();
-            FillBillOverView(lastOrderItems);
+            deleteOrderInPreperationButton.Show();
+            orderItemsInPreparation = GetOrderItemsInPreparation(orderItems);
+            FillBillOverView(orderItemsInPreparation);
+        }
+        // update orderItem in DB
+        private void updateItemButton_Click(object sender, EventArgs e)
+        {
+            OrderItem orderItem = new OrderItem();
+            foreach (OrderItem item in orderItems)
+            {
+                if (item.Id == int.Parse(billOverViewListView.SelectedItems[0].SubItems[0].Text))
+                {
+                    orderItem = item;
+                    orderItem.Amount = amount;
+                    orderItem.Comment = addCommentTextBox.Text;
+                }
+            }
+            GetAmount();
+            if (orderItem.Amount == 0)
+            {
+                orderController.DeleteOrderItem(orderItem);
+            }
+            else
+            {
+                orderController.UpdateOrderItem(orderItem);
+            }                                   
+            ChangeOrderButton.Show();
+            updateItemButton.Hide();
+            insertOrderButton.Show();
+            commentAndAmountPanel.Hide();
+            togglePanel.Show();
+            UpdateBillOverview();
         }
 
-        //private List<OrderItem> GetLastOrderItems()
-        //{
-        //    GetLastOrderID(bill);
-        //    return orderItems;
-        //}
-
-        //private void GetLastOrderID()
-        //{
-        //    orderController.GetLastOrderId(bill);
-        //}
-
+        private void CheckForEmptyOrder()
+        {
+            List<Order> orders = orderController.GetOrdersByTable(bill);
+            foreach (Order order in orders)
+            {
+                if (order.OrderItems.Count == 0)
+                {
+                    orderController.DeleteOrder(bill, order);
+                }
+            }
+        }
         private void backToTablesButton_Click(object sender, EventArgs e)
         {
             Close();
         }
 
         // Panel Overview: Toggles
-        private void orderInPreparationToggle_CheckedChanged(object sender, EventArgs e)
-        {
-            if (!orderInPreparationToggle.Checked)
-            {
-                foreach (OrderItem item in orderItems)
-                {
-                    if (item.Ready == false)
-                    {
-                        orderItemsInPreparation.Add(item);
-                        FillBillOverView(orderItemsInPreparation);
-                    }
-                }
-            }
-            else
-            {
-                orderItemsInPreparation.Clear();
-                FillBillOverView(orderItems);
-            }
-        }
         private void groupItemsToggle_CheckedChanged(object sender, EventArgs e)
         {
             rearrangedList.Clear();
-            if (groupItemsToggle.Checked)
+            rearrangedList = billController.GetOrderItems(bill);
+            if (groupItemsToggle.Checked == true)
             {
-                foreach(OrderItem item in orderItems)
-                {
-                    if (true)
-                    {
-                        rearrangedList.Add(item);
-                    }
-                }
+                FillBillOverView(rearrangedList);
             }
+            
+            else if (groupItemsToggle.Checked == false)
+            {
+                FillBillOverView(orderItems);
+            }            
         }
-
-
-
-
-
 
         // Panel Add Order
         // Panel Add Order: Listviews
@@ -166,6 +203,7 @@ namespace View.Forms.Order_Screens
             {
                 ListViewItem listViewItem = new ListViewItem(item.Id.ToString());
                 listViewItem.SubItems.Add(item.ShortName.ToString());
+                listViewItem.SubItems.Add(item.Stock.ToString());
                 menuItemsListView.Items.Add(listViewItem);
             }
         }
@@ -362,6 +400,7 @@ namespace View.Forms.Order_Screens
                 orderController.InsertOrder(bill, order);
                 SetActivePanel(overViewPanel);
                 UpdateBillOverview();
+                FillNewOrderListView(newOrderItems);
             }
         }
 
@@ -510,12 +549,5 @@ namespace View.Forms.Order_Screens
             SetActivePanel(overViewPanel);
         }
 
-
-
-        // change last order
-        private void updateItemButton_Click(object sender, EventArgs e)
-        {
-            //orderController.UpdateOrderItem(orderItem);
-        }
     }
 }

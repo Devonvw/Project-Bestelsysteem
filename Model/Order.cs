@@ -9,8 +9,8 @@ namespace Model
     public class Order
     {
         public int Id { get; set; }
-        public int Staff { get; } // Moet staff object worden
-        public DateTime DateTime { get; } //
+        public int Staff { get; set; } // Moet staff object worden
+        public DateTime DateTime { get; set; } //
         public List<OrderItem> OrderItems { get; set; }
 
         public Order(int id, int staff, DateTime dateTime)
@@ -25,6 +25,10 @@ namespace Model
             Staff = staff;
             DateTime = dateTime;
             OrderItems = new List<OrderItem>();
+        }
+
+        public Order()
+        {
         }
 
         public void AddOrderItem(OrderItem orderItem)

@@ -15,6 +15,20 @@ namespace Controller
         {
             orderDB = new OrderDao();
         }
+        public List<OrderItem> GetOrderItemsForOverview(Bill bill)
+        {
+            return orderDB.GetOrderItemsForOverview(bill);
+        }
+
+        public List<Order> GetOrdersByTable(Bill bill)
+        {
+            return orderDB.GetOrdersByTable(bill);
+        }
+
+        public List<OrderItem> GetOrderItemsByOrder(int orderId)
+        {
+            return orderDB.GetOrderItemsByOrder(orderId);
+        }
 
         public void InsertOrder(Bill bill, Order order)
         {
@@ -45,10 +59,5 @@ namespace Controller
         {
             orderDB.DeleteOrder(bill, order);
         }
-
-        //public void GetLastOrder(Bill bill)
-        //{
-        //    orderDB.GetLastOrder(bill);
-        //}
     }
 }

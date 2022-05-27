@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.billOverViewListView = new System.Windows.Forms.ListView();
+            this.OrderItemId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.MenuItem = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Amount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Comment = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -36,6 +37,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.overViewPanel = new System.Windows.Forms.Panel();
+            this.togglePanel = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.addOrderPanel = new System.Windows.Forms.Panel();
             this.lunchSubPanel = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
@@ -56,12 +59,9 @@
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.togglePanel = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.deleteOrderInPreperationButton = new View.CustomControls.CustomButton();
             this.updateItemButton = new View.CustomControls.CustomButton();
             this.groupItemsToggle = new View.CustomControls.ToggleButton();
-            this.orderInPreparationToggle = new View.CustomControls.ToggleButton();
             this.ChangeOrderButton = new View.CustomControls.CustomButton();
             this.backToTablesButton = new View.CustomControls.CustomButton();
             this.newOrderButton = new View.CustomControls.CustomButton();
@@ -89,19 +89,21 @@
             this.backToOverviewButton = new View.CustomControls.CustomButton();
             this.insertOrderButton = new View.CustomControls.CustomButton();
             this.addItemButton = new View.CustomControls.CustomButton();
+            this.stock = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.overViewPanel.SuspendLayout();
+            this.togglePanel.SuspendLayout();
             this.addOrderPanel.SuspendLayout();
             this.lunchSubPanel.SuspendLayout();
             this.commentAndAmountPanel.SuspendLayout();
             this.dinerSubPanel.SuspendLayout();
             this.drankenSubPanel.SuspendLayout();
             this.alchoholSubPanel.SuspendLayout();
-            this.togglePanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // billOverViewListView
             // 
             this.billOverViewListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.OrderItemId,
             this.MenuItem,
             this.Amount,
             this.Comment});
@@ -114,6 +116,11 @@
             this.billOverViewListView.TabIndex = 3;
             this.billOverViewListView.UseCompatibleStateImageBehavior = false;
             this.billOverViewListView.View = System.Windows.Forms.View.Details;
+            // 
+            // OrderItemId
+            // 
+            this.OrderItemId.Text = "ID";
+            this.OrderItemId.Width = 25;
             // 
             // MenuItem
             // 
@@ -160,6 +167,7 @@
             // 
             // overViewPanel
             // 
+            this.overViewPanel.Controls.Add(this.deleteOrderInPreperationButton);
             this.overViewPanel.Controls.Add(this.updateItemButton);
             this.overViewPanel.Controls.Add(this.togglePanel);
             this.overViewPanel.Controls.Add(this.ChangeOrderButton);
@@ -172,6 +180,26 @@
             this.overViewPanel.Size = new System.Drawing.Size(428, 795);
             this.overViewPanel.TabIndex = 19;
             this.overViewPanel.Visible = false;
+            // 
+            // togglePanel
+            // 
+            this.togglePanel.Controls.Add(this.label2);
+            this.togglePanel.Controls.Add(this.groupItemsToggle);
+            this.togglePanel.Location = new System.Drawing.Point(10, 487);
+            this.togglePanel.Name = "togglePanel";
+            this.togglePanel.Size = new System.Drawing.Size(406, 73);
+            this.togglePanel.TabIndex = 30;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.Control;
+            this.label2.Location = new System.Drawing.Point(0, 26);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(184, 20);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "Groepeer dezelfde items";
             // 
             // addOrderPanel
             // 
@@ -332,7 +360,8 @@
             // 
             this.menuItemsListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.ID,
-            this.Item});
+            this.Item,
+            this.stock});
             this.menuItemsListView.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuItemsListView.FullRowSelect = true;
             this.menuItemsListView.GridLines = true;
@@ -353,7 +382,7 @@
             // Item
             // 
             this.Item.Text = "Item";
-            this.Item.Width = 200;
+            this.Item.Width = 182;
             // 
             // newOrderItemsListView
             // 
@@ -388,38 +417,25 @@
             this.columnHeader3.Text = "Comment";
             this.columnHeader3.Width = 100;
             // 
-            // togglePanel
+            // deleteOrderInPreperationButton
             // 
-            this.togglePanel.Controls.Add(this.label2);
-            this.togglePanel.Controls.Add(this.label4);
-            this.togglePanel.Controls.Add(this.groupItemsToggle);
-            this.togglePanel.Controls.Add(this.orderInPreparationToggle);
-            this.togglePanel.Location = new System.Drawing.Point(10, 487);
-            this.togglePanel.Name = "togglePanel";
-            this.togglePanel.Size = new System.Drawing.Size(406, 100);
-            this.togglePanel.TabIndex = 30;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.Control;
-            this.label4.Location = new System.Drawing.Point(0, 56);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(230, 20);
-            this.label4.TabIndex = 16;
-            this.label4.Text = "Laat bestelling in bereiding zien";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.Control;
-            this.label2.Location = new System.Drawing.Point(0, 26);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(184, 20);
-            this.label2.TabIndex = 13;
-            this.label2.Text = "Groepeer dezelfde items";
+            this.deleteOrderInPreperationButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(58)))), ((int)(((byte)(118)))));
+            this.deleteOrderInPreperationButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(58)))), ((int)(((byte)(118)))));
+            this.deleteOrderInPreperationButton.BorderColor = System.Drawing.Color.White;
+            this.deleteOrderInPreperationButton.BorderRadius = 20;
+            this.deleteOrderInPreperationButton.BorderSize = 1;
+            this.deleteOrderInPreperationButton.FlatAppearance.BorderSize = 0;
+            this.deleteOrderInPreperationButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.deleteOrderInPreperationButton.ForeColor = System.Drawing.Color.White;
+            this.deleteOrderInPreperationButton.Location = new System.Drawing.Point(14, 621);
+            this.deleteOrderInPreperationButton.Name = "deleteOrderInPreperationButton";
+            this.deleteOrderInPreperationButton.Size = new System.Drawing.Size(192, 70);
+            this.deleteOrderInPreperationButton.TabIndex = 32;
+            this.deleteOrderInPreperationButton.Text = "Verwijder bestelling";
+            this.deleteOrderInPreperationButton.TextColor = System.Drawing.Color.White;
+            this.deleteOrderInPreperationButton.UseVisualStyleBackColor = false;
+            this.deleteOrderInPreperationButton.Visible = false;
+            this.deleteOrderInPreperationButton.Click += new System.EventHandler(this.deleteOrderInPreperationButton_Click);
             // 
             // updateItemButton
             // 
@@ -443,6 +459,8 @@
             // 
             // groupItemsToggle
             // 
+            this.groupItemsToggle.Checked = true;
+            this.groupItemsToggle.CheckState = System.Windows.Forms.CheckState.Checked;
             this.groupItemsToggle.Location = new System.Drawing.Point(303, 24);
             this.groupItemsToggle.MinimumSize = new System.Drawing.Size(45, 22);
             this.groupItemsToggle.Name = "groupItemsToggle";
@@ -454,20 +472,6 @@
             this.groupItemsToggle.TabIndex = 17;
             this.groupItemsToggle.UseVisualStyleBackColor = true;
             this.groupItemsToggle.CheckedChanged += new System.EventHandler(this.groupItemsToggle_CheckedChanged);
-            // 
-            // orderInPreparationToggle
-            // 
-            this.orderInPreparationToggle.Location = new System.Drawing.Point(303, 53);
-            this.orderInPreparationToggle.MinimumSize = new System.Drawing.Size(45, 22);
-            this.orderInPreparationToggle.Name = "orderInPreparationToggle";
-            this.orderInPreparationToggle.OffBackColor = System.Drawing.Color.Gray;
-            this.orderInPreparationToggle.OffToggleColor = System.Drawing.Color.Gainsboro;
-            this.orderInPreparationToggle.OnBackColor = System.Drawing.Color.MediumSlateBlue;
-            this.orderInPreparationToggle.OnToggleColor = System.Drawing.Color.WhiteSmoke;
-            this.orderInPreparationToggle.Size = new System.Drawing.Size(101, 23);
-            this.orderInPreparationToggle.TabIndex = 15;
-            this.orderInPreparationToggle.UseVisualStyleBackColor = true;
-            this.orderInPreparationToggle.CheckedChanged += new System.EventHandler(this.orderInPreparationToggle_CheckedChanged);
             // 
             // ChangeOrderButton
             // 
@@ -483,7 +487,7 @@
             this.ChangeOrderButton.Name = "ChangeOrderButton";
             this.ChangeOrderButton.Size = new System.Drawing.Size(193, 70);
             this.ChangeOrderButton.TabIndex = 18;
-            this.ChangeOrderButton.Text = "Wijzig laatste bestelling";
+            this.ChangeOrderButton.Text = "Wijzig bestelling";
             this.ChangeOrderButton.TextColor = System.Drawing.Color.White;
             this.ChangeOrderButton.UseVisualStyleBackColor = false;
             this.ChangeOrderButton.Click += new System.EventHandler(this.ChangeOrderButton_Click);
@@ -990,6 +994,11 @@
             this.addItemButton.UseVisualStyleBackColor = false;
             this.addItemButton.Click += new System.EventHandler(this.addItemButton_Click);
             // 
+            // stock
+            // 
+            this.stock.Text = "Voorraad";
+            this.stock.Width = 90;
+            // 
             // Overview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1006,6 +1015,8 @@
             this.Text = "Overview";
             this.overViewPanel.ResumeLayout(false);
             this.overViewPanel.PerformLayout();
+            this.togglePanel.ResumeLayout(false);
+            this.togglePanel.PerformLayout();
             this.addOrderPanel.ResumeLayout(false);
             this.lunchSubPanel.ResumeLayout(false);
             this.lunchSubPanel.PerformLayout();
@@ -1017,8 +1028,6 @@
             this.drankenSubPanel.PerformLayout();
             this.alchoholSubPanel.ResumeLayout(false);
             this.alchoholSubPanel.PerformLayout();
-            this.togglePanel.ResumeLayout(false);
-            this.togglePanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1082,9 +1091,10 @@
         private CustomControls.CustomButton ChangeOrderButton;
         private System.Windows.Forms.Panel togglePanel;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label4;
         private CustomControls.ToggleButton groupItemsToggle;
-        private CustomControls.ToggleButton orderInPreparationToggle;
         private CustomControls.CustomButton updateItemButton;
+        private System.Windows.Forms.ColumnHeader OrderItemId;
+        private CustomControls.CustomButton deleteOrderInPreperationButton;
+        private System.Windows.Forms.ColumnHeader stock;
     }
 }
