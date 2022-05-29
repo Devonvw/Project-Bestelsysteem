@@ -301,12 +301,12 @@
             // 
             // columnHeader4
             // 
-            this.columnHeader4.Text = "Category";
+            this.columnHeader4.Text = "Categorie";
             this.columnHeader4.Width = 161;
             // 
             // columnHeader5
             // 
-            this.columnHeader5.Text = "Subcategory";
+            this.columnHeader5.Text = "Subcategorie";
             this.columnHeader5.Width = 166;
             // 
             // columnHeader6

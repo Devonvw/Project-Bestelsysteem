@@ -43,9 +43,9 @@ namespace View.Forms
         {
             bill = billController.GetCurrentBillByTable(new Table(1, true));
             Reload();
-            lblLowBtwOutput.Text = $"€{bill.LowBtwPrice.ToString()}";
-            lblHighBtwOutput.Text = $"€{bill.HighBtwPrice.ToString()}";
-            lblTotalOutput.Text = $"€{bill.TotalPrice.ToString()}";
+            lblLowBtwOutput.Text = $"€{bill.LowBtwPrice.ToString("0.00")}";
+            lblHighBtwOutput.Text = $"€{bill.HighBtwPrice.ToString("0.00")}";
+            lblTotalOutput.Text = $"€{bill.TotalPrice.ToString("0.00")}";
         }
         private void label1_Click(object sender, EventArgs e)
         {
