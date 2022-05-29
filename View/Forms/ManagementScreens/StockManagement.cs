@@ -103,11 +103,20 @@ namespace View.Forms.ManagementScreens
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (ltvStockItems.SelectedItems.Count > 0)
+            try
             {
-                stockController.AdjustStock(selectedMenuItem);
-                Reload();
+                if (ltvStockItems.SelectedItems.Count > 0)
+                {
+                    stockController.AdjustStock(selectedMenuItem);
+                    Reload();
+                    MessageBox.Show("Voorraad succesvol aangepast.");
+                }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
         }
     }
 }

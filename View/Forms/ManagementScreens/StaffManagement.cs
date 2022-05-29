@@ -115,6 +115,7 @@ namespace View.Forms.ManagementScreens
                     selectedStaff.Role = selectedRole;
                     staffController.UpdateStaff(selectedStaff);
                     Reload();
+                    MessageBox.Show("Werknemer succesvol aangepast");
                 }
                 else
                 {

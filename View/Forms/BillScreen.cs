@@ -76,6 +76,7 @@ namespace View.Forms
             try
             {
                 billController.CloseBill(bill);
+                MessageBox.Show("Rekening succesvol gesloten, de tafel is weer open.");
             }
             catch (Exception err)
             {
