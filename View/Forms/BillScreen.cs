@@ -17,6 +17,7 @@ namespace View.Forms
         private BillController billController;
         private List<OrderItem> orderItems;
         private Bill bill;
+        private Table table;
 
         private void Reload()
         {
@@ -31,37 +32,24 @@ namespace View.Forms
                 ltvBillItems.Items.Add(listViewItem);
             });
         }
-        public BillScreen() //Table table
+        public BillScreen(Table table)
         {
+            this.table = table;
             billController = new BillController();
             orderItems = new List<OrderItem>();
 
             InitializeComponent();
         }
-
         private void BillScreen_Load(object sender, EventArgs e)
         {
-            bill = billController.GetCurrentBillByTable(new Table(1, true));
+            lblRekening.Text = $"{lblRekening.Text} {table.Id}";
+            bill = billController.GetCurrentBillByTable(table);
             Reload();
             lblLowBtwOutput.Text = $"€{bill.LowBtwPrice.ToString("0.00")}";
             lblHighBtwOutput.Text = $"€{bill.HighBtwPrice.ToString("0.00")}";
             lblTotalOutput.Text = $"€{bill.TotalPrice.ToString("0.00")}";
-        }
-        private void label1_Click(object sender, EventArgs e)
-        {
 
         }
-
-        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pnlPaymentMethod_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void btnSave_Click_1(object sender, EventArgs e)
         {
             bill.Comment = string.IsNullOrEmpty(txtOpmerkingInput.Text) ? "" : txtOpmerkingInput.Text;
@@ -83,36 +71,10 @@ namespace View.Forms
                 MessageBox.Show("Het was niet gelukt om de rekening te sluiten: " + err.Message);
             }
         }
-
-        private void numericUpDown1_ValueChanged_1(object sender, EventArgs e)
+        private void numSplit_ValueChanged(object sender, EventArgs e)
         {
-            if (numericUpDown1.Value == 1) lblSplitPrice.Text = "";
-            else lblSplitPrice.Text = $"€{Math.Round(bill.TotalPrice / (float)numericUpDown1.Value, 2).ToString()}";   
-        }
-
-        private void panel4_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void ltvBillItems_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
+            if (numSplit.Value == 1) lblSplitPrice.Text = "";
+            else lblSplitPrice.Text = $"€{Math.Round(bill.TotalPrice / (float)numSplit.Value, 2).ToString()}";   
         }
     }
 }

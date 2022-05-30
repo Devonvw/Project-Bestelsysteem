@@ -46,10 +46,9 @@
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lblRekening = new System.Windows.Forms.Label();
-            this.btnSave = new View.CustomControls.CustomButton();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblSplitPrice = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.numSplit = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.lblTotalOutput = new System.Windows.Forms.Label();
@@ -58,12 +57,13 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.btnSave = new View.CustomControls.CustomButton();
             this.panel1.SuspendLayout();
             this.pnlPaymentMethod.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numTip)).BeginInit();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numSplit)).BeginInit();
             this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -90,7 +90,6 @@
             this.lblOpmerkingen.Size = new System.Drawing.Size(218, 66);
             this.lblOpmerkingen.TabIndex = 2;
             this.lblOpmerkingen.Text = "Opmerking";
-            this.lblOpmerkingen.Click += new System.EventHandler(this.label1_Click);
             // 
             // panel1
             // 
@@ -101,7 +100,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(601, 124);
             this.panel1.TabIndex = 7;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // pnlPaymentMethod
             // 
@@ -116,7 +114,6 @@
             this.pnlPaymentMethod.Name = "pnlPaymentMethod";
             this.pnlPaymentMethod.Size = new System.Drawing.Size(601, 318);
             this.pnlPaymentMethod.TabIndex = 8;
-            this.pnlPaymentMethod.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlPaymentMethod_Paint);
             // 
             // rbCashPin
             // 
@@ -211,7 +208,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(601, 113);
             this.panel3.TabIndex = 9;
-            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // numTip
             // 
@@ -220,7 +216,6 @@
             this.numTip.Name = "numTip";
             this.numTip.Size = new System.Drawing.Size(183, 39);
             this.numTip.TabIndex = 3;
-            this.numTip.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
             // 
             // lblTip
             // 
@@ -253,7 +248,6 @@
             this.ltvBillItems.TabIndex = 11;
             this.ltvBillItems.UseCompatibleStateImageBehavior = false;
             this.ltvBillItems.View = System.Windows.Forms.View.Details;
-            this.ltvBillItems.SelectedIndexChanged += new System.EventHandler(this.ltvBillItems_SelectedIndexChanged);
             // 
             // columnHeader2
             // 
@@ -274,43 +268,22 @@
             // 
             this.lblRekening.Font = new System.Drawing.Font("Myanmar Text", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRekening.ForeColor = System.Drawing.Color.White;
-            this.lblRekening.Location = new System.Drawing.Point(689, 9);
+            this.lblRekening.Location = new System.Drawing.Point(623, 9);
             this.lblRekening.Name = "lblRekening";
-            this.lblRekening.Size = new System.Drawing.Size(401, 95);
+            this.lblRekening.Size = new System.Drawing.Size(549, 95);
             this.lblRekening.TabIndex = 12;
-            this.lblRekening.Text = "Rekening";
-            // 
-            // btnSave
-            // 
-            this.btnSave.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.btnSave.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
-            this.btnSave.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnSave.BorderRadius = 20;
-            this.btnSave.BorderSize = 0;
-            this.btnSave.FlatAppearance.BorderSize = 0;
-            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Font = new System.Drawing.Font("Myanmar Text", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(1032, 871);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(601, 96);
-            this.btnSave.TabIndex = 13;
-            this.btnSave.Text = "Opslaan";
-            this.btnSave.TextColor = System.Drawing.Color.White;
-            this.btnSave.UseVisualStyleBackColor = false;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click_1);
+            this.lblRekening.Text = "Rekening Tafel";
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.Controls.Add(this.lblSplitPrice);
-            this.panel2.Controls.Add(this.numericUpDown1);
+            this.panel2.Controls.Add(this.numSplit);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Location = new System.Drawing.Point(1032, 607);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(601, 113);
             this.panel2.TabIndex = 10;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // lblSplitPrice
             // 
@@ -321,24 +294,24 @@
             this.lblSplitPrice.Size = new System.Drawing.Size(0, 43);
             this.lblSplitPrice.TabIndex = 4;
             // 
-            // numericUpDown1
+            // numSplit
             // 
-            this.numericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.numericUpDown1.Location = new System.Drawing.Point(23, 53);
-            this.numericUpDown1.Minimum = new decimal(new int[] {
+            this.numSplit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.numSplit.Location = new System.Drawing.Point(23, 53);
+            this.numSplit.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(183, 39);
-            this.numericUpDown1.TabIndex = 3;
-            this.numericUpDown1.Value = new decimal(new int[] {
+            this.numSplit.Name = "numSplit";
+            this.numSplit.Size = new System.Drawing.Size(183, 39);
+            this.numSplit.TabIndex = 3;
+            this.numSplit.Value = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged_1);
+            this.numSplit.ValueChanged += new System.EventHandler(this.numSplit_ValueChanged);
             // 
             // label2
             // 
@@ -367,7 +340,6 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(653, 115);
             this.panel4.TabIndex = 14;
-            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
             // 
             // lblTotalOutput
             // 
@@ -426,6 +398,26 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Laag btw";
             // 
+            // btnSave
+            // 
+            this.btnSave.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.btnSave.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.btnSave.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnSave.BorderRadius = 20;
+            this.btnSave.BorderSize = 0;
+            this.btnSave.FlatAppearance.BorderSize = 0;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Font = new System.Drawing.Font("Myanmar Text", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.ForeColor = System.Drawing.Color.White;
+            this.btnSave.Location = new System.Drawing.Point(1032, 871);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(601, 96);
+            this.btnSave.TabIndex = 13;
+            this.btnSave.Text = "Opslaan";
+            this.btnSave.TextColor = System.Drawing.Color.White;
+            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click_1);
+            // 
             // BillScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -450,7 +442,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numTip)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numSplit)).EndInit();
             this.panel4.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -478,7 +470,7 @@
         private System.Windows.Forms.RadioButton rbCashCreditcard;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label lblSplitPrice;
-        protected System.Windows.Forms.NumericUpDown numericUpDown1;
+        protected System.Windows.Forms.NumericUpDown numSplit;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label3;

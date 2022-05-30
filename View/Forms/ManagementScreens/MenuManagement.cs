@@ -57,7 +57,6 @@ namespace View.Forms.ManagementScreens
             }
             rbtnInMenuTrue.Checked = true;
         }
-
         private void ltvMenuItems_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (ltvMenuItems.SelectedItems.Count > 0)
@@ -93,11 +92,6 @@ namespace View.Forms.ManagementScreens
             }
         }
 
-        private void pnlInputs_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void btnSave_Click(object sender, EventArgs e)
         {
             bool selectedInMenu = true;
@@ -130,32 +124,6 @@ namespace View.Forms.ManagementScreens
             }
             
         }
-
-        private void lblInMenu_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void rbtnInMenuFalse_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void rbtnInMenuTrue_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void numPriceEx_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnClear_Click(object sender, EventArgs e)
         {
             ltvMenuItems.SelectedItems.Clear();
@@ -167,7 +135,6 @@ namespace View.Forms.ManagementScreens
             numPriceEx.Value = 0;
             rbtnInMenuTrue.Checked = true;
         }
-
         private void cbxCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
             cbxSubcategory.Items.Clear();
