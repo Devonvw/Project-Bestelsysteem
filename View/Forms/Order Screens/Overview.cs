@@ -21,12 +21,12 @@ namespace View.Forms.Order_Screens
         private int amount;
         private Panel activePanel;
         // Lists
-        private List<OrderItem> orderItems { get; set; }
-        private List<Model.MenuItem> menuItems { get; set; }
-        private List<OrderItem> newOrderItems { get; set; }
-        private List<OrderItem> orderItemsInPreparation { get; set; }
-        private List<OrderItem> rearrangedList { get; set; }
-        private List<Order> orders {get; set;}
+        private List<OrderItem> orderItems = new List<OrderItem>();
+        private List<Model.MenuItem> menuItems = new List<Model.MenuItem>();
+        private List<OrderItem> newOrderItems = new List<OrderItem>();
+        private List<OrderItem> orderItemsInPreparation = new List<OrderItem>();
+        private List<OrderItem> rearrangedList = new List<OrderItem>();
+        private List<Order> orders = new List<Order>();
 
         // Controllers
         private MenuController menuController = new MenuController();
@@ -96,7 +96,10 @@ namespace View.Forms.Order_Screens
         private void newOrderButton_Click(object sender, EventArgs e)
         {
             SetActivePanel(addOrderPanel);
-            newOrderItems.Clear();
+            if (newOrderItems != null)
+            {
+                newOrderItems.Clear();
+            }
         }
 
         private void deleteOrderInPreperationButton_Click(object sender, EventArgs e)
