@@ -48,7 +48,6 @@ namespace View.Forms
             lblLowBtwOutput.Text = $"€{bill.LowBtwPrice.ToString("0.00")}";
             lblHighBtwOutput.Text = $"€{bill.HighBtwPrice.ToString("0.00")}";
             lblTotalOutput.Text = $"€{bill.TotalPrice.ToString("0.00")}";
-
         }
         private void btnSave_Click_1(object sender, EventArgs e)
         {

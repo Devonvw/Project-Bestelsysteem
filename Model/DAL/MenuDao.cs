@@ -98,9 +98,15 @@ namespace Model
             return menuItems;
         }
 
-        //private MenuItem GetMenuItemById(int id)
-        //{
-                
-        //}
+        public void UpdateStock(MenuItem menuItem)
+        {
+            string query = "UPDATE MenuItems SET stock =@stock WHERE id = @id";
+            SqlParameter[] sqlParameters = new SqlParameter[]
+            {
+                new SqlParameter("@stock", SqlDbType.Int) { Value = menuItem.Stock },
+                new SqlParameter("@id", SqlDbType.Int) { Value = menuItem.Id },               
+            };
+            ExecuteEditQuery(query, sqlParameters);
+        }
     }
 }

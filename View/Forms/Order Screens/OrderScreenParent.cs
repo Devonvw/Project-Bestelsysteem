@@ -48,10 +48,9 @@ namespace View.Forms
         // methods
         private bool TableHasBill(Table table)
         {
-            // check for more open bills that arent closed yet
             try
             {
-                Bill bill = billController.GetCurrentBillByTable(table);
+                Bill bill = billController.GetCurrentOpenBillByTable(table);
                 this.bill = bill;
             }
             catch
