@@ -38,13 +38,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this.overViewPanel = new System.Windows.Forms.Panel();
             this.deleteOrderInPreperationButton = new View.CustomControls.CustomButton();
-            this.updateItemButton = new View.CustomControls.CustomButton();
             this.togglePanel = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.groupItemsToggle = new View.CustomControls.ToggleButton();
             this.ChangeOrderButton = new View.CustomControls.CustomButton();
             this.backToTablesButton = new View.CustomControls.CustomButton();
             this.newOrderButton = new View.CustomControls.CustomButton();
+            this.updateItemButton = new View.CustomControls.CustomButton();
             this.addOrderPanel = new System.Windows.Forms.Panel();
             this.lunchSubPanel = new System.Windows.Forms.Panel();
             this.lunchMainButton = new View.CustomControls.CustomButton();
@@ -111,7 +111,7 @@
             this.billOverViewListView.GridLines = true;
             this.billOverViewListView.HideSelection = false;
             this.billOverViewListView.Location = new System.Drawing.Point(13, 31);
-            this.billOverViewListView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.billOverViewListView.Margin = new System.Windows.Forms.Padding(4);
             this.billOverViewListView.Name = "billOverViewListView";
             this.billOverViewListView.Size = new System.Drawing.Size(540, 560);
             this.billOverViewListView.TabIndex = 3;
@@ -180,7 +180,7 @@
             this.overViewPanel.Controls.Add(this.newOrderButton);
             this.overViewPanel.Controls.Add(this.updateItemButton);
             this.overViewPanel.Location = new System.Drawing.Point(0, 0);
-            this.overViewPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.overViewPanel.Margin = new System.Windows.Forms.Padding(4);
             this.overViewPanel.Name = "overViewPanel";
             this.overViewPanel.Size = new System.Drawing.Size(571, 978);
             this.overViewPanel.TabIndex = 19;
@@ -197,7 +197,7 @@
             this.deleteOrderInPreperationButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.deleteOrderInPreperationButton.ForeColor = System.Drawing.Color.White;
             this.deleteOrderInPreperationButton.Location = new System.Drawing.Point(19, 764);
-            this.deleteOrderInPreperationButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.deleteOrderInPreperationButton.Margin = new System.Windows.Forms.Padding(4);
             this.deleteOrderInPreperationButton.Name = "deleteOrderInPreperationButton";
             this.deleteOrderInPreperationButton.Size = new System.Drawing.Size(256, 86);
             this.deleteOrderInPreperationButton.TabIndex = 32;
@@ -207,33 +207,12 @@
             this.deleteOrderInPreperationButton.Visible = false;
             this.deleteOrderInPreperationButton.Click += new System.EventHandler(this.deleteOrderInPreperationButton_Click);
             // 
-            // updateItemButton
-            // 
-            this.updateItemButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(58)))), ((int)(((byte)(118)))));
-            this.updateItemButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(58)))), ((int)(((byte)(118)))));
-            this.updateItemButton.BorderColor = System.Drawing.Color.PaleGreen;
-            this.updateItemButton.BorderRadius = 20;
-            this.updateItemButton.BorderSize = 3;
-            this.updateItemButton.FlatAppearance.BorderSize = 0;
-            this.updateItemButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.updateItemButton.ForeColor = System.Drawing.Color.White;
-            this.updateItemButton.Location = new System.Drawing.Point(297, 858);
-            this.updateItemButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.updateItemButton.Name = "updateItemButton";
-            this.updateItemButton.Size = new System.Drawing.Size(257, 86);
-            this.updateItemButton.TabIndex = 31;
-            this.updateItemButton.Text = "Wijzig Item";
-            this.updateItemButton.TextColor = System.Drawing.Color.White;
-            this.updateItemButton.UseVisualStyleBackColor = false;
-            this.updateItemButton.Visible = false;
-            this.updateItemButton.Click += new System.EventHandler(this.updateItemButton_Click);
-            // 
             // togglePanel
             // 
             this.togglePanel.Controls.Add(this.label2);
             this.togglePanel.Controls.Add(this.groupItemsToggle);
             this.togglePanel.Location = new System.Drawing.Point(13, 599);
-            this.togglePanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.togglePanel.Margin = new System.Windows.Forms.Padding(4);
             this.togglePanel.Name = "togglePanel";
             this.togglePanel.Size = new System.Drawing.Size(541, 90);
             this.togglePanel.TabIndex = 30;
@@ -255,7 +234,7 @@
             this.groupItemsToggle.Checked = true;
             this.groupItemsToggle.CheckState = System.Windows.Forms.CheckState.Checked;
             this.groupItemsToggle.Location = new System.Drawing.Point(404, 30);
-            this.groupItemsToggle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupItemsToggle.Margin = new System.Windows.Forms.Padding(4);
             this.groupItemsToggle.MinimumSize = new System.Drawing.Size(60, 27);
             this.groupItemsToggle.Name = "groupItemsToggle";
             this.groupItemsToggle.OffBackColor = System.Drawing.Color.Gray;
@@ -278,7 +257,7 @@
             this.ChangeOrderButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ChangeOrderButton.ForeColor = System.Drawing.Color.White;
             this.ChangeOrderButton.Location = new System.Drawing.Point(297, 764);
-            this.ChangeOrderButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ChangeOrderButton.Margin = new System.Windows.Forms.Padding(4);
             this.ChangeOrderButton.Name = "ChangeOrderButton";
             this.ChangeOrderButton.Size = new System.Drawing.Size(257, 86);
             this.ChangeOrderButton.TabIndex = 18;
@@ -298,7 +277,7 @@
             this.backToTablesButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backToTablesButton.ForeColor = System.Drawing.Color.White;
             this.backToTablesButton.Location = new System.Drawing.Point(17, 858);
-            this.backToTablesButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.backToTablesButton.Margin = new System.Windows.Forms.Padding(4);
             this.backToTablesButton.Name = "backToTablesButton";
             this.backToTablesButton.Size = new System.Drawing.Size(256, 86);
             this.backToTablesButton.TabIndex = 10;
@@ -318,7 +297,7 @@
             this.newOrderButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.newOrderButton.ForeColor = System.Drawing.Color.White;
             this.newOrderButton.Location = new System.Drawing.Point(297, 858);
-            this.newOrderButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.newOrderButton.Margin = new System.Windows.Forms.Padding(4);
             this.newOrderButton.Name = "newOrderButton";
             this.newOrderButton.Size = new System.Drawing.Size(257, 86);
             this.newOrderButton.TabIndex = 7;
@@ -326,6 +305,27 @@
             this.newOrderButton.TextColor = System.Drawing.Color.White;
             this.newOrderButton.UseVisualStyleBackColor = false;
             this.newOrderButton.Click += new System.EventHandler(this.newOrderButton_Click);
+            // 
+            // updateItemButton
+            // 
+            this.updateItemButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(58)))), ((int)(((byte)(118)))));
+            this.updateItemButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(58)))), ((int)(((byte)(118)))));
+            this.updateItemButton.BorderColor = System.Drawing.Color.PaleGreen;
+            this.updateItemButton.BorderRadius = 20;
+            this.updateItemButton.BorderSize = 3;
+            this.updateItemButton.FlatAppearance.BorderSize = 0;
+            this.updateItemButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.updateItemButton.ForeColor = System.Drawing.Color.White;
+            this.updateItemButton.Location = new System.Drawing.Point(297, 858);
+            this.updateItemButton.Margin = new System.Windows.Forms.Padding(4);
+            this.updateItemButton.Name = "updateItemButton";
+            this.updateItemButton.Size = new System.Drawing.Size(257, 86);
+            this.updateItemButton.TabIndex = 31;
+            this.updateItemButton.Text = "Wijzig Item";
+            this.updateItemButton.TextColor = System.Drawing.Color.White;
+            this.updateItemButton.UseVisualStyleBackColor = false;
+            this.updateItemButton.Visible = false;
+            this.updateItemButton.Click += new System.EventHandler(this.updateItemButton_Click);
             // 
             // addOrderPanel
             // 
@@ -347,7 +347,7 @@
             this.addOrderPanel.Controls.Add(this.insertOrderButton);
             this.addOrderPanel.Controls.Add(this.addItemButton);
             this.addOrderPanel.Location = new System.Drawing.Point(0, 0);
-            this.addOrderPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.addOrderPanel.Margin = new System.Windows.Forms.Padding(4);
             this.addOrderPanel.Name = "addOrderPanel";
             this.addOrderPanel.Size = new System.Drawing.Size(571, 978);
             this.addOrderPanel.TabIndex = 18;
@@ -360,7 +360,7 @@
             this.lunchSubPanel.Controls.Add(this.lunchStarterButton);
             this.lunchSubPanel.Controls.Add(this.label6);
             this.lunchSubPanel.Location = new System.Drawing.Point(407, 68);
-            this.lunchSubPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lunchSubPanel.Margin = new System.Windows.Forms.Padding(4);
             this.lunchSubPanel.Name = "lunchSubPanel";
             this.lunchSubPanel.Size = new System.Drawing.Size(136, 401);
             this.lunchSubPanel.TabIndex = 23;
@@ -377,7 +377,7 @@
             this.lunchMainButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lunchMainButton.ForeColor = System.Drawing.Color.White;
             this.lunchMainButton.Location = new System.Drawing.Point(4, 90);
-            this.lunchMainButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lunchMainButton.Margin = new System.Windows.Forms.Padding(4);
             this.lunchMainButton.Name = "lunchMainButton";
             this.lunchMainButton.Size = new System.Drawing.Size(123, 49);
             this.lunchMainButton.TabIndex = 26;
@@ -397,7 +397,7 @@
             this.lunchDesertButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lunchDesertButton.ForeColor = System.Drawing.Color.White;
             this.lunchDesertButton.Location = new System.Drawing.Point(4, 146);
-            this.lunchDesertButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lunchDesertButton.Margin = new System.Windows.Forms.Padding(4);
             this.lunchDesertButton.Name = "lunchDesertButton";
             this.lunchDesertButton.Size = new System.Drawing.Size(123, 49);
             this.lunchDesertButton.TabIndex = 25;
@@ -417,7 +417,7 @@
             this.lunchStarterButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lunchStarterButton.ForeColor = System.Drawing.Color.White;
             this.lunchStarterButton.Location = new System.Drawing.Point(4, 33);
-            this.lunchStarterButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lunchStarterButton.Margin = new System.Windows.Forms.Padding(4);
             this.lunchStarterButton.Name = "lunchStarterButton";
             this.lunchStarterButton.Size = new System.Drawing.Size(123, 49);
             this.lunchStarterButton.TabIndex = 24;
@@ -445,7 +445,7 @@
             this.commentAndAmountPanel.Controls.Add(this.addCommentTextBox);
             this.commentAndAmountPanel.Controls.Add(this.plusButton);
             this.commentAndAmountPanel.Location = new System.Drawing.Point(13, 476);
-            this.commentAndAmountPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.commentAndAmountPanel.Margin = new System.Windows.Forms.Padding(4);
             this.commentAndAmountPanel.Name = "commentAndAmountPanel";
             this.commentAndAmountPanel.Size = new System.Drawing.Size(384, 64);
             this.commentAndAmountPanel.TabIndex = 28;
@@ -474,7 +474,7 @@
             this.minusButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.minusButton.ForeColor = System.Drawing.Color.Black;
             this.minusButton.Location = new System.Drawing.Point(213, 11);
-            this.minusButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.minusButton.Margin = new System.Windows.Forms.Padding(4);
             this.minusButton.Name = "minusButton";
             this.minusButton.Size = new System.Drawing.Size(59, 46);
             this.minusButton.TabIndex = 16;
@@ -499,7 +499,7 @@
             // 
             this.addCommentTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.addCommentTextBox.Location = new System.Drawing.Point(16, 27);
-            this.addCommentTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.addCommentTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.addCommentTextBox.Name = "addCommentTextBox";
             this.addCommentTextBox.Size = new System.Drawing.Size(172, 22);
             this.addCommentTextBox.TabIndex = 18;
@@ -516,7 +516,7 @@
             this.plusButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.plusButton.ForeColor = System.Drawing.Color.Black;
             this.plusButton.Location = new System.Drawing.Point(321, 11);
-            this.plusButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.plusButton.Margin = new System.Windows.Forms.Padding(4);
             this.plusButton.Name = "plusButton";
             this.plusButton.Size = new System.Drawing.Size(59, 46);
             this.plusButton.TabIndex = 15;
@@ -537,7 +537,7 @@
             this.changeItemButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.changeItemButton.ForeColor = System.Drawing.Color.White;
             this.changeItemButton.Location = new System.Drawing.Point(411, 785);
-            this.changeItemButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.changeItemButton.Margin = new System.Windows.Forms.Padding(4);
             this.changeItemButton.Name = "changeItemButton";
             this.changeItemButton.Size = new System.Drawing.Size(137, 46);
             this.changeItemButton.TabIndex = 27;
@@ -559,7 +559,7 @@
             this.clearOrderButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.clearOrderButton.ForeColor = System.Drawing.Color.Black;
             this.clearOrderButton.Location = new System.Drawing.Point(19, 785);
-            this.clearOrderButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.clearOrderButton.Margin = new System.Windows.Forms.Padding(4);
             this.clearOrderButton.Name = "clearOrderButton";
             this.clearOrderButton.Size = new System.Drawing.Size(145, 46);
             this.clearOrderButton.TabIndex = 26;
@@ -577,7 +577,7 @@
             this.dinerSubPanel.Controls.Add(this.dinerStarterButton);
             this.dinerSubPanel.Controls.Add(this.dinerSubLabel);
             this.dinerSubPanel.Location = new System.Drawing.Point(407, 68);
-            this.dinerSubPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dinerSubPanel.Margin = new System.Windows.Forms.Padding(4);
             this.dinerSubPanel.Name = "dinerSubPanel";
             this.dinerSubPanel.Size = new System.Drawing.Size(136, 401);
             this.dinerSubPanel.TabIndex = 24;
@@ -594,7 +594,7 @@
             this.dinerDesertButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.dinerDesertButton.ForeColor = System.Drawing.Color.White;
             this.dinerDesertButton.Location = new System.Drawing.Point(4, 203);
-            this.dinerDesertButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dinerDesertButton.Margin = new System.Windows.Forms.Padding(4);
             this.dinerDesertButton.Name = "dinerDesertButton";
             this.dinerDesertButton.Size = new System.Drawing.Size(123, 49);
             this.dinerDesertButton.TabIndex = 28;
@@ -614,7 +614,7 @@
             this.dinerMainButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.dinerMainButton.ForeColor = System.Drawing.Color.White;
             this.dinerMainButton.Location = new System.Drawing.Point(4, 146);
-            this.dinerMainButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dinerMainButton.Margin = new System.Windows.Forms.Padding(4);
             this.dinerMainButton.Name = "dinerMainButton";
             this.dinerMainButton.Size = new System.Drawing.Size(123, 49);
             this.dinerMainButton.TabIndex = 27;
@@ -634,7 +634,7 @@
             this.dinerSideButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.dinerSideButton.ForeColor = System.Drawing.Color.White;
             this.dinerSideButton.Location = new System.Drawing.Point(4, 90);
-            this.dinerSideButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dinerSideButton.Margin = new System.Windows.Forms.Padding(4);
             this.dinerSideButton.Name = "dinerSideButton";
             this.dinerSideButton.Size = new System.Drawing.Size(123, 49);
             this.dinerSideButton.TabIndex = 26;
@@ -654,7 +654,7 @@
             this.dinerStarterButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.dinerStarterButton.ForeColor = System.Drawing.Color.White;
             this.dinerStarterButton.Location = new System.Drawing.Point(4, 33);
-            this.dinerStarterButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dinerStarterButton.Margin = new System.Windows.Forms.Padding(4);
             this.dinerStarterButton.Name = "dinerStarterButton";
             this.dinerStarterButton.Size = new System.Drawing.Size(123, 49);
             this.dinerStarterButton.TabIndex = 25;
@@ -686,7 +686,7 @@
             this.deleteItemFromOrderButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.deleteItemFromOrderButton.ForeColor = System.Drawing.Color.Black;
             this.deleteItemFromOrderButton.Location = new System.Drawing.Point(171, 785);
-            this.deleteItemFromOrderButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.deleteItemFromOrderButton.Margin = new System.Windows.Forms.Padding(4);
             this.deleteItemFromOrderButton.Name = "deleteItemFromOrderButton";
             this.deleteItemFromOrderButton.Size = new System.Drawing.Size(145, 46);
             this.deleteItemFromOrderButton.TabIndex = 25;
@@ -702,7 +702,7 @@
             this.drankenSubPanel.Controls.Add(this.warmeDrankenButton);
             this.drankenSubPanel.Controls.Add(this.drankenSubLabel);
             this.drankenSubPanel.Location = new System.Drawing.Point(407, 68);
-            this.drankenSubPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.drankenSubPanel.Margin = new System.Windows.Forms.Padding(4);
             this.drankenSubPanel.Name = "drankenSubPanel";
             this.drankenSubPanel.Size = new System.Drawing.Size(136, 401);
             this.drankenSubPanel.TabIndex = 22;
@@ -719,7 +719,7 @@
             this.frisdrankButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.frisdrankButton.ForeColor = System.Drawing.Color.White;
             this.frisdrankButton.Location = new System.Drawing.Point(9, 103);
-            this.frisdrankButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.frisdrankButton.Margin = new System.Windows.Forms.Padding(4);
             this.frisdrankButton.Name = "frisdrankButton";
             this.frisdrankButton.Size = new System.Drawing.Size(123, 63);
             this.frisdrankButton.TabIndex = 24;
@@ -739,7 +739,7 @@
             this.warmeDrankenButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.warmeDrankenButton.ForeColor = System.Drawing.Color.White;
             this.warmeDrankenButton.Location = new System.Drawing.Point(9, 33);
-            this.warmeDrankenButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.warmeDrankenButton.Margin = new System.Windows.Forms.Padding(4);
             this.warmeDrankenButton.Name = "warmeDrankenButton";
             this.warmeDrankenButton.Size = new System.Drawing.Size(123, 63);
             this.warmeDrankenButton.TabIndex = 23;
@@ -766,7 +766,7 @@
             this.alchoholSubPanel.Controls.Add(this.bierButton);
             this.alchoholSubPanel.Controls.Add(this.label7);
             this.alchoholSubPanel.Location = new System.Drawing.Point(407, 68);
-            this.alchoholSubPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.alchoholSubPanel.Margin = new System.Windows.Forms.Padding(4);
             this.alchoholSubPanel.Name = "alchoholSubPanel";
             this.alchoholSubPanel.Size = new System.Drawing.Size(136, 401);
             this.alchoholSubPanel.TabIndex = 21;
@@ -783,7 +783,7 @@
             this.gedestilleerdButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.gedestilleerdButton.ForeColor = System.Drawing.Color.White;
             this.gedestilleerdButton.Location = new System.Drawing.Point(9, 151);
-            this.gedestilleerdButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gedestilleerdButton.Margin = new System.Windows.Forms.Padding(4);
             this.gedestilleerdButton.Name = "gedestilleerdButton";
             this.gedestilleerdButton.Size = new System.Drawing.Size(115, 49);
             this.gedestilleerdButton.TabIndex = 24;
@@ -803,7 +803,7 @@
             this.wijnButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.wijnButton.ForeColor = System.Drawing.Color.White;
             this.wijnButton.Location = new System.Drawing.Point(9, 90);
-            this.wijnButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.wijnButton.Margin = new System.Windows.Forms.Padding(4);
             this.wijnButton.Name = "wijnButton";
             this.wijnButton.Size = new System.Drawing.Size(115, 54);
             this.wijnButton.TabIndex = 23;
@@ -823,7 +823,7 @@
             this.bierButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bierButton.ForeColor = System.Drawing.Color.White;
             this.bierButton.Location = new System.Drawing.Point(9, 32);
-            this.bierButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bierButton.Margin = new System.Windows.Forms.Padding(4);
             this.bierButton.Name = "bierButton";
             this.bierButton.Size = new System.Drawing.Size(115, 50);
             this.bierButton.TabIndex = 22;
@@ -854,7 +854,7 @@
             this.alcoholButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.alcoholButton.ForeColor = System.Drawing.Color.White;
             this.alcoholButton.Location = new System.Drawing.Point(411, 11);
-            this.alcoholButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.alcoholButton.Margin = new System.Windows.Forms.Padding(4);
             this.alcoholButton.Name = "alcoholButton";
             this.alcoholButton.Size = new System.Drawing.Size(132, 49);
             this.alcoholButton.TabIndex = 18;
@@ -874,7 +874,7 @@
             this.drankenButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.drankenButton.ForeColor = System.Drawing.Color.White;
             this.drankenButton.Location = new System.Drawing.Point(281, 11);
-            this.drankenButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.drankenButton.Margin = new System.Windows.Forms.Padding(4);
             this.drankenButton.Name = "drankenButton";
             this.drankenButton.Size = new System.Drawing.Size(123, 49);
             this.drankenButton.TabIndex = 17;
@@ -894,7 +894,7 @@
             this.dinerButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.dinerButton.ForeColor = System.Drawing.Color.White;
             this.dinerButton.Location = new System.Drawing.Point(151, 11);
-            this.dinerButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dinerButton.Margin = new System.Windows.Forms.Padding(4);
             this.dinerButton.Name = "dinerButton";
             this.dinerButton.Size = new System.Drawing.Size(123, 49);
             this.dinerButton.TabIndex = 16;
@@ -914,7 +914,7 @@
             this.lunchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lunchButton.ForeColor = System.Drawing.Color.White;
             this.lunchButton.Location = new System.Drawing.Point(13, 11);
-            this.lunchButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lunchButton.Margin = new System.Windows.Forms.Padding(4);
             this.lunchButton.Name = "lunchButton";
             this.lunchButton.Size = new System.Drawing.Size(123, 49);
             this.lunchButton.TabIndex = 15;
@@ -934,7 +934,7 @@
             this.menuItemsListView.GridLines = true;
             this.menuItemsListView.HideSelection = false;
             this.menuItemsListView.Location = new System.Drawing.Point(13, 68);
-            this.menuItemsListView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.menuItemsListView.Margin = new System.Windows.Forms.Padding(4);
             this.menuItemsListView.Name = "menuItemsListView";
             this.menuItemsListView.Size = new System.Drawing.Size(528, 400);
             this.menuItemsListView.TabIndex = 0;
@@ -968,7 +968,7 @@
             this.backToOverviewButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backToOverviewButton.ForeColor = System.Drawing.Color.White;
             this.backToOverviewButton.Location = new System.Drawing.Point(13, 878);
-            this.backToOverviewButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.backToOverviewButton.Margin = new System.Windows.Forms.Padding(4);
             this.backToOverviewButton.Name = "backToOverviewButton";
             this.backToOverviewButton.Size = new System.Drawing.Size(260, 86);
             this.backToOverviewButton.TabIndex = 12;
@@ -988,7 +988,7 @@
             this.newOrderItemsListView.GridLines = true;
             this.newOrderItemsListView.HideSelection = false;
             this.newOrderItemsListView.Location = new System.Drawing.Point(13, 558);
-            this.newOrderItemsListView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.newOrderItemsListView.Margin = new System.Windows.Forms.Padding(4);
             this.newOrderItemsListView.Name = "newOrderItemsListView";
             this.newOrderItemsListView.Size = new System.Drawing.Size(528, 219);
             this.newOrderItemsListView.TabIndex = 5;
@@ -1022,7 +1022,7 @@
             this.insertOrderButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.insertOrderButton.ForeColor = System.Drawing.Color.White;
             this.insertOrderButton.Location = new System.Drawing.Point(301, 878);
-            this.insertOrderButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.insertOrderButton.Margin = new System.Windows.Forms.Padding(4);
             this.insertOrderButton.Name = "insertOrderButton";
             this.insertOrderButton.Size = new System.Drawing.Size(253, 86);
             this.insertOrderButton.TabIndex = 11;
@@ -1042,7 +1042,7 @@
             this.addItemButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addItemButton.ForeColor = System.Drawing.Color.White;
             this.addItemButton.Location = new System.Drawing.Point(405, 482);
-            this.addItemButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.addItemButton.Margin = new System.Windows.Forms.Padding(4);
             this.addItemButton.Name = "addItemButton";
             this.addItemButton.Size = new System.Drawing.Size(137, 58);
             this.addItemButton.TabIndex = 6;

@@ -20,6 +20,7 @@ namespace View.Forms.Order_Screens
         private Bill bill;
         private int amount;
         private Panel activePanel;
+        
         // Lists
         private List<OrderItem> orderItems = new List<OrderItem>();
         private List<Model.MenuItem> menuItems = new List<Model.MenuItem>();
@@ -125,16 +126,17 @@ namespace View.Forms.Order_Screens
 
         private void ChangeOrderButton_Click(object sender, EventArgs e)
         {
-            this.overViewPanel.Controls.Add(commentAndAmountPanel);
-            commentAndAmountPanel.BringToFront();
-            commentAndAmountPanel.Show();
-            commentAndAmountPanel.Location = new Point(10, 487);
-            ChangeOrderButton.Hide();
-            togglePanel.Hide();
-            updateItemButton.Show();
-            deleteOrderInPreperationButton.Show();
-            orderItemsInPreparation = GetOrderItemsInPreparation(orderItems);
-            FillBillOverView(orderItemsInPreparation);
+                orderItemsInPreparation = GetOrderItemsInPreparation(orderItems);
+                this.overViewPanel.Controls.Add(commentAndAmountPanel);
+                commentAndAmountPanel.BringToFront();
+                commentAndAmountPanel.Show();
+                commentAndAmountPanel.Location = new Point(10, 487);
+                ChangeOrderButton.Hide();
+                togglePanel.Hide();
+                updateItemButton.Show();
+                deleteOrderInPreperationButton.Show();
+                orderItemsInPreparation = GetOrderItemsInPreparation(orderItems);
+                FillBillOverView(orderItemsInPreparation);
         }
         // update orderItem in DB
         private void updateItemButton_Click(object sender, EventArgs e)
@@ -251,7 +253,6 @@ namespace View.Forms.Order_Screens
         private void addItemButton_Click(object sender, EventArgs e)
         {
             addItemToOrderList(newOrderItems);
-            //RearrangeOrderList(newOrderItems); // not yet implemented
             FillNewOrderListView(newOrderItems);
             clearOrderButton.Enabled = true;
             insertOrderButton.Enabled = true;
@@ -372,15 +373,6 @@ namespace View.Forms.Order_Screens
                 minusButton.Visible = false;
             }
             SetAmount();
-        }
-
-        private void backButton_Click(object sender, EventArgs e)
-        {
-            //if (newOrderItems != null)
-            //{
-
-            //}
-            this.Close();
         }
 
         private void insertOrderButton_Click(object sender, EventArgs e)
@@ -538,7 +530,12 @@ namespace View.Forms.Order_Screens
 
         private void backToOverviewButton_Click(object sender, EventArgs e)
         {
+            if (newOrderItems.Count == 0)
             SetActivePanel(overViewPanel);
+            else
+            {
+                MessageBox.Show("Er zijn nog ongeplaatste bestellingen in de lijst");
+            }
         }
 
     }
