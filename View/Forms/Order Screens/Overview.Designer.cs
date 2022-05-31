@@ -173,8 +173,8 @@
             this.overViewPanel.Controls.Add(this.bonOverzichtLabel);
             this.overViewPanel.Controls.Add(this.backToTablesButton);
             this.overViewPanel.Controls.Add(this.billOverViewListView);
-            this.overViewPanel.Controls.Add(this.newOrderButton);
             this.overViewPanel.Controls.Add(this.updateItemButton);
+            this.overViewPanel.Controls.Add(this.newOrderButton);
             this.overViewPanel.Location = new System.Drawing.Point(0, 0);
             this.overViewPanel.Name = "overViewPanel";
             this.overViewPanel.Size = new System.Drawing.Size(428, 795);
@@ -452,7 +452,7 @@
             this.minusButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.minusButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.minusButton.ForeColor = System.Drawing.Color.Black;
-            this.minusButton.Location = new System.Drawing.Point(160, 9);
+            this.minusButton.Location = new System.Drawing.Point(152, 9);
             this.minusButton.Name = "minusButton";
             this.minusButton.Size = new System.Drawing.Size(44, 37);
             this.minusButton.TabIndex = 16;
@@ -466,7 +466,7 @@
             this.amountLabel.AutoSize = true;
             this.amountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.amountLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.amountLabel.Location = new System.Drawing.Point(203, 9);
+            this.amountLabel.Location = new System.Drawing.Point(194, 7);
             this.amountLabel.Name = "amountLabel";
             this.amountLabel.Size = new System.Drawing.Size(37, 39);
             this.amountLabel.TabIndex = 17;
@@ -476,6 +476,7 @@
             // 
             this.addCommentTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.addCommentTextBox.Location = new System.Drawing.Point(12, 22);
+            this.addCommentTextBox.MaxLength = 255;
             this.addCommentTextBox.Name = "addCommentTextBox";
             this.addCommentTextBox.Size = new System.Drawing.Size(130, 20);
             this.addCommentTextBox.TabIndex = 18;
@@ -1007,8 +1008,8 @@
             this.ClientSize = new System.Drawing.Size(428, 795);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.overViewPanel);
             this.Controls.Add(this.addOrderPanel);
+            this.Controls.Add(this.overViewPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Overview";
