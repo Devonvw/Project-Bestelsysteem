@@ -97,19 +97,24 @@ namespace View.Forms.Order_Screens
         private void newOrderButton_Click(object sender, EventArgs e)
         {
             SetActivePanel(addOrderPanel);
-            if (newOrderItems != null)
-            {
-                newOrderItems.Clear();
-            }
+            FillNewOrderListView(newOrderItems);
         }
 
         private void deleteOrderInPreperationButton_Click(object sender, EventArgs e)
         {
-            foreach (OrderItem orderItem in orderItemsInPreparation)
+            DialogResult result = MessageBox.Show("Weet je zeker dat je alles wilt verwijderen?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (result == DialogResult.No)
             {
-                orderController.DeleteOrderItem(orderItem);
+                return;
             }
-            UpdateBillOverview();
+            else
+            {
+                foreach (OrderItem orderItem in orderItemsInPreparation)
+                {
+                    orderController.DeleteOrderItem(orderItem);
+                }
+                UpdateBillOverview();
+            }
         }
         private List<OrderItem> GetOrderItemsInPreparation(List<OrderItem> orderItems)
         {
@@ -138,6 +143,7 @@ namespace View.Forms.Order_Screens
                 orderItemsInPreparation = GetOrderItemsInPreparation(orderItems);
                 FillBillOverView(orderItemsInPreparation);
         }
+        
         // update orderItem in DB
         private void updateItemButton_Click(object sender, EventArgs e)
         {
@@ -212,12 +218,6 @@ namespace View.Forms.Order_Screens
                 listViewItem.SubItems.Add(item.Comment.ToString());
                 newOrderItemsListView.Items.Add(listViewItem);
             }
-        }
-
-        private void RearrangeOrderList(List<OrderItem> newOrderItems)
-        {
-            // create a new order lists where same items get added 
-            throw new NotImplementedException();
         }
 
         private void menuItemsListView_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
@@ -534,7 +534,16 @@ namespace View.Forms.Order_Screens
             SetActivePanel(overViewPanel);
             else
             {
-                MessageBox.Show("Er zijn nog ongeplaatste bestellingen in de lijst");
+                DialogResult result = MessageBox.Show("Er zijn nog ongeplaatste bestellingen in de lijst. Wilt u deze annuleren?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.No)
+                {
+                    return;
+                }
+                else
+                {
+                    newOrderItems.Clear();
+                    SetActivePanel(overViewPanel);
+                }
             }
         }
 
