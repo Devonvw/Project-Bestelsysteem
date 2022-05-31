@@ -133,7 +133,6 @@
             this.pnlInputs.Name = "pnlInputs";
             this.pnlInputs.Size = new System.Drawing.Size(479, 741);
             this.pnlInputs.TabIndex = 8;
-            this.pnlInputs.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // btnRemove
             // 
@@ -250,7 +249,6 @@
             this.rbtnManager.TabStop = true;
             this.rbtnManager.Text = "Manager";
             this.rbtnManager.UseVisualStyleBackColor = true;
-            this.rbtnManager.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // lblBirthdate
             // 
@@ -269,7 +267,6 @@
             this.dtpBirthdate.Name = "dtpBirthdate";
             this.dtpBirthdate.Size = new System.Drawing.Size(422, 26);
             this.dtpBirthdate.TabIndex = 11;
-            this.dtpBirthdate.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // lblLastname
             // 
@@ -280,7 +277,6 @@
             this.lblLastname.Size = new System.Drawing.Size(276, 30);
             this.lblLastname.TabIndex = 10;
             this.lblLastname.Text = "Achternaam";
-            this.lblLastname.Click += new System.EventHandler(this.label2_Click);
             // 
             // tbxLastname
             // 
@@ -299,7 +295,6 @@
             this.tbxFirstName.Name = "tbxFirstName";
             this.tbxFirstName.Size = new System.Drawing.Size(444, 48);
             this.tbxFirstName.TabIndex = 0;
-            this.tbxFirstName.TextChanged += new System.EventHandler(this.tbxFirstName_TextChanged);
             // 
             // lblFirstName
             // 

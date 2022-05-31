@@ -17,7 +17,6 @@ namespace View.Forms.ManagementScreens
         private StaffController staffController;
         private List<Staff> staffList;
         private Staff selectedStaff;
-
         private void Reload()
         {
             staffList = staffController.GetAllStaff();
@@ -38,27 +37,10 @@ namespace View.Forms.ManagementScreens
             staffController = new StaffController();
             InitializeComponent();
         }
-
         private void StaffManagement_Load(object sender, EventArgs e)
         {
             Reload();
         }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void ltvStaff_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (ltvStaff.SelectedItems.Count > 0)
@@ -85,17 +67,6 @@ namespace View.Forms.ManagementScreens
                 }
             }
         }
-
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tbxFirstName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnSave_Click(object sender, EventArgs e)
         {
             try
@@ -115,10 +86,12 @@ namespace View.Forms.ManagementScreens
                     selectedStaff.Role = selectedRole;
                     staffController.UpdateStaff(selectedStaff);
                     Reload();
+                    MessageBox.Show("Werknemer succesvol aangepast");
                 }
                 else
                 {
                     //staffController.AddStaff(new Staff(tbxFirstName.Text, tbxLastname.Text, dtpBirthdate.Value, selectedRole, tbxEmail.Text));
+                    MessageBox.Show("Werknemer succesvol toegevoegd");
                 }
             }
             catch (Exception ex)
@@ -135,6 +108,7 @@ namespace View.Forms.ManagementScreens
                 {
                     staffController.RemoveStaff(selectedStaff);
                     Reload();
+                    MessageBox.Show("Werknemer succesvol verwijderd");
                 }
                 else throw new Exception("Selecteer eerst een werknemer");
             }

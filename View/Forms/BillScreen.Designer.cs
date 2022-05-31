@@ -32,6 +32,8 @@
             this.lblOpmerkingen = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pnlPaymentMethod = new System.Windows.Forms.Panel();
+            this.rbCashPin = new System.Windows.Forms.RadioButton();
+            this.rbCashCreditcard = new System.Windows.Forms.RadioButton();
             this.rbCreditcard = new System.Windows.Forms.RadioButton();
             this.rbPin = new System.Windows.Forms.RadioButton();
             this.rbContant = new System.Windows.Forms.RadioButton();
@@ -44,26 +46,24 @@
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lblRekening = new System.Windows.Forms.Label();
-            this.btnSave = new View.CustomControls.CustomButton();
-            this.rbCashCreditcard = new System.Windows.Forms.RadioButton();
-            this.rbCashPin = new System.Windows.Forms.RadioButton();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.label2 = new System.Windows.Forms.Label();
             this.lblSplitPrice = new System.Windows.Forms.Label();
+            this.numSplit = new System.Windows.Forms.NumericUpDown();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.lblLowBtwOutput = new System.Windows.Forms.Label();
-            this.lblHighBtwOutput = new System.Windows.Forms.Label();
             this.lblTotalOutput = new System.Windows.Forms.Label();
+            this.lblHighBtwOutput = new System.Windows.Forms.Label();
+            this.lblLowBtwOutput = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnSave = new View.CustomControls.CustomButton();
             this.panel1.SuspendLayout();
             this.pnlPaymentMethod.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numTip)).BeginInit();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numSplit)).BeginInit();
             this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -90,7 +90,6 @@
             this.lblOpmerkingen.Size = new System.Drawing.Size(218, 66);
             this.lblOpmerkingen.TabIndex = 2;
             this.lblOpmerkingen.Text = "Opmerking";
-            this.lblOpmerkingen.Click += new System.EventHandler(this.label1_Click);
             // 
             // panel1
             // 
@@ -101,7 +100,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(601, 124);
             this.panel1.TabIndex = 7;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // pnlPaymentMethod
             // 
@@ -116,7 +114,34 @@
             this.pnlPaymentMethod.Name = "pnlPaymentMethod";
             this.pnlPaymentMethod.Size = new System.Drawing.Size(601, 318);
             this.pnlPaymentMethod.TabIndex = 8;
-            this.pnlPaymentMethod.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlPaymentMethod_Paint);
+            // 
+            // rbCashPin
+            // 
+            this.rbCashPin.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(0)))), ((int)(((byte)(77)))));
+            this.rbCashPin.FlatAppearance.BorderSize = 2;
+            this.rbCashPin.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(0)))), ((int)(((byte)(77)))));
+            this.rbCashPin.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.rbCashPin.Location = new System.Drawing.Point(23, 207);
+            this.rbCashPin.Name = "rbCashPin";
+            this.rbCashPin.Size = new System.Drawing.Size(256, 40);
+            this.rbCashPin.TabIndex = 7;
+            this.rbCashPin.TabStop = true;
+            this.rbCashPin.Text = "Contant + Pin";
+            this.rbCashPin.UseVisualStyleBackColor = true;
+            // 
+            // rbCashCreditcard
+            // 
+            this.rbCashCreditcard.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(0)))), ((int)(((byte)(77)))));
+            this.rbCashCreditcard.FlatAppearance.BorderSize = 2;
+            this.rbCashCreditcard.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(0)))), ((int)(((byte)(77)))));
+            this.rbCashCreditcard.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.rbCashCreditcard.Location = new System.Drawing.Point(23, 253);
+            this.rbCashCreditcard.Name = "rbCashCreditcard";
+            this.rbCashCreditcard.Size = new System.Drawing.Size(315, 40);
+            this.rbCashCreditcard.TabIndex = 6;
+            this.rbCashCreditcard.TabStop = true;
+            this.rbCashCreditcard.Text = "Contact + Creditcard";
+            this.rbCashCreditcard.UseVisualStyleBackColor = true;
             // 
             // rbCreditcard
             // 
@@ -183,7 +208,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(601, 113);
             this.panel3.TabIndex = 9;
-            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // numTip
             // 
@@ -192,7 +216,6 @@
             this.numTip.Name = "numTip";
             this.numTip.Size = new System.Drawing.Size(183, 39);
             this.numTip.TabIndex = 3;
-            this.numTip.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
             // 
             // lblTip
             // 
@@ -225,7 +248,6 @@
             this.ltvBillItems.TabIndex = 11;
             this.ltvBillItems.UseCompatibleStateImageBehavior = false;
             this.ltvBillItems.View = System.Windows.Forms.View.Details;
-            this.ltvBillItems.SelectedIndexChanged += new System.EventHandler(this.ltvBillItems_SelectedIndexChanged);
             // 
             // columnHeader2
             // 
@@ -246,11 +268,135 @@
             // 
             this.lblRekening.Font = new System.Drawing.Font("Myanmar Text", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRekening.ForeColor = System.Drawing.Color.White;
-            this.lblRekening.Location = new System.Drawing.Point(689, 9);
+            this.lblRekening.Location = new System.Drawing.Point(623, 9);
             this.lblRekening.Name = "lblRekening";
-            this.lblRekening.Size = new System.Drawing.Size(401, 95);
+            this.lblRekening.Size = new System.Drawing.Size(549, 95);
             this.lblRekening.TabIndex = 12;
-            this.lblRekening.Text = "Rekening";
+            this.lblRekening.Text = "Rekening Tafel";
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.lblSplitPrice);
+            this.panel2.Controls.Add(this.numSplit);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Location = new System.Drawing.Point(1032, 607);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(601, 113);
+            this.panel2.TabIndex = 10;
+            // 
+            // lblSplitPrice
+            // 
+            this.lblSplitPrice.AutoSize = true;
+            this.lblSplitPrice.Font = new System.Drawing.Font("Myanmar Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSplitPrice.Location = new System.Drawing.Point(334, 37);
+            this.lblSplitPrice.Name = "lblSplitPrice";
+            this.lblSplitPrice.Size = new System.Drawing.Size(0, 43);
+            this.lblSplitPrice.TabIndex = 4;
+            // 
+            // numSplit
+            // 
+            this.numSplit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.numSplit.Location = new System.Drawing.Point(23, 53);
+            this.numSplit.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numSplit.Name = "numSplit";
+            this.numSplit.Size = new System.Drawing.Size(183, 39);
+            this.numSplit.TabIndex = 3;
+            this.numSplit.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numSplit.ValueChanged += new System.EventHandler(this.numSplit_ValueChanged);
+            // 
+            // label2
+            // 
+            this.label2.BackColor = System.Drawing.Color.White;
+            this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(0)))), ((int)(((byte)(77)))));
+            this.label2.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.label2.Location = new System.Drawing.Point(0, 0);
+            this.label2.Name = "label2";
+            this.label2.Padding = new System.Windows.Forms.Padding(10, 10, 0, 0);
+            this.label2.Size = new System.Drawing.Size(218, 50);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Split";
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.White;
+            this.panel4.Controls.Add(this.lblTotalOutput);
+            this.panel4.Controls.Add(this.lblHighBtwOutput);
+            this.panel4.Controls.Add(this.lblLowBtwOutput);
+            this.panel4.Controls.Add(this.label5);
+            this.panel4.Controls.Add(this.label4);
+            this.panel4.Controls.Add(this.label3);
+            this.panel4.Location = new System.Drawing.Point(130, 852);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(653, 115);
+            this.panel4.TabIndex = 14;
+            // 
+            // lblTotalOutput
+            // 
+            this.lblTotalOutput.Font = new System.Drawing.Font("Myanmar Text", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalOutput.Location = new System.Drawing.Point(474, 78);
+            this.lblTotalOutput.Name = "lblTotalOutput";
+            this.lblTotalOutput.Size = new System.Drawing.Size(179, 36);
+            this.lblTotalOutput.TabIndex = 5;
+            this.lblTotalOutput.Text = "Laag btw";
+            this.lblTotalOutput.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // lblHighBtwOutput
+            // 
+            this.lblHighBtwOutput.Font = new System.Drawing.Font("Myanmar Text", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHighBtwOutput.Location = new System.Drawing.Point(474, 42);
+            this.lblHighBtwOutput.Name = "lblHighBtwOutput";
+            this.lblHighBtwOutput.Size = new System.Drawing.Size(179, 36);
+            this.lblHighBtwOutput.TabIndex = 4;
+            this.lblHighBtwOutput.Text = "Laag btw";
+            this.lblHighBtwOutput.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // lblLowBtwOutput
+            // 
+            this.lblLowBtwOutput.Font = new System.Drawing.Font("Myanmar Text", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLowBtwOutput.Location = new System.Drawing.Point(474, 6);
+            this.lblLowBtwOutput.Name = "lblLowBtwOutput";
+            this.lblLowBtwOutput.Size = new System.Drawing.Size(179, 36);
+            this.lblLowBtwOutput.TabIndex = 3;
+            this.lblLowBtwOutput.Text = "Laag btw";
+            this.lblLowBtwOutput.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // label5
+            // 
+            this.label5.Font = new System.Drawing.Font("Myanmar Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(322, 78);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(126, 36);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "Totaal";
+            // 
+            // label4
+            // 
+            this.label4.Font = new System.Drawing.Font("Myanmar Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(322, 42);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(136, 36);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Hoog btw";
+            // 
+            // label3
+            // 
+            this.label3.Font = new System.Drawing.Font("Myanmar Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(322, 6);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(126, 36);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Laag btw";
             // 
             // btnSave
             // 
@@ -271,160 +417,6 @@
             this.btnSave.TextColor = System.Drawing.Color.White;
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click_1);
-            // 
-            // rbCashCreditcard
-            // 
-            this.rbCashCreditcard.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(0)))), ((int)(((byte)(77)))));
-            this.rbCashCreditcard.FlatAppearance.BorderSize = 2;
-            this.rbCashCreditcard.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(0)))), ((int)(((byte)(77)))));
-            this.rbCashCreditcard.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.rbCashCreditcard.Location = new System.Drawing.Point(23, 253);
-            this.rbCashCreditcard.Name = "rbCashCreditcard";
-            this.rbCashCreditcard.Size = new System.Drawing.Size(315, 40);
-            this.rbCashCreditcard.TabIndex = 6;
-            this.rbCashCreditcard.TabStop = true;
-            this.rbCashCreditcard.Text = "Contact + Creditcard";
-            this.rbCashCreditcard.UseVisualStyleBackColor = true;
-            // 
-            // rbCashPin
-            // 
-            this.rbCashPin.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(0)))), ((int)(((byte)(77)))));
-            this.rbCashPin.FlatAppearance.BorderSize = 2;
-            this.rbCashPin.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(0)))), ((int)(((byte)(77)))));
-            this.rbCashPin.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.rbCashPin.Location = new System.Drawing.Point(23, 207);
-            this.rbCashPin.Name = "rbCashPin";
-            this.rbCashPin.Size = new System.Drawing.Size(256, 40);
-            this.rbCashPin.TabIndex = 7;
-            this.rbCashPin.TabStop = true;
-            this.rbCashPin.Text = "Contant + Pin";
-            this.rbCashPin.UseVisualStyleBackColor = true;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Controls.Add(this.lblSplitPrice);
-            this.panel2.Controls.Add(this.numericUpDown1);
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Location = new System.Drawing.Point(1032, 607);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(601, 113);
-            this.panel2.TabIndex = 10;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.numericUpDown1.Location = new System.Drawing.Point(23, 53);
-            this.numericUpDown1.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(183, 39);
-            this.numericUpDown1.TabIndex = 3;
-            this.numericUpDown1.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged_1);
-            // 
-            // label2
-            // 
-            this.label2.BackColor = System.Drawing.Color.White;
-            this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(0)))), ((int)(((byte)(77)))));
-            this.label2.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.label2.Location = new System.Drawing.Point(0, 0);
-            this.label2.Name = "label2";
-            this.label2.Padding = new System.Windows.Forms.Padding(10, 10, 0, 0);
-            this.label2.Size = new System.Drawing.Size(218, 50);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Split";
-            // 
-            // lblSplitPrice
-            // 
-            this.lblSplitPrice.AutoSize = true;
-            this.lblSplitPrice.Font = new System.Drawing.Font("Myanmar Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSplitPrice.Location = new System.Drawing.Point(334, 37);
-            this.lblSplitPrice.Name = "lblSplitPrice";
-            this.lblSplitPrice.Size = new System.Drawing.Size(0, 65);
-            this.lblSplitPrice.TabIndex = 4;
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.White;
-            this.panel4.Controls.Add(this.lblTotalOutput);
-            this.panel4.Controls.Add(this.lblHighBtwOutput);
-            this.panel4.Controls.Add(this.lblLowBtwOutput);
-            this.panel4.Controls.Add(this.label5);
-            this.panel4.Controls.Add(this.label4);
-            this.panel4.Controls.Add(this.label3);
-            this.panel4.Location = new System.Drawing.Point(130, 852);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(653, 115);
-            this.panel4.TabIndex = 14;
-            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
-            // 
-            // label3
-            // 
-            this.label3.Font = new System.Drawing.Font("Myanmar Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(322, 6);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(126, 36);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Laag btw";
-            // 
-            // label4
-            // 
-            this.label4.Font = new System.Drawing.Font("Myanmar Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(322, 42);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(136, 36);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "Hoog btw";
-            // 
-            // label5
-            // 
-            this.label5.Font = new System.Drawing.Font("Myanmar Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(332, 79);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(126, 36);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "Totaal";
-            // 
-            // lblLowBtwOutput
-            // 
-            this.lblLowBtwOutput.Font = new System.Drawing.Font("Myanmar Text", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLowBtwOutput.Location = new System.Drawing.Point(474, 6);
-            this.lblLowBtwOutput.Name = "lblLowBtwOutput";
-            this.lblLowBtwOutput.Size = new System.Drawing.Size(179, 36);
-            this.lblLowBtwOutput.TabIndex = 3;
-            this.lblLowBtwOutput.Text = "Laag btw";
-            this.lblLowBtwOutput.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // lblHighBtwOutput
-            // 
-            this.lblHighBtwOutput.Font = new System.Drawing.Font("Myanmar Text", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHighBtwOutput.Location = new System.Drawing.Point(474, 42);
-            this.lblHighBtwOutput.Name = "lblHighBtwOutput";
-            this.lblHighBtwOutput.Size = new System.Drawing.Size(179, 36);
-            this.lblHighBtwOutput.TabIndex = 4;
-            this.lblHighBtwOutput.Text = "Laag btw";
-            this.lblHighBtwOutput.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // lblTotalOutput
-            // 
-            this.lblTotalOutput.Font = new System.Drawing.Font("Myanmar Text", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalOutput.Location = new System.Drawing.Point(474, 78);
-            this.lblTotalOutput.Name = "lblTotalOutput";
-            this.lblTotalOutput.Size = new System.Drawing.Size(179, 36);
-            this.lblTotalOutput.TabIndex = 5;
-            this.lblTotalOutput.Text = "Laag btw";
-            this.lblTotalOutput.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // BillScreen
             // 
@@ -450,7 +442,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numTip)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numSplit)).EndInit();
             this.panel4.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -478,7 +470,7 @@
         private System.Windows.Forms.RadioButton rbCashCreditcard;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label lblSplitPrice;
-        protected System.Windows.Forms.NumericUpDown numericUpDown1;
+        protected System.Windows.Forms.NumericUpDown numSplit;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label3;

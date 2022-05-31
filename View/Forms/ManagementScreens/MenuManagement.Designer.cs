@@ -89,7 +89,6 @@
             this.pnlInputs.Name = "pnlInputs";
             this.pnlInputs.Size = new System.Drawing.Size(479, 741);
             this.pnlInputs.TabIndex = 10;
-            this.pnlInputs.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlInputs_Paint);
             // 
             // btnClear
             // 
@@ -123,7 +122,6 @@
             this.rbtnInMenuFalse.TabStop = true;
             this.rbtnInMenuFalse.Text = "Nee";
             this.rbtnInMenuFalse.UseVisualStyleBackColor = true;
-            this.rbtnInMenuFalse.CheckedChanged += new System.EventHandler(this.rbtnInMenuFalse_CheckedChanged);
             // 
             // rbtnInMenuTrue
             // 
@@ -135,7 +133,6 @@
             this.rbtnInMenuTrue.TabStop = true;
             this.rbtnInMenuTrue.Text = "Ja";
             this.rbtnInMenuTrue.UseVisualStyleBackColor = true;
-            this.rbtnInMenuTrue.CheckedChanged += new System.EventHandler(this.rbtnInMenuTrue_CheckedChanged);
             // 
             // label1
             // 
@@ -146,7 +143,6 @@
             this.label1.Size = new System.Drawing.Size(276, 30);
             this.label1.TabIndex = 28;
             this.label1.Text = "Prijs Ex";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // numPriceEx
             // 
@@ -156,7 +152,6 @@
             this.numPriceEx.Name = "numPriceEx";
             this.numPriceEx.Size = new System.Drawing.Size(183, 39);
             this.numPriceEx.TabIndex = 27;
-            this.numPriceEx.ValueChanged += new System.EventHandler(this.numPriceEx_ValueChanged);
             // 
             // cbxSubcategory
             // 
@@ -207,7 +202,6 @@
             this.lblInMenu.Size = new System.Drawing.Size(276, 30);
             this.lblInMenu.TabIndex = 21;
             this.lblInMenu.Text = "In Menu";
-            this.lblInMenu.Click += new System.EventHandler(this.lblInMenu_Click);
             // 
             // lblSubcategory
             // 
@@ -301,12 +295,12 @@
             // 
             // columnHeader4
             // 
-            this.columnHeader4.Text = "Category";
+            this.columnHeader4.Text = "Categorie";
             this.columnHeader4.Width = 161;
             // 
             // columnHeader5
             // 
-            this.columnHeader5.Text = "Subcategory";
+            this.columnHeader5.Text = "Subcategorie";
             this.columnHeader5.Width = 166;
             // 
             // columnHeader6

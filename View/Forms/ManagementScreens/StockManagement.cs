@@ -17,7 +17,6 @@ namespace View.Forms.ManagementScreens
         private StockController stockController;
         private List<Model.MenuItem> menuItemList;
         private Model.MenuItem selectedMenuItem;
-
         private void Reload()
         {
             menuItemList = stockController.GetAllMenuItems();
@@ -36,14 +35,9 @@ namespace View.Forms.ManagementScreens
             stockController = new StockController();
             InitializeComponent();
         }
-
         private void StockManagement_Load(object sender, EventArgs e)
         {
             Reload();
-        }
-        private void pnlInputs_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void ltvStockItems_SelectedIndexChanged(object sender, EventArgs e)
@@ -52,10 +46,6 @@ namespace View.Forms.ManagementScreens
             {
                 selectedMenuItem = (Model.MenuItem)menuItemList.Where(menuItem => menuItem.Id == int.Parse(ltvStockItems.SelectedItems[0].Tag.ToString())).ToList()[0].Clone();
                 numStock.Value = selectedMenuItem.Stock;
-            }
-            else
-            {
-
             }
         }
 
@@ -85,7 +75,6 @@ namespace View.Forms.ManagementScreens
                 numStock.Value = selectedMenuItem.Stock;
             }
         }
-
         private void numStock_ValueChanged(object sender, EventArgs e)
         {
             if (ltvStockItems.SelectedItems.Count > 0)
@@ -103,11 +92,20 @@ namespace View.Forms.ManagementScreens
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (ltvStockItems.SelectedItems.Count > 0)
+            try
             {
-                stockController.AdjustStock(selectedMenuItem);
-                Reload();
+                if (ltvStockItems.SelectedItems.Count > 0)
+                {
+                    stockController.AdjustStock(selectedMenuItem);
+                    Reload();
+                    MessageBox.Show("Voorraad succesvol aangepast.");
+                }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
         }
     }
 }
