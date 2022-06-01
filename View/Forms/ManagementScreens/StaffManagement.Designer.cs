@@ -181,6 +181,7 @@
             this.tbxEmail.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.tbxEmail.Font = new System.Drawing.Font("Myanmar Text", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxEmail.Location = new System.Drawing.Point(17, 596);
+            this.tbxEmail.MaxLength = 100;
             this.tbxEmail.Name = "tbxEmail";
             this.tbxEmail.Size = new System.Drawing.Size(444, 48);
             this.tbxEmail.TabIndex = 22;
@@ -264,9 +265,12 @@
             // 
             this.dtpBirthdate.CalendarFont = new System.Drawing.Font("Myanmar Text", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpBirthdate.Location = new System.Drawing.Point(17, 244);
+            this.dtpBirthdate.MaxDate = System.DateTime.Today;
+            this.dtpBirthdate.MinDate = new System.DateTime(1920, 1, 1, 0, 0, 0, 0);
             this.dtpBirthdate.Name = "dtpBirthdate";
             this.dtpBirthdate.Size = new System.Drawing.Size(422, 26);
             this.dtpBirthdate.TabIndex = 11;
+            this.dtpBirthdate.Value = new System.DateTime(2022, 6, 1, 0, 0, 0, 0);
             // 
             // lblLastname
             // 
@@ -283,6 +287,7 @@
             this.tbxLastname.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.tbxLastname.Font = new System.Drawing.Font("Myanmar Text", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxLastname.Location = new System.Drawing.Point(17, 151);
+            this.tbxLastname.MaxLength = 50;
             this.tbxLastname.Name = "tbxLastname";
             this.tbxLastname.Size = new System.Drawing.Size(444, 48);
             this.tbxLastname.TabIndex = 9;
@@ -292,6 +297,7 @@
             this.tbxFirstName.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.tbxFirstName.Font = new System.Drawing.Font("Myanmar Text", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxFirstName.Location = new System.Drawing.Point(17, 53);
+            this.tbxFirstName.MaxLength = 50;
             this.tbxFirstName.Name = "tbxFirstName";
             this.tbxFirstName.Size = new System.Drawing.Size(444, 48);
             this.tbxFirstName.TabIndex = 0;

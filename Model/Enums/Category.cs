@@ -8,6 +8,6 @@ namespace Model
 {
     public enum Category
     {
-        AlcoholDrinks = 1, NonAlcoholDrinks, Lunch, Diner
+        None, AlcoholDrinks, NonAlcoholDrinks, Lunch, Diner
     }
 }

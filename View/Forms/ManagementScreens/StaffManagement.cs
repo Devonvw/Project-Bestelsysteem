@@ -28,7 +28,7 @@ namespace View.Forms.ManagementScreens
                 listViewItem.SubItems.Add(staff.BirthDate.ToString("MM-dd-yyyy"));
                 listViewItem.SubItems.Add(staff.Role.ToString());
                 listViewItem.SubItems.Add(staff.Email);
-                listViewItem.Tag = staff.Id;
+                listViewItem.Tag = staff;
                 ltvStaff.Items.Add(listViewItem);
             });
         }
@@ -45,7 +45,7 @@ namespace View.Forms.ManagementScreens
         {
             if (ltvStaff.SelectedItems.Count > 0)
             {
-                selectedStaff = (Staff)staffList.Where(staff => staff.Id == int.Parse(ltvStaff.SelectedItems[0].Tag.ToString())).ToList()[0].Clone();
+                selectedStaff = (Staff)ltvStaff.SelectedItems[0].Tag;
                 tbxFirstName.Text = selectedStaff.FirstName;
                 tbxLastname.Text = selectedStaff.LastName;
                 tbxEmail.Text = selectedStaff.Email;
@@ -71,26 +71,20 @@ namespace View.Forms.ManagementScreens
         {
             try
             {
-                Roles selectedRole = Roles.None;
-                if (rbtnManager.Checked) selectedRole = Roles.Manager;
-                else if (rbtnBartender.Checked) selectedRole = Roles.Bartender;
-                else if (rbtnWaiter.Checked) selectedRole = Roles.Waiter;
-                else if (rbtnChef.Checked) selectedRole = Roles.Chef;
-
                 if (ltvStaff.SelectedItems.Count > 0)
                 {
                     selectedStaff.FirstName = tbxFirstName.Text;
                     selectedStaff.LastName = tbxLastname.Text;
                     selectedStaff.Email = tbxEmail.Text;
                     selectedStaff.BirthDate = dtpBirthdate.Value;
-                    selectedStaff.Role = selectedRole;
+                    selectedStaff.Role = rbtnManager.Checked ? Roles.Manager : rbtnBartender.Checked ? Roles.Bartender : rbtnWaiter.Checked ? Roles.Waiter : Roles.Chef;
                     staffController.UpdateStaff(selectedStaff);
                     Reload();
                     MessageBox.Show("Werknemer succesvol aangepast");
                 }
                 else
                 {
-                    //staffController.AddStaff(new Staff(tbxFirstName.Text, tbxLastname.Text, dtpBirthdate.Value, selectedRole, tbxEmail.Text));
+                    //staffController.AddStaff(new Staff(tbxFirstName.Text, tbxLastname.Text, dtpBirthdate.Value, rbtnManager.Checked ? Roles.Manager : rbtnBartender.Checked ? Roles.Bartender : rbtnWaiter.Checked ? Roles.Waiter : rbtnChef.Checked ? Roles.Chef : Roles.None, tbxEmail.Text));
                     MessageBox.Show("Werknemer succesvol toegevoegd");
                 }
             }

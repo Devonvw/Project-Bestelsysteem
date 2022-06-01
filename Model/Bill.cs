@@ -35,6 +35,10 @@ namespace Model
             Payed = payed;
             PaymentMethod = paymentMethod;
         }
+        public Bill()
+        {
+
+        }
         public void AddOrder(Order order)
         {
             /*Add order to the bill (BillItems), also add to price*/

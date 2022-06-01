@@ -30,7 +30,7 @@ namespace Model
 
         public Bill GetCurrentBillByTable(Table table)
         {
-            string query = "SELECT TOP 1 * FROM Bills AS B INNER JOIN Staff AS S ON B.staffId = S.id WHERE tableId = @tableId AND payed = 'true' ORDER BY [datetime] DESC";
+            string query = "SELECT TOP 1 * FROM Bills AS B INNER JOIN Staff AS S ON B.staffId = S.id WHERE tableId = @tableId ORDER BY [datetime] DESC";
 
             SqlParameter[] sqlParameters = new SqlParameter[]
             {

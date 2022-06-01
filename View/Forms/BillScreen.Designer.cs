@@ -73,6 +73,7 @@
             this.txtOpmerkingInput.BackColor = System.Drawing.Color.Silver;
             this.txtOpmerkingInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.txtOpmerkingInput.Location = new System.Drawing.Point(23, 59);
+            this.txtOpmerkingInput.MaxLength = 255;
             this.txtOpmerkingInput.Name = "txtOpmerkingInput";
             this.txtOpmerkingInput.Size = new System.Drawing.Size(549, 39);
             this.txtOpmerkingInput.TabIndex = 1;
@@ -416,7 +417,7 @@
             this.btnSave.Text = "Opslaan";
             this.btnSave.TextColor = System.Drawing.Color.White;
             this.btnSave.UseVisualStyleBackColor = false;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click_1);
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // BillScreen
             // 

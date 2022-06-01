@@ -30,6 +30,7 @@
         {
             this.lblInventory = new System.Windows.Forms.Label();
             this.pnlInputs = new System.Windows.Forms.Panel();
+            this.lblMenuItemName = new System.Windows.Forms.Label();
             this.btnAdd6 = new View.CustomControls.CustomButton();
             this.btnAdd24 = new View.CustomControls.CustomButton();
             this.btnAdd12 = new View.CustomControls.CustomButton();
@@ -57,6 +58,7 @@
             // pnlInputs
             // 
             this.pnlInputs.BackColor = System.Drawing.Color.White;
+            this.pnlInputs.Controls.Add(this.lblMenuItemName);
             this.pnlInputs.Controls.Add(this.btnAdd6);
             this.pnlInputs.Controls.Add(this.btnAdd24);
             this.pnlInputs.Controls.Add(this.btnAdd12);
@@ -66,6 +68,17 @@
             this.pnlInputs.Name = "pnlInputs";
             this.pnlInputs.Size = new System.Drawing.Size(772, 628);
             this.pnlInputs.TabIndex = 12;
+            // 
+            // lblMenuItemName
+            // 
+            this.lblMenuItemName.Font = new System.Drawing.Font("Myanmar Text", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMenuItemName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(0)))), ((int)(((byte)(77)))));
+            this.lblMenuItemName.Location = new System.Drawing.Point(59, 26);
+            this.lblMenuItemName.Name = "lblMenuItemName";
+            this.lblMenuItemName.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lblMenuItemName.Size = new System.Drawing.Size(635, 78);
+            this.lblMenuItemName.TabIndex = 34;
+            this.lblMenuItemName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnAdd6
             // 
@@ -78,7 +91,7 @@
             this.btnAdd6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd6.Font = new System.Drawing.Font("Myanmar Text", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd6.ForeColor = System.Drawing.Color.White;
-            this.btnAdd6.Location = new System.Drawing.Point(49, 81);
+            this.btnAdd6.Location = new System.Drawing.Point(59, 142);
             this.btnAdd6.Name = "btnAdd6";
             this.btnAdd6.Size = new System.Drawing.Size(166, 91);
             this.btnAdd6.TabIndex = 33;
@@ -98,7 +111,7 @@
             this.btnAdd24.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd24.Font = new System.Drawing.Font("Myanmar Text", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd24.ForeColor = System.Drawing.Color.White;
-            this.btnAdd24.Location = new System.Drawing.Point(518, 81);
+            this.btnAdd24.Location = new System.Drawing.Point(528, 142);
             this.btnAdd24.Name = "btnAdd24";
             this.btnAdd24.Size = new System.Drawing.Size(166, 91);
             this.btnAdd24.TabIndex = 32;
@@ -118,7 +131,7 @@
             this.btnAdd12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd12.Font = new System.Drawing.Font("Myanmar Text", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd12.ForeColor = System.Drawing.Color.White;
-            this.btnAdd12.Location = new System.Drawing.Point(277, 81);
+            this.btnAdd12.Location = new System.Drawing.Point(287, 142);
             this.btnAdd12.Name = "btnAdd12";
             this.btnAdd12.Size = new System.Drawing.Size(166, 91);
             this.btnAdd12.TabIndex = 31;
@@ -229,5 +242,6 @@
         private CustomControls.CustomButton btnAdd6;
         private CustomControls.CustomButton btnAdd24;
         private CustomControls.CustomButton btnAdd12;
+        private System.Windows.Forms.Label lblMenuItemName;
     }
 }

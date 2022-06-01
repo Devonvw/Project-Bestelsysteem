@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Model;
 using Controller;
+using System.Diagnostics;
 
 namespace View.Forms
 {
@@ -28,7 +29,7 @@ namespace View.Forms
                 ListViewItem listViewItem = new ListViewItem(menuItem.MenuItem.ShortName);
                 listViewItem.SubItems.Add(menuItem.Amount.ToString());
                 listViewItem.SubItems.Add(menuItem.TotalPrice.ToString());
-                listViewItem.Tag = menuItem.Id;
+                listViewItem.Tag = menuItem;
                 ltvBillItems.Items.Add(listViewItem);
             });
         }
@@ -49,7 +50,7 @@ namespace View.Forms
             lblHighBtwOutput.Text = $"€{bill.HighBtwPrice.ToString("0.00")}";
             lblTotalOutput.Text = $"€{bill.TotalPrice.ToString("0.00")}";
         }
-        private void btnSave_Click_1(object sender, EventArgs e)
+        private void btnSave_Click(object sender, EventArgs e)
         {
             bill.Comment = string.IsNullOrEmpty(txtOpmerkingInput.Text) ? "" : txtOpmerkingInput.Text;
             bill.Tip = (float)numTip.Value;
@@ -73,7 +74,7 @@ namespace View.Forms
         private void numSplit_ValueChanged(object sender, EventArgs e)
         {
             if (numSplit.Value == 1) lblSplitPrice.Text = "";
-            else lblSplitPrice.Text = $"€{Math.Round(bill.TotalPrice / (float)numSplit.Value, 2).ToString()}";   
+            else lblSplitPrice.Text = $"€{Math.Round(bill.TotalPrice / (float)numSplit.Value, 2)}";   
         }
     }
 }

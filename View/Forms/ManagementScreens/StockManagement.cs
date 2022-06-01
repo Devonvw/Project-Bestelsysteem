@@ -26,7 +26,7 @@ namespace View.Forms.ManagementScreens
                 ListViewItem listViewItem = new ListViewItem(menuItem.ShortName);
                 listViewItem.SubItems.Add(menuItem.FullName);
                 listViewItem.SubItems.Add(menuItem.Stock.ToString());
-                listViewItem.Tag = menuItem.Id;
+                listViewItem.Tag = menuItem;
                 ltvStockItems.Items.Add(listViewItem);
             });
         }
@@ -44,8 +44,9 @@ namespace View.Forms.ManagementScreens
         {
             if (ltvStockItems.SelectedItems.Count > 0)
             {
-                selectedMenuItem = (Model.MenuItem)menuItemList.Where(menuItem => menuItem.Id == int.Parse(ltvStockItems.SelectedItems[0].Tag.ToString())).ToList()[0].Clone();
+                selectedMenuItem = (Model.MenuItem)ltvStockItems.SelectedItems[0].Tag;
                 numStock.Value = selectedMenuItem.Stock;
+                lblMenuItemName.Text = selectedMenuItem.ShortName;
             }
         }
 
@@ -89,7 +90,6 @@ namespace View.Forms.ManagementScreens
                 numStock.Value = 0;
             }
         }
-
         private void btnSave_Click(object sender, EventArgs e)
         {
             try
@@ -101,11 +101,7 @@ namespace View.Forms.ManagementScreens
                     MessageBox.Show("Voorraad succesvol aangepast.");
                 }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
     }
 }
