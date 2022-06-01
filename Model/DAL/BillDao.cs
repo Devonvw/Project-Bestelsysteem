@@ -39,10 +39,16 @@ namespace Model
             return ReadBill(ExecuteSelectQuery(query, sqlParameters));
         }
 
-        //public void GetLastOrderItems(Bill bill)
-        //{
-        //    
-        //}
+        public Bill GetCurrentOpenBillByTable(Table table)
+        {
+            string query = "SELECT TOP 1 * FROM Bills AS B INNER JOIN Staff AS S ON B.staffId = S.id WHERE tableId = @tableId AND payed = 'false' ORDER BY [datetime] DESC";
+
+            SqlParameter[] sqlParameters = new SqlParameter[]
+            {
+                new SqlParameter("@tableId", SqlDbType.Int) { Value = table.Id }
+            };
+            return ReadBill(ExecuteSelectQuery(query, sqlParameters));
+        }
 
         private (float totalPrice, float lowBtwPrice, float highBtwPrice) GetTotalBillPrice(int billId)
         {
@@ -78,8 +84,7 @@ namespace Model
 
             ExecuteEditQuery(query, sqlParameters);
         }
-        public List<OrderItem> ReadOrderItems(DataTable dataTable)
-        {
+        public List<OrderItem> ReadOrderItems(DataTable dataTable)        {
             List<OrderItem> orderItems = new List<OrderItem>();
             int index = 1;
 

@@ -37,59 +37,59 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.overViewPanel = new System.Windows.Forms.Panel();
+            this.deleteOrderInPreperationButton = new View.CustomControls.CustomButton();
             this.togglePanel = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.addOrderPanel = new System.Windows.Forms.Panel();
-            this.lunchSubPanel = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.commentAndAmountPanel = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.amountLabel = new System.Windows.Forms.Label();
-            this.addCommentTextBox = new System.Windows.Forms.TextBox();
-            this.dinerSubPanel = new System.Windows.Forms.Panel();
-            this.dinerSubLabel = new System.Windows.Forms.Label();
-            this.drankenSubPanel = new System.Windows.Forms.Panel();
-            this.drankenSubLabel = new System.Windows.Forms.Label();
-            this.alchoholSubPanel = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.menuItemsListView = new System.Windows.Forms.ListView();
-            this.ID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Item = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.newOrderItemsListView = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.deleteOrderInPreperationButton = new View.CustomControls.CustomButton();
-            this.updateItemButton = new View.CustomControls.CustomButton();
             this.groupItemsToggle = new View.CustomControls.ToggleButton();
             this.ChangeOrderButton = new View.CustomControls.CustomButton();
             this.backToTablesButton = new View.CustomControls.CustomButton();
             this.newOrderButton = new View.CustomControls.CustomButton();
+            this.updateItemButton = new View.CustomControls.CustomButton();
+            this.addOrderPanel = new System.Windows.Forms.Panel();
+            this.lunchSubPanel = new System.Windows.Forms.Panel();
             this.lunchMainButton = new View.CustomControls.CustomButton();
             this.lunchDesertButton = new View.CustomControls.CustomButton();
             this.lunchStarterButton = new View.CustomControls.CustomButton();
+            this.label6 = new System.Windows.Forms.Label();
+            this.commentAndAmountPanel = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
             this.minusButton = new View.CustomControls.CustomButton();
+            this.amountLabel = new System.Windows.Forms.Label();
+            this.addCommentTextBox = new System.Windows.Forms.TextBox();
             this.plusButton = new View.CustomControls.CustomButton();
             this.changeItemButton = new View.CustomControls.CustomButton();
             this.clearOrderButton = new View.CustomControls.CustomButton();
+            this.dinerSubPanel = new System.Windows.Forms.Panel();
             this.dinerDesertButton = new View.CustomControls.CustomButton();
             this.dinerMainButton = new View.CustomControls.CustomButton();
             this.dinerSideButton = new View.CustomControls.CustomButton();
             this.dinerStarterButton = new View.CustomControls.CustomButton();
+            this.dinerSubLabel = new System.Windows.Forms.Label();
             this.deleteItemFromOrderButton = new View.CustomControls.CustomButton();
+            this.drankenSubPanel = new System.Windows.Forms.Panel();
             this.frisdrankButton = new View.CustomControls.CustomButton();
             this.warmeDrankenButton = new View.CustomControls.CustomButton();
+            this.drankenSubLabel = new System.Windows.Forms.Label();
+            this.alchoholSubPanel = new System.Windows.Forms.Panel();
             this.gedestilleerdButton = new View.CustomControls.CustomButton();
             this.wijnButton = new View.CustomControls.CustomButton();
             this.bierButton = new View.CustomControls.CustomButton();
+            this.label7 = new System.Windows.Forms.Label();
             this.alcoholButton = new View.CustomControls.CustomButton();
             this.drankenButton = new View.CustomControls.CustomButton();
             this.dinerButton = new View.CustomControls.CustomButton();
             this.lunchButton = new View.CustomControls.CustomButton();
+            this.menuItemsListView = new System.Windows.Forms.ListView();
+            this.ID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Item = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.stock = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.backToOverviewButton = new View.CustomControls.CustomButton();
+            this.newOrderItemsListView = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.insertOrderButton = new View.CustomControls.CustomButton();
             this.addItemButton = new View.CustomControls.CustomButton();
-            this.stock = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.overViewPanel.SuspendLayout();
             this.togglePanel.SuspendLayout();
             this.addOrderPanel.SuspendLayout();
@@ -168,254 +168,18 @@
             // overViewPanel
             // 
             this.overViewPanel.Controls.Add(this.deleteOrderInPreperationButton);
-            this.overViewPanel.Controls.Add(this.updateItemButton);
             this.overViewPanel.Controls.Add(this.togglePanel);
             this.overViewPanel.Controls.Add(this.ChangeOrderButton);
             this.overViewPanel.Controls.Add(this.bonOverzichtLabel);
             this.overViewPanel.Controls.Add(this.backToTablesButton);
             this.overViewPanel.Controls.Add(this.billOverViewListView);
+            this.overViewPanel.Controls.Add(this.updateItemButton);
             this.overViewPanel.Controls.Add(this.newOrderButton);
             this.overViewPanel.Location = new System.Drawing.Point(0, 0);
             this.overViewPanel.Name = "overViewPanel";
             this.overViewPanel.Size = new System.Drawing.Size(428, 795);
             this.overViewPanel.TabIndex = 19;
             this.overViewPanel.Visible = false;
-            // 
-            // togglePanel
-            // 
-            this.togglePanel.Controls.Add(this.label2);
-            this.togglePanel.Controls.Add(this.groupItemsToggle);
-            this.togglePanel.Location = new System.Drawing.Point(10, 487);
-            this.togglePanel.Name = "togglePanel";
-            this.togglePanel.Size = new System.Drawing.Size(406, 73);
-            this.togglePanel.TabIndex = 30;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.Control;
-            this.label2.Location = new System.Drawing.Point(0, 26);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(184, 20);
-            this.label2.TabIndex = 13;
-            this.label2.Text = "Groepeer dezelfde items";
-            // 
-            // addOrderPanel
-            // 
-            this.addOrderPanel.Controls.Add(this.lunchSubPanel);
-            this.addOrderPanel.Controls.Add(this.commentAndAmountPanel);
-            this.addOrderPanel.Controls.Add(this.changeItemButton);
-            this.addOrderPanel.Controls.Add(this.clearOrderButton);
-            this.addOrderPanel.Controls.Add(this.dinerSubPanel);
-            this.addOrderPanel.Controls.Add(this.deleteItemFromOrderButton);
-            this.addOrderPanel.Controls.Add(this.drankenSubPanel);
-            this.addOrderPanel.Controls.Add(this.alchoholSubPanel);
-            this.addOrderPanel.Controls.Add(this.alcoholButton);
-            this.addOrderPanel.Controls.Add(this.drankenButton);
-            this.addOrderPanel.Controls.Add(this.dinerButton);
-            this.addOrderPanel.Controls.Add(this.lunchButton);
-            this.addOrderPanel.Controls.Add(this.menuItemsListView);
-            this.addOrderPanel.Controls.Add(this.backToOverviewButton);
-            this.addOrderPanel.Controls.Add(this.newOrderItemsListView);
-            this.addOrderPanel.Controls.Add(this.insertOrderButton);
-            this.addOrderPanel.Controls.Add(this.addItemButton);
-            this.addOrderPanel.Location = new System.Drawing.Point(0, 0);
-            this.addOrderPanel.Name = "addOrderPanel";
-            this.addOrderPanel.Size = new System.Drawing.Size(428, 795);
-            this.addOrderPanel.TabIndex = 18;
-            this.addOrderPanel.Visible = false;
-            // 
-            // lunchSubPanel
-            // 
-            this.lunchSubPanel.Controls.Add(this.lunchMainButton);
-            this.lunchSubPanel.Controls.Add(this.lunchDesertButton);
-            this.lunchSubPanel.Controls.Add(this.lunchStarterButton);
-            this.lunchSubPanel.Controls.Add(this.label6);
-            this.lunchSubPanel.Location = new System.Drawing.Point(305, 55);
-            this.lunchSubPanel.Name = "lunchSubPanel";
-            this.lunchSubPanel.Size = new System.Drawing.Size(102, 326);
-            this.lunchSubPanel.TabIndex = 23;
-            this.lunchSubPanel.Visible = false;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.ForeColor = System.Drawing.SystemColors.Control;
-            this.label6.Location = new System.Drawing.Point(29, 10);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(37, 13);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Lunch";
-            // 
-            // commentAndAmountPanel
-            // 
-            this.commentAndAmountPanel.Controls.Add(this.label5);
-            this.commentAndAmountPanel.Controls.Add(this.minusButton);
-            this.commentAndAmountPanel.Controls.Add(this.amountLabel);
-            this.commentAndAmountPanel.Controls.Add(this.addCommentTextBox);
-            this.commentAndAmountPanel.Controls.Add(this.plusButton);
-            this.commentAndAmountPanel.Location = new System.Drawing.Point(10, 387);
-            this.commentAndAmountPanel.Name = "commentAndAmountPanel";
-            this.commentAndAmountPanel.Size = new System.Drawing.Size(288, 52);
-            this.commentAndAmountPanel.TabIndex = 28;
-            this.commentAndAmountPanel.Visible = false;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.ForeColor = System.Drawing.SystemColors.Control;
-            this.label5.Location = new System.Drawing.Point(12, 5);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(61, 13);
-            this.label5.TabIndex = 19;
-            this.label5.Text = "Opmerking:";
-            // 
-            // amountLabel
-            // 
-            this.amountLabel.AutoSize = true;
-            this.amountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.amountLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.amountLabel.Location = new System.Drawing.Point(203, 9);
-            this.amountLabel.Name = "amountLabel";
-            this.amountLabel.Size = new System.Drawing.Size(37, 39);
-            this.amountLabel.TabIndex = 17;
-            this.amountLabel.Text = "1";
-            // 
-            // addCommentTextBox
-            // 
-            this.addCommentTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.addCommentTextBox.Location = new System.Drawing.Point(12, 22);
-            this.addCommentTextBox.Name = "addCommentTextBox";
-            this.addCommentTextBox.Size = new System.Drawing.Size(130, 20);
-            this.addCommentTextBox.TabIndex = 18;
-            // 
-            // dinerSubPanel
-            // 
-            this.dinerSubPanel.Controls.Add(this.dinerDesertButton);
-            this.dinerSubPanel.Controls.Add(this.dinerMainButton);
-            this.dinerSubPanel.Controls.Add(this.dinerSideButton);
-            this.dinerSubPanel.Controls.Add(this.dinerStarterButton);
-            this.dinerSubPanel.Controls.Add(this.dinerSubLabel);
-            this.dinerSubPanel.Location = new System.Drawing.Point(305, 55);
-            this.dinerSubPanel.Name = "dinerSubPanel";
-            this.dinerSubPanel.Size = new System.Drawing.Size(102, 326);
-            this.dinerSubPanel.TabIndex = 24;
-            this.dinerSubPanel.Visible = false;
-            // 
-            // dinerSubLabel
-            // 
-            this.dinerSubLabel.AutoSize = true;
-            this.dinerSubLabel.ForeColor = System.Drawing.Color.White;
-            this.dinerSubLabel.Location = new System.Drawing.Point(29, 11);
-            this.dinerSubLabel.Name = "dinerSubLabel";
-            this.dinerSubLabel.Size = new System.Drawing.Size(35, 13);
-            this.dinerSubLabel.TabIndex = 0;
-            this.dinerSubLabel.Text = "Diner:";
-            // 
-            // drankenSubPanel
-            // 
-            this.drankenSubPanel.Controls.Add(this.frisdrankButton);
-            this.drankenSubPanel.Controls.Add(this.warmeDrankenButton);
-            this.drankenSubPanel.Controls.Add(this.drankenSubLabel);
-            this.drankenSubPanel.Location = new System.Drawing.Point(305, 55);
-            this.drankenSubPanel.Name = "drankenSubPanel";
-            this.drankenSubPanel.Size = new System.Drawing.Size(102, 326);
-            this.drankenSubPanel.TabIndex = 22;
-            this.drankenSubPanel.Visible = false;
-            // 
-            // drankenSubLabel
-            // 
-            this.drankenSubLabel.AutoSize = true;
-            this.drankenSubLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.drankenSubLabel.Location = new System.Drawing.Point(29, 10);
-            this.drankenSubLabel.Name = "drankenSubLabel";
-            this.drankenSubLabel.Size = new System.Drawing.Size(51, 13);
-            this.drankenSubLabel.TabIndex = 0;
-            this.drankenSubLabel.Text = "Dranken:";
-            // 
-            // alchoholSubPanel
-            // 
-            this.alchoholSubPanel.Controls.Add(this.gedestilleerdButton);
-            this.alchoholSubPanel.Controls.Add(this.wijnButton);
-            this.alchoholSubPanel.Controls.Add(this.bierButton);
-            this.alchoholSubPanel.Controls.Add(this.label7);
-            this.alchoholSubPanel.Location = new System.Drawing.Point(305, 55);
-            this.alchoholSubPanel.Name = "alchoholSubPanel";
-            this.alchoholSubPanel.Size = new System.Drawing.Size(102, 326);
-            this.alchoholSubPanel.TabIndex = 21;
-            this.alchoholSubPanel.Visible = false;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.ForeColor = System.Drawing.SystemColors.Control;
-            this.label7.Location = new System.Drawing.Point(29, 10);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(45, 13);
-            this.label7.TabIndex = 20;
-            this.label7.Text = "Alcohol:";
-            // 
-            // menuItemsListView
-            // 
-            this.menuItemsListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.ID,
-            this.Item,
-            this.stock});
-            this.menuItemsListView.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.menuItemsListView.FullRowSelect = true;
-            this.menuItemsListView.GridLines = true;
-            this.menuItemsListView.HideSelection = false;
-            this.menuItemsListView.Location = new System.Drawing.Point(10, 55);
-            this.menuItemsListView.Name = "menuItemsListView";
-            this.menuItemsListView.Size = new System.Drawing.Size(397, 326);
-            this.menuItemsListView.TabIndex = 0;
-            this.menuItemsListView.UseCompatibleStateImageBehavior = false;
-            this.menuItemsListView.View = System.Windows.Forms.View.Details;
-            this.menuItemsListView.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.menuItemsListView_ItemSelectionChanged);
-            // 
-            // ID
-            // 
-            this.ID.Text = "ID";
-            this.ID.Width = 29;
-            // 
-            // Item
-            // 
-            this.Item.Text = "Item";
-            this.Item.Width = 182;
-            // 
-            // newOrderItemsListView
-            // 
-            this.newOrderItemsListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3});
-            this.newOrderItemsListView.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.newOrderItemsListView.FullRowSelect = true;
-            this.newOrderItemsListView.GridLines = true;
-            this.newOrderItemsListView.HideSelection = false;
-            this.newOrderItemsListView.Location = new System.Drawing.Point(10, 453);
-            this.newOrderItemsListView.Name = "newOrderItemsListView";
-            this.newOrderItemsListView.Size = new System.Drawing.Size(397, 179);
-            this.newOrderItemsListView.TabIndex = 5;
-            this.newOrderItemsListView.UseCompatibleStateImageBehavior = false;
-            this.newOrderItemsListView.View = System.Windows.Forms.View.Details;
-            this.newOrderItemsListView.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.newOrderItemsListView_ItemSelectionChanged);
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "Item";
-            this.columnHeader1.Width = 150;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Aantal";
-            this.columnHeader2.Width = 100;
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "Comment";
-            this.columnHeader3.Width = 100;
             // 
             // deleteOrderInPreperationButton
             // 
@@ -437,25 +201,25 @@
             this.deleteOrderInPreperationButton.Visible = false;
             this.deleteOrderInPreperationButton.Click += new System.EventHandler(this.deleteOrderInPreperationButton_Click);
             // 
-            // updateItemButton
+            // togglePanel
             // 
-            this.updateItemButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(58)))), ((int)(((byte)(118)))));
-            this.updateItemButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(58)))), ((int)(((byte)(118)))));
-            this.updateItemButton.BorderColor = System.Drawing.Color.PaleGreen;
-            this.updateItemButton.BorderRadius = 20;
-            this.updateItemButton.BorderSize = 3;
-            this.updateItemButton.FlatAppearance.BorderSize = 0;
-            this.updateItemButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.updateItemButton.ForeColor = System.Drawing.Color.White;
-            this.updateItemButton.Location = new System.Drawing.Point(223, 697);
-            this.updateItemButton.Name = "updateItemButton";
-            this.updateItemButton.Size = new System.Drawing.Size(193, 70);
-            this.updateItemButton.TabIndex = 31;
-            this.updateItemButton.Text = "Wijzig Item";
-            this.updateItemButton.TextColor = System.Drawing.Color.White;
-            this.updateItemButton.UseVisualStyleBackColor = false;
-            this.updateItemButton.Visible = false;
-            this.updateItemButton.Click += new System.EventHandler(this.updateItemButton_Click);
+            this.togglePanel.Controls.Add(this.label2);
+            this.togglePanel.Controls.Add(this.groupItemsToggle);
+            this.togglePanel.Location = new System.Drawing.Point(10, 487);
+            this.togglePanel.Name = "togglePanel";
+            this.togglePanel.Size = new System.Drawing.Size(406, 73);
+            this.togglePanel.TabIndex = 30;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.Control;
+            this.label2.Location = new System.Drawing.Point(0, 26);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(184, 20);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "Groepeer dezelfde items";
             // 
             // groupItemsToggle
             // 
@@ -530,6 +294,63 @@
             this.newOrderButton.UseVisualStyleBackColor = false;
             this.newOrderButton.Click += new System.EventHandler(this.newOrderButton_Click);
             // 
+            // updateItemButton
+            // 
+            this.updateItemButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(58)))), ((int)(((byte)(118)))));
+            this.updateItemButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(58)))), ((int)(((byte)(118)))));
+            this.updateItemButton.BorderColor = System.Drawing.Color.PaleGreen;
+            this.updateItemButton.BorderRadius = 20;
+            this.updateItemButton.BorderSize = 3;
+            this.updateItemButton.FlatAppearance.BorderSize = 0;
+            this.updateItemButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.updateItemButton.ForeColor = System.Drawing.Color.White;
+            this.updateItemButton.Location = new System.Drawing.Point(223, 697);
+            this.updateItemButton.Name = "updateItemButton";
+            this.updateItemButton.Size = new System.Drawing.Size(193, 70);
+            this.updateItemButton.TabIndex = 31;
+            this.updateItemButton.Text = "Wijzig Item";
+            this.updateItemButton.TextColor = System.Drawing.Color.White;
+            this.updateItemButton.UseVisualStyleBackColor = false;
+            this.updateItemButton.Visible = false;
+            this.updateItemButton.Click += new System.EventHandler(this.updateItemButton_Click);
+            // 
+            // addOrderPanel
+            // 
+            this.addOrderPanel.Controls.Add(this.lunchSubPanel);
+            this.addOrderPanel.Controls.Add(this.commentAndAmountPanel);
+            this.addOrderPanel.Controls.Add(this.changeItemButton);
+            this.addOrderPanel.Controls.Add(this.clearOrderButton);
+            this.addOrderPanel.Controls.Add(this.dinerSubPanel);
+            this.addOrderPanel.Controls.Add(this.deleteItemFromOrderButton);
+            this.addOrderPanel.Controls.Add(this.drankenSubPanel);
+            this.addOrderPanel.Controls.Add(this.alchoholSubPanel);
+            this.addOrderPanel.Controls.Add(this.alcoholButton);
+            this.addOrderPanel.Controls.Add(this.drankenButton);
+            this.addOrderPanel.Controls.Add(this.dinerButton);
+            this.addOrderPanel.Controls.Add(this.lunchButton);
+            this.addOrderPanel.Controls.Add(this.menuItemsListView);
+            this.addOrderPanel.Controls.Add(this.backToOverviewButton);
+            this.addOrderPanel.Controls.Add(this.newOrderItemsListView);
+            this.addOrderPanel.Controls.Add(this.insertOrderButton);
+            this.addOrderPanel.Controls.Add(this.addItemButton);
+            this.addOrderPanel.Location = new System.Drawing.Point(0, 0);
+            this.addOrderPanel.Name = "addOrderPanel";
+            this.addOrderPanel.Size = new System.Drawing.Size(428, 795);
+            this.addOrderPanel.TabIndex = 18;
+            this.addOrderPanel.Visible = false;
+            // 
+            // lunchSubPanel
+            // 
+            this.lunchSubPanel.Controls.Add(this.lunchMainButton);
+            this.lunchSubPanel.Controls.Add(this.lunchDesertButton);
+            this.lunchSubPanel.Controls.Add(this.lunchStarterButton);
+            this.lunchSubPanel.Controls.Add(this.label6);
+            this.lunchSubPanel.Location = new System.Drawing.Point(305, 55);
+            this.lunchSubPanel.Name = "lunchSubPanel";
+            this.lunchSubPanel.Size = new System.Drawing.Size(102, 326);
+            this.lunchSubPanel.TabIndex = 23;
+            this.lunchSubPanel.Visible = false;
+            // 
             // lunchMainButton
             // 
             this.lunchMainButton.BackColor = System.Drawing.Color.MediumSlateBlue;
@@ -587,6 +408,39 @@
             this.lunchStarterButton.UseVisualStyleBackColor = false;
             this.lunchStarterButton.Click += new System.EventHandler(this.lunchStarterButton_Click);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.SystemColors.Control;
+            this.label6.Location = new System.Drawing.Point(29, 10);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(37, 13);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Lunch";
+            // 
+            // commentAndAmountPanel
+            // 
+            this.commentAndAmountPanel.Controls.Add(this.label5);
+            this.commentAndAmountPanel.Controls.Add(this.minusButton);
+            this.commentAndAmountPanel.Controls.Add(this.amountLabel);
+            this.commentAndAmountPanel.Controls.Add(this.addCommentTextBox);
+            this.commentAndAmountPanel.Controls.Add(this.plusButton);
+            this.commentAndAmountPanel.Location = new System.Drawing.Point(10, 387);
+            this.commentAndAmountPanel.Name = "commentAndAmountPanel";
+            this.commentAndAmountPanel.Size = new System.Drawing.Size(288, 52);
+            this.commentAndAmountPanel.TabIndex = 28;
+            this.commentAndAmountPanel.Visible = false;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.SystemColors.Control;
+            this.label5.Location = new System.Drawing.Point(12, 5);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(61, 13);
+            this.label5.TabIndex = 19;
+            this.label5.Text = "Opmerking:";
+            // 
             // minusButton
             // 
             this.minusButton.BackColor = System.Drawing.Color.Tomato;
@@ -598,7 +452,7 @@
             this.minusButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.minusButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.minusButton.ForeColor = System.Drawing.Color.Black;
-            this.minusButton.Location = new System.Drawing.Point(160, 9);
+            this.minusButton.Location = new System.Drawing.Point(152, 9);
             this.minusButton.Name = "minusButton";
             this.minusButton.Size = new System.Drawing.Size(44, 37);
             this.minusButton.TabIndex = 16;
@@ -606,6 +460,26 @@
             this.minusButton.TextColor = System.Drawing.Color.Black;
             this.minusButton.UseVisualStyleBackColor = false;
             this.minusButton.Click += new System.EventHandler(this.minusButton_Click);
+            // 
+            // amountLabel
+            // 
+            this.amountLabel.AutoSize = true;
+            this.amountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.amountLabel.ForeColor = System.Drawing.SystemColors.Control;
+            this.amountLabel.Location = new System.Drawing.Point(194, 7);
+            this.amountLabel.Name = "amountLabel";
+            this.amountLabel.Size = new System.Drawing.Size(37, 39);
+            this.amountLabel.TabIndex = 17;
+            this.amountLabel.Text = "1";
+            // 
+            // addCommentTextBox
+            // 
+            this.addCommentTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.addCommentTextBox.Location = new System.Drawing.Point(12, 22);
+            this.addCommentTextBox.MaxLength = 255;
+            this.addCommentTextBox.Name = "addCommentTextBox";
+            this.addCommentTextBox.Size = new System.Drawing.Size(130, 20);
+            this.addCommentTextBox.TabIndex = 18;
             // 
             // plusButton
             // 
@@ -668,6 +542,19 @@
             this.clearOrderButton.UseVisualStyleBackColor = false;
             this.clearOrderButton.Visible = false;
             this.clearOrderButton.Click += new System.EventHandler(this.clearOrderButton_Click);
+            // 
+            // dinerSubPanel
+            // 
+            this.dinerSubPanel.Controls.Add(this.dinerDesertButton);
+            this.dinerSubPanel.Controls.Add(this.dinerMainButton);
+            this.dinerSubPanel.Controls.Add(this.dinerSideButton);
+            this.dinerSubPanel.Controls.Add(this.dinerStarterButton);
+            this.dinerSubPanel.Controls.Add(this.dinerSubLabel);
+            this.dinerSubPanel.Location = new System.Drawing.Point(305, 55);
+            this.dinerSubPanel.Name = "dinerSubPanel";
+            this.dinerSubPanel.Size = new System.Drawing.Size(102, 326);
+            this.dinerSubPanel.TabIndex = 24;
+            this.dinerSubPanel.Visible = false;
             // 
             // dinerDesertButton
             // 
@@ -745,6 +632,16 @@
             this.dinerStarterButton.UseVisualStyleBackColor = false;
             this.dinerStarterButton.Click += new System.EventHandler(this.dinerStarterButton_Click);
             // 
+            // dinerSubLabel
+            // 
+            this.dinerSubLabel.AutoSize = true;
+            this.dinerSubLabel.ForeColor = System.Drawing.Color.White;
+            this.dinerSubLabel.Location = new System.Drawing.Point(29, 11);
+            this.dinerSubLabel.Name = "dinerSubLabel";
+            this.dinerSubLabel.Size = new System.Drawing.Size(35, 13);
+            this.dinerSubLabel.TabIndex = 0;
+            this.dinerSubLabel.Text = "Diner:";
+            // 
             // deleteItemFromOrderButton
             // 
             this.deleteItemFromOrderButton.BackColor = System.Drawing.Color.BurlyWood;
@@ -765,6 +662,17 @@
             this.deleteItemFromOrderButton.UseVisualStyleBackColor = false;
             this.deleteItemFromOrderButton.Visible = false;
             this.deleteItemFromOrderButton.Click += new System.EventHandler(this.deleteItemFromOrderButton_Click);
+            // 
+            // drankenSubPanel
+            // 
+            this.drankenSubPanel.Controls.Add(this.frisdrankButton);
+            this.drankenSubPanel.Controls.Add(this.warmeDrankenButton);
+            this.drankenSubPanel.Controls.Add(this.drankenSubLabel);
+            this.drankenSubPanel.Location = new System.Drawing.Point(305, 55);
+            this.drankenSubPanel.Name = "drankenSubPanel";
+            this.drankenSubPanel.Size = new System.Drawing.Size(102, 326);
+            this.drankenSubPanel.TabIndex = 22;
+            this.drankenSubPanel.Visible = false;
             // 
             // frisdrankButton
             // 
@@ -803,6 +711,28 @@
             this.warmeDrankenButton.TextColor = System.Drawing.Color.White;
             this.warmeDrankenButton.UseVisualStyleBackColor = false;
             this.warmeDrankenButton.Click += new System.EventHandler(this.warmeDrankenButton_Click);
+            // 
+            // drankenSubLabel
+            // 
+            this.drankenSubLabel.AutoSize = true;
+            this.drankenSubLabel.ForeColor = System.Drawing.SystemColors.Control;
+            this.drankenSubLabel.Location = new System.Drawing.Point(29, 10);
+            this.drankenSubLabel.Name = "drankenSubLabel";
+            this.drankenSubLabel.Size = new System.Drawing.Size(51, 13);
+            this.drankenSubLabel.TabIndex = 0;
+            this.drankenSubLabel.Text = "Dranken:";
+            // 
+            // alchoholSubPanel
+            // 
+            this.alchoholSubPanel.Controls.Add(this.gedestilleerdButton);
+            this.alchoholSubPanel.Controls.Add(this.wijnButton);
+            this.alchoholSubPanel.Controls.Add(this.bierButton);
+            this.alchoholSubPanel.Controls.Add(this.label7);
+            this.alchoholSubPanel.Location = new System.Drawing.Point(305, 55);
+            this.alchoholSubPanel.Name = "alchoholSubPanel";
+            this.alchoholSubPanel.Size = new System.Drawing.Size(102, 326);
+            this.alchoholSubPanel.TabIndex = 21;
+            this.alchoholSubPanel.Visible = false;
             // 
             // gedestilleerdButton
             // 
@@ -860,6 +790,16 @@
             this.bierButton.TextColor = System.Drawing.Color.White;
             this.bierButton.UseVisualStyleBackColor = false;
             this.bierButton.Click += new System.EventHandler(this.bierButton_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.SystemColors.Control;
+            this.label7.Location = new System.Drawing.Point(29, 10);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(45, 13);
+            this.label7.TabIndex = 20;
+            this.label7.Text = "Alcohol:";
             // 
             // alcoholButton
             // 
@@ -937,6 +877,39 @@
             this.lunchButton.UseVisualStyleBackColor = false;
             this.lunchButton.Click += new System.EventHandler(this.lunchButton_Click);
             // 
+            // menuItemsListView
+            // 
+            this.menuItemsListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.ID,
+            this.Item,
+            this.stock});
+            this.menuItemsListView.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuItemsListView.FullRowSelect = true;
+            this.menuItemsListView.GridLines = true;
+            this.menuItemsListView.HideSelection = false;
+            this.menuItemsListView.Location = new System.Drawing.Point(10, 55);
+            this.menuItemsListView.Name = "menuItemsListView";
+            this.menuItemsListView.Size = new System.Drawing.Size(397, 326);
+            this.menuItemsListView.TabIndex = 0;
+            this.menuItemsListView.UseCompatibleStateImageBehavior = false;
+            this.menuItemsListView.View = System.Windows.Forms.View.Details;
+            this.menuItemsListView.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.menuItemsListView_ItemSelectionChanged);
+            // 
+            // ID
+            // 
+            this.ID.Text = "ID";
+            this.ID.Width = 29;
+            // 
+            // Item
+            // 
+            this.Item.Text = "Item";
+            this.Item.Width = 182;
+            // 
+            // stock
+            // 
+            this.stock.Text = "Voorraad";
+            this.stock.Width = 90;
+            // 
             // backToOverviewButton
             // 
             this.backToOverviewButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(58)))), ((int)(((byte)(118)))));
@@ -955,6 +928,39 @@
             this.backToOverviewButton.TextColor = System.Drawing.Color.White;
             this.backToOverviewButton.UseVisualStyleBackColor = false;
             this.backToOverviewButton.Click += new System.EventHandler(this.backToOverviewButton_Click);
+            // 
+            // newOrderItemsListView
+            // 
+            this.newOrderItemsListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3});
+            this.newOrderItemsListView.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.newOrderItemsListView.FullRowSelect = true;
+            this.newOrderItemsListView.GridLines = true;
+            this.newOrderItemsListView.HideSelection = false;
+            this.newOrderItemsListView.Location = new System.Drawing.Point(10, 453);
+            this.newOrderItemsListView.Name = "newOrderItemsListView";
+            this.newOrderItemsListView.Size = new System.Drawing.Size(397, 179);
+            this.newOrderItemsListView.TabIndex = 5;
+            this.newOrderItemsListView.UseCompatibleStateImageBehavior = false;
+            this.newOrderItemsListView.View = System.Windows.Forms.View.Details;
+            this.newOrderItemsListView.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.newOrderItemsListView_ItemSelectionChanged);
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Item";
+            this.columnHeader1.Width = 150;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Aantal";
+            this.columnHeader2.Width = 100;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Comment";
+            this.columnHeader3.Width = 100;
             // 
             // insertOrderButton
             // 
@@ -993,11 +999,6 @@
             this.addItemButton.TextColor = System.Drawing.Color.White;
             this.addItemButton.UseVisualStyleBackColor = false;
             this.addItemButton.Click += new System.EventHandler(this.addItemButton_Click);
-            // 
-            // stock
-            // 
-            this.stock.Text = "Voorraad";
-            this.stock.Width = 90;
             // 
             // Overview
             // 
