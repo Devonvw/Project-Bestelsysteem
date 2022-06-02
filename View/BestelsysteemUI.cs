@@ -48,7 +48,7 @@ namespace View
         {
             if (activeForm != null)
                 activeForm.Close();
-            activeForm = new Forms.BillScreen();
+            activeForm = new Forms.BillScreen(new Table(1, true));
             activeForm.TopLevel = false;
             activeForm.FormBorderStyle = FormBorderStyle.None;
             activeForm.Dock = DockStyle.Fill;

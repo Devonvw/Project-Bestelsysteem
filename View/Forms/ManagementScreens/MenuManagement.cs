@@ -107,7 +107,7 @@ namespace View.Forms.ManagementScreens
                 selectedMenuItem = (Model.MenuItem)ltvMenuItems.SelectedItems[0].Tag;
                 tbxShortName.Text = selectedMenuItem.ShortName;
                 tbxFullName.Text = selectedMenuItem.FullName;
-                cbxCategory.SelectedIndex = (int)selectedMenuItem.Category -1;
+                cbxCategory.SelectedIndex = (int)selectedMenuItem.Category - 1;
 
                 TranslateSubCatIndex(selectedMenuItem.Category);
 
@@ -131,45 +131,21 @@ namespace View.Forms.ManagementScreens
                     selectedMenuItem.InMenu = rbtnInMenuTrue.Checked;
                     menuController.UpdateMenuItem(selectedMenuItem);
                     Reload();
+                    MessageBox.Show("Menu item succesvol aangepast.");
                 }
                 else
                 {
                     menuController.AddMenuItem(new Model.MenuItem(tbxShortName.Text, tbxFullName.Text, (Category)(cbxCategory.SelectedIndex + 1), (SubCategory)(cbxSubcategory.SelectedIndex + 1), (float)numPriceEx.Value, rbtnInMenuTrue.Checked));
                     Reload();
+                    MessageBox.Show("Menu item succesvol toegevoegd.");
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-            
-        }
-
-        private void lblInMenu_Click(object sender, EventArgs e)
-        {
 
         }
-
-        private void rbtnInMenuFalse_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void rbtnInMenuTrue_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void numPriceEx_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnClear_Click(object sender, EventArgs e)
         {
             ltvMenuItems.SelectedItems.Clear();
@@ -181,7 +157,6 @@ namespace View.Forms.ManagementScreens
             numPriceEx.Value = 0;
             rbtnInMenuTrue.Checked = true;
         }
-
         private void cbxCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
             LoadSubCategories((Category)(cbxCategory.SelectedIndex + 1));

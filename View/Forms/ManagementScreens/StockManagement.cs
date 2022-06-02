@@ -17,7 +17,6 @@ namespace View.Forms.ManagementScreens
         private StockController stockController;
         private List<Model.MenuItem> menuItemList;
         private Model.MenuItem selectedMenuItem;
-
         private void Reload()
         {
             menuItemList = stockController.GetAllMenuItems();
@@ -36,14 +35,9 @@ namespace View.Forms.ManagementScreens
             stockController = new StockController();
             InitializeComponent();
         }
-
         private void StockManagement_Load(object sender, EventArgs e)
         {
             Reload();
-        }
-        private void pnlInputs_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void ltvStockItems_SelectedIndexChanged(object sender, EventArgs e)
@@ -53,10 +47,6 @@ namespace View.Forms.ManagementScreens
                 selectedMenuItem = (Model.MenuItem)ltvStockItems.SelectedItems[0].Tag;
                 numStock.Value = selectedMenuItem.Stock;
                 lblMenuItemName.Text = selectedMenuItem.ShortName;
-            }
-            else
-            {
-
             }
         }
 
@@ -86,7 +76,6 @@ namespace View.Forms.ManagementScreens
                 numStock.Value = selectedMenuItem.Stock;
             }
         }
-
         private void numStock_ValueChanged(object sender, EventArgs e)
         {
             if (ltvStockItems.SelectedItems.Count > 0)
