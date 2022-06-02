@@ -114,7 +114,7 @@ namespace Model
 
         public Bill CheckForOpenBillOnTable(Table table)
         {
-            string query = "SELECT * FROM Bills WHERE tableId = @tableId AND Payed = 'false'";
+            string query = "SELECT * FROM Bills AS B INNER JOIN Staff AS S ON B.staffId = S.id WHERE tableId = @tableId AND Payed = 'false'";
             SqlParameter[] sqlParameters = new SqlParameter[]
             {
                 new SqlParameter("@tableId", SqlDbType.Int) { Value = table.Id }

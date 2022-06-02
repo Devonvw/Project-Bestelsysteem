@@ -76,5 +76,20 @@ namespace View.Forms
             if (numSplit.Value == 1) lblSplitPrice.Text = "";
             else lblSplitPrice.Text = $"€{Math.Round(bill.TotalPrice / (float)numSplit.Value, 2)}";
         }
+
+        private void lblRekening_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblOpmerkingen_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

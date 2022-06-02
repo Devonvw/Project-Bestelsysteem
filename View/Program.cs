@@ -21,7 +21,7 @@ namespace View
             //Application.Run(new Forms.Management());
             //Application.Run(new Forms.BillScreen(new Table(1, true)));
             //Application.Run(new Forms.OrderScreenParent());
-            Application.Run(new Forms.Reservering());
+            Application.Run(new Forms.Tablet());
         }
     }
 }
