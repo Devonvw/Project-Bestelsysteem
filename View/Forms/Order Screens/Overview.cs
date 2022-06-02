@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Model;
 using Controller;
-using View.Forms.Order_Screens.Observer;
 
 namespace View.Forms.Order_Screens
 {

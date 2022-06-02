@@ -7,20 +7,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Controller;
 
 namespace View.Forms
 {
     public partial class Reservering : Form
     {
         private Form activeForm;
+        private BillController billController;
         public Reservering()
         {
+            billController = new BillController();
             InitializeComponent();
+
+            BillScreen billScreen = new BillScreen(new Model.Table(1, true), billController);
+            billScreen.Show();
         }
 
         private void Reservering_Load(object sender, EventArgs e)
         {
-            OpenChildForm(new ReservationScreen(this), sender);
+            OpenChildForm(new ReservationScreen(this, billController), sender);
         }
         public void OpenChildForm(Form childForm, object btnSender)
         {
@@ -38,7 +44,7 @@ namespace View.Forms
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new ReservationScreen(this), sender);
+            OpenChildForm(new ReservationScreen(this, billController), sender);
         }
     }
 }

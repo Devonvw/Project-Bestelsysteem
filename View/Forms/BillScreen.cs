@@ -33,10 +33,10 @@ namespace View.Forms
                 ltvBillItems.Items.Add(listViewItem);
             });
         }
-        public BillScreen(Table table)
+        public BillScreen(Table table, BillController billController)
         {
             this.table = table;
-            billController = new BillController();
+            this.billController = billController;
             orderItems = new List<OrderItem>();
 
             InitializeComponent();

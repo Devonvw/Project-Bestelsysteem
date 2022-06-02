@@ -5,11 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace View.Forms.Order_Screens.Observer
+namespace Model
 {
     public interface IObserver
     {
-        void Update(OrderStatus orderStatus);
-        void UpdateOrderItems();
+        void UpdateForm();
     }
 }
