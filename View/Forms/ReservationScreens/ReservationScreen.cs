@@ -10,17 +10,20 @@ namespace View.Forms
 {
     public partial class ReservationScreen : Form, IObserver
     {
-        private Reservering mainForm;
+        private Tablet mainForm;
         ReservationController reservationController;
         TableController tableController;
         Reservation reservation;
-        public ReservationScreen(Reservering mainForm, BillController billController)
+        private BillController billController;
+        private List<Table> tables;
+        public ReservationScreen(Tablet mainForm, BillController billController)
         {
             reservationController = new ReservationController();
             tableController = new TableController();
             reservation = new Reservation();
             this.mainForm = mainForm;
-            billController.AddObserver(this);
+            this.billController = billController;
+            this.billController.AddObserver(this);
             InitializeComponent();
             HidePanels();
             TableOccupied();  
@@ -34,7 +37,7 @@ namespace View.Forms
         private void TableOccupied()
         {
             List<Button> buttons = FillButtonList();
-            List<Table> tables = tableController.GetAllTables();
+            tables = tableController.GetAllTables();
             
             foreach (Table t in tables)
             {
@@ -42,7 +45,7 @@ namespace View.Forms
 
                 if (b.Text == t.Id.ToString())
                 {
-                    if (t.Occupied)
+                        if (t.Occupied)
                         {
                             b.BackColor = Color.Red;
                         }
@@ -52,10 +55,6 @@ namespace View.Forms
                         }
                 }
             }       
-        }
-        public void UpdateTables()
-        {
-            TableOccupied();
         }
         private List<Button> FillButtonList()
         {
@@ -99,7 +98,7 @@ namespace View.Forms
         private void TimeSeated(int button)
         {
             Table table = new Table();
-            List<Table> tables = tableController.GetAllTables();
+            tables = tableController.GetAllTables();
             foreach (Table t in tables)
             {
                 if (t.Id == button)
@@ -115,53 +114,9 @@ namespace View.Forms
                 }
             }
         }
-        private void btnTable1_Click(object sender, EventArgs e)
+        private void btnTable_Click(object sender, EventArgs e)
         {
-            LoadTableInfo(int.Parse(btnTable1.Text));
-        }
-        private void btnTable2_Click(object sender, EventArgs e)
-        {
-            LoadTableInfo(int.Parse(btnTable2.Text));
-        }
-
-        private void btnTable3_Click(object sender, EventArgs e)
-        {
-            LoadTableInfo(int.Parse(btnTable3.Text));
-        }
-
-        private void btnTable4_Click(object sender, EventArgs e)
-        {
-            LoadTableInfo(int.Parse(btnTable4.Text));
-        }
-
-        private void btnTable5_Click(object sender, EventArgs e)
-        {
-            LoadTableInfo(int.Parse(btnTable5.Text));
-        }
-
-        private void btnTable6_Click(object sender, EventArgs e)
-        {
-            LoadTableInfo(int.Parse(btnTable6.Text));
-        }
-
-        private void btnTable7_Click(object sender, EventArgs e)
-        {
-            LoadTableInfo(int.Parse(btnTable7.Text));
-        }
-
-        private void btnTable8_Click(object sender, EventArgs e)
-        {
-            LoadTableInfo(int.Parse(btnTable8.Text));
-        }
-
-        private void btnTable9_Click(object sender, EventArgs e)
-        {
-            LoadTableInfo(int.Parse(btnTable9.Text));
-        }
-
-        private void btnTable10_Click(object sender, EventArgs e)
-        {
-            LoadTableInfo(int.Parse(btnTable10.Text));
+            LoadTableInfo(int.Parse((sender as Button).Text));
         }
         private void LoadTableInfo(int tafelId)
         {
@@ -222,6 +177,12 @@ namespace View.Forms
         private void btnReserveringAanpassen_Click(object sender, EventArgs e)
         {
             mainForm.OpenChildForm(new ReserveringAanpassenScreen(), sender);
+        }
+
+        private void btnBetalen_Click(object sender, EventArgs e)
+        {
+            //Change this to currentTable
+            mainForm.OpenChildForm(new BillScreen(new Table(1, true), billController), sender);
         }
     }
 }

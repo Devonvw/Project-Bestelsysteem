@@ -10,12 +10,13 @@ using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using Model;
 using Controller;
+using System.Diagnostics;
 
 namespace View.Forms
 {
-    public partial class OrderScreenParent : Form
+    public partial class OrderScreenParent : Form, IObserver
     {
-        private BillController billController = new BillController();
+        private BillController billController;
         private OrderController orderController = new OrderController();
         private Bill bill;        
         private Staff staff = new Staff(1, "Jacky", "Eichenberger", DateTime.Now, Roles.Waiter, "test", "test", true);               
@@ -23,12 +24,17 @@ namespace View.Forms
         private List<OrderItem> orderItems;
         //private Table[] tables;
 
-        public OrderScreenParent() // staff moet meegegeven vanuit UI / login
+        public OrderScreenParent(BillController billController) // staff moet meegegeven vanuit UI / login
         {
+            this.billController = billController;
+            billController.AddObserver(this);
             InitializeComponent();
             staffNameLabel.Text = $"Medewerker: {staff.FirstName}";   
         }
-
+        public void UpdateForm()
+        {
+            Debug.WriteLine("Joost");
+        }
         // Open childform into panel
         public void OpenChildForm(Form childForm)
         {

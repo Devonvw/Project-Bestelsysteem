@@ -13,7 +13,7 @@ namespace Model
     {
         public List<Table> GetAllTables()
         {
-            string query = "SELECT T.*, B.[datetime] FROM Tables as T LEFT JOIN(SELECT b1.* FROM Bills b1 LEFT JOIN Bills b2 ON(b1.[tableId] = b2.[tableId] AND b1.[datetime] < b2.[datetime]) WHERE b2.id IS NULL) AS B ON T.id = B.tableId";
+            string query = "SELECT T.*, B.[datetime] FROM Tables as T LEFT JOIN(SELECT b1.* FROM Bills b1 LEFT JOIN Bills b2 ON(b1.[tableId] = b2.[tableId] AND b1.[datetime] < b2.[datetime]) WHERE b2.id IS NULL AND b1.payed = 'false') AS B ON T.id = B.tableId";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
