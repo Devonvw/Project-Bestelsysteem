@@ -14,15 +14,17 @@ namespace View.Forms
 {
     public partial class ReserveringVerwijderenScreen : Form
     {
+        ReservationController reservationController;
+        Reservation reservation;
         public ReserveringVerwijderenScreen()
         {
+            reservation = new Reservation();
+            reservationController = new ReservationController();
             InitializeComponent();
         }
 
         private void btnZoekReserveringOpNaam_Click(object sender, EventArgs e)
         {
-            Reservation reservation = new Reservation();
-            ReservationController reservationController = new ReservationController();
             reservation.Name = txtboxNaam.Text;
             List<Reservation> reservationList = reservationController.GetReservationByName(reservation);
             listViewReserveringen.Items.Clear();
@@ -31,9 +33,7 @@ namespace View.Forms
 
         private void btnZoekReserveringOpDatum_Click(object sender, EventArgs e)
         {
-            Reservation reservation = new Reservation();
             reservation.DateTime = DateTime.Parse(dateTimePicker.Value.ToString("yyyy/MM/dd"));
-            ReservationController reservationController = new ReservationController();
             List<Reservation> reservationList = reservationController.GetReservationByTime(reservation);
             listViewReserveringen.Items.Clear();
             loadListview(reservationList);
@@ -56,14 +56,12 @@ namespace View.Forms
         {
             try
             {
-                Reservation reservation = new Reservation();
                 reservation.Name = listViewReserveringen.SelectedItems[0].SubItems[0].Text;
                 string date = listViewReserveringen.SelectedItems[0].SubItems[1].Text;
                 string time = listViewReserveringen.SelectedItems[0].SubItems[2].Text;
                 reservation.DateTime = DateTime.Parse($"{date} {time}");
                 reservation.Persons = int.Parse(listViewReserveringen.SelectedItems[0].SubItems[3].Text);
                 reservation.TableId = int.Parse(listViewReserveringen.SelectedItems[0].SubItems[4].Text);
-                ReservationController reservationController = new ReservationController();
                 reservationController.DeleteReservation(reservation);
                 listViewReserveringen.SelectedItems[0].Remove();
             }

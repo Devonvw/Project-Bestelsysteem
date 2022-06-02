@@ -21,12 +21,16 @@ namespace Model
 
         public void AddStaff(Staff staff)
         {
-            string query = "";
+            string query = "INSERT INTO staff (firstName, lastName, birthDate, roleId, [password], [email], employed) VALUES (@firstname, @lastname, @birthDate, @roleId, @password, @email, @employed);";
             SqlParameter[] sqlParameters = new SqlParameter[]
             {
                 new SqlParameter("@firstname", staff.FirstName),
                 new SqlParameter("@lastname", staff.LastName),
                 new SqlParameter("@password", staff.Password),
+                new SqlParameter("@birthDate", staff.BirthDate),
+                new SqlParameter("@roleId", staff.Role),
+                new SqlParameter("@email", staff.Email),
+                new SqlParameter("@employed", true),
             };
             ExecuteEditQuery(query, sqlParameters);
         }
@@ -63,6 +67,18 @@ namespace Model
                 staffList.Add(staff);
             }
             return staffList;
+        }
+        public void UpdateEmployed(Staff staff)
+        {
+            string query = "UPDATE Staff SET employed = @employed WHERE firstName = @firstName, lastName = @lastName, birthDate = @birthdate";
+            SqlParameter[] sqlParameters = new SqlParameter[]
+            {
+                new SqlParameter("@firstName", SqlDbType.VarChar) { Value = staff.FirstName },
+                new SqlParameter("@lastName", SqlDbType.VarChar) { Value = staff.LastName },
+                new SqlParameter("@birthdate", SqlDbType.DateTime) { Value = staff.BirthDate },
+                new SqlParameter("@employed", true)
+            };
+            ExecuteEditQuery(query, sqlParameters);
         }
 
     }

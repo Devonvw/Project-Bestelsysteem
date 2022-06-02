@@ -11,12 +11,28 @@ namespace Controller
     public class BillController
     {
         BillDao billDB;
+        public List<IObserver> Observers;
 
         public BillController()
         {
             billDB = new BillDao();
+            Observers = new List<IObserver>();
         }
-
+        public void AddObserver(IObserver observer)
+        {
+            Observers.Add(observer);
+        }
+        public void RemoveObserver(IObserver observer)
+        {
+            Observers.Remove(observer);
+        }
+        private void AlertObservers()
+        {
+            foreach (IObserver observer in Observers)
+            {
+                observer.UpdateForm();
+            }
+        }
         public List<OrderItem> GetOrderItems(Bill bill)
         {
             return billDB.GetOrderItems(bill);
@@ -32,6 +48,7 @@ namespace Controller
             if (bill.PaymentMethod == PaymentMethod.None) throw new Exception("Kies een betaalmethode");
 
             billDB.CloseBill(bill);
+            AlertObservers();
         }
 
         public void CreateBill(Table table, Staff staff)
@@ -44,10 +61,9 @@ namespace Controller
             Bill bill = billDB.CheckForOpenBillOnTable(table);
             return bill;
         }
-
-        //public List<OrderItem> GetLastOrderItems(Bill bill)
-        //{
-        //    billDB.GetLastOrderItems(Bill bill);
-        //}
+        public bool BillExist(Table table)
+        {
+            return billDB.BillExist(table);
+        }
     }
 }

@@ -76,6 +76,8 @@
     <Compile Include="DAL\StockDao.cs" />
     <Compile Include="DAL\TableDao.cs" />
     <Compile Include="Enums\SubCategory.cs" />
+    <Compile Include="Interfaces\IObserver.cs" />
+    <Compile Include="IObserver.cs" />
     <Compile Include="Login.cs" />
     <Compile Include="Enums\Category.cs" />
     <Compile Include="Enums\PaymentMethod.cs" />

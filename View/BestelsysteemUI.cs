@@ -46,16 +46,16 @@ namespace View
         }
         private void billScreenButton_click(object sender, EventArgs e)
         {
-            if (activeForm != null)
+            /*if (activeForm != null)
                 activeForm.Close();
-            activeForm = new Forms.BillScreen();
+            activeForm = new Forms.BillScreen(new Table(1, true));
             activeForm.TopLevel = false;
             activeForm.FormBorderStyle = FormBorderStyle.None;
             activeForm.Dock = DockStyle.Fill;
             this.pnlForms.Controls.Add(activeForm);
             this.pnlForms.Tag = activeForm;
             activeForm.BringToFront();
-            activeForm.Show();
+            activeForm.Show();*/
         }
     }
 }

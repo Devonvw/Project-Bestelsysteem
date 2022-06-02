@@ -121,5 +121,23 @@ namespace Model
             };
             return ReadBill(ExecuteSelectQuery(query, sqlParameters));
         }
+        public bool BillExist(Table table)
+        {
+            string query = "SELECT * FROM Bills WHERE tableId = @tableId AND Payed = 'false'";
+            SqlParameter[] sqlParameters = new SqlParameter[]
+            {
+                new SqlParameter("@tableId", SqlDbType.Int) { Value = table.Id }
+            };
+            DataTable dataTable = ExecuteSelectQuery(query, sqlParameters);
+         
+            if (dataTable == null || dataTable.Rows.Count == 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
     }
 }

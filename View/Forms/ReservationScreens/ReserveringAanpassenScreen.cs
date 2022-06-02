@@ -14,8 +14,12 @@ namespace View.Forms
 {
     public partial class ReserveringAanpassenScreen : Form
     {
+        ReservationController reservationController;
+        Reservation reservation;
         public ReserveringAanpassenScreen()
         {
+            reservation = new Reservation();
+            reservationController = new ReservationController();
             InitializeComponent();
             LoadForms();
             HideAllBoxes();
@@ -23,14 +27,12 @@ namespace View.Forms
 
         private void btnZoekReserveringOpNaam_Click(object sender, EventArgs e)
         {
-            Reservation reservation = new Reservation();
             reservation.Name = txtBoxZoekNaam.Text;  
             LoadListViewOpNaam(reservation);
         }
         private void LoadListViewOpNaam(Reservation reservation)
         {
             listViewReserveringen.Enabled = true;
-            ReservationController reservationController = new ReservationController();
             List<Reservation> reservationList = reservationController.GetReservationByName(reservation);
             listViewReserveringen.Items.Clear();
             loadListview(reservationList);
@@ -55,9 +57,7 @@ namespace View.Forms
         private void btnZoekReserveringOpDatum_Click(object sender, EventArgs e)
         {
             listViewReserveringen.Enabled = true;
-            Reservation reservation = new Reservation();
             reservation.DateTime = DateTime.Parse(dateTimePicker.Value.ToString("yyyy/MM/dd"));
-            ReservationController reservationController = new ReservationController();
             List<Reservation> reservationList = reservationController.GetReservationByTime(reservation);
             listViewReserveringen.Items.Clear();
             try
@@ -192,22 +192,18 @@ namespace View.Forms
         {
             ReserveringVerwijderen();
             ReserveringToevoegen();
-            Reservation reservation = new Reservation();
             reservation.Name = txtboxNaam.Text;
             LoadListViewOpNaam(reservation);
         }
         private void ReserveringToevoegen()
         {
-            ReservationController reserveringController = new ReservationController();
-            Reservation reservation = new Reservation();
-
             try
             {
                 reservation.Name = txtboxNaam.Text;
                 reservation.DateTime = DateTime.Parse($"{dateTimePicker.Value.ToString("yyyy/MM/dd")} {comboBoxUren.SelectedItem.ToString()}:{comboBoxMinuten.SelectedItem.ToString()}");
                 reservation.TableId = int.Parse(comboBoxTafel.SelectedItem.ToString());
                 reservation.Persons = int.Parse(comboBoxPersonen.SelectedItem.ToString());
-                reserveringController.AddReservation(reservation);
+                reservationController.AddReservation(reservation);
                 MessageBox.Show($"Reservering aangepast! {reservation.Name}, tafel {reservation.TableId} op {reservation.DateTime.ToString("dd/MM/yyyy HH:mm")}");
             }
             catch (Exception ex)
@@ -217,21 +213,15 @@ namespace View.Forms
         }
         private void ReserveringVerwijderen()
         {
-            Reservation reservation = new Reservation();
             reservation.Name = listViewReserveringen.SelectedItems[0].SubItems[0].Text;
             string date = listViewReserveringen.SelectedItems[0].SubItems[1].Text;
             string time = listViewReserveringen.SelectedItems[0].SubItems[2].Text;
             reservation.DateTime = DateTime.Parse($"{date} {time}");
             reservation.Persons = int.Parse(listViewReserveringen.SelectedItems[0].SubItems[3].Text);
             reservation.TableId = int.Parse(listViewReserveringen.SelectedItems[0].SubItems[4].Text);
-            ReservationController reservationController = new ReservationController();
             reservationController.DeleteReservation(reservation);
             listViewReserveringen.SelectedItems.Clear();
         }
 
-        private void txtboxNaam_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

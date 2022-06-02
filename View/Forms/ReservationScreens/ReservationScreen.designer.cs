@@ -46,11 +46,11 @@
             this.Personen = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Tijd = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lblTafel1 = new System.Windows.Forms.Label();
-            this.lblTafelStatus = new System.Windows.Forms.Label();
             this.btnReserveringToevoegen = new System.Windows.Forms.Button();
             this.btnReserveringVerwijderen = new System.Windows.Forms.Button();
             this.btnReserveringAanpassen = new System.Windows.Forms.Button();
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.btnBetalen = new System.Windows.Forms.Button();
             this.pnlReservations.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -187,11 +187,11 @@
             // pnlReservations
             // 
             this.pnlReservations.BackColor = System.Drawing.Color.White;
+            this.pnlReservations.Controls.Add(this.btnBetalen);
             this.pnlReservations.Controls.Add(this.lblTafelBezetVanaf);
             this.pnlReservations.Controls.Add(this.btnBevestigen);
             this.pnlReservations.Controls.Add(this.listViewTable1);
             this.pnlReservations.Controls.Add(this.lblTafel1);
-            this.pnlReservations.Controls.Add(this.lblTafelStatus);
             this.pnlReservations.Location = new System.Drawing.Point(396, 44);
             this.pnlReservations.Name = "pnlReservations";
             this.pnlReservations.Size = new System.Drawing.Size(300, 468);
@@ -202,7 +202,7 @@
             this.lblTafelBezetVanaf.AutoSize = true;
             this.lblTafelBezetVanaf.BackColor = System.Drawing.Color.White;
             this.lblTafelBezetVanaf.Font = new System.Drawing.Font("Myanmar Text", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTafelBezetVanaf.Location = new System.Drawing.Point(28, 365);
+            this.lblTafelBezetVanaf.Location = new System.Drawing.Point(30, 416);
             this.lblTafelBezetVanaf.Name = "lblTafelBezetVanaf";
             this.lblTafelBezetVanaf.Size = new System.Drawing.Size(0, 30);
             this.lblTafelBezetVanaf.TabIndex = 4;
@@ -211,9 +211,9 @@
             // 
             this.btnBevestigen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
             this.btnBevestigen.ForeColor = System.Drawing.Color.White;
-            this.btnBevestigen.Location = new System.Drawing.Point(30, 400);
+            this.btnBevestigen.Location = new System.Drawing.Point(15, 337);
             this.btnBevestigen.Name = "btnBevestigen";
-            this.btnBevestigen.Size = new System.Drawing.Size(255, 55);
+            this.btnBevestigen.Size = new System.Drawing.Size(270, 55);
             this.btnBevestigen.TabIndex = 3;
             this.btnBevestigen.Text = "Tafel bezetten";
             this.btnBevestigen.UseVisualStyleBackColor = false;
@@ -253,21 +253,10 @@
             // 
             this.lblTafel1.AutoSize = true;
             this.lblTafel1.Font = new System.Drawing.Font("Myanmar Text", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTafel1.Location = new System.Drawing.Point(66, 18);
+            this.lblTafel1.Location = new System.Drawing.Point(101, 18);
             this.lblTafel1.Name = "lblTafel1";
             this.lblTafel1.Size = new System.Drawing.Size(0, 41);
             this.lblTafel1.TabIndex = 0;
-            // 
-            // lblTafelStatus
-            // 
-            this.lblTafelStatus.AutoSize = true;
-            this.lblTafelStatus.BackColor = System.Drawing.Color.White;
-            this.lblTafelStatus.Font = new System.Drawing.Font("Myanmar Text", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTafelStatus.Location = new System.Drawing.Point(77, 250);
-            this.lblTafelStatus.Name = "lblTafelStatus";
-            this.lblTafelStatus.Size = new System.Drawing.Size(134, 41);
-            this.lblTafelStatus.TabIndex = 0;
-            this.lblTafelStatus.Text = "Tafel status";
             // 
             // btnReserveringToevoegen
             // 
@@ -316,6 +305,17 @@
             this.dateTimePicker.Name = "dateTimePicker";
             this.dateTimePicker.Size = new System.Drawing.Size(157, 39);
             this.dateTimePicker.TabIndex = 43;
+            // 
+            // btnBetalen
+            // 
+            this.btnBetalen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.btnBetalen.ForeColor = System.Drawing.Color.White;
+            this.btnBetalen.Location = new System.Drawing.Point(15, 276);
+            this.btnBetalen.Name = "btnBetalen";
+            this.btnBetalen.Size = new System.Drawing.Size(270, 55);
+            this.btnBetalen.TabIndex = 5;
+            this.btnBetalen.Text = "Betalen";
+            this.btnBetalen.UseVisualStyleBackColor = false;
             // 
             // ReservationScreen
             // 
@@ -366,9 +366,9 @@
         private System.Windows.Forms.Button btnReserveringToevoegen;
         private System.Windows.Forms.Button btnReserveringVerwijderen;
         private System.Windows.Forms.Button btnBevestigen;
-        private System.Windows.Forms.Label lblTafelStatus;
         private System.Windows.Forms.Label lblTafelBezetVanaf;
         private System.Windows.Forms.Button btnReserveringAanpassen;
         private System.Windows.Forms.DateTimePicker dateTimePicker;
+        private System.Windows.Forms.Button btnBetalen;
     }
 }

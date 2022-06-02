@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Model
+namespace Model.Interfaces
 {
-    public enum Category
+    public interface IObserver
     {
-        None, AlcoholDrinks, NonAlcoholDrinks, Lunch, Diner
+        void Update();
     }
 }

@@ -200,7 +200,6 @@
             this.txtboxNaam.Name = "txtboxNaam";
             this.txtboxNaam.Size = new System.Drawing.Size(243, 39);
             this.txtboxNaam.TabIndex = 22;
-            this.txtboxNaam.TextChanged += new System.EventHandler(this.txtboxNaam_TextChanged);
             // 
             // lblNaam
             // 

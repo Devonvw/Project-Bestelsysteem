@@ -133,7 +133,6 @@
             this.pnlInputs.Name = "pnlInputs";
             this.pnlInputs.Size = new System.Drawing.Size(479, 741);
             this.pnlInputs.TabIndex = 8;
-            this.pnlInputs.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // btnRemove
             // 
@@ -182,6 +181,7 @@
             this.tbxEmail.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.tbxEmail.Font = new System.Drawing.Font("Myanmar Text", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxEmail.Location = new System.Drawing.Point(17, 596);
+            this.tbxEmail.MaxLength = 100;
             this.tbxEmail.Name = "tbxEmail";
             this.tbxEmail.Size = new System.Drawing.Size(444, 48);
             this.tbxEmail.TabIndex = 22;
@@ -250,7 +250,6 @@
             this.rbtnManager.TabStop = true;
             this.rbtnManager.Text = "Manager";
             this.rbtnManager.UseVisualStyleBackColor = true;
-            this.rbtnManager.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // lblBirthdate
             // 
@@ -266,10 +265,11 @@
             // 
             this.dtpBirthdate.CalendarFont = new System.Drawing.Font("Myanmar Text", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpBirthdate.Location = new System.Drawing.Point(17, 244);
+            this.dtpBirthdate.MaxDate = System.DateTime.Today;
+            this.dtpBirthdate.MinDate = new System.DateTime(1920, 1, 1, 0, 0, 0, 0);
             this.dtpBirthdate.Name = "dtpBirthdate";
             this.dtpBirthdate.Size = new System.Drawing.Size(422, 26);
             this.dtpBirthdate.TabIndex = 11;
-            this.dtpBirthdate.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // lblLastname
             // 
@@ -280,13 +280,13 @@
             this.lblLastname.Size = new System.Drawing.Size(276, 30);
             this.lblLastname.TabIndex = 10;
             this.lblLastname.Text = "Achternaam";
-            this.lblLastname.Click += new System.EventHandler(this.label2_Click);
             // 
             // tbxLastname
             // 
             this.tbxLastname.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.tbxLastname.Font = new System.Drawing.Font("Myanmar Text", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxLastname.Location = new System.Drawing.Point(17, 151);
+            this.tbxLastname.MaxLength = 50;
             this.tbxLastname.Name = "tbxLastname";
             this.tbxLastname.Size = new System.Drawing.Size(444, 48);
             this.tbxLastname.TabIndex = 9;
@@ -296,10 +296,10 @@
             this.tbxFirstName.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.tbxFirstName.Font = new System.Drawing.Font("Myanmar Text", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxFirstName.Location = new System.Drawing.Point(17, 53);
+            this.tbxFirstName.MaxLength = 50;
             this.tbxFirstName.Name = "tbxFirstName";
             this.tbxFirstName.Size = new System.Drawing.Size(444, 48);
             this.tbxFirstName.TabIndex = 0;
-            this.tbxFirstName.TextChanged += new System.EventHandler(this.tbxFirstName_TextChanged);
             // 
             // lblFirstName
             // 

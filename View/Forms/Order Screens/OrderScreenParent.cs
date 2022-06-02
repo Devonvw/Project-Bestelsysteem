@@ -72,39 +72,8 @@ namespace View.Forms
                 billController.CreateBill(table, staff); 
                 this.bill = billController.GetCurrentBillByTable(table);               
             }
-            OpenChildForm(new Order_Screens.Overview(orderItems, bill, staff));
+            OpenChildForm(new Order_Screens.Overview(orderItems, bill, staff, tableNumberLabel));
         }
-
-
-        // table clicks
-        private void table1Button_Click_1(object sender, EventArgs e)
-        {
-            Table table = new Table(1, true);
-            tableNumberLabel.Text = $"Tafel {table.Id}";
-            OpenTable(table);
-        }
-
-        private void table2Button_Click(object sender, EventArgs e)
-        {
-            Table table = new Table(2, true);
-            tableNumberLabel.Text = $"Tafel {table.Id}";
-            OpenTable(table);
-        }
-        private void table3Button_Click(object sender, EventArgs e)
-        {
-            Table table = new Table(3, true);
-            tableNumberLabel.Text = $"Tafel {table.Id}";
-            OpenTable(table);
-        }
-        private void table4Button_Click(object sender, EventArgs e)
-        {
-            Table table = new Table(4, true);
-            tableNumberLabel.Text = $"Tafel {table.Id}";
-            OpenTable(table);
-        }         
-
-
-
 
 
         // option to drag the screen by topPanel (eigk alleen voor gebruik op pc handig ofcourse maar werkt lekker tijdens developen)
@@ -118,6 +87,62 @@ namespace View.Forms
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+
+        // table clicks
+        private void SelectTable(int tableNumber)
+        {
+            Table table = new Table(tableNumber, true);
+            tableNumberLabel.Text = $"Tafel {table.Id}";
+            OpenTable(table);
+        }
+        private void table1Button_Click_1(object sender, EventArgs e)
+        {
+            SelectTable(int.Parse(table1Button.Text));
+        }
+
+        private void table2Button_Click(object sender, EventArgs e)
+        {
+            SelectTable(int.Parse(table2Button.Text));
+        }
+        private void table3Button_Click(object sender, EventArgs e)
+        {
+            SelectTable(int.Parse(table3Button.Text));
+        }
+        private void table4Button_Click(object sender, EventArgs e)
+        {
+            SelectTable(int.Parse(table4Button.Text));
+        }
+
+        private void table5Button_Click(object sender, EventArgs e)
+        {
+            SelectTable(int.Parse(table5Button.Text));
+        }
+
+        private void table6Button_Click(object sender, EventArgs e)
+        {
+            SelectTable(int.Parse(table6Button.Text));
+        }
+
+        private void table7Button_Click(object sender, EventArgs e)
+        {
+            SelectTable(int.Parse(table7Button.Text));
+        }
+
+        private void table8Button_Click(object sender, EventArgs e)
+        {
+            SelectTable(int.Parse(table8Button.Text));
+        }
+
+        private void table9Button_Click(object sender, EventArgs e)
+        {
+            SelectTable(int.Parse(table9Button.Text));
+        }
+
+        private void table10Button_Click(object sender, EventArgs e)
+        {
+            SelectTable(int.Parse(table10Button.Text));
         }
     }
 }
