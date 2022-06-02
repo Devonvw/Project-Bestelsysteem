@@ -68,6 +68,7 @@
             this.pnlInputs.Name = "pnlInputs";
             this.pnlInputs.Size = new System.Drawing.Size(772, 628);
             this.pnlInputs.TabIndex = 12;
+            this.pnlInputs.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlInputs_Paint);
             // 
             // lblMenuItemName
             // 

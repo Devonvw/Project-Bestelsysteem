@@ -19,7 +19,7 @@ namespace Model
 
         public void AddReservation(Reservation reservation)
         {
-            string query = "INSERT INTO reservation (name, datetime, persons, tableId VALUES (@name, @datetime, @persons, @tableId);";
+            string query = "INSERT INTO reservation ([name], [datetime], persons, tableId) VALUES (@name, @datetime, @persons, @tableId);";
             SqlParameter[] sqlParameters = new SqlParameter[]
             {
                 new SqlParameter("@name", reservation.Name),
@@ -48,12 +48,38 @@ namespace Model
             }
             return Reservations;
         }
-        public List<Reservation> GetTableByName(Reservation reservation)
+        public List<Reservation> GetReservationByName(Reservation reservation)
         {
-            string query = "Select [id], [name], [datetime], persons, tableId where name=@name";
+            string query = "Select [id], [name], [datetime], persons, tableId from reservation where [name]=@name";
             SqlParameter[] sqlParameters = new SqlParameter[1];
             sqlParameters[0] = new SqlParameter("@name", reservation.Name);
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
+        }
+        public List<Reservation> GetReservationsForTable(Reservation reservation)
+        {
+            string query = "Select [id], [name], [datetime], persons, tableId from reservation where tableId=@tableId";
+            SqlParameter[] sqlParameters = new SqlParameter[1];
+            sqlParameters[0] = new SqlParameter("@tableId", reservation.TableId);
+            return ReadTables(ExecuteSelectQuery(query, sqlParameters));
+        }
+
+        public List<Reservation> GetReservationByTime(Reservation reservation)
+        {
+            string query = "Select [id], [name], [datetime], persons, tableId from reservation where [datetime] between @FirstDatetime and @Lastdatetime";
+            SqlParameter[] sqlParameters = new SqlParameter[2];
+            sqlParameters[0] = new SqlParameter("@FirstDatetime", reservation.DateTime);
+            sqlParameters[1] = new SqlParameter("@Lastdatetime", reservation.DateTime.AddDays(1));
+            return ReadTables(ExecuteSelectQuery(query, sqlParameters));
+        }
+
+        public void DeleteReservation(Reservation reservation)
+        {
+            string query = "DELETE FROM reservation WHERE [name]=@name AND [datetime]=@datetime AND [tableId]=@table";
+            SqlParameter[] sqlParameters = new SqlParameter[3];
+            sqlParameters[0] = new SqlParameter("@name", reservation.Name);
+            sqlParameters[1] = new SqlParameter("@datetime", reservation.DateTime);
+            sqlParameters[2] = new SqlParameter("@table", reservation.TableId);
+            ExecuteEditQuery(query, sqlParameters);
         }
     }
 }

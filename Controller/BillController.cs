@@ -26,12 +26,6 @@ namespace Controller
         {
             return billDB.GetCurrentBillByTable(table);
         }
-
-        public Bill GetCurrentOpenBillByTable(Table table)
-        {
-            return billDB.GetCurrentOpenBillByTable(table);
-        }
-
         public void CloseBill(Bill bill)
         {
             if (bill.Comment.Length > 255) throw new Exception("De opmerking is langer dan 255 letters");
