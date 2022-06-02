@@ -19,8 +19,8 @@ namespace View
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new BestelsysteemUI());
             //Application.Run(new Forms.Management());
-            Application.Run(new Forms.BillScreen(new Table(1, true)));
-            //Application.Run(new Forms.OrderScreenParent());
+            //Application.Run(new Forms.BillScreen(new Table(1, true)));
+            Application.Run(new Forms.OrderScreenParent());
         }
     }
 }
