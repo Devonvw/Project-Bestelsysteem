@@ -20,7 +20,6 @@ namespace View.Forms.Order_Screens
         private Bill bill;
         private int amount;
         private Panel activePanel;
-        private int amountTest { get; set; }
 
         // Lists
         private List<OrderItem> orderItems = new List<OrderItem>();
@@ -118,6 +117,7 @@ namespace View.Forms.Order_Screens
                     stockController.AdjustStock(orderItem.MenuItem);
                 }
                 UpdateBillOverview();
+                // hide buttons
                 ChangeOrderButton.Hide();
                 commentAndAmountPanel.Hide();
                 deleteOrderInPreperationButton.Hide();
