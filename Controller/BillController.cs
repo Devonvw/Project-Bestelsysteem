@@ -61,10 +61,9 @@ namespace Controller
             Bill bill = billDB.CheckForOpenBillOnTable(table);
             return bill;
         }
-
-        //public List<OrderItem> GetLastOrderItems(Bill bill)
-        //{
-        //    billDB.GetLastOrderItems(Bill bill);
-        //}
+        public bool BillExist(Table table)
+        {
+            return billDB.BillExist(table);
+        }
     }
 }

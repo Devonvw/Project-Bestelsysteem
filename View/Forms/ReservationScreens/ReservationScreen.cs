@@ -11,8 +11,14 @@ namespace View.Forms
     public partial class ReservationScreen : Form, IObserver
     {
         private Reservering mainForm;
+        ReservationController reservationController;
+        TableController tableController;
+        Reservation reservation;
         public ReservationScreen(Reservering mainForm, BillController billController)
         {
+            reservationController = new ReservationController();
+            tableController = new TableController();
+            reservation = new Reservation();
             this.mainForm = mainForm;
             billController.AddObserver(this);
             InitializeComponent();
@@ -27,9 +33,8 @@ namespace View.Forms
 
         private void TableOccupied()
         {
-            TableController controller = new TableController();
             List<Button> buttons = FillButtonList();
-            List<Table> tables = controller.GetAllTables();
+            List<Table> tables = tableController.GetAllTables();
             
             foreach (Table t in tables)
             {
@@ -72,7 +77,6 @@ namespace View.Forms
         {
             pnlReservations.Show();
             lblTafel1.Text = $"Tafel {reservation.TableId}";
-            ReservationController reservationController = new ReservationController();
             List<Reservation> reservationList = reservationController.GetReservationsForTable(reservation);
 
             listViewTable1.Items.Clear();
@@ -95,7 +99,6 @@ namespace View.Forms
         private void TimeSeated(int button)
         {
             Table table = new Table();
-            TableController tableController = new TableController();
             List<Table> tables = tableController.GetAllTables();
             foreach (Table t in tables)
             {
@@ -114,99 +117,96 @@ namespace View.Forms
         }
         private void btnTable1_Click(object sender, EventArgs e)
         {
-            Reservation reservation = new Reservation();
-            reservation.TableId = int.Parse(btnTable1.Text);
-            fillListViewTables(reservation);
-            TimeSeated(reservation.TableId);
+            LoadTableInfo(int.Parse(btnTable1.Text));
         }
         private void btnTable2_Click(object sender, EventArgs e)
         {
-            Reservation reservation = new Reservation();
-            reservation.TableId = int.Parse(btnTable2.Text);
-            fillListViewTables(reservation);
-            TimeSeated(reservation.TableId);
+            LoadTableInfo(int.Parse(btnTable2.Text));
         }
 
         private void btnTable3_Click(object sender, EventArgs e)
         {
-            Reservation reservation = new Reservation();
-            reservation.TableId = int.Parse(btnTable3.Text);
-            fillListViewTables(reservation);
-            TimeSeated(reservation.TableId);
+            LoadTableInfo(int.Parse(btnTable3.Text));
         }
 
         private void btnTable4_Click(object sender, EventArgs e)
         {
-            Reservation reservation = new Reservation();
-            reservation.TableId = int.Parse(btnTable4.Text);
-            fillListViewTables(reservation);
-            TimeSeated(reservation.TableId);
+            LoadTableInfo(int.Parse(btnTable4.Text));
         }
 
         private void btnTable5_Click(object sender, EventArgs e)
         {
-            Reservation reservation = new Reservation();
-            reservation.TableId = int.Parse(btnTable5.Text);
-            fillListViewTables(reservation);
-            TimeSeated(reservation.TableId);
+            LoadTableInfo(int.Parse(btnTable5.Text));
         }
 
         private void btnTable6_Click(object sender, EventArgs e)
         {
-            Reservation reservation = new Reservation();
-            reservation.TableId = int.Parse(btnTable6.Text);
-            fillListViewTables(reservation);
-            TimeSeated(reservation.TableId);
+            LoadTableInfo(int.Parse(btnTable6.Text));
         }
 
         private void btnTable7_Click(object sender, EventArgs e)
         {
-            Reservation reservation = new Reservation();
-            reservation.TableId = int.Parse(btnTable7.Text);
-            fillListViewTables(reservation);
-            TimeSeated(reservation.TableId);
+            LoadTableInfo(int.Parse(btnTable7.Text));
         }
 
         private void btnTable8_Click(object sender, EventArgs e)
         {
-            Reservation reservation = new Reservation();
-            reservation.TableId = int.Parse(btnTable8.Text);
-            fillListViewTables(reservation);
-            TimeSeated(reservation.TableId);
+            LoadTableInfo(int.Parse(btnTable8.Text));
         }
 
         private void btnTable9_Click(object sender, EventArgs e)
         {
-            Reservation reservation = new Reservation();
-            reservation.TableId = int.Parse(btnTable9.Text);
-            fillListViewTables(reservation);
-            TimeSeated(reservation.TableId);
+            LoadTableInfo(int.Parse(btnTable9.Text));
         }
 
         private void btnTable10_Click(object sender, EventArgs e)
         {
-            Reservation reservation = new Reservation();
-            reservation.TableId = int.Parse(btnTable10.Text);
+            LoadTableInfo(int.Parse(btnTable10.Text));
+        }
+        private void LoadTableInfo(int tafelId)
+        {
+            reservation.TableId = tafelId;
             fillListViewTables(reservation);
             TimeSeated(reservation.TableId);
+
+            BillController billController = new BillController();
+            Table table = new Table();
+            table.Id = tafelId;
+            bool billExists = billController.BillExist(table);
+            if (billExists)
+            {
+                btnBetalen.Enabled = true;
+                btnBevestigen.Enabled = false;
+            }
+            else
+            {
+                btnBetalen.Enabled = false;
+                btnBevestigen.Enabled = true;
+            }
         }
 
         private void btnBevestigen_Click(object sender, EventArgs e)
         {
-            Table table = new Table();
-            TableController tableController = new TableController();
-            string[] tableName = lblTafel1.Text.Split(' ');
-            table.Id = int.Parse(tableName[1]);
-            table.Occupied = true;
-            
-            BillController billController = new BillController();
-            Staff staff = new Staff();
-            staff.Id = 1;
-            //Aanpassen naar goede staff id 
-            billController.CreateBill(table, staff);
-            tableController.ChangeOccupied(table);
-            TableOccupied();
-            TimeSeated(table.Id);
+            DialogResult dr = MessageBox.Show("Weet u zeker dat u de tafel wilt bezetten?", "Tafel Beztten", MessageBoxButtons.YesNo);
+            switch (dr)
+            {
+                case DialogResult.Yes:
+                    Table table = new Table();
+                    string[] tableName = lblTafel1.Text.Split(' ');
+                    table.Id = int.Parse(tableName[1]);
+                    table.Occupied = true;
+                    BillController billController = new BillController();
+                    Staff staff = new Staff();
+                    staff.Id = 1;
+                    //Aanpassen naar goede staff id 
+                    billController.CreateBill(table, staff);
+                    tableController.ChangeOccupied(table);
+                    TableOccupied();
+                    TimeSeated(table.Id);
+                    break;
+                case DialogResult.No:
+                    break;
+            }
         }
 
         private void btnReserveringToevoegen_Click(object sender, EventArgs e)

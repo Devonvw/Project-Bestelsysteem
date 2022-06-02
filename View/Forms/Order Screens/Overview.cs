@@ -22,12 +22,12 @@ namespace View.Forms.Order_Screens
         private int amountTest { get; set; }
 
         // Lists
-        private List<OrderItem> orderItems { get; set; }
-        private List<Model.MenuItem> menuItems { get; set; }
-        private List<OrderItem> newOrderItems { get; set; }
-        private List<OrderItem> orderItemsInPreparation { get; set; }
-        private List<OrderItem> rearrangedList { get; set; }
-        private List<Order> orders {get; set;}
+        private List<OrderItem> orderItems = new List<OrderItem>();
+        private List<Model.MenuItem> menuItems = new List<Model.MenuItem>();
+        private List<OrderItem> newOrderItems = new List<OrderItem>();
+        private List<OrderItem> orderItemsInPreparation = new List<OrderItem>();
+        private List<OrderItem> rearrangedList = new List<OrderItem>();
+        private List<Order> orders = new List<Order>();
 
         // Controllers
         private MenuController menuController = new MenuController();
@@ -35,9 +35,8 @@ namespace View.Forms.Order_Screens
         private BillController billController = new BillController();
         private StockController stockController = new StockController();
 
-
         // constructor
-        public Overview(List<OrderItem> orderItems, Bill bill, Staff staff)
+        public Overview(List<OrderItem> orderItems, Bill bill, Staff staff, Label tableNumberLabel)
         {
             InitializeComponent();
             // set fields
@@ -103,12 +102,22 @@ namespace View.Forms.Order_Screens
 
         private void deleteOrderInPreperationButton_Click(object sender, EventArgs e)
         {
-            foreach (OrderItem orderItem in orderItemsInPreparation)
+            DialogResult result = MessageBox.Show("Weet je zeker dat je alles wilt verwijderen?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (result == DialogResult.No) { return; }
+            else
             {
-                orderController.DeleteOrderItem(orderItem);
+                foreach (OrderItem orderItem in orderItemsInPreparation)
+                {
+                    orderController.DeleteOrderItem(orderItem);
+                }
+                UpdateBillOverview();
+                ChangeOrderButton.Hide();
+                commentAndAmountPanel.Hide();
+                deleteOrderInPreperationButton.Hide();
+                updateItemButton.Hide();
             }
-            UpdateBillOverview();
         }
+
         private List<OrderItem> GetOrderItemsInPreparation(List<OrderItem> orderItems)
         {
             orderItemsInPreparation.Clear();
@@ -195,7 +204,8 @@ namespace View.Forms.Order_Screens
 
         private void backToTablesButton_Click(object sender, EventArgs e)
         {
-            Close();
+            title.Text = "Tafels";
+            Close(); 
         }
 
         // Panel Overview: Toggles

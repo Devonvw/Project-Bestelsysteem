@@ -14,24 +14,25 @@ namespace View.Forms
 {
     public partial class ReserveringToevoegen : Form
     {
+        ReservationController reservationController;
+        Reservation reservation;
         public ReserveringToevoegen()
         {
+            reservation = new Reservation();
+            reservationController = new ReservationController();
             InitializeComponent();
             loadForms();
         }
 
         private void btnBevestigen_Click(object sender, EventArgs e)
         {
-            ReservationController reserveringController = new ReservationController();
-            Reservation reservation = new Reservation();
-
             try
             {
                 reservation.Name = txtboxNaam.Text;
                 reservation.DateTime = DateTime.Parse($"{dateTimePicker1.Value.ToString("yyyy/MM/dd")} {comboBoxUren.SelectedItem.ToString()}:{comboBoxMinuten.SelectedItem.ToString()}");
                 reservation.TableId = int.Parse(comboBoxTafel.SelectedItem.ToString());
                 reservation.Persons = int.Parse(comboBoxPersonen.SelectedItem.ToString());
-                reserveringController.AddReservation(reservation);
+                reservationController.AddReservation(reservation);
                 MessageBox.Show($"Reservering toegevoegd! {reservation.Name}, tafel {reservation.TableId} op {reservation.DateTime.ToString("dd/MM/yyyy HH:mm")}");
                 DateTime gewensteTijd = DateTime.Parse($"{dateTimePicker1.Value.ToString("yyyy/MM/dd")} {comboBoxUren.SelectedItem.ToString()}:{comboBoxMinuten.SelectedItem.ToString()}");
                 LoadListView1(reservation, gewensteTijd);
@@ -85,7 +86,6 @@ namespace View.Forms
 
         private void btnCheckBeschikbaarheid_Click(object sender, EventArgs e)
         {
-            Reservation reservation = new Reservation();
             try
             {
                 reservation.DateTime = DateTime.Parse(dateTimePicker1.Value.ToString("yyyy/MM/dd"));
@@ -101,7 +101,6 @@ namespace View.Forms
 
         private void LoadListView1(Reservation reservation, DateTime gewensteTijd)
         {
-            ReservationController reservationController = new ReservationController();
             List<Reservation> reservationList = reservationController.GetReservationByTime(reservation);
             listViewBestaandeReserveringen.Items.Clear();
             try

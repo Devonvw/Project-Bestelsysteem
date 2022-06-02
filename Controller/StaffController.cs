@@ -30,6 +30,29 @@ namespace Controller
             return menuDb.StaffExists(staff);
         }
         public void AddStaff(Staff staff)
+            if (validate_emailaddress.IsMatch(staff.Email) != true) throw new Exception("Dit is geen geldige email");
+            List<Staff> currentStaff = new List<Staff>();
+            currentStaff = GetAllStaff();
+            bool currentlyEmployed = false;
+            LoginController loginController = new LoginController();
+            staff.Password = loginController.HashAndSalt("password");
+            foreach (Staff s in currentStaff)
+            {
+                if(s.FirstName == staff.FirstName && s.LastName == staff.LastName && s.BirthDate == staff.BirthDate)
+                {
+                    currentlyEmployed = true;
+                }
+            }
+            if (currentlyEmployed)
+            {
+                menuDb.UpdateEmployed(staff);
+            }
+            else
+            {
+                menuDb.AddStaff(staff);
+            }
+        }
+        public void RemoveStaff(Staff staff)
         {
             if (!StaffExists(staff)) ; //menuDb.AddStaff(staff);
             else throw new Exception("Er bestaat al een werknemer met deze naam.");
@@ -40,7 +63,6 @@ namespace Controller
             if (string.IsNullOrEmpty(staff.LastName)) throw new Exception("De achternaam is nog niet ingevuld");
             if (string.IsNullOrEmpty(staff.Email)) throw new Exception("De email is nog niet ingevuld");
             if (validate_emailaddress.IsMatch(staff.Email) != true) throw new Exception("Dit is geen geldige email");
-
             menuDb.UpdateStaff(staff);
         }
     }
