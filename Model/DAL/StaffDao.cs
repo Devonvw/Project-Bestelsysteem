@@ -40,7 +40,9 @@ namespace Model
             };
             DataTable dataTable = ExecuteSelectQuery(query, sqlParameters);
             
-            if (dataTable == null) return false;
+            
+
+            if (dataTable == null || dataTable.Rows.Count == 0) return false;
             else return true;
         }
         public void UpdateStaff(Staff staff)

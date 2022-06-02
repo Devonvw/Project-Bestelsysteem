@@ -87,7 +87,8 @@ namespace View.Forms.ManagementScreens
                 }
                 else
                 {
-                    //staffController.AddStaff(new Staff(tbxFirstName.Text, tbxLastname.Text, dtpBirthdate.Value, rbtnManager.Checked ? Roles.Manager : rbtnBartender.Checked ? Roles.Bartender : rbtnWaiter.Checked ? Roles.Waiter : rbtnChef.Checked ? Roles.Chef : Roles.None, tbxEmail.Text, cbxEmployed.Checked));
+                    staffController.AddStaff(new Staff(tbxFirstName.Text, tbxLastname.Text, dtpBirthdate.Value, rbtnManager.Checked ? Roles.Manager : rbtnBartender.Checked ? Roles.Bartender : rbtnWaiter.Checked ? Roles.Waiter : rbtnChef.Checked ? Roles.Chef : Roles.None, tbxEmail.Text, cbxEmployed.Checked));
+                    Reload();
                     MessageBox.Show("Werknemer succesvol toegevoegd");
                 }
             }

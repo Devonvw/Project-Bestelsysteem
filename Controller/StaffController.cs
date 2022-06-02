@@ -31,7 +31,7 @@ namespace Controller
         }
         public void AddStaff(Staff staff)
         {
-            if (!StaffExists(staff)) menuDb.AddStaff(staff);
+            if (!StaffExists(staff)) ; //menuDb.AddStaff(staff);
             else throw new Exception("Er bestaat al een werknemer met deze naam.");
         }
         public void UpdateStaff(Staff staff)
