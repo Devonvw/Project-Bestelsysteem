@@ -49,14 +49,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LoginController.cs" />
     <Compile Include="MenuController.cs" />
     <Compile Include="OrderController.cs" />
     <Compile Include="BillController.cs" />
-    <Compile Include="LoginController.cs" />
+    <Compile Include="ReservationController.cs" />
     <Compile Include="StaffController.cs" />
     <Compile Include="StockController.cs" />
     <Compile Include="StudentService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TableController.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Model\Model.csproj">

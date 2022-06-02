@@ -65,6 +65,24 @@
     <Compile Include="Forms\BillScreen.Designer.cs">
       <DependentUpon>BillScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\LoginScherm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\LoginScherm.Designer.cs">
+      <DependentUpon>LoginScherm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\LoginScreens\LoginScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\LoginScreens\LoginScreen.designer.cs">
+      <DependentUpon>LoginScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\LoginScreens\WachtwoordVergetenScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\LoginScreens\WachtwoordVergetenScreen.designer.cs">
+      <DependentUpon>WachtwoordVergetenScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Management.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +129,36 @@
     <Compile Include="Forms\Order Screens\Overview.Designer.cs">
       <DependentUpon>Overview.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ReservationScreens\ReservationScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ReservationScreens\ReservationScreen.designer.cs">
+      <DependentUpon>ReservationScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ReservationScreens\ReserveringAanpassenScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ReservationScreens\ReserveringAanpassenScreen.designer.cs">
+      <DependentUpon>ReserveringAanpassenScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ReservationScreens\ReserveringToevoegen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ReservationScreens\ReserveringToevoegen.designer.cs">
+      <DependentUpon>ReserveringToevoegen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ReservationScreens\ReserveringVerwijderenScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ReservationScreens\ReserveringVerwijderenScreen.designer.cs">
+      <DependentUpon>ReserveringVerwijderenScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Reservering.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Reservering.Designer.cs">
+      <DependentUpon>Reservering.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="BestelsysteemUI.resx">
@@ -118,6 +166,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\BillScreen.resx">
       <DependentUpon>BillScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\LoginScherm.resx">
+      <DependentUpon>LoginScherm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\LoginScreens\LoginScreen.resx">
+      <DependentUpon>LoginScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\LoginScreens\WachtwoordVergetenScreen.resx">
+      <DependentUpon>WachtwoordVergetenScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Management.resx">
       <DependentUpon>Management.cs</DependentUpon>
@@ -139,6 +196,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Order Screens\Overview.resx">
       <DependentUpon>Overview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ReservationScreens\ReservationScreen.resx">
+      <DependentUpon>ReservationScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ReservationScreens\ReserveringAanpassenScreen.resx">
+      <DependentUpon>ReserveringAanpassenScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ReservationScreens\ReserveringToevoegen.resx">
+      <DependentUpon>ReserveringToevoegen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ReservationScreens\ReserveringVerwijderenScreen.resx">
+      <DependentUpon>ReserveringVerwijderenScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Reservering.resx">
+      <DependentUpon>Reservering.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
