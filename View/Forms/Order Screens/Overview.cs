@@ -545,7 +545,7 @@ namespace View.Forms.Order_Screens
             dinerSubPanel.Hide();
         }
 
-        // nav buttons subcategories
+        // nav buttons subcategoriesxx
         private void bierButton_Click(object sender, EventArgs e)
         {
             List<Model.MenuItem> menuItems = DistinctMenuBySubCategory(SubCategory.Bier);
