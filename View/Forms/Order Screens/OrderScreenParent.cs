@@ -18,7 +18,7 @@ namespace View.Forms
         private BillController billController = new BillController();
         private OrderController orderController = new OrderController();
         private Bill bill;        
-        private Staff staff = new Staff(1, "Jacky", "Eichenberger", DateTime.Now, Roles.Waiter, "test", "test");               
+        private Staff staff = new Staff(1, "Jacky", "Eichenberger", DateTime.Now, Roles.Waiter, "test", "test", true);               
         private Form activeForm;
         private List<OrderItem> orderItems;
         //private Table[] tables;

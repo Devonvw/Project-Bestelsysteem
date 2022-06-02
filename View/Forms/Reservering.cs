@@ -22,6 +22,9 @@ namespace View.Forms
 
             BillScreen billScreen = new BillScreen(new Model.Table(1, true), billController);
             billScreen.Show();
+
+            Management management = new Management();
+            management.Show();
         }
 
         private void Reservering_Load(object sender, EventArgs e)

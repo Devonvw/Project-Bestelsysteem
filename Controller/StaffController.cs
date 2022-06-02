@@ -25,13 +25,14 @@ namespace Controller
         {
             return menuDb.GetAllStaff();
         }
+        public bool StaffExists(Staff staff)
+        {
+            return menuDb.StaffExists(staff);
+        }
         public void AddStaff(Staff staff)
         {
-            menuDb.AddStaff(staff);
-        }
-        public void RemoveStaff(Staff staff)
-        {
-            menuDb.RemoveStaff(staff);
+            if (!StaffExists(staff)) menuDb.AddStaff(staff);
+            else throw new Exception("Er bestaat al een werknemer met deze naam.");
         }
         public void UpdateStaff(Staff staff)
         {

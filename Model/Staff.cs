@@ -15,8 +15,10 @@ namespace Model
         public Roles Role { get; set; }
         public string Email { get; set; }
         public string Password {get; set; }
+        public bool Employed { get; set; }
 
-        public Staff(int id, string firstName, string lastName, DateTime birthDate, Roles role, string email, string password)
+
+        public Staff(int id, string firstName, string lastName, DateTime birthDate, Roles role, string email, string password, bool employed)
         {
             Id = id;
             FirstName = firstName;
@@ -25,22 +27,20 @@ namespace Model
             Role = role;
             Email = email;
             Password = password;
+            Employed = employed;
         }
-        public Staff(string firstName, string lastName, DateTime birthDate, Roles role, string email)
+        public Staff(string firstName, string lastName, DateTime birthDate, Roles role, string email, bool employed)
         {
             FirstName = firstName;
             LastName = lastName;
             BirthDate = birthDate;
             Role = role;
             Email = email;
+            Employed = employed;
         }
 
         public Staff()
         {
-        }
-        public object Clone()
-        {
-            return this.MemberwiseClone();
         }
     }
 }
