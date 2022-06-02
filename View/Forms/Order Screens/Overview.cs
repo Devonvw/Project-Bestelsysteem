@@ -28,12 +28,12 @@ namespace View.Forms.Order_Screens
         private List<OrderItem> newOrderItems = new List<OrderItem>();
         private List<OrderItem> orderItemsInPreparation = new List<OrderItem>();
         private List<OrderItem> rearrangedList = new List<OrderItem>();
-        private List<Order> orders = new List<Order>();
 
         // Controllers
         private MenuController menuController = new MenuController();
         private OrderController orderController = new OrderController();
         private BillController billController = new BillController();
+        private StockController stockController = new StockController();
 
 
         // constructor
@@ -44,7 +44,6 @@ namespace View.Forms.Order_Screens
             this.orderItems = orderItems;
             this.staff = staff;
             this.bill = bill;
-            this.orders = orderController.GetOrdersByTable(bill);
             this.menuItems = menuController.GetAllMenuItems();
             this.rearrangedList = billController.GetOrderItems(bill);
 
@@ -95,6 +94,7 @@ namespace View.Forms.Order_Screens
             FillNewOrderListView(newOrderItems);
         }
 
+
         // Panel Overview: Button Clicks
         private void newOrderButton_Click(object sender, EventArgs e)
         {
@@ -111,6 +111,9 @@ namespace View.Forms.Order_Screens
                 foreach (OrderItem orderItem in orderItemsInPreparation)
                 {
                     orderController.DeleteOrderItem(orderItem);
+                    // update stock
+                    orderItem.MenuItem.Stock = (orderItem.MenuItem.Stock + orderItem.Amount);
+                    stockController.AdjustStock(orderItem.MenuItem);
                 }
                 UpdateBillOverview();
                 ChangeOrderButton.Hide();
@@ -181,7 +184,15 @@ namespace View.Forms.Order_Screens
             GetAmount();
             //  update items
             if (orderItem.Amount == 0) { orderController.DeleteOrderItem(orderItem); }
-            else { orderController.UpdateOrderItem(orderItem); }
+            else 
+            { 
+                orderController.UpdateOrderItem(orderItem);
+                // Update Stock
+                orderItem.MenuItem.Stock = (orderItem.MenuItem.Stock - orderItem.Amount);
+                stockController.AdjustStock(orderItem.MenuItem);
+            }
+
+
 
             // show buttons
             ChangeOrderButton.Show();
@@ -470,6 +481,12 @@ namespace View.Forms.Order_Screens
                 Order order = new Order(staff.Id, DateTime.Now);
                 order.OrderItems = newOrderItems;
                 orderController.InsertOrder(bill, order);
+                // update Stock
+                foreach (OrderItem orderItem in order.OrderItems)
+                {
+                    orderItem.MenuItem.Stock = (orderItem.MenuItem.Stock - orderItem.Amount);
+                    stockController.AdjustStock(orderItem.MenuItem);
+                }
                 SetActivePanel(overViewPanel);
                 UpdateBillOverview();
                 newOrderItems.Clear();
@@ -492,6 +509,13 @@ namespace View.Forms.Order_Screens
             return items;
         }
 
+        private void LoadMenuByCategory(List<Model.MenuItem> menuItems, Panel panel)
+        {
+            FillMenuListView(menuItems);
+            hideSubNavPanels();
+            panel.Show();
+        }
+
         private List<Model.MenuItem> DistinctMenuBySubCategory(SubCategory subCategory)
         {
             List<Model.MenuItem> items = new List<Model.MenuItem>();
@@ -508,9 +532,11 @@ namespace View.Forms.Order_Screens
         private void lunchButton_Click(object sender, EventArgs e)
         {
             List<Model.MenuItem> menuItems = DistinctMenuByCategory(Category.Lunch);
-            FillMenuListView(menuItems);
-            hideSubNavPanels();
-            lunchSubPanel.Show();
+            LoadMenuByCategory(menuItems, lunchSubPanel);
+            
+            //FillMenuListView(menuItems);
+            //hideSubNavPanels();
+            //lunchSubPanel.Show();
         }
 
         private void dinerButton_Click(object sender, EventArgs e)
@@ -545,7 +571,12 @@ namespace View.Forms.Order_Screens
             dinerSubPanel.Hide();
         }
 
-        // nav buttons subcategoriesxx
+        // nav buttons subcategories
+
+        //private void LoadSubcategories(Subcategory subcategory)
+        //{
+        //    List<Model.MenuItem> menuItems = DistinctMenuBySubCategory(subcategory);
+        //}
         private void bierButton_Click(object sender, EventArgs e)
         {
             List<Model.MenuItem> menuItems = DistinctMenuBySubCategory(SubCategory.Bier);
