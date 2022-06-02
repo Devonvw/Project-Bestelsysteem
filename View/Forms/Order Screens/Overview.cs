@@ -532,35 +532,25 @@ namespace View.Forms.Order_Screens
         private void lunchButton_Click(object sender, EventArgs e)
         {
             List<Model.MenuItem> menuItems = DistinctMenuByCategory(Category.Lunch);
-            LoadMenuByCategory(menuItems, lunchSubPanel);
-            
-            //FillMenuListView(menuItems);
-            //hideSubNavPanels();
-            //lunchSubPanel.Show();
+            LoadMenuByCategory(menuItems, lunchSubPanel);          
         }
 
         private void dinerButton_Click(object sender, EventArgs e)
         {
             List<Model.MenuItem> menuItems = DistinctMenuByCategory(Category.Diner);
-            FillMenuListView(menuItems);
-            hideSubNavPanels();
-            dinerSubPanel.Show();
+            LoadMenuByCategory(menuItems, dinerSubPanel);
         }
 
         private void drankenButton_Click(object sender, EventArgs e)
         {
             List<Model.MenuItem> menuItems = DistinctMenuByCategory(Category.NonAlcoholDrinks);
-            FillMenuListView(menuItems);
-            hideSubNavPanels();
-            drankenSubPanel.Show();
+            LoadMenuByCategory(menuItems, drankenSubPanel);
         }
 
         private void alcoholButton_Click(object sender, EventArgs e)
         {
             List<Model.MenuItem> menuItems = DistinctMenuByCategory(Category.AlcoholDrinks);
-            FillMenuListView(menuItems);
-            hideSubNavPanels();
-            alchoholSubPanel.Show();
+            LoadMenuByCategory(menuItems, alchoholSubPanel);
         }
 
         private void hideSubNavPanels()
@@ -573,81 +563,74 @@ namespace View.Forms.Order_Screens
 
         // nav buttons subcategories
 
-        //private void LoadSubcategories(Subcategory subcategory)
-        //{
-        //    List<Model.MenuItem> menuItems = DistinctMenuBySubCategory(subcategory);
-        //}
+        private void LoadSubcategories(SubCategory subcategory)
+        {
+            List<Model.MenuItem> menuItems = DistinctMenuBySubCategory(subcategory);
+            FillMenuListView(menuItems);
+        }
         private void bierButton_Click(object sender, EventArgs e)
         {
-            List<Model.MenuItem> menuItems = DistinctMenuBySubCategory(SubCategory.Bier);
-            FillMenuListView(menuItems);
+            LoadSubcategories(SubCategory.Bier);
         }
 
         private void wijnButton_Click(object sender, EventArgs e)
         {
-            List<Model.MenuItem> menuItems = DistinctMenuBySubCategory(SubCategory.Wijn);
-            FillMenuListView(menuItems);
+            LoadSubcategories(SubCategory.Wijn);
         }
 
         private void gedestilleerdButton_Click(object sender, EventArgs e)
         {
-            List<Model.MenuItem> menuItems = DistinctMenuBySubCategory(SubCategory.GedistilleerdeDranken);
-            FillMenuListView(menuItems);
+            LoadSubcategories(SubCategory.GedistilleerdeDranken);
         }
 
         private void warmeDrankenButton_Click(object sender, EventArgs e)
         {
-            List<Model.MenuItem> menuItems = DistinctMenuBySubCategory(SubCategory.WarmeDranken);
-            FillMenuListView(menuItems);
+            LoadSubcategories(SubCategory.WarmeDranken);
         }
 
         private void frisdrankButton_Click(object sender, EventArgs e)
         {
-            List<Model.MenuItem> menuItems = DistinctMenuBySubCategory(SubCategory.Frisdrank);
-            FillMenuListView(menuItems);
+            LoadSubcategories(SubCategory.Frisdrank);
         }
 
         private void lunchStarterButton_Click(object sender, EventArgs e)
         {
-            List<Model.MenuItem> menuItems = DistinctMenuBySubCategory(SubCategory.LunchStarter);
-            FillMenuListView(menuItems);
+            LoadSubcategories(SubCategory.LunchStarter);
         }
 
         private void lunchMainButton_Click(object sender, EventArgs e)
         {
-            List<Model.MenuItem> menuItems = DistinctMenuBySubCategory(SubCategory.LunchMain);
-            FillMenuListView(menuItems);
+            LoadSubcategories(SubCategory.LunchMain);
         }
 
         private void lunchDesertButton_Click(object sender, EventArgs e)
         {
-            List<Model.MenuItem> menuItems = DistinctMenuBySubCategory(SubCategory.LunchDesert);
-            FillMenuListView(menuItems);
+            LoadSubcategories(SubCategory.LunchDesert);
         }
 
         private void dinerStarterButton_Click(object sender, EventArgs e)
         {
-            List<Model.MenuItem> menuItems = DistinctMenuBySubCategory(SubCategory.Starter);
-            FillMenuListView(menuItems);
+            LoadSubcategories(SubCategory.Starter);
         }
 
         private void dinerSideButton_Click(object sender, EventArgs e)
         {
-            List<Model.MenuItem> menuItems = DistinctMenuBySubCategory(SubCategory.Side);
-            FillMenuListView(menuItems);
+            LoadSubcategories(SubCategory.Side);
         }
 
         private void dinerMainButton_Click(object sender, EventArgs e)
         {
-            List<Model.MenuItem> menuItems = DistinctMenuBySubCategory(SubCategory.Main);
-            FillMenuListView(menuItems);
+            LoadSubcategories(SubCategory.Main);
         }
 
         private void dinerDesertButton_Click(object sender, EventArgs e)
         {
-            List<Model.MenuItem> menuItems = DistinctMenuBySubCategory(SubCategory.Desert);
-            FillMenuListView(menuItems);
+            LoadSubcategories(SubCategory.Desert);
         }
+
+
+
+
 
         private void backToOverviewButton_Click(object sender, EventArgs e)
         {
