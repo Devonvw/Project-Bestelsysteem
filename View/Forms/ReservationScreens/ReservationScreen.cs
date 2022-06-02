@@ -2,20 +2,27 @@
 using Model;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 
 namespace View.Forms
 {
-    public partial class ReservationScreen : Form
+    public partial class ReservationScreen : Form, IObserver
     {
         private Reservering mainForm;
-        public ReservationScreen(Reservering mainForm)
+        public ReservationScreen(Reservering mainForm, BillController billController)
         {
             this.mainForm = mainForm;
+            billController.AddObserver(this);
             InitializeComponent();
             HidePanels();
             TableOccupied();  
+        }
+        public void UpdateForm()
+        {
+            Debug.WriteLine("Kaas");
+            TableOccupied();
         }
 
         private void TableOccupied()
