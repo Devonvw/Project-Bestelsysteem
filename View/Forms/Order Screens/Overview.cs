@@ -35,6 +35,8 @@ namespace View.Forms.Order_Screens
         private BillController billController = new BillController();
         private StockController stockController = new StockController();
 
+        private Label title;
+
         // constructor
         public Overview(List<OrderItem> orderItems, Bill bill, Staff staff, Label tableNumberLabel)
         {
@@ -45,6 +47,7 @@ namespace View.Forms.Order_Screens
             this.bill = bill;
             this.menuItems = menuController.GetAllMenuItems();
             this.rearrangedList = billController.GetOrderItems(bill);
+            title = tableNumberLabel;
 
             // Init
             if (orderItems != null)

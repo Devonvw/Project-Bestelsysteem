@@ -75,18 +75,5 @@ namespace Model
             }
             return staffList;
         }
-        public void UpdateEmployed(Staff staff)
-        {
-            string query = "UPDATE Staff SET employed = @employed WHERE firstName = @firstName, lastName = @lastName, birthDate = @birthdate";
-            SqlParameter[] sqlParameters = new SqlParameter[]
-            {
-                new SqlParameter("@firstName", SqlDbType.VarChar) { Value = staff.FirstName },
-                new SqlParameter("@lastName", SqlDbType.VarChar) { Value = staff.LastName },
-                new SqlParameter("@birthdate", SqlDbType.DateTime) { Value = staff.BirthDate },
-                new SqlParameter("@employed", true)
-            };
-            ExecuteEditQuery(query, sqlParameters);
-        }
-
     }
 }
