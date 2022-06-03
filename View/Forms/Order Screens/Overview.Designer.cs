@@ -1010,8 +1010,8 @@
             this.ClientSize = new System.Drawing.Size(428, 795);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.addOrderPanel);
             this.Controls.Add(this.overViewPanel);
+            this.Controls.Add(this.addOrderPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Overview";
