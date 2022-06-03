@@ -46,17 +46,17 @@
             this.backToTablesButton = new View.CustomControls.CustomButton();
             this.newOrderButton = new View.CustomControls.CustomButton();
             this.addOrderPanel = new System.Windows.Forms.Panel();
-            this.lunchSubPanel = new System.Windows.Forms.Panel();
-            this.lunchMainButton = new View.CustomControls.CustomButton();
-            this.lunchDesertButton = new View.CustomControls.CustomButton();
-            this.lunchStarterButton = new View.CustomControls.CustomButton();
-            this.label6 = new System.Windows.Forms.Label();
             this.commentAndAmountPanel = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.minusButton = new View.CustomControls.CustomButton();
             this.amountLabel = new System.Windows.Forms.Label();
             this.addCommentTextBox = new System.Windows.Forms.TextBox();
             this.plusButton = new View.CustomControls.CustomButton();
+            this.lunchSubPanel = new System.Windows.Forms.Panel();
+            this.lunchMainButton = new View.CustomControls.CustomButton();
+            this.lunchDesertButton = new View.CustomControls.CustomButton();
+            this.lunchStarterButton = new View.CustomControls.CustomButton();
+            this.label6 = new System.Windows.Forms.Label();
             this.changeItemButton = new View.CustomControls.CustomButton();
             this.clearOrderButton = new View.CustomControls.CustomButton();
             this.dinerSubPanel = new System.Windows.Forms.Panel();
@@ -93,8 +93,8 @@
             this.overViewPanel.SuspendLayout();
             this.togglePanel.SuspendLayout();
             this.addOrderPanel.SuspendLayout();
-            this.lunchSubPanel.SuspendLayout();
             this.commentAndAmountPanel.SuspendLayout();
+            this.lunchSubPanel.SuspendLayout();
             this.dinerSubPanel.SuspendLayout();
             this.drankenSubPanel.SuspendLayout();
             this.alchoholSubPanel.SuspendLayout();
@@ -339,6 +339,88 @@
             this.addOrderPanel.TabIndex = 18;
             this.addOrderPanel.Visible = false;
             // 
+            // commentAndAmountPanel
+            // 
+            this.commentAndAmountPanel.Controls.Add(this.label5);
+            this.commentAndAmountPanel.Controls.Add(this.minusButton);
+            this.commentAndAmountPanel.Controls.Add(this.amountLabel);
+            this.commentAndAmountPanel.Controls.Add(this.addCommentTextBox);
+            this.commentAndAmountPanel.Controls.Add(this.plusButton);
+            this.commentAndAmountPanel.Location = new System.Drawing.Point(10, 387);
+            this.commentAndAmountPanel.Name = "commentAndAmountPanel";
+            this.commentAndAmountPanel.Size = new System.Drawing.Size(288, 52);
+            this.commentAndAmountPanel.TabIndex = 28;
+            this.commentAndAmountPanel.Visible = false;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.SystemColors.Control;
+            this.label5.Location = new System.Drawing.Point(12, 5);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(61, 13);
+            this.label5.TabIndex = 19;
+            this.label5.Text = "Opmerking:";
+            // 
+            // minusButton
+            // 
+            this.minusButton.BackColor = System.Drawing.Color.Tomato;
+            this.minusButton.BackgroundColor = System.Drawing.Color.Tomato;
+            this.minusButton.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.minusButton.BorderRadius = 23;
+            this.minusButton.BorderSize = 0;
+            this.minusButton.FlatAppearance.BorderSize = 0;
+            this.minusButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.minusButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.minusButton.ForeColor = System.Drawing.Color.Black;
+            this.minusButton.Location = new System.Drawing.Point(148, 9);
+            this.minusButton.Name = "minusButton";
+            this.minusButton.Size = new System.Drawing.Size(44, 37);
+            this.minusButton.TabIndex = 16;
+            this.minusButton.Text = "-";
+            this.minusButton.TextColor = System.Drawing.Color.Black;
+            this.minusButton.UseVisualStyleBackColor = false;
+            this.minusButton.Click += new System.EventHandler(this.minusButton_Click);
+            // 
+            // amountLabel
+            // 
+            this.amountLabel.AutoSize = true;
+            this.amountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.amountLabel.ForeColor = System.Drawing.SystemColors.Control;
+            this.amountLabel.Location = new System.Drawing.Point(190, 7);
+            this.amountLabel.Name = "amountLabel";
+            this.amountLabel.Size = new System.Drawing.Size(37, 39);
+            this.amountLabel.TabIndex = 17;
+            this.amountLabel.Text = "1";
+            // 
+            // addCommentTextBox
+            // 
+            this.addCommentTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.addCommentTextBox.Location = new System.Drawing.Point(12, 22);
+            this.addCommentTextBox.Name = "addCommentTextBox";
+            this.addCommentTextBox.Size = new System.Drawing.Size(130, 20);
+            this.addCommentTextBox.TabIndex = 18;
+            // 
+            // plusButton
+            // 
+            this.plusButton.BackColor = System.Drawing.Color.PaleGreen;
+            this.plusButton.BackgroundColor = System.Drawing.Color.PaleGreen;
+            this.plusButton.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.plusButton.BorderRadius = 25;
+            this.plusButton.BorderSize = 0;
+            this.plusButton.FlatAppearance.BorderSize = 0;
+            this.plusButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.plusButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.plusButton.ForeColor = System.Drawing.Color.Black;
+            this.plusButton.Location = new System.Drawing.Point(241, 9);
+            this.plusButton.Name = "plusButton";
+            this.plusButton.Size = new System.Drawing.Size(44, 37);
+            this.plusButton.TabIndex = 15;
+            this.plusButton.Text = "+";
+            this.plusButton.TextColor = System.Drawing.Color.Black;
+            this.plusButton.UseVisualStyleBackColor = false;
+            this.plusButton.Click += new System.EventHandler(this.plusButton_Click);
+            // 
             // lunchSubPanel
             // 
             this.lunchSubPanel.Controls.Add(this.lunchMainButton);
@@ -417,88 +499,6 @@
             this.label6.Size = new System.Drawing.Size(37, 13);
             this.label6.TabIndex = 0;
             this.label6.Text = "Lunch";
-            // 
-            // commentAndAmountPanel
-            // 
-            this.commentAndAmountPanel.Controls.Add(this.label5);
-            this.commentAndAmountPanel.Controls.Add(this.minusButton);
-            this.commentAndAmountPanel.Controls.Add(this.amountLabel);
-            this.commentAndAmountPanel.Controls.Add(this.addCommentTextBox);
-            this.commentAndAmountPanel.Controls.Add(this.plusButton);
-            this.commentAndAmountPanel.Location = new System.Drawing.Point(10, 387);
-            this.commentAndAmountPanel.Name = "commentAndAmountPanel";
-            this.commentAndAmountPanel.Size = new System.Drawing.Size(288, 52);
-            this.commentAndAmountPanel.TabIndex = 28;
-            this.commentAndAmountPanel.Visible = false;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.ForeColor = System.Drawing.SystemColors.Control;
-            this.label5.Location = new System.Drawing.Point(12, 5);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(61, 13);
-            this.label5.TabIndex = 19;
-            this.label5.Text = "Opmerking:";
-            // 
-            // minusButton
-            // 
-            this.minusButton.BackColor = System.Drawing.Color.Tomato;
-            this.minusButton.BackgroundColor = System.Drawing.Color.Tomato;
-            this.minusButton.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.minusButton.BorderRadius = 23;
-            this.minusButton.BorderSize = 0;
-            this.minusButton.FlatAppearance.BorderSize = 0;
-            this.minusButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.minusButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.minusButton.ForeColor = System.Drawing.Color.Black;
-            this.minusButton.Location = new System.Drawing.Point(160, 9);
-            this.minusButton.Name = "minusButton";
-            this.minusButton.Size = new System.Drawing.Size(44, 37);
-            this.minusButton.TabIndex = 16;
-            this.minusButton.Text = "-";
-            this.minusButton.TextColor = System.Drawing.Color.Black;
-            this.minusButton.UseVisualStyleBackColor = false;
-            this.minusButton.Click += new System.EventHandler(this.minusButton_Click);
-            // 
-            // amountLabel
-            // 
-            this.amountLabel.AutoSize = true;
-            this.amountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.amountLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.amountLabel.Location = new System.Drawing.Point(203, 9);
-            this.amountLabel.Name = "amountLabel";
-            this.amountLabel.Size = new System.Drawing.Size(37, 39);
-            this.amountLabel.TabIndex = 17;
-            this.amountLabel.Text = "1";
-            // 
-            // addCommentTextBox
-            // 
-            this.addCommentTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.addCommentTextBox.Location = new System.Drawing.Point(12, 22);
-            this.addCommentTextBox.Name = "addCommentTextBox";
-            this.addCommentTextBox.Size = new System.Drawing.Size(130, 20);
-            this.addCommentTextBox.TabIndex = 18;
-            // 
-            // plusButton
-            // 
-            this.plusButton.BackColor = System.Drawing.Color.PaleGreen;
-            this.plusButton.BackgroundColor = System.Drawing.Color.PaleGreen;
-            this.plusButton.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.plusButton.BorderRadius = 25;
-            this.plusButton.BorderSize = 0;
-            this.plusButton.FlatAppearance.BorderSize = 0;
-            this.plusButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.plusButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.plusButton.ForeColor = System.Drawing.Color.Black;
-            this.plusButton.Location = new System.Drawing.Point(241, 9);
-            this.plusButton.Name = "plusButton";
-            this.plusButton.Size = new System.Drawing.Size(44, 37);
-            this.plusButton.TabIndex = 15;
-            this.plusButton.Text = "+";
-            this.plusButton.TextColor = System.Drawing.Color.Black;
-            this.plusButton.UseVisualStyleBackColor = false;
-            this.plusButton.Click += new System.EventHandler(this.plusButton_Click);
             // 
             // changeItemButton
             // 
@@ -1018,10 +1018,10 @@
             this.togglePanel.ResumeLayout(false);
             this.togglePanel.PerformLayout();
             this.addOrderPanel.ResumeLayout(false);
-            this.lunchSubPanel.ResumeLayout(false);
-            this.lunchSubPanel.PerformLayout();
             this.commentAndAmountPanel.ResumeLayout(false);
             this.commentAndAmountPanel.PerformLayout();
+            this.lunchSubPanel.ResumeLayout(false);
+            this.lunchSubPanel.PerformLayout();
             this.dinerSubPanel.ResumeLayout(false);
             this.dinerSubPanel.PerformLayout();
             this.drankenSubPanel.ResumeLayout(false);
