@@ -18,8 +18,8 @@ namespace View.Forms.Order_Screens
         private Staff staff;
         private Bill bill;
         private int amount = 1;
+        private int duplicateItemAmount;
         private Panel activePanel;
-        private Panel subPanel;
         private Label title;
 
         // Lists
@@ -64,6 +64,8 @@ namespace View.Forms.Order_Screens
             SetActivePanel(overViewPanel);
             if (orderItems.Count > 0) { FillBillOverView(rearrangedList); }
             else { ChangeOrderButton.Hide(); }
+
+            SetAmount();
             commentAndAmountPanel.Hide();
             deleteOrderInPreperationButton.Hide();
             updateItemButton.Hide();
@@ -78,7 +80,11 @@ namespace View.Forms.Order_Screens
             activePanel = panel;
             panel.Show();
         }
-
+        // set amount Label 
+        private void SetAmount()
+        {
+            amountLabel.Text = amount.ToString();
+        }
 
         // Fill Listview methods
         private void FillBillOverView(List<OrderItem> orderItems)
@@ -86,8 +92,7 @@ namespace View.Forms.Order_Screens
             billOverViewListView.Items.Clear();
             foreach (OrderItem item in orderItems)
             {
-                ListViewItem listViewItem = new ListViewItem(item.Id.ToString());
-                listViewItem.SubItems.Add(item.MenuItem.ShortName.ToString());
+                ListViewItem listViewItem = new ListViewItem(item.MenuItem.ShortName.ToString());
                 listViewItem.SubItems.Add(item.Amount.ToString());
                 if (item.Comment != null) { listViewItem.SubItems.Add(item.Comment.ToString()); }
                 listViewItem.Tag = item;
@@ -100,8 +105,7 @@ namespace View.Forms.Order_Screens
             menuItemsListView.Items.Clear();
             foreach (Model.MenuItem item in menuItems)
             {
-                ListViewItem listViewItem = new ListViewItem(item.Id.ToString());
-                listViewItem.SubItems.Add(item.ShortName.ToString());
+                ListViewItem listViewItem = new ListViewItem(item.ShortName.ToString());
                 listViewItem.SubItems.Add(item.Stock.ToString());
                 listViewItem.Tag = item;
                 menuItemsListView.Items.Add(listViewItem);
@@ -128,6 +132,12 @@ namespace View.Forms.Order_Screens
             FillBillOverView((orderItems = orderController.GetOrderItemsForOverview(bill)));
         }
 
+        private void UpdateMenuItems()
+        {
+            menuItems = menuController.GetAllMenuItems();
+            FillMenuListView(menuItems);
+        }
+
 
         // set the selected orderItem
         private void billOverViewListView_SelectedIndexChanged(object sender, EventArgs e)
@@ -136,6 +146,8 @@ namespace View.Forms.Order_Screens
             {
                 selectedOrderItem = (OrderItem)billOverViewListView.SelectedItems[0].Tag;
             }
+            amount = selectedOrderItem.Amount;
+            SetAmount();
         }
 
         // set the selected menuItem
@@ -145,6 +157,8 @@ namespace View.Forms.Order_Screens
             {
                 selectedMenuItem = (Model.MenuItem)menuItemsListView.SelectedItems[0].Tag;
             }
+            amount = 1;
+            SetAmount();
         }
 
         // set the selected newOrderItem
@@ -154,6 +168,8 @@ namespace View.Forms.Order_Screens
             {
                 selectedNewOrderItem = (OrderItem)newOrderItemsListView.SelectedItems[0].Tag;
             }
+            amount = selectedNewOrderItem.Amount;
+            SetAmount();
         }
 
 
@@ -196,6 +212,7 @@ namespace View.Forms.Order_Screens
             updateItem();
             Init();
             UpdateBillOverview();
+            UpdateMenuItems();
         }
 
         private void backToTablesButton_Click(object sender, EventArgs e)
@@ -216,31 +233,33 @@ namespace View.Forms.Order_Screens
                     orderItem.MenuItem.Stock = menuItem.Stock;
                 }
             }
-            if (enoughInStock(orderItem, oldAmount) == true);
+            if (EnoughInStock(orderItem, oldAmount) == true);
             {
                 orderItem.Amount = int.Parse(amountLabel.Text);
                 orderItem.Comment = addCommentTextBox.Text;
-                UpdateStockInDB(orderItem, oldAmount);
+                UpdateStock(orderItem, oldAmount);
                 if (orderItem.Amount == 0) { orderController.DeleteOrderItem(orderItem); }
                 else { orderController.UpdateOrderItem(orderItem); }
             }
         }
 
         // check for enough stock
-        private bool enoughInStock(OrderItem orderItem, int oldAmount)
+        private bool EnoughInStock(OrderItem orderItem, int oldAmount)
         {
             if (amount > (orderItem.MenuItem.Stock + oldAmount))
             {
-                MessageBox.Show($"Onvoldoende items in voorraad! voorraad = {stock}");                
+                MessageBox.Show($"Onvoldoende items in voorraad! voorraad = {orderItem.MenuItem.Stock}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                return false;
             }
             return true;
         }
 
-        // update the stock in the DB
-        private void UpdateStockInDB(OrderItem orderItem, int oldAmount)
+        // update the stock
+        private void UpdateStock(OrderItem orderItem, int oldAmount)
         {
             orderItem.MenuItem.Stock = (orderItem.MenuItem.Stock + oldAmount - orderItem.Amount);
             stockController.AdjustStock(orderItem.MenuItem);
+            UpdateMenuItems();
         }
 
         // get the order Items in preperation
@@ -264,9 +283,11 @@ namespace View.Forms.Order_Screens
             foreach (OrderItem orderItem in orderItemsInPreparation)
             {
                 orderController.DeleteOrderItem(orderItem);
-                UpdateStockInDB(orderItem, 0);
+                int oldAmount = orderItem.Amount;
+                orderItem.Amount = 0;
+                UpdateStock(orderItem, oldAmount);
             }
-            UpdateBillOverview();            
+            UpdateBillOverview();           
             Init();           
         }
 
@@ -286,7 +307,7 @@ namespace View.Forms.Order_Screens
 
         private void menuItemsListView_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {
-            hideButtons();
+            HideButtons();
             // Show Buttons
             addItemButton.BackgroundColor = Color.MediumSlateBlue;
             addItemButton.Enabled = true;
@@ -294,7 +315,7 @@ namespace View.Forms.Order_Screens
         }
         private void newOrderItemsListView_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {
-            hideButtons();
+            HideButtons();
             // show Buttons
             deleteItemFromOrderButton.Visible = true;
             deleteItemFromOrderButton.Enabled = true;
@@ -305,7 +326,7 @@ namespace View.Forms.Order_Screens
             changeItemButton.BackColor = Color.MediumSlateBlue;
         }
 
-        private void hideButtons()
+        private void HideButtons()
         {
             addItemButton.BackgroundColor = Color.LightSlateGray;
             addItemButton.Enabled = false;
@@ -320,7 +341,7 @@ namespace View.Forms.Order_Screens
         private void addItemButton_Click(object sender, EventArgs e)
         {
             // add item and reset orderlist
-            addItemToOrderList(newOrderItems);
+            AddItemToOrderList(newOrderItems);
             FillNewOrderListView(newOrderItems);
 
             // show buttons
@@ -328,41 +349,47 @@ namespace View.Forms.Order_Screens
             insertOrderButton.Enabled = true;
         }
 
-        private void addItemToOrderList(List<OrderItem> newOrderItems)
+        private void AddItemToOrderList(List<OrderItem> newOrderItems)
         {
             Model.MenuItem menuItem = selectedMenuItem;
             OrderItem orderItem = new OrderItem();
             orderItem.MenuItem = menuItem;
             orderItem.Amount = amount;
             orderItem.Comment = addCommentTextBox.Text;
-            if (enoughInStock(orderItem, 0) == true)
+            if (EnoughInStock(orderItem, 0) == true)
             {
-                if (checkForDuplicateItem(orderItem) == true)
+                if (ItemIsDuplicate(orderItem) == true)
                 {
-                    foreach (OrderItem newOrderItem in newOrderItems)
-                    {
-                        if (newOrderItem.MenuItem.Id == menuItem.Id)
-                        {
-                            newOrderItem.Amount = (newOrderItem.Amount + amount);
-                            changeStockInList(menuItem, amount);
-                            return;
-                        }
-                    }
+                    if (EnoughInStock(orderItem, duplicateItemAmount) == true)
+                    SetNewOrderItemAmount(menuItem);
                 }
-                if (orderItem.Amount != 0)
+                else if (orderItem.Amount != 0)
                 {
                     newOrderItems.Add(orderItem);
                 }
-                changeStockInList(menuItem, amount);
+                UpdateStock(orderItem, 0);
                 FillNewOrderListView(newOrderItems);
             }
         }
-        private bool checkForDuplicateItem(OrderItem orderItem)
+
+        // set the new amount if item was already added
+        private void SetNewOrderItemAmount(Model.MenuItem menuItem)
         {
-            foreach(OrderItem newOrderItem in newOrderItems)
+            foreach (OrderItem newOrderItem in newOrderItems)
             {
-                if (newOrderItem.MenuItem.Id == orderItem.MenuItem.Id)
+                if (newOrderItem.MenuItem.Id == menuItem.Id)
                 {
+                    newOrderItem.Amount = (newOrderItem.Amount + amount);                   
+                }
+            }
+        }
+        private bool ItemIsDuplicate(OrderItem orderItem)
+        {
+            foreach (OrderItem newOrderItem in newOrderItems)
+            {
+                if (newOrderItem.MenuItem.Id == orderItem.MenuItem.Id && newOrderItem.Comment == orderItem.Comment)
+                {
+                    duplicateItemAmount = newOrderItem.Amount;
                     return true;
                 }
             }
@@ -370,106 +397,61 @@ namespace View.Forms.Order_Screens
         }
 
 
-        private void changeStockInList(Model.MenuItem item, int amount)
-        {
-            foreach (Model.MenuItem menuItem in menuItems)
-            {
-                if (menuItem.Id == item.Id)
-                {
-                    menuItem.Stock -= amount;
-                }
-            }
-            FillMenuListView(menuItems);
-        }
-
-        // add the item to the list and update list
-        public void addItem(Model.MenuItem menuItem)
-        {
-            OrderItem orderItem = new OrderItem();
-            orderItem.MenuItem = menuItem;
-            orderItem.Amount = amount;
-            orderItem.Comment = addCommentTextBox.Text;
-            
-            if (orderItem.Amount != 0)
-            {
-                newOrderItems.Add(orderItem);
-            }
-            clearOrderButton.Visible = true;
-            amount = 1;
-            SetAmount();
-            addCommentTextBox.Clear();
-        }
-
-        private void SetAmount()
-        {
-            amountLabel.Text = amount.ToString();
-        }
-
-        private void GetAmount()
-        {
-            amount = int.Parse(amountLabel.Text);
-        }
-
-
         // methods for deleting/change/clearing new order
         private void deleteOrderItemFromList()
         {
-            foreach (OrderItem orderItem in newOrderItems)
+            OrderItem orderItem = selectedNewOrderItem;
+            int oldAmount = orderItem.Amount;
+            orderItem.Amount = 0;
+            newOrderItems.Remove(orderItem);
+            UpdateStock(orderItem, oldAmount);
+            if (newOrderItems.Count == 0)
             {
-                if (orderItem.MenuItem.ShortName == newOrderItemsListView.SelectedItems[0].SubItems[0].Text)
-                {
-                    newOrderItems.Remove(orderItem);
-                    if (newOrderItems.Count == 0)
-                    {
-                        insertOrderButton.Enabled = false;
-                        clearOrderButton.Enabled = false;
-                    }
-                    break;
-                }
+                insertOrderButton.Enabled = false;
+                clearOrderButton.Enabled = false;
             }
             FillNewOrderListView(newOrderItems);
         }
 
         private void changeOrderItem()
         {
-            foreach (OrderItem orderItem in newOrderItems)
+            OrderItem orderItem = selectedNewOrderItem;
+            int oldAmount = orderItem.Amount;
+            if (amount != 0)
             {
-                if (orderItem.MenuItem.ShortName == newOrderItemsListView.SelectedItems[0].SubItems[0].Text && (orderItem.Amount).ToString() == newOrderItemsListView.SelectedItems[0].SubItems[1].Text && orderItem.Comment == newOrderItemsListView.SelectedItems[0].SubItems[2].Text)
+                orderItem.Amount = amount;
+                if (EnoughInStock(orderItem, oldAmount) == true)
                 {
-                    GetAmount();
-                    if (amount != 0)
-                    {
-                        Model.MenuItem menuItem = orderItem.MenuItem;
-                        int stock = menuItem.Stock;
-                        if (amount > stock)
-                        {
-                            MessageBox.Show("Onvoldoende items in voorraad!");
-                            return;
-                        }
-                        orderItem.MenuItem.ShortName = newOrderItemsListView.SelectedItems[0].SubItems[0].Text;
-                        orderItem.Amount = amount;
-                        orderItem.Comment = addCommentTextBox.Text;
-                        break;
-                    }
-                    else
-                    {
-                        newOrderItems.Remove(orderItem);
-                        if (newOrderItems.Count == 0)
-                        {
-                            insertOrderButton.Enabled = false;
-                            clearOrderButton.Enabled = false;
-                        }
-                        break;
-                    }
+                    orderItem.Comment = addCommentTextBox.Text;
+                    UpdateStock(orderItem, oldAmount);
                 }
             }
+            else
+            {
+                newOrderItems.Remove(orderItem);
+                UpdateStock(orderItem, oldAmount);
+            }
+            if (newOrderItems.Count == 0)
+            {
+                insertOrderButton.Enabled = false;
+                clearOrderButton.Enabled = false;
+            }
             FillNewOrderListView(newOrderItems);
-            amount = 1;
-            SetAmount();
             addCommentTextBox.Clear();
-            hideButtons();
+            HideButtons();
         }
 
+        private void ClearOrder()
+        {
+            foreach (OrderItem orderItem in newOrderItems)
+            {
+                int oldAmount = orderItem.Amount;
+                orderItem.Amount = 0;
+                UpdateStock(orderItem, oldAmount);
+            }
+            newOrderItems.Clear();
+            FillNewOrderListView(newOrderItems);
+        }
 
         // button clicks deleting/change/clearing new order
         private void deleteItemFromOrderButton_Click(object sender, EventArgs e)
@@ -484,14 +466,13 @@ namespace View.Forms.Order_Screens
 
         private void clearOrderButton_Click(object sender, EventArgs e)
         {
-            newOrderItems.Clear();
-            FillNewOrderListView(newOrderItems);
+            ClearOrder();
+            UpdateMenuItems();
             insertOrderButton.Enabled = false;
         }
 
         private void plusButton_Click(object sender, EventArgs e)
         {
-            GetAmount();
             amount++;
             if (amount > 0)
             {
@@ -502,7 +483,6 @@ namespace View.Forms.Order_Screens
 
         private void minusButton_Click(object sender, EventArgs e)
         {
-            GetAmount();
             if (amount > 1) { amount--; }
             else
             {
@@ -519,17 +499,11 @@ namespace View.Forms.Order_Screens
             {
                 // insert order into DB
                 Order order = new Order(staff.Id, DateTime.Now);
-                InsertOrder(order);              
-                // update Stock into DB
-                foreach (OrderItem orderItem in order.OrderItems)
-                {
-                    orderItem.MenuItem.Stock = (orderItem.MenuItem.Stock - orderItem.Amount);
-                    stockController.AdjustStock(orderItem.MenuItem);
-                }
-
+                InsertOrder(order);               
                 SetActivePanel(overViewPanel);
                 UpdateBillOverview();
                 newOrderItems.Clear();
+                FillNewOrderListView(newOrderItems);
                 groupItemsToggle.Checked = false;
                 ChangeOrderButton.Show();
             }
@@ -541,7 +515,6 @@ namespace View.Forms.Order_Screens
             order.OrderItems = newOrderItems;
             orderController.InsertOrder(bill, order);
         }
-
 
 
 
@@ -577,7 +550,8 @@ namespace View.Forms.Order_Screens
         }
 
         private void LoadMenuByCategory(Panel panel, Category category)
-        {            
+        {
+            menuItems = menuController.GetAllMenuItems();
             FillMenuListView(menuItems = DistinctMenuByCategory(category));
             hideSubNavPanels();
             panel.Show();
@@ -585,6 +559,7 @@ namespace View.Forms.Order_Screens
 
         private void LoadMenuBySubcategories(SubCategory subcategory)
         {
+            menuItems = menuController.GetAllMenuItems();
             FillMenuListView(menuItems = DistinctMenuBySubCategory(subcategory));
         }
 
@@ -595,17 +570,17 @@ namespace View.Forms.Order_Screens
 
         private void dinerButton_Click(object sender, EventArgs e)
         {
-            LoadMenuByCategory(lunchSubPanel, Category.Diner);
+            LoadMenuByCategory(dinerSubPanel, Category.Diner);
         }
 
         private void drankenButton_Click(object sender, EventArgs e)
         {
-            LoadMenuByCategory(lunchSubPanel, Category.NonAlcoholDrinks);
+            LoadMenuByCategory(drankenSubPanel, Category.NonAlcoholDrinks);
         }
 
         private void alcoholButton_Click(object sender, EventArgs e)
         {
-            LoadMenuByCategory(lunchSubPanel, Category.AlcoholDrinks);
+            LoadMenuByCategory(alchoholSubPanel, Category.AlcoholDrinks);
         }
 
         private void hideSubNavPanels()
@@ -685,15 +660,13 @@ namespace View.Forms.Order_Screens
             else
             {
                 DialogResult result = MessageBox.Show("Er zijn nog ongeplaatste bestellingen in de lijst. Wilt u deze annuleren?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (result == DialogResult.No)  { return; }
-                else
+                if (result == DialogResult.Yes)
                 {
-                    newOrderItems.Clear();
-                    FillNewOrderListView(newOrderItems);
+                    ClearOrder();
                     SetActivePanel(overViewPanel);
-                    // checken
-                    FillMenuListView((menuItems = menuController.GetAllMenuItems()));
+                    UpdateMenuItems();
                 }
+                else { return; }
             }
         }
 
