@@ -19,6 +19,7 @@ namespace View.Forms.Order_Screens
         private Bill bill;
         private int amount;
         private Panel activePanel;
+        private Label title;
 
         // Lists
         private List<OrderItem> orderItems = new List<OrderItem>();
@@ -28,13 +29,18 @@ namespace View.Forms.Order_Screens
         private List<OrderItem> rearrangedList = new List<OrderItem>();
         private List<Order> orders = new List<Order>();
 
+        // ListViewItems
+        private OrderItem selectedOrderItem;
+        private Model.MenuItem selectedMenuItem;
+        private OrderItem selectedNewOrderItem;
+
         // Controllers
         private MenuController menuController = new MenuController();
         private OrderController orderController = new OrderController();
         private BillController billController = new BillController();
         private StockController stockController = new StockController();
 
-        private Label title;
+
 
         // constructor
         public Overview(List<OrderItem> orderItems, Bill bill, Staff staff, Label tableNumberLabel)
@@ -49,32 +55,30 @@ namespace View.Forms.Order_Screens
             title = tableNumberLabel;
 
             // Init
-            if (orderItems != null)
-            {
-                FillBillOverView(rearrangedList);
-            }
-            if (orderItems.Count == 0)
-            {
-                ChangeOrderButton.Hide();
-            }
-            FillMenuListView(menuItems);
-            SetActivePanel(overViewPanel);
+            Init();
         }
+
+        private void Init()
+        {
+            if (orderItems.Count > 0) { FillBillOverView(rearrangedList); }
+            else { ChangeOrderButton.Hide(); }
+            SetActivePanel(overViewPanel);
+
+            // seperate ??
+            FillMenuListView(menuItems);
+        }
+
 
         // method for setting panel
         private void SetActivePanel(Panel panel)
         {
-            // hide the open panel
             if (activePanel != null) { activePanel.Hide(); }
-
-            // open the specified panel
             activePanel = panel;
             panel.Show();
         }
 
 
-
-        // Panel Overview
+        // Fill Listview methods
         private void FillBillOverView(List<OrderItem> orderItems)
         {
             billOverViewListView.Items.Clear();
@@ -83,46 +87,169 @@ namespace View.Forms.Order_Screens
                 ListViewItem listViewItem = new ListViewItem(item.Id.ToString());
                 listViewItem.SubItems.Add(item.MenuItem.ShortName.ToString());
                 listViewItem.SubItems.Add(item.Amount.ToString());
-                if (item.Comment != null)
-                {
-                    listViewItem.SubItems.Add(item.Comment.ToString());
-                }
+                if (item.Comment != null) { listViewItem.SubItems.Add(item.Comment.ToString()); }
+                listViewItem.Tag = item;
                 billOverViewListView.Items.Add(listViewItem);
             }
         }
 
+        private void FillMenuListView(List<Model.MenuItem> menuItems)
+        {
+            menuItemsListView.Items.Clear();
+            foreach (Model.MenuItem item in menuItems)
+            {
+                ListViewItem listViewItem = new ListViewItem(item.Id.ToString());
+                listViewItem.SubItems.Add(item.ShortName.ToString());
+                listViewItem.SubItems.Add(item.Stock.ToString());
+                listViewItem.Tag = item;
+                menuItemsListView.Items.Add(listViewItem);
+            }
+        }
+
+        public void FillNewOrderListView(List<OrderItem> newOrderItems)
+        {
+            newOrderItemsListView.Items.Clear();
+            foreach (OrderItem item in newOrderItems)
+            {
+                ListViewItem listViewItem = new ListViewItem(item.MenuItem.ShortName.ToString());
+                listViewItem.SubItems.Add(item.Amount.ToString());
+                listViewItem.SubItems.Add(item.Comment.ToString());
+                listViewItem.Tag = item;
+                newOrderItemsListView.Items.Add(listViewItem);
+            }
+        }
+
+
+        // update the BillListView
         private void UpdateBillOverview()
         {
             FillBillOverView((orderItems = orderController.GetOrderItemsForOverview(bill)));
+
+            // seperate ??
             FillNewOrderListView(newOrderItems);
         }
+
+
+        // set the selected orderItem
+        private void billOverViewListView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (billOverViewListView.SelectedItems.Count > 0)
+            {
+                selectedOrderItem = (OrderItem)billOverViewListView.SelectedItems[0].Tag;
+            }
+        }
+
+        // set the selected menuItem
+        private void menuItemsListView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (menuItemsListView.SelectedItems.Count > 0)
+            {
+                selectedMenuItem = (Model.MenuItem)menuItemsListView.SelectedItems[0].Tag;
+            }
+        }
+
+        // set the selected newOrderItem
+        private void newOrderItemsListView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (newOrderItemsListView.SelectedItems.Count > 0)
+            {
+                selectedNewOrderItem = (OrderItem)newOrderItemsListView.SelectedItems[0].Tag;
+            }
+        }
+
+
+
+
 
         // Panel Overview: Button Clicks
         private void newOrderButton_Click(object sender, EventArgs e)
         {
             SetActivePanel(addOrderPanel);
+            FillMenuListView((menuItems = menuController.GetAllMenuItems()));
+            
+            // seperate
             FillNewOrderListView(newOrderItems);
         }
 
         private void deleteOrderInPreperationButton_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Weet je zeker dat je alles wilt verwijderen?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (result == DialogResult.No) { return; }
-            else
+            if (result == DialogResult.Yes) { DeleteOrderItemsInPreparation(orderItemsInPreparation); }
+        }
+        // button click to get options to change orderitems
+        private void ChangeOrderButton_Click(object sender, EventArgs e)
+        {
+            // bring panel to front
+            this.overViewPanel.Controls.Add(commentAndAmountPanel);
+            commentAndAmountPanel.BringToFront();
+            commentAndAmountPanel.Show();
+            commentAndAmountPanel.Location = new Point(10, 487);
+            // show buttons
+            updateItemButton.Show();
+            deleteOrderInPreperationButton.Show();
+            // hide buttons
+            ChangeOrderButton.Hide();
+            togglePanel.Hide();
+            FillBillOverView((orderItemsInPreparation = GetOrderItemsInPreparation(orderItems)));
+        }
+
+        // update orderItem in DB
+        private void updateItemButton_Click(object sender, EventArgs e)
+        {
+            updateItem();
+            // show buttons
+            ChangeOrderButton.Show();
+            insertOrderButton.Show();
+            togglePanel.Show();
+
+            // hide buttons
+            updateItemButton.Hide();
+            commentAndAmountPanel.Hide();
+
+            // update
+            UpdateBillOverview();
+        }
+
+        private void updateItem()
+        {
+            OrderItem orderItem = selectedOrderItem;
+            int oldAmount = orderItem.Amount;
+            // get current stock from DB
+            foreach (Model.MenuItem menuItem in menuItems)
             {
-                foreach (OrderItem orderItem in orderItemsInPreparation)
+                if (orderItem.MenuItem.Id == menuItem.Id)
                 {
-                    orderController.DeleteOrderItem(orderItem);
+                    orderItem.MenuItem.Stock = menuItem.Stock;
                 }
-                UpdateBillOverview();
-                // hide buttons
-                ChangeOrderButton.Hide();
-                commentAndAmountPanel.Hide();
-                deleteOrderInPreperationButton.Hide();
-                updateItemButton.Hide();
+            }
+            if (enoughInStock(orderItem, oldAmount) == true);
+            {
+                orderItem.Amount = int.Parse(amountLabel.Text);
+                orderItem.Comment = addCommentTextBox.Text;
+                UpdateStockInDB(orderItem, oldAmount);
+                if (orderItem.Amount == 0) { orderController.DeleteOrderItem(orderItem); }
+                else { orderController.UpdateOrderItem(orderItem); }
             }
         }
 
+        // check for enough stock
+        private bool enoughInStock(OrderItem orderItem, int oldAmount)
+        {
+            if (amount > (orderItem.MenuItem.Stock + oldAmount))
+            {
+                MessageBox.Show($"Onvoldoende items in voorraad! voorraad = {stock}");                
+            }
+            return true;
+        }
+
+        // update the stock in the DB
+        private void UpdateStockInDB(OrderItem orderItem, int oldAmount)
+        {
+            orderItem.MenuItem.Stock = (orderItem.MenuItem.Stock + oldAmount - orderItem.Amount);
+            stockController.AdjustStock(orderItem.MenuItem);
+        }
+
+        // get the order Items in preperation
         private List<OrderItem> GetOrderItemsInPreparation(List<OrderItem> orderItems)
         {
             orderItemsInPreparation.Clear();
@@ -136,76 +263,27 @@ namespace View.Forms.Order_Screens
             return orderItemsInPreparation;
         }
 
-        private void ChangeOrderButton_Click(object sender, EventArgs e)
+        // Delete complete orders in preparation
+        private void DeleteOrderItemsInPreparation(List<OrderItem> orderItems)
         {
-            // bring panel to front
-            this.overViewPanel.Controls.Add(commentAndAmountPanel);
-            commentAndAmountPanel.BringToFront();
-            commentAndAmountPanel.Show();
-            commentAndAmountPanel.Location = new Point(10, 487);
-
-            // show buttons
-            updateItemButton.Show();
-            deleteOrderInPreperationButton.Show();
-
+            foreach (OrderItem orderItem in orderItemsInPreparation)
+            {
+                orderController.DeleteOrderItem(orderItem);
+                // update stock
+            }
+            UpdateBillOverview();
+            
             // hide buttons
             ChangeOrderButton.Hide();
-            togglePanel.Hide();
-
-            FillBillOverView((orderItemsInPreparation = GetOrderItemsInPreparation(orderItems)));
-        }
-
-        // update orderItem in DB
-        private void updateItemButton_Click(object sender, EventArgs e)
-        {
-            int stock = 0;
-            OrderItem orderItem = new OrderItem();
-            foreach (OrderItem item in orderItems)
-            {
-                if (item.Id == int.Parse(billOverViewListView.SelectedItems[0].SubItems[0].Text))
-                {
-                    orderItem = item;
-                    foreach (Model.MenuItem menuItem in menuItems)
-                    {
-                        if (menuItem.Id == item.MenuItem.Id)
-                        {
-                            stock = menuItem.Stock;
-                        }
-                    }
-                    if (amount > stock)
-                    {
-                        MessageBox.Show("Onvoldoende items in voorraad!");
-                        return;
-                    }
-                    orderItem.Amount = amount;
-                    orderItem.Comment = addCommentTextBox.Text;
-                }
-            }
-            GetAmount();
-            //  update items
-            if (orderItem.Amount == 0) { orderController.DeleteOrderItem(orderItem); }
-            else 
-            { 
-                orderController.UpdateOrderItem(orderItem);
-                // Update Stock
-                orderItem.MenuItem.Stock = (orderItem.MenuItem.Stock - orderItem.Amount);
-                stockController.AdjustStock(orderItem.MenuItem);
-            }
-
-
-
-            // show buttons
-            ChangeOrderButton.Show();
-            insertOrderButton.Show();
-            togglePanel.Show();
-
-            // hide buttons
-            updateItemButton.Hide();
             commentAndAmountPanel.Hide();
-
-            // update
-            UpdateBillOverview();
+            deleteOrderInPreperationButton.Hide();
+            updateItemButton.Hide();
         }
+
+
+
+
+
 
         private void backToTablesButton_Click(object sender, EventArgs e)
         {
@@ -226,29 +304,7 @@ namespace View.Forms.Order_Screens
 
         // Panel Add Order
         // Panel Add Order: Listviews
-        private void FillMenuListView(List<Model.MenuItem> menuItems)
-        {
-            menuItemsListView.Items.Clear();
-            foreach (Model.MenuItem item in menuItems)
-            {
-                ListViewItem listViewItem = new ListViewItem(item.Id.ToString());
-                listViewItem.SubItems.Add(item.ShortName.ToString());
-                listViewItem.SubItems.Add(item.Stock.ToString());
-                menuItemsListView.Items.Add(listViewItem);
-            }
-        }
 
-        public void FillNewOrderListView(List<OrderItem> newOrderItems)
-        {
-            newOrderItemsListView.Items.Clear();
-            foreach (OrderItem item in newOrderItems)
-            {                
-                ListViewItem listViewItem = new ListViewItem(item.MenuItem.ShortName.ToString());
-                listViewItem.SubItems.Add(item.Amount.ToString());
-                listViewItem.SubItems.Add(item.Comment.ToString());
-                newOrderItemsListView.Items.Add(listViewItem);
-            }
-        }
 
         private void menuItemsListView_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {
@@ -507,6 +563,10 @@ namespace View.Forms.Order_Screens
 
 
 
+
+
+
+
         // navigation methods
         private List<Model.MenuItem> DistinctMenuByCategory(Category category)
         {
@@ -657,6 +717,7 @@ namespace View.Forms.Order_Screens
                 }
             }
         }
+
 
     }
 }
