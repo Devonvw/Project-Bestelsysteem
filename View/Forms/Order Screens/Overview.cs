@@ -167,7 +167,7 @@ namespace View.Forms.Order_Screens
                     orderItem = item;
                     foreach (Model.MenuItem menuItem in menuItems)
                     {
-                        if (menuItem == item.MenuItem)
+                        if (menuItem.Id == item.MenuItem.Id)
                         {
                             stock = menuItem.Stock;
                         }
