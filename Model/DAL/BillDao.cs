@@ -66,7 +66,7 @@ namespace Model
         {
             /*Close the bill (Update)*/
 
-            string query = "UPDATE Bills SET payed = 'true', paymentMethodId = @paymentMethodId, tip = @tip, comment = @comment WHERE id = @id";
+            string query = "UPDATE Bills SET payed = 'true', paymentMethod = @paymentMethodId, tip = @tip, comment = @comment WHERE id = @id";
             SqlParameter[] sqlParameters = new SqlParameter[]
             {
                 new SqlParameter("@paymentMethodId", SqlDbType.Int) { Value = bill.PaymentMethod },
@@ -97,7 +97,7 @@ namespace Model
 
             (float totalPrice, float lowBtwPrice, float highBtwPrice) totalPrice = GetTotalBillPrice((int)firstRow["id"]);
 
-            Bill bill = new Bill((int)firstRow["id"], (int)firstRow["tableId"], new Staff((int)firstRow["staffId"], firstRow["firstName"].ToString(), firstRow["lastName"].ToString(), DateTime.Parse(firstRow["birthDate"].ToString()), (Roles)(int)firstRow["staffId"], firstRow["email"].ToString(), firstRow["password"].ToString(), (bool)firstRow["employed"]), DateTime.Parse(firstRow["datetime"].ToString()), firstRow["comment"].ToString(), totalPrice.totalPrice, totalPrice.lowBtwPrice, totalPrice.highBtwPrice, float.Parse(firstRow["tip"].ToString()), (bool)firstRow["payed"], (PaymentMethod)(int)firstRow["paymentMethodId"]);
+            Bill bill = new Bill((int)firstRow["id"], (int)firstRow["tableId"], new Staff((int)firstRow["staffId"], firstRow["firstName"].ToString(), firstRow["lastName"].ToString(), DateTime.Parse(firstRow["birthDate"].ToString()), (Roles)(int)firstRow["staffId"], firstRow["email"].ToString(), firstRow["password"].ToString(), (bool)firstRow["employed"]), DateTime.Parse(firstRow["datetime"].ToString()), firstRow["comment"].ToString(), totalPrice.totalPrice, totalPrice.lowBtwPrice, totalPrice.highBtwPrice, float.Parse(firstRow["tip"].ToString()), (bool)firstRow["payed"], (PaymentMethod)(int)firstRow["paymentMethod"]);
             return bill;
         }
 
