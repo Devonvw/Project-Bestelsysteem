@@ -37,8 +37,8 @@ namespace Model
                     Id = (int)dr["id"],
                     ShortName = (string)dr["shortName"],
                     FullName = (string)dr["fullName"],
-                    Category = (Category)(int)dr["categoryId"],
-                    SubCategory = (SubCategory)(int)dr["subcategoryId"],
+                    Category = (Category)(int)dr["category"],
+                    SubCategory = (SubCategory)(int)dr["subcategory"],
                     PriceEx = float.Parse(dr["priceEx"].ToString()),
                     Stock = (int)dr["stock"],
                     InMenu = (bool)dr["inMenu"]

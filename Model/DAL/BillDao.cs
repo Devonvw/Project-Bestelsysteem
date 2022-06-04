@@ -18,7 +18,7 @@ namespace Model
 
         public List<OrderItem> GetOrderItems(Bill bill)
         {
-            string query = "SELECT SUM(OI.amount) as totalAmount, (SUM(OI.amount) * MI.priceInc) as totalPrice, MI.id as menuItemId, MI.priceInc, MI.shortName, MI.fullName, MI.categoryId, MI.subcategoryId, MI.priceEx, MI.stock, MI.inMenu, SC.highBtw FROM BillItems AS BI INNER JOIN Orders AS O ON BI.orderId = O.id INNER JOIN OrderItems AS OI ON O.id = OI.orderId INNER JOIN (SELECT MI.id, MI.shortName, MI.fullName, MI.categoryId, MI.subcategoryId, MI.priceEx, MI.stock, MI.inMenu, Cast(SUM(MI.priceEx * CASE WHEN SC.highBtw = 'true' THEN @highBtw ELSE @lowBtw END) AS DECIMAL(5, 2)) as priceInc FROM MenuItems as MI INNER JOIN Subcategory as SC ON MI.subcategoryId = SC.id GROUP BY MI.id, MI.shortName, MI.fullName, MI.categoryId, MI.subcategoryId, MI.priceEx, MI.stock, MI.inMenu ) MI ON OI.menuItemId = MI.id INNER JOIN Subcategory as SC ON MI.subcategoryId = SC.id WHERE BI.billId = @id GROUP BY MI.id, MI.shortName, Mi.fullName, MI.categoryId, MI.subcategoryId, MI.priceEx, MI.priceInc, MI.stock, MI.inMenu, SC.highBtw";
+            string query = "SELECT SUM(OI.amount) as totalAmount, (SUM(OI.amount) * MI.priceInc) as totalPrice, MI.id as menuItemId, MI.priceInc, MI.shortName, MI.fullName, MI.category, MI.subcategory, MI.priceEx, MI.stock, MI.inMenu, SC.highBtw FROM BillItems AS BI INNER JOIN Orders AS O ON BI.orderId = O.id INNER JOIN OrderItems AS OI ON O.id = OI.orderId INNER JOIN (SELECT MI.id, MI.shortName, MI.fullName, MI.category, MI.subcategory, MI.priceEx, MI.stock, MI.inMenu, Cast(SUM(MI.priceEx * CASE WHEN SC.highBtw = 'true' THEN @highBtw ELSE @lowBtw END) AS DECIMAL(5, 2)) as priceInc FROM MenuItems as MI INNER JOIN Subcategory as SC ON MI.subcategory = SC.id GROUP BY MI.id, MI.shortName, MI.fullName, MI.category, MI.subcategory, MI.priceEx, MI.stock, MI.inMenu ) MI ON OI.menuItemId = MI.id INNER JOIN Subcategory as SC ON MI.subcategory = SC.id WHERE BI.billId = @id GROUP BY MI.id, MI.shortName, Mi.fullName, MI.category, MI.subcategory, MI.priceEx, MI.priceInc, MI.stock, MI.inMenu, SC.highBtw";
             SqlParameter[] sqlParameters = new SqlParameter[]
             {
                 new SqlParameter("@highBtw", SqlDbType.Float) { Value = highBtw },
@@ -46,7 +46,7 @@ namespace Model
 
         private (float totalPrice, float lowBtwPrice, float highBtwPrice) GetTotalBillPrice(int billId)
         {
-            string query = "SELECT Cast(SUM(MI.priceEx * OI.amount * CASE WHEN SC.highBtw = 'true' THEN @highBtw ELSE @lowBtw END) AS DECIMAL(5, 2)) as totalPrice, Cast(SUM(MI.priceEx * OI.amount * CASE WHEN SC.highBtw = 'true' THEN 0 ELSE @lowBtwPer END) AS DECIMAL(5, 2)) as lowBtwPrice, Cast(SUM(MI.priceEx * OI.amount * CASE WHEN SC.highBtw = 'true' THEN @highBtwPer ELSE 0 END) AS DECIMAL(5, 2)) as highBtwPrice FROM BillItems AS BI INNER JOIN Orders AS O ON BI.orderId = O.id INNER JOIN OrderItems AS OI ON O.id = OI.orderId INNER JOIN MenuItems AS MI ON OI.menuItemId = MI.id INNER JOIN Subcategory AS SC ON MI.subcategoryId = SC.id WHERE BI.billId = @id";
+            string query = "SELECT Cast(SUM(MI.priceEx * OI.amount * CASE WHEN SC.highBtw = 'true' THEN @highBtw ELSE @lowBtw END) AS DECIMAL(5, 2)) as totalPrice, Cast(SUM(MI.priceEx * OI.amount * CASE WHEN SC.highBtw = 'true' THEN 0 ELSE @lowBtwPer END) AS DECIMAL(5, 2)) as lowBtwPrice, Cast(SUM(MI.priceEx * OI.amount * CASE WHEN SC.highBtw = 'true' THEN @highBtwPer ELSE 0 END) AS DECIMAL(5, 2)) as highBtwPrice FROM BillItems AS BI INNER JOIN Orders AS O ON BI.orderId = O.id INNER JOIN OrderItems AS OI ON O.id = OI.orderId INNER JOIN MenuItems AS MI ON OI.menuItemId = MI.id INNER JOIN Subcategory AS SC ON MI.subcategory = SC.id WHERE BI.billId = @id";
             SqlParameter[] sqlParameters = new SqlParameter[]
             {
                 new SqlParameter("@highBtw", SqlDbType.Float) { Value = highBtw },
@@ -85,7 +85,7 @@ namespace Model
 
             foreach (DataRow dr in dataTable.Rows)
             {
-                OrderItem orderItem = new OrderItem(index, new MenuItem((int)dr["menuItemId"], dr["shortName"].ToString(), dr["fullName"].ToString(), (Category)(int)dr["categoryId"], (SubCategory)(int)dr["subcategoryId"], float.Parse(dr["priceEx"].ToString()), (int)dr["stock"], (bool)dr["inMenu"]), (int)dr["totalAmount"], float.Parse(dr["totalPrice"].ToString()));
+                OrderItem orderItem = new OrderItem(index, new MenuItem((int)dr["menuItemId"], dr["shortName"].ToString(), dr["fullName"].ToString(), (Category)(int)dr["category"], (SubCategory)(int)dr["subcategory"], float.Parse(dr["priceEx"].ToString()), (int)dr["stock"], (bool)dr["inMenu"]), (int)dr["totalAmount"], float.Parse(dr["totalPrice"].ToString()));
                 orderItems.Add(orderItem);
             }
             return orderItems;
