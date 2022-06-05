@@ -69,12 +69,16 @@ namespace View.Forms
 
         private void OpenTable(Table table)
         {
+            Debug.WriteLine("kaas");
+
             if (TableHasBill(table))
             {
+                Debug.WriteLine("kaas1");
                 this.orderItems = orderController.GetOrderItemsForOverview(bill);
             }
             else
-            {                
+            {
+                Debug.WriteLine("kaas2");
                 billController.CreateBill(table, staff); 
                 this.bill = billController.GetCurrentBillByTable(table);               
             }

@@ -30,7 +30,7 @@ namespace Model
 
         public Bill GetCurrentBillByTable(Table table)
         {
-            string query = "SELECT TOP 1 * FROM Bills AS B INNER JOIN Staff AS S ON B.staffId = S.id WHERE tableId = @tableId ORDER BY [datetime] DESC";
+            string query = "SELECT TOP 1 B.*, S.firstName, S.lastName, S.birthDate, S.roleId, S.email, S.[password], S.employed FROM Bills AS B INNER JOIN Staff AS S ON B.staffId = S.id WHERE tableId = @tableId ORDER BY [datetime] DESC";
 
             SqlParameter[] sqlParameters = new SqlParameter[]
             {
@@ -97,7 +97,7 @@ namespace Model
 
             (float totalPrice, float lowBtwPrice, float highBtwPrice) totalPrice = GetTotalBillPrice((int)firstRow["id"]);
 
-            Bill bill = new Bill((int)firstRow["id"], (int)firstRow["tableId"], new Staff((int)firstRow["staffId"], firstRow["firstName"].ToString(), firstRow["lastName"].ToString(), DateTime.Parse(firstRow["birthDate"].ToString()), (Roles)(int)firstRow["staffId"], firstRow["email"].ToString(), firstRow["password"].ToString(), (bool)firstRow["employed"]), DateTime.Parse(firstRow["datetime"].ToString()), firstRow["comment"].ToString(), totalPrice.totalPrice, totalPrice.lowBtwPrice, totalPrice.highBtwPrice, float.Parse(firstRow["tip"].ToString()), (bool)firstRow["payed"], (PaymentMethod)(int)firstRow["paymentMethod"]);
+            Bill bill = new Bill((int)firstRow["id"], (int)firstRow["tableId"], new Staff((int)firstRow["staffId"], firstRow["firstName"].ToString(), firstRow["lastName"].ToString(), DateTime.Parse(firstRow["birthDate"].ToString()), (Roles)(int)firstRow["roleId"], firstRow["email"].ToString(), firstRow["password"].ToString(), (bool)firstRow["employed"]), DateTime.Parse(firstRow["datetime"].ToString()), firstRow["comment"].ToString(), totalPrice.totalPrice, totalPrice.lowBtwPrice, totalPrice.highBtwPrice, float.Parse(firstRow["tip"].ToString()), (bool)firstRow["payed"], (PaymentMethod)(int)firstRow["paymentMethod"]);
             return bill;
         }
 
