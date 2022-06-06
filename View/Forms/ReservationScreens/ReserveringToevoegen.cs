@@ -21,7 +21,7 @@ namespace View.Forms
             reservation = new Reservation();
             reservationController = new ReservationController();
             InitializeComponent();
-            loadForms();
+            LoadForms();
         }
 
         private void btnBevestigen_Click(object sender, EventArgs e)
@@ -43,7 +43,7 @@ namespace View.Forms
             }
             ClearItems();
         }     
-        private void loadForms()
+        private void LoadForms()
         {
             dateTimePicker1.Format = DateTimePickerFormat.Custom;
             dateTimePicker1.CustomFormat = "dd/MM/yyyy";

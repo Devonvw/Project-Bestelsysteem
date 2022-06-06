@@ -177,6 +177,7 @@
             this.dateTimePicker.Name = "dateTimePicker";
             this.dateTimePicker.Size = new System.Drawing.Size(238, 39);
             this.dateTimePicker.TabIndex = 24;
+            this.dateTimePicker.MinDate = System.DateTime.Today;
             // 
             // ReserveringVerwijderenScreen
             // 

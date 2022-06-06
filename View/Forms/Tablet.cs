@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Controller;
 using System.Runtime.InteropServices;
-
+using Model;
 
 namespace View.Forms
 {
@@ -17,12 +17,14 @@ namespace View.Forms
     {
         private Form activeForm;
         private BillController billController;
-        public Tablet()
+        private Staff currentUser;
+        public Tablet(Staff currentUser)
         {
             billController = new BillController();
             InitializeComponent();
+            this.currentUser = currentUser;
 
-            OrderScreenParent orderScreenParent = new OrderScreenParent(billController);
+            OrderScreenParent orderScreenParent = new OrderScreenParent(billController, currentUser);
             orderScreenParent.Show();
 
             Management management = new Management();
@@ -37,7 +39,7 @@ namespace View.Forms
 
         private void Reservering_Load(object sender, EventArgs e)
         {
-            OpenChildForm(new ReservationScreen(this, billController), sender);
+            OpenChildForm(new ReservationScreen(this, billController, currentUser), sender);
         }
         public void OpenChildForm(Form childForm, object btnSender)
         {
@@ -55,7 +57,7 @@ namespace View.Forms
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new ReservationScreen(this, billController), sender);
+            OpenChildForm(new ReservationScreen(this, billController, currentUser), sender);
         }
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {

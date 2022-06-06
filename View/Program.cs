@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Model;
+using View.Forms;
 
 namespace View
 {
@@ -12,6 +13,7 @@ namespace View
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
+        /// 
         [STAThread]
         static void Main()
         {
@@ -21,7 +23,8 @@ namespace View
             //Application.Run(new Forms.Management());
             //Application.Run(new Forms.BillScreen(new Table(1, true)));
             //Application.Run(new Forms.OrderScreenParent());
-            Application.Run(new Forms.Tablet());
+            //Application.Run(new Forms.Tablet());
+            Application.Run(new Forms.LoginScherm());
         }
     }
 }

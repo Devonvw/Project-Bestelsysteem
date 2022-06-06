@@ -18,22 +18,26 @@ namespace View.Forms
     {
         private BillController billController;
         private OrderController orderController = new OrderController();
-        private Bill bill;        
-        private Staff staff = new Staff(1, "Jacky", "Eichenberger", DateTime.Now, Roles.Waiter, "test", "test", true);               
+        private Bill bill;
+        private Staff staff;             
         private Form activeForm;
         private List<OrderItem> orderItems;
-        //private Table[] tables;
+        private Label[] LastOrderedLabels;
 
-        public OrderScreenParent(BillController billController) // staff moet meegegeven vanuit UI / login
+        public OrderScreenParent(BillController billController, Staff currentUser) // staff moet meegegeven vanuit UI / login
         {
             this.billController = billController;
             billController.AddObserver(this);
             InitializeComponent();
-            staffNameLabel.Text = $"Medewerker: {staff.FirstName}";   
+            this.staff = currentUser;
+            staffNameLabel.Text = $"Medewerker: {staff.FirstName}";
+            LastOrderedLabels = new Label[10];
+            FillLabelList();
+            TableOccupied();
         }
         public void UpdateForm()
         {
-            Debug.WriteLine("Joost");
+            TableOccupied();
         }
         // Open childform into panel
         public void OpenChildForm(Form childForm)
@@ -69,16 +73,12 @@ namespace View.Forms
 
         private void OpenTable(Table table)
         {
-            Debug.WriteLine("kaas");
-
             if (TableHasBill(table))
             {
-                Debug.WriteLine("kaas1");
                 this.orderItems = orderController.GetOrderItemsForOverview(bill);
             }
             else
-            {
-                Debug.WriteLine("kaas2");
+            {                
                 billController.CreateBill(table, staff); 
                 this.bill = billController.GetCurrentBillByTable(table);               
             }
@@ -99,60 +99,92 @@ namespace View.Forms
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
-
         // table clicks
+        private void btnTable_Click(object sender, EventArgs e)
+        {
+            SelectTable(int.Parse((sender as Button).Text));
+        }
         private void SelectTable(int tableNumber)
         {
             Table table = new Table(tableNumber, true);
             tableNumberLabel.Text = $"Tafel {table.Id}";
             OpenTable(table);
         }
-        private void table1Button_Click_1(object sender, EventArgs e)
+
+        private void TableOccupied()
         {
-            SelectTable(int.Parse(table1Button.Text));
+            List<Button> buttons = FillButtonList();
+            TableController tableController = new TableController();
+            List<Table> tables = tableController.GetAllTables();
+
+            foreach (Table t in tables)
+            {
+                foreach (Button b in buttons)
+
+                    if (b.Text == t.Id.ToString())
+                    {
+                        if (t.Occupied == false)
+                        {
+                            b.Enabled = false;
+                            LastOrderedLabels[t.Id-1].Enabled = false;
+                        }
+                        else if(t.Occupied == true)
+                        {
+                            if (tableController.TableHasOrdered(t) == true)
+                            {
+                                LastOrderedLabels[t.Id - 1].Enabled = true;
+                                LastOrderPerTable(t);
+                            } 
+                            else
+                            {
+                                LastOrderedLabels[t.Id - 1].Enabled = false;
+                            }
+                        }
+                    }     
+            }
+        }
+        
+        
+        private void FillLabelList()
+        {
+            LastOrderedLabels[0] = lblLaatsteBestelling1;
+            LastOrderedLabels[1] = lblLaatsteBestelling2;
+            LastOrderedLabels[2] = lblLaatsteBestelling3;
+            LastOrderedLabels[3] = lblLaatsteBestelling4;
+            LastOrderedLabels[4] = lblLaatsteBestelling5;
+            LastOrderedLabels[5] = lblLaatsteBestelling6;
+            LastOrderedLabels[6] = lblLaatsteBestelling7;
+            LastOrderedLabels[7] = lblLaatsteBestelling8;
+            LastOrderedLabels[8] = lblLaatsteBestelling9;
+            LastOrderedLabels[9] = lblLaatsteBestelling10;
+        }
+        private void LastOrderPerTable(Table table)
+        {
+            TableController tableController = new TableController();
+            Table tableLastOrdered = tableController.GetLastOrdered(table);
+            for (int i = 0; i < LastOrderedLabels.Length; i++)
+            {
+                if (table.Id-1 == i)
+                {
+                    LastOrderedLabels[i].Text = tableLastOrdered.LastOrdered.ToString("HH:mm");
+                }
+            }    
+        }
+        private List<Button> FillButtonList()
+        {
+            List<Button> buttons = new List<Button>();
+            buttons.Add(table1Button);
+            buttons.Add(table2Button);
+            buttons.Add(table3Button);
+            buttons.Add(table4Button);
+            buttons.Add(table5Button);
+            buttons.Add(table6Button);
+            buttons.Add(table7Button);
+            buttons.Add(table8Button);
+            buttons.Add(table9Button);
+            buttons.Add(table10Button);
+            return buttons;
         }
 
-        private void table2Button_Click(object sender, EventArgs e)
-        {
-            SelectTable(int.Parse(table2Button.Text));
-        }
-        private void table3Button_Click(object sender, EventArgs e)
-        {
-            SelectTable(int.Parse(table3Button.Text));
-        }
-        private void table4Button_Click(object sender, EventArgs e)
-        {
-            SelectTable(int.Parse(table4Button.Text));
-        }
-
-        private void table5Button_Click(object sender, EventArgs e)
-        {
-            SelectTable(int.Parse(table5Button.Text));
-        }
-
-        private void table6Button_Click(object sender, EventArgs e)
-        {
-            SelectTable(int.Parse(table6Button.Text));
-        }
-
-        private void table7Button_Click(object sender, EventArgs e)
-        {
-            SelectTable(int.Parse(table7Button.Text));
-        }
-
-        private void table8Button_Click(object sender, EventArgs e)
-        {
-            SelectTable(int.Parse(table8Button.Text));
-        }
-
-        private void table9Button_Click(object sender, EventArgs e)
-        {
-            SelectTable(int.Parse(table9Button.Text));
-        }
-
-        private void table10Button_Click(object sender, EventArgs e)
-        {
-            SelectTable(int.Parse(table10Button.Text));
-        }
     }
 }

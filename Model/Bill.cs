@@ -39,5 +39,21 @@ namespace Model
         {
 
         }
+        public void AddOrder(Order order)
+        {
+            /*Add order to the bill (BillItems), also add to price*/
+        }
+        public void AddTip(float tip)
+        {
+            /*Add tip to the bill (Bill)*/
+        }
+        public void AddComment(string comment)
+        {
+            /*Add comment to the bill (Bill)*/
+        }
+        public void Pay(int paymentMethodId)
+        {
+            /*Set Payed bill to true (Bill) and add paymentMethod*/
+        }
     }
 }

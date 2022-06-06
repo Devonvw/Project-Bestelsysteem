@@ -16,6 +16,7 @@ namespace View.Forms
     {
         private LoginScherm mainForm;
         LoginController loginController;
+        private Staff currentUser;
         public LoginScreen(LoginScherm mainForm)
         {
             this.mainForm = mainForm;
@@ -31,15 +32,18 @@ namespace View.Forms
             bool validUser = loginController.LoginCheck(login);
             if (validUser)
             {
-                //aanpassen --> applicatie openen
-                MessageBox.Show("Login completed");
+                StaffController staffController = new StaffController();
+                Staff staff = new Staff();
+                staff.Email = txtBoxUsername.Text;
+                currentUser = staffController.GetStaffByEmail(staff);
+                Tablet tablet = new Tablet(currentUser);
+                tablet.Show();
             }
             else
             {
                 MessageBox.Show("Combinatie van username en password is onbekend, probeer opniew.");
             }
         }
-
         private void lblWachtwoordVergeten_Click(object sender, EventArgs e)
         {
             mainForm.OpenChildForm(new WachtwoordVergetenScreen(), sender);

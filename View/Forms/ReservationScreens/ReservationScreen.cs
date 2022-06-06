@@ -16,11 +16,13 @@ namespace View.Forms
         Reservation reservation;
         private BillController billController;
         private List<Table> tables;
-        public ReservationScreen(Tablet mainForm, BillController billController)
+        private Staff currentUser;
+        public ReservationScreen(Tablet mainForm, BillController billController, Staff staff)
         {
             reservationController = new ReservationController();
             tableController = new TableController();
             reservation = new Reservation();
+            this.currentUser = staff;
             this.mainForm = mainForm;
             this.billController = billController;
             this.billController.AddObserver(this);
@@ -30,10 +32,9 @@ namespace View.Forms
         }
         public void UpdateForm()
         {
-            Debug.WriteLine("Kaas");
             TableOccupied();
         }
-
+         
         private void TableOccupied()
         {
             List<Button> buttons = FillButtonList();
@@ -75,7 +76,7 @@ namespace View.Forms
         private void fillListViewTables(Reservation reservation)
         {
             pnlReservations.Show();
-            lblTafel1.Text = $"Tafel {reservation.TableId}";
+            lblTafel.Text = $"Tafel {reservation.TableId}";
             List<Reservation> reservationList = reservationController.GetReservationsForTable(reservation);
 
             listViewTable1.Items.Clear();
@@ -142,26 +143,28 @@ namespace View.Forms
 
         private void btnBevestigen_Click(object sender, EventArgs e)
         {
-            DialogResult dr = MessageBox.Show("Weet u zeker dat u de tafel wilt bezetten?", "Tafel Beztten", MessageBoxButtons.YesNo);
+            DialogResult dr = MessageBox.Show("Weet u zeker dat u de tafel wilt bezetten?", "Tafel Bezetten", MessageBoxButtons.YesNo);
             switch (dr)
             {
                 case DialogResult.Yes:
                     Table table = new Table();
-                    string[] tableName = lblTafel1.Text.Split(' ');
+                    string[] tableName = lblTafel.Text.Split(' ');
                     table.Id = int.Parse(tableName[1]);
                     table.Occupied = true;
                     BillController billController = new BillController();
-                    Staff staff = new Staff();
-                    staff.Id = 1;
+
                     //Aanpassen naar goede staff id 
-                    billController.CreateBill(table, staff);
+                    billController.CreateBill(table, currentUser);
                     tableController.ChangeOccupied(table);
                     TableOccupied();
                     TimeSeated(table.Id);
+                    LoadTableInfo(table.Id);
                     break;
                 case DialogResult.No:
                     break;
+
             }
+            
         }
 
         private void btnReserveringToevoegen_Click(object sender, EventArgs e)
@@ -181,7 +184,6 @@ namespace View.Forms
 
         private void btnBetalen_Click(object sender, EventArgs e)
         {
-            //Change this to currentTable
             mainForm.OpenChildForm(new BillScreen(new Table(1, true), billController), sender);
         }
     }

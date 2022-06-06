@@ -35,11 +35,11 @@ namespace View.Forms
             listViewReserveringen.Enabled = true;
             List<Reservation> reservationList = reservationController.GetReservationByName(reservation);
             listViewReserveringen.Items.Clear();
-            loadListview(reservationList);
+            LoadListview(reservationList);
         }
 
 
-        private void loadListview(List<Reservation> reservationList)
+        private void LoadListview(List<Reservation> reservationList)
         {
             foreach (Reservation r in reservationList)
             {
@@ -129,7 +129,7 @@ namespace View.Forms
             FillComboboxTafel();
             FillComboBoxUren();
             FillComboboxTijdUrenZoeken();
-            FIllComboboxTijdMinutenZoeken();
+            FillComboboxTijdMinutenZoeken();
         }
         
         private void HideAllBoxes()
@@ -180,7 +180,7 @@ namespace View.Forms
             }
         }
 
-        private void FIllComboboxTijdMinutenZoeken()
+        private void FillComboboxTijdMinutenZoeken()
         {
             for (int i = 0; i <= 45; i += 15)
             {

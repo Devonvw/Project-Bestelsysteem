@@ -54,5 +54,9 @@ namespace Controller
             if (validate_emailaddress.IsMatch(staff.Email) != true) throw new Exception("Dit is geen geldige email");
             menuDb.UpdateStaff(staff);
         }
+        public Staff GetStaffByEmail(Staff staff)
+        {
+            return menuDb.GetStaffByEmail(staff);
+        }
     }
 }

@@ -28,7 +28,7 @@ namespace View.Forms
             reservation.Name = txtboxNaam.Text;
             List<Reservation> reservationList = reservationController.GetReservationByName(reservation);
             listViewReserveringen.Items.Clear();
-            loadListview(reservationList);
+            LoadListview(reservationList);
         }
 
         private void btnZoekReserveringOpDatum_Click(object sender, EventArgs e)
@@ -36,10 +36,10 @@ namespace View.Forms
             reservation.DateTime = DateTime.Parse(dateTimePicker.Value.ToString("yyyy/MM/dd"));
             List<Reservation> reservationList = reservationController.GetReservationByTime(reservation);
             listViewReserveringen.Items.Clear();
-            loadListview(reservationList);
+            LoadListview(reservationList);
         }
 
-        private void loadListview(List<Reservation> reservationList)
+        private void LoadListview(List<Reservation> reservationList)
         {
             foreach (Reservation r in reservationList)
             {

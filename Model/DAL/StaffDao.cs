@@ -75,5 +75,15 @@ namespace Model
             }
             return staffList;
         }
+        public Staff GetStaffByEmail(Staff staff)
+        {
+            string query = "SELECT * FROM Staff WHERE [email] = @email";
+            SqlParameter[] sqlParameters = new SqlParameter[1]
+            {
+                new SqlParameter("@email", staff.Email)
+            };
+            List<Staff> staffList = ReadTables(ExecuteSelectQuery(query, sqlParameters));
+            return staffList[0];
+        }
     }
 }

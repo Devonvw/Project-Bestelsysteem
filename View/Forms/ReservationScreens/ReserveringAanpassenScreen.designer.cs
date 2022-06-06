@@ -232,6 +232,7 @@
             this.dateTimePicker.Name = "dateTimePicker";
             this.dateTimePicker.Size = new System.Drawing.Size(157, 39);
             this.dateTimePicker.TabIndex = 42;
+            this.dateTimePicker.MinDate = System.DateTime.Today;
             // 
             // btnZoekReserveringOpDatum
             // 

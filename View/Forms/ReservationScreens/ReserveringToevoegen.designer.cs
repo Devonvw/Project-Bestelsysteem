@@ -143,6 +143,7 @@
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(237, 39);
             this.dateTimePicker1.TabIndex = 5;
+            this.dateTimePicker1.MinDate = System.DateTime.Today;
             // 
             // lblDatum
             // 

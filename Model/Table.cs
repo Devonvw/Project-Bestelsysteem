@@ -12,6 +12,7 @@ namespace Model
         public int Id { get; set; }
         public bool Occupied { get; set; }
         public DateTime TimeSeated { get; set; }
+        public DateTime LastOrdered { get; set; }
 
         public Table(int id, bool occupied, DateTime timeSeated)
         {

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.billOverViewListView = new System.Windows.Forms.ListView();
+            this.OrderItemId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.MenuItem = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Amount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Comment = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -39,12 +40,12 @@
             this.togglePanel = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.addOrderPanel = new System.Windows.Forms.Panel();
+            this.lunchSubPanel = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
             this.commentAndAmountPanel = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.amountLabel = new System.Windows.Forms.Label();
             this.addCommentTextBox = new System.Windows.Forms.TextBox();
-            this.lunchSubPanel = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
             this.dinerSubPanel = new System.Windows.Forms.Panel();
             this.dinerSubLabel = new System.Windows.Forms.Label();
             this.drankenSubPanel = new System.Windows.Forms.Panel();
@@ -52,17 +53,23 @@
             this.alchoholSubPanel = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.menuItemsListView = new System.Windows.Forms.ListView();
+            this.ID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Item = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.stock = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.newOrderItemsListView = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.minusButton = new View.CustomControls.CustomButton();
-            this.plusButton = new View.CustomControls.CustomButton();
+            this.deleteOrderInPreperationButton = new View.CustomControls.CustomButton();
+            this.updateItemButton = new View.CustomControls.CustomButton();
+            this.groupItemsToggle = new View.CustomControls.ToggleButton();
+            this.ChangeOrderButton = new View.CustomControls.CustomButton();
+            this.backToTablesButton = new View.CustomControls.CustomButton();
+            this.newOrderButton = new View.CustomControls.CustomButton();
             this.lunchMainButton = new View.CustomControls.CustomButton();
             this.lunchDesertButton = new View.CustomControls.CustomButton();
             this.lunchStarterButton = new View.CustomControls.CustomButton();
+            this.minusButton = new View.CustomControls.CustomButton();
+            this.plusButton = new View.CustomControls.CustomButton();
             this.changeItemButton = new View.CustomControls.CustomButton();
             this.clearOrderButton = new View.CustomControls.CustomButton();
             this.dinerDesertButton = new View.CustomControls.CustomButton();
@@ -82,17 +89,12 @@
             this.backToOverviewButton = new View.CustomControls.CustomButton();
             this.insertOrderButton = new View.CustomControls.CustomButton();
             this.addItemButton = new View.CustomControls.CustomButton();
-            this.deleteOrderInPreperationButton = new View.CustomControls.CustomButton();
-            this.updateItemButton = new View.CustomControls.CustomButton();
-            this.groupItemsToggle = new View.CustomControls.ToggleButton();
-            this.ChangeOrderButton = new View.CustomControls.CustomButton();
-            this.backToTablesButton = new View.CustomControls.CustomButton();
-            this.newOrderButton = new View.CustomControls.CustomButton();
+            this.stock = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.overViewPanel.SuspendLayout();
             this.togglePanel.SuspendLayout();
             this.addOrderPanel.SuspendLayout();
-            this.commentAndAmountPanel.SuspendLayout();
             this.lunchSubPanel.SuspendLayout();
+            this.commentAndAmountPanel.SuspendLayout();
             this.dinerSubPanel.SuspendLayout();
             this.drankenSubPanel.SuspendLayout();
             this.alchoholSubPanel.SuspendLayout();
@@ -101,6 +103,7 @@
             // billOverViewListView
             // 
             this.billOverViewListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.OrderItemId,
             this.MenuItem,
             this.Amount,
             this.Comment});
@@ -113,7 +116,11 @@
             this.billOverViewListView.TabIndex = 3;
             this.billOverViewListView.UseCompatibleStateImageBehavior = false;
             this.billOverViewListView.View = System.Windows.Forms.View.Details;
-            this.billOverViewListView.SelectedIndexChanged += new System.EventHandler(this.billOverViewListView_SelectedIndexChanged);
+            // 
+            // OrderItemId
+            // 
+            this.OrderItemId.Text = "ID";
+            this.OrderItemId.Width = 25;
             // 
             // MenuItem
             // 
@@ -196,8 +203,8 @@
             // 
             // addOrderPanel
             // 
-            this.addOrderPanel.Controls.Add(this.commentAndAmountPanel);
             this.addOrderPanel.Controls.Add(this.lunchSubPanel);
+            this.addOrderPanel.Controls.Add(this.commentAndAmountPanel);
             this.addOrderPanel.Controls.Add(this.changeItemButton);
             this.addOrderPanel.Controls.Add(this.clearOrderButton);
             this.addOrderPanel.Controls.Add(this.dinerSubPanel);
@@ -218,6 +225,28 @@
             this.addOrderPanel.Size = new System.Drawing.Size(428, 795);
             this.addOrderPanel.TabIndex = 18;
             this.addOrderPanel.Visible = false;
+            // 
+            // lunchSubPanel
+            // 
+            this.lunchSubPanel.Controls.Add(this.lunchMainButton);
+            this.lunchSubPanel.Controls.Add(this.lunchDesertButton);
+            this.lunchSubPanel.Controls.Add(this.lunchStarterButton);
+            this.lunchSubPanel.Controls.Add(this.label6);
+            this.lunchSubPanel.Location = new System.Drawing.Point(305, 55);
+            this.lunchSubPanel.Name = "lunchSubPanel";
+            this.lunchSubPanel.Size = new System.Drawing.Size(102, 326);
+            this.lunchSubPanel.TabIndex = 23;
+            this.lunchSubPanel.Visible = false;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.SystemColors.Control;
+            this.label6.Location = new System.Drawing.Point(29, 10);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(37, 13);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Lunch";
             // 
             // commentAndAmountPanel
             // 
@@ -247,7 +276,7 @@
             this.amountLabel.AutoSize = true;
             this.amountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.amountLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.amountLabel.Location = new System.Drawing.Point(190, 7);
+            this.amountLabel.Location = new System.Drawing.Point(203, 9);
             this.amountLabel.Name = "amountLabel";
             this.amountLabel.Size = new System.Drawing.Size(37, 39);
             this.amountLabel.TabIndex = 17;
@@ -260,28 +289,6 @@
             this.addCommentTextBox.Name = "addCommentTextBox";
             this.addCommentTextBox.Size = new System.Drawing.Size(130, 20);
             this.addCommentTextBox.TabIndex = 18;
-            // 
-            // lunchSubPanel
-            // 
-            this.lunchSubPanel.Controls.Add(this.lunchMainButton);
-            this.lunchSubPanel.Controls.Add(this.lunchDesertButton);
-            this.lunchSubPanel.Controls.Add(this.lunchStarterButton);
-            this.lunchSubPanel.Controls.Add(this.label6);
-            this.lunchSubPanel.Location = new System.Drawing.Point(305, 55);
-            this.lunchSubPanel.Name = "lunchSubPanel";
-            this.lunchSubPanel.Size = new System.Drawing.Size(102, 326);
-            this.lunchSubPanel.TabIndex = 23;
-            this.lunchSubPanel.Visible = false;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.ForeColor = System.Drawing.SystemColors.Control;
-            this.label6.Location = new System.Drawing.Point(29, 10);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(37, 13);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Lunch";
             // 
             // dinerSubPanel
             // 
@@ -352,6 +359,7 @@
             // menuItemsListView
             // 
             this.menuItemsListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.ID,
             this.Item,
             this.stock});
             this.menuItemsListView.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -365,17 +373,16 @@
             this.menuItemsListView.UseCompatibleStateImageBehavior = false;
             this.menuItemsListView.View = System.Windows.Forms.View.Details;
             this.menuItemsListView.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.menuItemsListView_ItemSelectionChanged);
-            this.menuItemsListView.SelectedIndexChanged += new System.EventHandler(this.menuItemsListView_SelectedIndexChanged);
+            // 
+            // ID
+            // 
+            this.ID.Text = "ID";
+            this.ID.Width = 29;
             // 
             // Item
             // 
             this.Item.Text = "Item";
             this.Item.Width = 182;
-            // 
-            // stock
-            // 
-            this.stock.Text = "Voorraad";
-            this.stock.Width = 90;
             // 
             // newOrderItemsListView
             // 
@@ -394,7 +401,6 @@
             this.newOrderItemsListView.UseCompatibleStateImageBehavior = false;
             this.newOrderItemsListView.View = System.Windows.Forms.View.Details;
             this.newOrderItemsListView.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.newOrderItemsListView_ItemSelectionChanged);
-            this.newOrderItemsListView.SelectedIndexChanged += new System.EventHandler(this.newOrderItemsListView_SelectedIndexChanged);
             // 
             // columnHeader1
             // 
@@ -411,45 +417,118 @@
             this.columnHeader3.Text = "Comment";
             this.columnHeader3.Width = 100;
             // 
-            // minusButton
+            // deleteOrderInPreperationButton
             // 
-            this.minusButton.BackColor = System.Drawing.Color.Tomato;
-            this.minusButton.BackgroundColor = System.Drawing.Color.Tomato;
-            this.minusButton.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.minusButton.BorderRadius = 23;
-            this.minusButton.BorderSize = 0;
-            this.minusButton.FlatAppearance.BorderSize = 0;
-            this.minusButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.minusButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.minusButton.ForeColor = System.Drawing.Color.Black;
-            this.minusButton.Location = new System.Drawing.Point(148, 9);
-            this.minusButton.Name = "minusButton";
-            this.minusButton.Size = new System.Drawing.Size(44, 37);
-            this.minusButton.TabIndex = 16;
-            this.minusButton.Text = "-";
-            this.minusButton.TextColor = System.Drawing.Color.Black;
-            this.minusButton.UseVisualStyleBackColor = false;
-            this.minusButton.Click += new System.EventHandler(this.minusButton_Click);
+            this.deleteOrderInPreperationButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(58)))), ((int)(((byte)(118)))));
+            this.deleteOrderInPreperationButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(58)))), ((int)(((byte)(118)))));
+            this.deleteOrderInPreperationButton.BorderColor = System.Drawing.Color.White;
+            this.deleteOrderInPreperationButton.BorderRadius = 20;
+            this.deleteOrderInPreperationButton.BorderSize = 1;
+            this.deleteOrderInPreperationButton.FlatAppearance.BorderSize = 0;
+            this.deleteOrderInPreperationButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.deleteOrderInPreperationButton.ForeColor = System.Drawing.Color.White;
+            this.deleteOrderInPreperationButton.Location = new System.Drawing.Point(14, 621);
+            this.deleteOrderInPreperationButton.Name = "deleteOrderInPreperationButton";
+            this.deleteOrderInPreperationButton.Size = new System.Drawing.Size(192, 70);
+            this.deleteOrderInPreperationButton.TabIndex = 32;
+            this.deleteOrderInPreperationButton.Text = "Verwijder bestelling";
+            this.deleteOrderInPreperationButton.TextColor = System.Drawing.Color.White;
+            this.deleteOrderInPreperationButton.UseVisualStyleBackColor = false;
+            this.deleteOrderInPreperationButton.Visible = false;
+            this.deleteOrderInPreperationButton.Click += new System.EventHandler(this.deleteOrderInPreperationButton_Click);
             // 
-            // plusButton
+            // updateItemButton
             // 
-            this.plusButton.BackColor = System.Drawing.Color.PaleGreen;
-            this.plusButton.BackgroundColor = System.Drawing.Color.PaleGreen;
-            this.plusButton.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.plusButton.BorderRadius = 25;
-            this.plusButton.BorderSize = 0;
-            this.plusButton.FlatAppearance.BorderSize = 0;
-            this.plusButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.plusButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.plusButton.ForeColor = System.Drawing.Color.Black;
-            this.plusButton.Location = new System.Drawing.Point(241, 9);
-            this.plusButton.Name = "plusButton";
-            this.plusButton.Size = new System.Drawing.Size(44, 37);
-            this.plusButton.TabIndex = 15;
-            this.plusButton.Text = "+";
-            this.plusButton.TextColor = System.Drawing.Color.Black;
-            this.plusButton.UseVisualStyleBackColor = false;
-            this.plusButton.Click += new System.EventHandler(this.plusButton_Click);
+            this.updateItemButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(58)))), ((int)(((byte)(118)))));
+            this.updateItemButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(58)))), ((int)(((byte)(118)))));
+            this.updateItemButton.BorderColor = System.Drawing.Color.PaleGreen;
+            this.updateItemButton.BorderRadius = 20;
+            this.updateItemButton.BorderSize = 3;
+            this.updateItemButton.FlatAppearance.BorderSize = 0;
+            this.updateItemButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.updateItemButton.ForeColor = System.Drawing.Color.White;
+            this.updateItemButton.Location = new System.Drawing.Point(223, 697);
+            this.updateItemButton.Name = "updateItemButton";
+            this.updateItemButton.Size = new System.Drawing.Size(193, 70);
+            this.updateItemButton.TabIndex = 31;
+            this.updateItemButton.Text = "Wijzig Item";
+            this.updateItemButton.TextColor = System.Drawing.Color.White;
+            this.updateItemButton.UseVisualStyleBackColor = false;
+            this.updateItemButton.Visible = false;
+            this.updateItemButton.Click += new System.EventHandler(this.updateItemButton_Click);
+            // 
+            // groupItemsToggle
+            // 
+            this.groupItemsToggle.Checked = true;
+            this.groupItemsToggle.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.groupItemsToggle.Location = new System.Drawing.Point(303, 24);
+            this.groupItemsToggle.MinimumSize = new System.Drawing.Size(45, 22);
+            this.groupItemsToggle.Name = "groupItemsToggle";
+            this.groupItemsToggle.OffBackColor = System.Drawing.Color.Gray;
+            this.groupItemsToggle.OffToggleColor = System.Drawing.Color.Gainsboro;
+            this.groupItemsToggle.OnBackColor = System.Drawing.Color.MediumSlateBlue;
+            this.groupItemsToggle.OnToggleColor = System.Drawing.Color.WhiteSmoke;
+            this.groupItemsToggle.Size = new System.Drawing.Size(101, 23);
+            this.groupItemsToggle.TabIndex = 17;
+            this.groupItemsToggle.UseVisualStyleBackColor = true;
+            this.groupItemsToggle.CheckedChanged += new System.EventHandler(this.groupItemsToggle_CheckedChanged);
+            // 
+            // ChangeOrderButton
+            // 
+            this.ChangeOrderButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(58)))), ((int)(((byte)(118)))));
+            this.ChangeOrderButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(58)))), ((int)(((byte)(118)))));
+            this.ChangeOrderButton.BorderColor = System.Drawing.Color.White;
+            this.ChangeOrderButton.BorderRadius = 20;
+            this.ChangeOrderButton.BorderSize = 1;
+            this.ChangeOrderButton.FlatAppearance.BorderSize = 0;
+            this.ChangeOrderButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ChangeOrderButton.ForeColor = System.Drawing.Color.White;
+            this.ChangeOrderButton.Location = new System.Drawing.Point(223, 621);
+            this.ChangeOrderButton.Name = "ChangeOrderButton";
+            this.ChangeOrderButton.Size = new System.Drawing.Size(193, 70);
+            this.ChangeOrderButton.TabIndex = 18;
+            this.ChangeOrderButton.Text = "Wijzig bestelling";
+            this.ChangeOrderButton.TextColor = System.Drawing.Color.White;
+            this.ChangeOrderButton.UseVisualStyleBackColor = false;
+            this.ChangeOrderButton.Click += new System.EventHandler(this.ChangeOrderButton_Click);
+            // 
+            // backToTablesButton
+            // 
+            this.backToTablesButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(58)))), ((int)(((byte)(118)))));
+            this.backToTablesButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(58)))), ((int)(((byte)(118)))));
+            this.backToTablesButton.BorderColor = System.Drawing.Color.White;
+            this.backToTablesButton.BorderRadius = 20;
+            this.backToTablesButton.BorderSize = 1;
+            this.backToTablesButton.FlatAppearance.BorderSize = 0;
+            this.backToTablesButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.backToTablesButton.ForeColor = System.Drawing.Color.White;
+            this.backToTablesButton.Location = new System.Drawing.Point(13, 697);
+            this.backToTablesButton.Name = "backToTablesButton";
+            this.backToTablesButton.Size = new System.Drawing.Size(192, 70);
+            this.backToTablesButton.TabIndex = 10;
+            this.backToTablesButton.Text = "Terug naar tafels";
+            this.backToTablesButton.TextColor = System.Drawing.Color.White;
+            this.backToTablesButton.UseVisualStyleBackColor = false;
+            this.backToTablesButton.Click += new System.EventHandler(this.backToTablesButton_Click);
+            // 
+            // newOrderButton
+            // 
+            this.newOrderButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(58)))), ((int)(((byte)(118)))));
+            this.newOrderButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(58)))), ((int)(((byte)(118)))));
+            this.newOrderButton.BorderColor = System.Drawing.Color.PaleGreen;
+            this.newOrderButton.BorderRadius = 20;
+            this.newOrderButton.BorderSize = 3;
+            this.newOrderButton.FlatAppearance.BorderSize = 0;
+            this.newOrderButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.newOrderButton.ForeColor = System.Drawing.Color.White;
+            this.newOrderButton.Location = new System.Drawing.Point(223, 697);
+            this.newOrderButton.Name = "newOrderButton";
+            this.newOrderButton.Size = new System.Drawing.Size(193, 70);
+            this.newOrderButton.TabIndex = 7;
+            this.newOrderButton.Text = "Nieuwe bestelling";
+            this.newOrderButton.TextColor = System.Drawing.Color.White;
+            this.newOrderButton.UseVisualStyleBackColor = false;
+            this.newOrderButton.Click += new System.EventHandler(this.newOrderButton_Click);
             // 
             // lunchMainButton
             // 
@@ -507,6 +586,46 @@
             this.lunchStarterButton.TextColor = System.Drawing.Color.White;
             this.lunchStarterButton.UseVisualStyleBackColor = false;
             this.lunchStarterButton.Click += new System.EventHandler(this.lunchStarterButton_Click);
+            // 
+            // minusButton
+            // 
+            this.minusButton.BackColor = System.Drawing.Color.Tomato;
+            this.minusButton.BackgroundColor = System.Drawing.Color.Tomato;
+            this.minusButton.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.minusButton.BorderRadius = 23;
+            this.minusButton.BorderSize = 0;
+            this.minusButton.FlatAppearance.BorderSize = 0;
+            this.minusButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.minusButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.minusButton.ForeColor = System.Drawing.Color.Black;
+            this.minusButton.Location = new System.Drawing.Point(160, 9);
+            this.minusButton.Name = "minusButton";
+            this.minusButton.Size = new System.Drawing.Size(44, 37);
+            this.minusButton.TabIndex = 16;
+            this.minusButton.Text = "-";
+            this.minusButton.TextColor = System.Drawing.Color.Black;
+            this.minusButton.UseVisualStyleBackColor = false;
+            this.minusButton.Click += new System.EventHandler(this.minusButton_Click);
+            // 
+            // plusButton
+            // 
+            this.plusButton.BackColor = System.Drawing.Color.PaleGreen;
+            this.plusButton.BackgroundColor = System.Drawing.Color.PaleGreen;
+            this.plusButton.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.plusButton.BorderRadius = 25;
+            this.plusButton.BorderSize = 0;
+            this.plusButton.FlatAppearance.BorderSize = 0;
+            this.plusButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.plusButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.plusButton.ForeColor = System.Drawing.Color.Black;
+            this.plusButton.Location = new System.Drawing.Point(241, 9);
+            this.plusButton.Name = "plusButton";
+            this.plusButton.Size = new System.Drawing.Size(44, 37);
+            this.plusButton.TabIndex = 15;
+            this.plusButton.Text = "+";
+            this.plusButton.TextColor = System.Drawing.Color.Black;
+            this.plusButton.UseVisualStyleBackColor = false;
+            this.plusButton.Click += new System.EventHandler(this.plusButton_Click);
             // 
             // changeItemButton
             // 
@@ -875,118 +994,10 @@
             this.addItemButton.UseVisualStyleBackColor = false;
             this.addItemButton.Click += new System.EventHandler(this.addItemButton_Click);
             // 
-            // deleteOrderInPreperationButton
+            // stock
             // 
-            this.deleteOrderInPreperationButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(58)))), ((int)(((byte)(118)))));
-            this.deleteOrderInPreperationButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(58)))), ((int)(((byte)(118)))));
-            this.deleteOrderInPreperationButton.BorderColor = System.Drawing.Color.White;
-            this.deleteOrderInPreperationButton.BorderRadius = 20;
-            this.deleteOrderInPreperationButton.BorderSize = 1;
-            this.deleteOrderInPreperationButton.FlatAppearance.BorderSize = 0;
-            this.deleteOrderInPreperationButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.deleteOrderInPreperationButton.ForeColor = System.Drawing.Color.White;
-            this.deleteOrderInPreperationButton.Location = new System.Drawing.Point(14, 621);
-            this.deleteOrderInPreperationButton.Name = "deleteOrderInPreperationButton";
-            this.deleteOrderInPreperationButton.Size = new System.Drawing.Size(192, 70);
-            this.deleteOrderInPreperationButton.TabIndex = 32;
-            this.deleteOrderInPreperationButton.Text = "Verwijder bestelling";
-            this.deleteOrderInPreperationButton.TextColor = System.Drawing.Color.White;
-            this.deleteOrderInPreperationButton.UseVisualStyleBackColor = false;
-            this.deleteOrderInPreperationButton.Visible = false;
-            this.deleteOrderInPreperationButton.Click += new System.EventHandler(this.deleteOrderInPreperationButton_Click);
-            // 
-            // updateItemButton
-            // 
-            this.updateItemButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(58)))), ((int)(((byte)(118)))));
-            this.updateItemButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(58)))), ((int)(((byte)(118)))));
-            this.updateItemButton.BorderColor = System.Drawing.Color.PaleGreen;
-            this.updateItemButton.BorderRadius = 20;
-            this.updateItemButton.BorderSize = 3;
-            this.updateItemButton.FlatAppearance.BorderSize = 0;
-            this.updateItemButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.updateItemButton.ForeColor = System.Drawing.Color.White;
-            this.updateItemButton.Location = new System.Drawing.Point(223, 697);
-            this.updateItemButton.Name = "updateItemButton";
-            this.updateItemButton.Size = new System.Drawing.Size(193, 70);
-            this.updateItemButton.TabIndex = 31;
-            this.updateItemButton.Text = "Wijzig Item";
-            this.updateItemButton.TextColor = System.Drawing.Color.White;
-            this.updateItemButton.UseVisualStyleBackColor = false;
-            this.updateItemButton.Visible = false;
-            this.updateItemButton.Click += new System.EventHandler(this.updateItemButton_Click);
-            // 
-            // groupItemsToggle
-            // 
-            this.groupItemsToggle.Checked = true;
-            this.groupItemsToggle.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.groupItemsToggle.Location = new System.Drawing.Point(303, 24);
-            this.groupItemsToggle.MinimumSize = new System.Drawing.Size(45, 22);
-            this.groupItemsToggle.Name = "groupItemsToggle";
-            this.groupItemsToggle.OffBackColor = System.Drawing.Color.Gray;
-            this.groupItemsToggle.OffToggleColor = System.Drawing.Color.Gainsboro;
-            this.groupItemsToggle.OnBackColor = System.Drawing.Color.MediumSlateBlue;
-            this.groupItemsToggle.OnToggleColor = System.Drawing.Color.WhiteSmoke;
-            this.groupItemsToggle.Size = new System.Drawing.Size(101, 23);
-            this.groupItemsToggle.TabIndex = 17;
-            this.groupItemsToggle.UseVisualStyleBackColor = true;
-            this.groupItemsToggle.CheckedChanged += new System.EventHandler(this.groupItemsToggle_CheckedChanged);
-            // 
-            // ChangeOrderButton
-            // 
-            this.ChangeOrderButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(58)))), ((int)(((byte)(118)))));
-            this.ChangeOrderButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(58)))), ((int)(((byte)(118)))));
-            this.ChangeOrderButton.BorderColor = System.Drawing.Color.White;
-            this.ChangeOrderButton.BorderRadius = 20;
-            this.ChangeOrderButton.BorderSize = 1;
-            this.ChangeOrderButton.FlatAppearance.BorderSize = 0;
-            this.ChangeOrderButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ChangeOrderButton.ForeColor = System.Drawing.Color.White;
-            this.ChangeOrderButton.Location = new System.Drawing.Point(223, 621);
-            this.ChangeOrderButton.Name = "ChangeOrderButton";
-            this.ChangeOrderButton.Size = new System.Drawing.Size(193, 70);
-            this.ChangeOrderButton.TabIndex = 18;
-            this.ChangeOrderButton.Text = "Wijzig bestelling";
-            this.ChangeOrderButton.TextColor = System.Drawing.Color.White;
-            this.ChangeOrderButton.UseVisualStyleBackColor = false;
-            this.ChangeOrderButton.Click += new System.EventHandler(this.ChangeOrderButton_Click);
-            // 
-            // backToTablesButton
-            // 
-            this.backToTablesButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(58)))), ((int)(((byte)(118)))));
-            this.backToTablesButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(58)))), ((int)(((byte)(118)))));
-            this.backToTablesButton.BorderColor = System.Drawing.Color.White;
-            this.backToTablesButton.BorderRadius = 20;
-            this.backToTablesButton.BorderSize = 1;
-            this.backToTablesButton.FlatAppearance.BorderSize = 0;
-            this.backToTablesButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.backToTablesButton.ForeColor = System.Drawing.Color.White;
-            this.backToTablesButton.Location = new System.Drawing.Point(13, 697);
-            this.backToTablesButton.Name = "backToTablesButton";
-            this.backToTablesButton.Size = new System.Drawing.Size(192, 70);
-            this.backToTablesButton.TabIndex = 10;
-            this.backToTablesButton.Text = "Terug naar tafels";
-            this.backToTablesButton.TextColor = System.Drawing.Color.White;
-            this.backToTablesButton.UseVisualStyleBackColor = false;
-            this.backToTablesButton.Click += new System.EventHandler(this.backToTablesButton_Click);
-            // 
-            // newOrderButton
-            // 
-            this.newOrderButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(58)))), ((int)(((byte)(118)))));
-            this.newOrderButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(58)))), ((int)(((byte)(118)))));
-            this.newOrderButton.BorderColor = System.Drawing.Color.PaleGreen;
-            this.newOrderButton.BorderRadius = 20;
-            this.newOrderButton.BorderSize = 3;
-            this.newOrderButton.FlatAppearance.BorderSize = 0;
-            this.newOrderButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.newOrderButton.ForeColor = System.Drawing.Color.White;
-            this.newOrderButton.Location = new System.Drawing.Point(223, 697);
-            this.newOrderButton.Name = "newOrderButton";
-            this.newOrderButton.Size = new System.Drawing.Size(193, 70);
-            this.newOrderButton.TabIndex = 7;
-            this.newOrderButton.Text = "Nieuwe bestelling";
-            this.newOrderButton.TextColor = System.Drawing.Color.White;
-            this.newOrderButton.UseVisualStyleBackColor = false;
-            this.newOrderButton.Click += new System.EventHandler(this.newOrderButton_Click);
+            this.stock.Text = "Voorraad";
+            this.stock.Width = 90;
             // 
             // Overview
             // 
@@ -1007,10 +1018,10 @@
             this.togglePanel.ResumeLayout(false);
             this.togglePanel.PerformLayout();
             this.addOrderPanel.ResumeLayout(false);
-            this.commentAndAmountPanel.ResumeLayout(false);
-            this.commentAndAmountPanel.PerformLayout();
             this.lunchSubPanel.ResumeLayout(false);
             this.lunchSubPanel.PerformLayout();
+            this.commentAndAmountPanel.ResumeLayout(false);
+            this.commentAndAmountPanel.PerformLayout();
             this.dinerSubPanel.ResumeLayout(false);
             this.dinerSubPanel.PerformLayout();
             this.drankenSubPanel.ResumeLayout(false);
@@ -1068,6 +1079,7 @@
         private CustomControls.CustomButton dinerButton;
         private CustomControls.CustomButton lunchButton;
         private System.Windows.Forms.ListView menuItemsListView;
+        private System.Windows.Forms.ColumnHeader ID;
         private System.Windows.Forms.ColumnHeader Item;
         private CustomControls.CustomButton backToOverviewButton;
         private System.Windows.Forms.ListView newOrderItemsListView;
@@ -1081,6 +1093,7 @@
         private System.Windows.Forms.Label label2;
         private CustomControls.ToggleButton groupItemsToggle;
         private CustomControls.CustomButton updateItemButton;
+        private System.Windows.Forms.ColumnHeader OrderItemId;
         private CustomControls.CustomButton deleteOrderInPreperationButton;
         private System.Windows.Forms.ColumnHeader stock;
     }

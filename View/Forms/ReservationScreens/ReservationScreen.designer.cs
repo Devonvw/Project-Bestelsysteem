@@ -46,7 +46,7 @@
             this.Naam = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Personen = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Tijd = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.lblTafel1 = new System.Windows.Forms.Label();
+            this.lblTafel = new System.Windows.Forms.Label();
             this.btnReserveringToevoegen = new System.Windows.Forms.Button();
             this.btnReserveringVerwijderen = new System.Windows.Forms.Button();
             this.btnReserveringAanpassen = new System.Windows.Forms.Button();
@@ -59,10 +59,9 @@
             this.btnTable1.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.btnTable1.Font = new System.Drawing.Font("Myanmar Text", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTable1.ForeColor = System.Drawing.Color.White;
-            this.btnTable1.Location = new System.Drawing.Point(56, 118);
-            this.btnTable1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnTable1.Location = new System.Drawing.Point(50, 94);
             this.btnTable1.Name = "btnTable1";
-            this.btnTable1.Size = new System.Drawing.Size(169, 125);
+            this.btnTable1.Size = new System.Drawing.Size(150, 100);
             this.btnTable1.TabIndex = 0;
             this.btnTable1.Text = "1";
             this.btnTable1.UseVisualStyleBackColor = false;
@@ -73,10 +72,9 @@
             this.btnTable2.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.btnTable2.Font = new System.Drawing.Font("Myanmar Text", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTable2.ForeColor = System.Drawing.Color.White;
-            this.btnTable2.Location = new System.Drawing.Point(232, 118);
-            this.btnTable2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnTable2.Location = new System.Drawing.Point(206, 94);
             this.btnTable2.Name = "btnTable2";
-            this.btnTable2.Size = new System.Drawing.Size(169, 125);
+            this.btnTable2.Size = new System.Drawing.Size(150, 100);
             this.btnTable2.TabIndex = 1;
             this.btnTable2.Text = "2";
             this.btnTable2.UseVisualStyleBackColor = false;
@@ -87,10 +85,9 @@
             this.btnTable3.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.btnTable3.Font = new System.Drawing.Font("Myanmar Text", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTable3.ForeColor = System.Drawing.Color.White;
-            this.btnTable3.Location = new System.Drawing.Point(56, 244);
-            this.btnTable3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnTable3.Location = new System.Drawing.Point(50, 195);
             this.btnTable3.Name = "btnTable3";
-            this.btnTable3.Size = new System.Drawing.Size(169, 125);
+            this.btnTable3.Size = new System.Drawing.Size(150, 100);
             this.btnTable3.TabIndex = 2;
             this.btnTable3.Text = "3";
             this.btnTable3.UseVisualStyleBackColor = false;
@@ -101,10 +98,9 @@
             this.btnTable5.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.btnTable5.Font = new System.Drawing.Font("Myanmar Text", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTable5.ForeColor = System.Drawing.Color.White;
-            this.btnTable5.Location = new System.Drawing.Point(56, 372);
-            this.btnTable5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnTable5.Location = new System.Drawing.Point(50, 298);
             this.btnTable5.Name = "btnTable5";
-            this.btnTable5.Size = new System.Drawing.Size(169, 125);
+            this.btnTable5.Size = new System.Drawing.Size(150, 100);
             this.btnTable5.TabIndex = 3;
             this.btnTable5.Text = "5";
             this.btnTable5.UseVisualStyleBackColor = false;
@@ -115,10 +111,9 @@
             this.btnTable7.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.btnTable7.Font = new System.Drawing.Font("Myanmar Text", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTable7.ForeColor = System.Drawing.Color.White;
-            this.btnTable7.Location = new System.Drawing.Point(56, 501);
-            this.btnTable7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnTable7.Location = new System.Drawing.Point(50, 401);
             this.btnTable7.Name = "btnTable7";
-            this.btnTable7.Size = new System.Drawing.Size(169, 125);
+            this.btnTable7.Size = new System.Drawing.Size(150, 100);
             this.btnTable7.TabIndex = 4;
             this.btnTable7.Text = "7";
             this.btnTable7.UseVisualStyleBackColor = false;
@@ -129,10 +124,9 @@
             this.btnTable9.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.btnTable9.Font = new System.Drawing.Font("Myanmar Text", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTable9.ForeColor = System.Drawing.Color.White;
-            this.btnTable9.Location = new System.Drawing.Point(56, 630);
-            this.btnTable9.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnTable9.Location = new System.Drawing.Point(50, 504);
             this.btnTable9.Name = "btnTable9";
-            this.btnTable9.Size = new System.Drawing.Size(169, 125);
+            this.btnTable9.Size = new System.Drawing.Size(150, 100);
             this.btnTable9.TabIndex = 5;
             this.btnTable9.Text = "9";
             this.btnTable9.UseVisualStyleBackColor = false;
@@ -143,10 +137,9 @@
             this.btnTable4.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.btnTable4.Font = new System.Drawing.Font("Myanmar Text", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTable4.ForeColor = System.Drawing.Color.White;
-            this.btnTable4.Location = new System.Drawing.Point(232, 244);
-            this.btnTable4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnTable4.Location = new System.Drawing.Point(206, 195);
             this.btnTable4.Name = "btnTable4";
-            this.btnTable4.Size = new System.Drawing.Size(169, 125);
+            this.btnTable4.Size = new System.Drawing.Size(150, 100);
             this.btnTable4.TabIndex = 6;
             this.btnTable4.Text = "4";
             this.btnTable4.UseVisualStyleBackColor = false;
@@ -157,10 +150,9 @@
             this.btnTable6.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.btnTable6.Font = new System.Drawing.Font("Myanmar Text", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTable6.ForeColor = System.Drawing.Color.White;
-            this.btnTable6.Location = new System.Drawing.Point(232, 372);
-            this.btnTable6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnTable6.Location = new System.Drawing.Point(206, 298);
             this.btnTable6.Name = "btnTable6";
-            this.btnTable6.Size = new System.Drawing.Size(169, 125);
+            this.btnTable6.Size = new System.Drawing.Size(150, 100);
             this.btnTable6.TabIndex = 7;
             this.btnTable6.Text = "6";
             this.btnTable6.UseVisualStyleBackColor = false;
@@ -171,10 +163,9 @@
             this.btnTable8.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.btnTable8.Font = new System.Drawing.Font("Myanmar Text", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTable8.ForeColor = System.Drawing.Color.White;
-            this.btnTable8.Location = new System.Drawing.Point(232, 501);
-            this.btnTable8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnTable8.Location = new System.Drawing.Point(206, 401);
             this.btnTable8.Name = "btnTable8";
-            this.btnTable8.Size = new System.Drawing.Size(169, 125);
+            this.btnTable8.Size = new System.Drawing.Size(150, 100);
             this.btnTable8.TabIndex = 8;
             this.btnTable8.Text = "8";
             this.btnTable8.UseVisualStyleBackColor = false;
@@ -185,10 +176,9 @@
             this.btnTable10.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.btnTable10.Font = new System.Drawing.Font("Myanmar Text", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTable10.ForeColor = System.Drawing.Color.White;
-            this.btnTable10.Location = new System.Drawing.Point(232, 628);
-            this.btnTable10.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnTable10.Location = new System.Drawing.Point(206, 502);
             this.btnTable10.Name = "btnTable10";
-            this.btnTable10.Size = new System.Drawing.Size(169, 125);
+            this.btnTable10.Size = new System.Drawing.Size(150, 100);
             this.btnTable10.TabIndex = 9;
             this.btnTable10.Text = "10";
             this.btnTable10.UseVisualStyleBackColor = false;
@@ -201,21 +191,19 @@
             this.pnlReservations.Controls.Add(this.lblTafelBezetVanaf);
             this.pnlReservations.Controls.Add(this.btnBevestigen);
             this.pnlReservations.Controls.Add(this.listViewTable1);
-            this.pnlReservations.Controls.Add(this.lblTafel1);
-            this.pnlReservations.Location = new System.Drawing.Point(446, 55);
-            this.pnlReservations.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pnlReservations.Controls.Add(this.lblTafel);
+            this.pnlReservations.Location = new System.Drawing.Point(396, 44);
             this.pnlReservations.Name = "pnlReservations";
-            this.pnlReservations.Size = new System.Drawing.Size(338, 585);
+            this.pnlReservations.Size = new System.Drawing.Size(300, 468);
             this.pnlReservations.TabIndex = 10;
             // 
             // btnBetalen
             // 
             this.btnBetalen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
             this.btnBetalen.ForeColor = System.Drawing.Color.White;
-            this.btnBetalen.Location = new System.Drawing.Point(17, 345);
-            this.btnBetalen.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnBetalen.Location = new System.Drawing.Point(15, 276);
             this.btnBetalen.Name = "btnBetalen";
-            this.btnBetalen.Size = new System.Drawing.Size(304, 69);
+            this.btnBetalen.Size = new System.Drawing.Size(270, 55);
             this.btnBetalen.TabIndex = 5;
             this.btnBetalen.Text = "Betalen";
             this.btnBetalen.UseVisualStyleBackColor = false;
@@ -226,19 +214,18 @@
             this.lblTafelBezetVanaf.AutoSize = true;
             this.lblTafelBezetVanaf.BackColor = System.Drawing.Color.White;
             this.lblTafelBezetVanaf.Font = new System.Drawing.Font("Myanmar Text", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTafelBezetVanaf.Location = new System.Drawing.Point(34, 520);
+            this.lblTafelBezetVanaf.Location = new System.Drawing.Point(30, 416);
             this.lblTafelBezetVanaf.Name = "lblTafelBezetVanaf";
-            this.lblTafelBezetVanaf.Size = new System.Drawing.Size(0, 37);
+            this.lblTafelBezetVanaf.Size = new System.Drawing.Size(0, 30);
             this.lblTafelBezetVanaf.TabIndex = 4;
             // 
             // btnBevestigen
             // 
             this.btnBevestigen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
             this.btnBevestigen.ForeColor = System.Drawing.Color.White;
-            this.btnBevestigen.Location = new System.Drawing.Point(17, 421);
-            this.btnBevestigen.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnBevestigen.Location = new System.Drawing.Point(15, 337);
             this.btnBevestigen.Name = "btnBevestigen";
-            this.btnBevestigen.Size = new System.Drawing.Size(304, 69);
+            this.btnBevestigen.Size = new System.Drawing.Size(270, 55);
             this.btnBevestigen.TabIndex = 3;
             this.btnBevestigen.Text = "Tafel bezetten";
             this.btnBevestigen.UseVisualStyleBackColor = false;
@@ -251,10 +238,9 @@
             this.Personen,
             this.Tijd});
             this.listViewTable1.HideSelection = false;
-            this.listViewTable1.Location = new System.Drawing.Point(17, 96);
-            this.listViewTable1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.listViewTable1.Location = new System.Drawing.Point(15, 77);
             this.listViewTable1.Name = "listViewTable1";
-            this.listViewTable1.Size = new System.Drawing.Size(303, 212);
+            this.listViewTable1.Size = new System.Drawing.Size(270, 170);
             this.listViewTable1.TabIndex = 1;
             this.listViewTable1.UseCompatibleStateImageBehavior = false;
             this.listViewTable1.View = System.Windows.Forms.View.Details;
@@ -275,24 +261,23 @@
             this.Tijd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Tijd.Width = 90;
             // 
-            // lblTafel1
+            // lblTafel
             // 
-            this.lblTafel1.AutoSize = true;
-            this.lblTafel1.Font = new System.Drawing.Font("Myanmar Text", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTafel1.Location = new System.Drawing.Point(114, 22);
-            this.lblTafel1.Name = "lblTafel1";
-            this.lblTafel1.Size = new System.Drawing.Size(0, 50);
-            this.lblTafel1.TabIndex = 0;
+            this.lblTafel.AutoSize = true;
+            this.lblTafel.Font = new System.Drawing.Font("Myanmar Text", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTafel.Location = new System.Drawing.Point(101, 18);
+            this.lblTafel.Name = "lblTafel";
+            this.lblTafel.Size = new System.Drawing.Size(0, 41);
+            this.lblTafel.TabIndex = 0;
             // 
             // btnReserveringToevoegen
             // 
             this.btnReserveringToevoegen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
             this.btnReserveringToevoegen.Font = new System.Drawing.Font("Myanmar Text", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReserveringToevoegen.ForeColor = System.Drawing.Color.White;
-            this.btnReserveringToevoegen.Location = new System.Drawing.Point(14, 815);
-            this.btnReserveringToevoegen.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnReserveringToevoegen.Location = new System.Drawing.Point(12, 652);
             this.btnReserveringToevoegen.Name = "btnReserveringToevoegen";
-            this.btnReserveringToevoegen.Size = new System.Drawing.Size(386, 86);
+            this.btnReserveringToevoegen.Size = new System.Drawing.Size(343, 69);
             this.btnReserveringToevoegen.TabIndex = 11;
             this.btnReserveringToevoegen.Text = "Reservering toevoegen";
             this.btnReserveringToevoegen.UseVisualStyleBackColor = false;
@@ -303,10 +288,9 @@
             this.btnReserveringVerwijderen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
             this.btnReserveringVerwijderen.Font = new System.Drawing.Font("Myanmar Text", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReserveringVerwijderen.ForeColor = System.Drawing.Color.White;
-            this.btnReserveringVerwijderen.Location = new System.Drawing.Point(397, 815);
-            this.btnReserveringVerwijderen.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnReserveringVerwijderen.Location = new System.Drawing.Point(353, 652);
             this.btnReserveringVerwijderen.Name = "btnReserveringVerwijderen";
-            this.btnReserveringVerwijderen.Size = new System.Drawing.Size(386, 86);
+            this.btnReserveringVerwijderen.Size = new System.Drawing.Size(343, 69);
             this.btnReserveringVerwijderen.TabIndex = 12;
             this.btnReserveringVerwijderen.Text = "Reservering verwijderen";
             this.btnReserveringVerwijderen.UseVisualStyleBackColor = false;
@@ -317,10 +301,9 @@
             this.btnReserveringAanpassen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
             this.btnReserveringAanpassen.Font = new System.Drawing.Font("Myanmar Text", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReserveringAanpassen.ForeColor = System.Drawing.Color.White;
-            this.btnReserveringAanpassen.Location = new System.Drawing.Point(14, 899);
-            this.btnReserveringAanpassen.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnReserveringAanpassen.Location = new System.Drawing.Point(12, 719);
             this.btnReserveringAanpassen.Name = "btnReserveringAanpassen";
-            this.btnReserveringAanpassen.Size = new System.Drawing.Size(386, 86);
+            this.btnReserveringAanpassen.Size = new System.Drawing.Size(343, 69);
             this.btnReserveringAanpassen.TabIndex = 13;
             this.btnReserveringAanpassen.Text = "Reservering Aanpassen";
             this.btnReserveringAanpassen.UseVisualStyleBackColor = false;
@@ -330,18 +313,17 @@
             // 
             this.dateTimePicker.Font = new System.Drawing.Font("Myanmar Text", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker.Location = new System.Drawing.Point(148, 55);
-            this.dateTimePicker.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dateTimePicker.Location = new System.Drawing.Point(132, 44);
             this.dateTimePicker.Name = "dateTimePicker";
-            this.dateTimePicker.Size = new System.Drawing.Size(176, 45);
+            this.dateTimePicker.Size = new System.Drawing.Size(157, 39);
             this.dateTimePicker.TabIndex = 43;
             // 
             // ReservationScreen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(0)))), ((int)(((byte)(77)))));
-            this.ClientSize = new System.Drawing.Size(796, 1005);
+            this.ClientSize = new System.Drawing.Size(708, 804);
             this.Controls.Add(this.dateTimePicker);
             this.Controls.Add(this.btnReserveringAanpassen);
             this.Controls.Add(this.btnReserveringVerwijderen);
@@ -357,8 +339,8 @@
             this.Controls.Add(this.btnTable3);
             this.Controls.Add(this.btnTable2);
             this.Controls.Add(this.btnTable1);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "ReservationScreen";
+            this.Text = " ";
             this.pnlReservations.ResumeLayout(false);
             this.pnlReservations.PerformLayout();
             this.ResumeLayout(false);
@@ -379,7 +361,7 @@
         private System.Windows.Forms.Button btnTable10;
         private System.Windows.Forms.Panel pnlReservations;
         private System.Windows.Forms.ListView listViewTable1;
-        private System.Windows.Forms.Label lblTafel1;
+        private System.Windows.Forms.Label lblTafel;
         private System.Windows.Forms.ColumnHeader Naam;
         private System.Windows.Forms.ColumnHeader Personen;
         private System.Windows.Forms.ColumnHeader Tijd;
