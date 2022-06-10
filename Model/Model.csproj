@@ -76,7 +76,6 @@
     <Compile Include="DAL\StockDao.cs" />
     <Compile Include="DAL\TableDao.cs" />
     <Compile Include="Enums\SubCategory.cs" />
-    <Compile Include="Interfaces\IObserver.cs" />
     <Compile Include="IObserver.cs" />
     <Compile Include="Login.cs" />
     <Compile Include="Enums\Category.cs" />
@@ -91,13 +90,10 @@
     </Compile>
     <Compile Include="Reservation.cs" />
     <Compile Include="Enums\Roles.cs" />
-    <Compile Include="Room.cs" />
-    <Compile Include="DAL\StudentDao.cs" />
     <Compile Include="MenuItem.cs" />
     <Compile Include="Staff.cs" />
     <Compile Include="Subcategory.cs" />
     <Compile Include="Table.cs" />
-    <Compile Include="Teacher.cs" />
     <Compile Include="Student.cs" />
   </ItemGroup>
   <ItemGroup>
