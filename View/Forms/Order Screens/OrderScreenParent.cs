@@ -61,8 +61,12 @@ namespace View.Forms
             // check for more open bills that arent closed yet
             try
             {
+                Debug.WriteLine("kaas");
+
                 Bill bill = billController.GetCurrentBillByTable(table);
                 this.bill = bill;
+                Debug.WriteLine("kaas1");
+
             }
             catch
             {

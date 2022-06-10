@@ -15,7 +15,7 @@ namespace Model
         // Select Functions
         public List<OrderItem>  GetOrderItemsForOverview(Bill bill)
         {
-            string query = "SELECT OI.*, MI.id as menuItemId, MI.shortName, MI.fullName, MI.categoryId, MI.subcategoryId, MI.priceEx, MI.stock, MI.inMenu FROM BillItems AS BI INNER JOIN Orders AS O ON BI.orderId = O.id INNER JOIN OrderItems AS OI ON O.id = OI.orderId INNER JOIN MenuItems AS MI ON OI.menuItemId = MI.id WHERE BI.billId = @billId";
+            string query = "SELECT OI.*, MI.id as menuItemId, MI.shortName, MI.fullName, MI.category, MI.subcategory, MI.priceEx, MI.stock, MI.inMenu FROM BillItems AS BI INNER JOIN Orders AS O ON BI.orderId = O.id INNER JOIN OrderItems AS OI ON O.id = OI.orderId INNER JOIN MenuItems AS MI ON OI.menuItemId = MI.id WHERE BI.billId = @billId";
             SqlParameter[] sqlParameters = new SqlParameter[]
             {
                 new SqlParameter("@billId", SqlDbType.Int) { Value = bill.Id }
@@ -29,7 +29,7 @@ namespace Model
 
             foreach (DataRow dr in dataTable.Rows)
             {                
-                OrderItem orderItem = new OrderItem((int)dr["id"], (int)dr["orderId"], new MenuItem((int)dr["menuItemId"], dr["shortName"].ToString(), dr["fullName"].ToString(), (Category)(int)dr["categoryId"], (SubCategory)(int)dr["subcategoryId"], float.Parse(dr["priceEx"].ToString()), (int)dr["stock"], (bool)dr["inMenu"]), (int)dr["amount"], dr["comment"].ToString(), (bool)dr["isReady"]);
+                OrderItem orderItem = new OrderItem((int)dr["id"], (int)dr["orderId"], new MenuItem((int)dr["menuItemId"], dr["shortName"].ToString(), dr["fullName"].ToString(), (Category)(int)dr["category"], (SubCategory)(int)dr["subcategory"], float.Parse(dr["priceEx"].ToString()), (int)dr["stock"], (bool)dr["inMenu"]), (int)dr["amount"], dr["comment"].ToString(), (bool)dr["isReady"]);
                 orderItems.Add(orderItem);
             }
             return orderItems;
@@ -64,7 +64,7 @@ namespace Model
 
         public List<OrderItem> GetOrderItemsByOrder(int orderId)
         {
-            string query = "SELECT OI.*, MI.id as menuItemId, MI.shortName, MI.fullName, MI.categoryId, MI.subcategoryId, MI.priceEx, MI.stock, MI.inMenu FROM OrderItems as OI INNER JOIN MenuItems as MI ON OI.menuItemId = MI.id WHERE orderId = @orderId";
+            string query = "SELECT OI.*, MI.id as menuItemId, MI.shortName, MI.fullName, MI.category, MI.subcategory, MI.priceEx, MI.stock, MI.inMenu FROM OrderItems as OI INNER JOIN MenuItems as MI ON OI.menuItemId = MI.id WHERE orderId = @orderId";
             SqlParameter[] sqlParameters = new SqlParameter[]
             {
                 new SqlParameter("@orderId", SqlDbType.Int) { Value = orderId }
@@ -78,7 +78,7 @@ namespace Model
 
             foreach (DataRow dr in dataTable.Rows)
             {
-                OrderItem orderItem = new OrderItem((int)dr["id"], (int)dr["orderId"], new MenuItem((int)dr["menuItemId"], dr["shortName"].ToString(), dr["fullName"].ToString(), (Category)(int)dr["categoryId"], (SubCategory)(int)dr["subcategoryId"], float.Parse(dr["priceEx"].ToString()), (int)dr["stock"], (bool)dr["inMenu"]), (int)dr["amount"], dr["comment"].ToString(), (bool)dr["isReady"]);
+                OrderItem orderItem = new OrderItem((int)dr["id"], (int)dr["orderId"], new MenuItem((int)dr["menuItemId"], dr["shortName"].ToString(), dr["fullName"].ToString(), (Category)(int)dr["category"], (SubCategory)(int)dr["subcategory"], float.Parse(dr["priceEx"].ToString()), (int)dr["stock"], (bool)dr["inMenu"]), (int)dr["amount"], dr["comment"].ToString(), (bool)dr["isReady"]);
                 orderItems.Add(orderItem);
             }
             return orderItems;
