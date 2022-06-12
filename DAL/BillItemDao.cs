@@ -8,7 +8,7 @@ using System.Data;
 using System.Collections.ObjectModel;
 using Model;
 
-namespace Model
+namespace DAL
 {
     public class BillItemDao : BaseDao
     {

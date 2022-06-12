@@ -83,7 +83,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(0)))), ((int)(((byte)(77)))));
-            this.ClientSize = new System.Drawing.Size(852, 1255);
+            this.ClientSize = new System.Drawing.Size(902, 1255);
             this.Controls.Add(this.btn_Logout);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnBack);

@@ -7,13 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Model
+namespace DAL
 {
     public class LoginDao : BaseDao
     {
         public List<Login> GetAllUsers()
         {
-            string query = "SELECT email, [password] FROM Staff";
+            string query = "SELECT email, [password], employed FROM Staff";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
@@ -24,11 +24,7 @@ namespace Model
 
             foreach (DataRow dr in dataTable.Rows)
             {
-                Login user = new Login()
-                {
-                    UserName = (string)dr["email"],
-                    Password = (string)dr["password"],
-                };
+                Login user = new Login((string)dr["password"], (string)dr["email"], (bool)dr["employed"]);
                 Users.Add(user);
             }
             return Users;

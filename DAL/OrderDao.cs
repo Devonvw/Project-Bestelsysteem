@@ -8,7 +8,7 @@ using System.Data;
 using System.Collections.ObjectModel;
 using Model;
 
-namespace Model
+namespace DAL
 {
     public class OrderDao : BaseDao
     {
@@ -34,17 +34,6 @@ namespace Model
             }
             return orderItems;
         }
-
-        public List<Order> GetOrdersByTable(Bill bill)
-        {
-            string query = "SELECT * FROM BillItems AS BI INNER JOIN Orders AS O ON BI.orderId = O.id WHERE BI.billId = @billId";
-            SqlParameter[] sqlParameters = new SqlParameter[]
-            {
-                new SqlParameter("@billId", SqlDbType.Int) { Value = bill.Id }
-            };
-            return ReadOrdersByTable(ExecuteSelectQuery(query, sqlParameters));
-        }
-
         public List<Order> ReadOrdersByTable(DataTable dataTable)
         {
             List<Order> orders = new List<Order>();
@@ -60,28 +49,6 @@ namespace Model
                 orders.Add(order);
             }
             return orders;
-        }
-
-        public List<OrderItem> GetOrderItemsByOrder(int orderId)
-        {
-            string query = "SELECT OI.*, MI.id as menuItemId, MI.shortName, MI.fullName, MI.category, MI.subcategory, MI.priceEx, MI.stock, MI.inMenu FROM OrderItems as OI INNER JOIN MenuItems as MI ON OI.menuItemId = MI.id WHERE orderId = @orderId";
-            SqlParameter[] sqlParameters = new SqlParameter[]
-            {
-                new SqlParameter("@orderId", SqlDbType.Int) { Value = orderId }
-            };
-            return ReadOrderItemsByOrder(ExecuteSelectQuery(query, sqlParameters));
-        }
-
-        public List<OrderItem> ReadOrderItemsByOrder(DataTable dataTable)
-        {
-            List<OrderItem> orderItems = new List<OrderItem>();
-
-            foreach (DataRow dr in dataTable.Rows)
-            {
-                OrderItem orderItem = new OrderItem((int)dr["id"], (int)dr["orderId"], new MenuItem((int)dr["menuItemId"], dr["shortName"].ToString(), dr["fullName"].ToString(), (Category)(int)dr["category"], (SubCategory)(int)dr["subcategory"], float.Parse(dr["priceEx"].ToString()), (int)dr["stock"], (bool)dr["inMenu"]), (int)dr["amount"], dr["comment"].ToString(), (bool)dr["isReady"]);
-                orderItems.Add(orderItem);
-            }
-            return orderItems;
         }
 
         // insert functions
@@ -146,23 +113,5 @@ namespace Model
             sqlParameters[0] = new SqlParameter("@id", orderItem.Id);
             ExecuteEditQuery(query, sqlParameters);
         }
-        public void DeleteOrder(Bill bill, Order order)
-        {
-            foreach (OrderItem orderItem in order.OrderItems)
-            {
-                DeleteOrderItem(orderItem);
-            }
-            DeleteBillItems(bill, order);
-        }
-        public void DeleteBillItems(Bill bill, Order order)
-        {
-            string query = "DELETE FROM BillItems WHERE billId=@billId AND orderId=@orderId";
-            SqlParameter[] sqlParameters = new SqlParameter[2];
-            sqlParameters[0] = new SqlParameter("@billId", bill.Id);
-            sqlParameters[1] = new SqlParameter("@orderId", order.Id);
-            ExecuteEditQuery(query, sqlParameters);
-        }
-
-
     }
 }

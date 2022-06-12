@@ -137,6 +137,7 @@ namespace View.Forms.ManagementScreens
                 if (ltvMenuItems.SelectedItems.Count > 0)
                 {
                     UpdateSelectedMenuItem();
+                    menuController.UpdateMenuItem(selectedMenuItem);
                     MessageBox.Show("Menu item succesvol aangepast.");
                 }
                 else

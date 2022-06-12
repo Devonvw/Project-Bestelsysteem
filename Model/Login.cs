@@ -12,12 +12,20 @@ namespace Model
         
         public string UserName { get; set; }
         public string Password { get; set; }
+        public bool Employed { get; set; }
+
 
 
         public Login(string password, string email)
         {
             UserName = email;
             Password = password;   
+        }
+        public Login(string password, string email, bool employed)
+        {
+            UserName = email;
+            Password = password;
+            Employed = employed;
         }
 
         public Login()

@@ -2,8 +2,9 @@
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Data;
+using System.Diagnostics;
 
-namespace BestelsysteemDAL
+namespace DAL
 {
     public abstract class BaseDao
     {
@@ -12,11 +13,9 @@ namespace BestelsysteemDAL
 
         public BaseDao()
         {
-            // DO NOT FORGET TO INSERT YOUR CONNECTION STRING NAMED 'SOMEREN DATABASE' IN YOUR APP.CONFIG!!
-            /*
-                conn = new SqlConnection(ConfigurationManager.ConnectionStrings["SomerenDatabase"].ConnectionString);
+
+                conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Database"].ConnectionString);
                 adapter = new SqlDataAdapter();
-             */
         }
 
         protected SqlConnection OpenConnection()
@@ -110,6 +109,10 @@ namespace BestelsysteemDAL
                 CloseConnection();
             }
             return dataTable;
+        }
+        protected string GetFirstCellString(string query, SqlParameter[] sqlParameters, string colName)
+        {
+            return ExecuteSelectQuery(query, sqlParameters).Rows[0][colName].ToString();
         }
     }
 }

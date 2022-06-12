@@ -7,6 +7,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using DAL;
 
 namespace Controller
 {
@@ -26,7 +27,7 @@ namespace Controller
 
             foreach (Login user in allUsers)
             {
-                if(user.UserName.ToLower() == userLogin.UserName.ToLower() && user.Password == HashAndSalt(userLogin.Password))
+                if(user.UserName.ToLower() == userLogin.UserName.ToLower() && user.Password == HashAndSalt(userLogin.Password) && user.Employed)
                 {
                     return true;
                 }

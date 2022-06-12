@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Model;
 using System.Text.RegularExpressions;
+using DAL;
 
 
 namespace Controller
@@ -39,11 +40,6 @@ namespace Controller
                 staff.Password = loginController.HashAndSalt("password");
                 menuDb.AddStaff(staff);
             }
-            else throw new Exception("Er bestaat al een werknemer met deze naam.");
-        }
-        public void RemoveStaff(Staff staff)
-        {
-            if (!StaffExists(staff)) ; //menuDb.AddStaff(staff);
             else throw new Exception("Er bestaat al een werknemer met deze naam.");
         }
         public void UpdateStaff(Staff staff)

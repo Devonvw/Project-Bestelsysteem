@@ -8,7 +8,7 @@ using System.Collections.ObjectModel;
 using Model;
 using System.Diagnostics;
 
-namespace Model
+namespace DAL
 {
     public class MenuDao : BaseDao
     {

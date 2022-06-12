@@ -120,7 +120,6 @@ namespace View.Forms
         {
             List<Button> buttons = FillButtonList();
             List<Table> tables = tableController.GetAllTables();
-            Debug.WriteLine("kaas");
 
             foreach (Table t in tables)
             {

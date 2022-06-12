@@ -200,6 +200,7 @@
             // 
             // numTip
             // 
+            this.numTip.DecimalPlaces = 2;
             this.numTip.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.numTip.Location = new System.Drawing.Point(397, 41);
             this.numTip.Name = "numTip";

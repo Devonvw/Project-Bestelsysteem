@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Model;
+using DAL;
 
 namespace Controller
 {
@@ -59,11 +60,6 @@ namespace Controller
             AlertObservers();
         }
 
-        public Bill CheckForOpenBillOnTable(Table table)
-        {
-            Bill bill = billDB.CheckForOpenBillOnTable(table);
-            return bill;
-        }
         public bool BillExist(Table table)
         {
             return billDB.BillExist(table);
