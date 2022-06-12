@@ -50,6 +50,7 @@
             // 
             this.txtBoxEmail.Font = new System.Drawing.Font("Myanmar Text", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBoxEmail.Location = new System.Drawing.Point(97, 165);
+            this.txtBoxEmail.MaxLength = 100;
             this.txtBoxEmail.Name = "txtBoxEmail";
             this.txtBoxEmail.Size = new System.Drawing.Size(266, 58);
             this.txtBoxEmail.TabIndex = 3;

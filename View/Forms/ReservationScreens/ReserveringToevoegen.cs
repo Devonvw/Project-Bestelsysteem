@@ -21,14 +21,19 @@ namespace View.Forms
             reservation = new Reservation();
             reservationController = new ReservationController();
             InitializeComponent();
-            loadForms();
+            LoadForms();
         }
 
+        //voegt de nieuwe reservering toe aan de database
         private void btnBevestigen_Click(object sender, EventArgs e)
         {
             try
             {
                 reservation.Name = txtboxNaam.Text;
+                if (string.IsNullOrEmpty(reservation.Name))
+                {
+                    throw new Exception();
+                }
                 reservation.DateTime = DateTime.Parse($"{dateTimePicker1.Value.ToString("yyyy/MM/dd")} {comboBoxUren.SelectedItem.ToString()}:{comboBoxMinuten.SelectedItem.ToString()}");
                 reservation.TableId = int.Parse(comboBoxTafel.SelectedItem.ToString());
                 reservation.Persons = int.Parse(comboBoxPersonen.SelectedItem.ToString());
@@ -36,14 +41,17 @@ namespace View.Forms
                 MessageBox.Show($"Reservering toegevoegd! {reservation.Name}, tafel {reservation.TableId} op {reservation.DateTime.ToString("dd/MM/yyyy HH:mm")}");
                 DateTime gewensteTijd = DateTime.Parse($"{dateTimePicker1.Value.ToString("yyyy/MM/dd")} {comboBoxUren.SelectedItem.ToString()}:{comboBoxMinuten.SelectedItem.ToString()}");
                 LoadListView1(reservation, gewensteTijd);
+                ClearItems();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Niet alle velden zijn ingevuld, vul alle velden in om de reservering toe te kunnen voegen");
             }
-            ClearItems();
+            
         }     
-        private void loadForms()
+
+        //laadt alle velden
+        private void LoadForms()
         {
             dateTimePicker1.Format = DateTimePickerFormat.Custom;
             dateTimePicker1.CustomFormat = "dd/MM/yyyy";
@@ -52,6 +60,8 @@ namespace View.Forms
             FillComboboxTijdUrenZoeken();
             FIllComboboxTijdMinutenZoeken();
         }
+
+        //vult de combobox met tafels
         private void FillComboboxTafel()
         {
             TableController tableController = new TableController();
@@ -61,6 +71,8 @@ namespace View.Forms
                 comboBoxTafel.Items.Add(t.Id);
             }
         }
+
+        //vult de ombobox met personen
         private void FillComboBoxPersonen()
         {
             for (int i = 1; i <= 4; i++)
@@ -68,6 +80,8 @@ namespace View.Forms
                 comboBoxPersonen.Items.Add(i);
             }
         }
+
+        //vult de combobox met uren
         private void FillComboboxTijdUrenZoeken()
         {
             for (int i = 10; i <= 21; i++)
@@ -76,6 +90,7 @@ namespace View.Forms
             }
         }
 
+        //vult de combobox met minuten
         private void FIllComboboxTijdMinutenZoeken()
         {
             for (int i = 0; i <= 45; i += 15)
@@ -84,6 +99,7 @@ namespace View.Forms
             }
         }
 
+        //check of er al reserveringen bestaan op de gewenste tijd
         private void btnCheckBeschikbaarheid_Click(object sender, EventArgs e)
         {
             try
@@ -99,6 +115,7 @@ namespace View.Forms
             
         }
 
+        //laadt de listview met reserveringen
         private void LoadListView1(Reservation reservation, DateTime gewensteTijd)
         {
             List<Reservation> reservationList = reservationController.GetReservationByTime(reservation);
@@ -126,6 +143,7 @@ namespace View.Forms
                 MessageBox.Show("Niet alle velden zijn ingevuld, vul alle velden in om de reserveringen in het gewenste tijdslot te bekijken.");
             }
         }
+        //zorgt dat alle velden weer leeg zijn
         private void ClearItems()
         {
             txtboxNaam.Text = null;

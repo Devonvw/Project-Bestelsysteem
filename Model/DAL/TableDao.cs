@@ -13,7 +13,7 @@ namespace Model
     {
         public List<Table> GetAllTables()
         {
-            string query = "SELECT T.*, B.[datetime] FROM Tables as T LEFT JOIN(SELECT b1.* FROM Bills b1 LEFT JOIN Bills b2 ON(b1.[tableId] = b2.[tableId] AND b1.[datetime] < b2.[datetime]) WHERE b2.id IS NULL) AS B ON T.id = B.tableId";
+            string query = "SELECT T.*, B.[datetime] FROM Tables as T LEFT JOIN(SELECT b1.* FROM Bills b1 LEFT JOIN Bills b2 ON(b1.[tableId] = b2.[tableId] AND b1.[datetime] < b2.[datetime]) WHERE b2.id IS NULL AND b1.payed = 'false') AS B ON T.id = B.tableId";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
@@ -25,7 +25,6 @@ namespace Model
             {
                 new SqlParameter("@id", table.Id),
                 new SqlParameter("@occupied", table.Occupied),
-                //new SqlParameter("@timeSeated", table.TimeSeated)
             };
             ExecuteEditQuery(query, sqlParameters);
         }
@@ -52,6 +51,49 @@ namespace Model
                 tables.Add(table);
             }
             return tables;
+        }
+        public Table GetLastOrdered(Table table)
+        {
+            string query = "SELECT TOP 1 O.[datetime], B.[tableId] FROM orders AS O JOIN BillItems AS BI ON O.[id] = BI.orderId JOIN bills AS B ON B.[id] = BI.billId WHERE b.tableId = @tableId ORDER BY O.[datetime] DESC";
+            SqlParameter[] sqlParameters = new SqlParameter[]
+            {
+                new SqlParameter("@tableId", table.Id),
+            };
+            return ReadTableLastOrder(ExecuteSelectQuery(query, sqlParameters));
+        }
+        private Table ReadTableLastOrder(DataTable dataTable)
+        {
+            List<Table> tables = new List<Table>();  
+            foreach (DataRow dr in dataTable.Rows)
+            {
+                Table table = new Table()
+                {
+                    Id = (int)dr["tableId"],
+                    LastOrdered = (DateTime)dr["datetime"],
+                }; 
+                tables.Add(table);
+            }
+            return tables[0];
+        }
+        public bool TableHasOrdered(Table table)
+        {
+            string query = "SELECT TOP 1 O.[datetime], B.[tableId] FROM orders AS O JOIN BillItems AS BI ON O.[id] = BI.orderId JOIN bills AS B ON B.[id] = BI.billId WHERE b.tableId = @tableId ORDER BY O.[datetime] DESC";
+            SqlParameter[] sqlParameters = new SqlParameter[]
+            {
+                new SqlParameter("@tableId", table.Id),
+            };
+            return ReadTableHasOrdered(ExecuteSelectQuery(query, sqlParameters));
+        }
+        private bool ReadTableHasOrdered(DataTable dataTable)
+        {
+            if (dataTable.Rows.Count != 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

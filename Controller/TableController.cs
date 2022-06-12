@@ -24,6 +24,13 @@ namespace Controller
         {
             tabledDb.ChangeOccupied(table);
         }
-
+        public Table GetLastOrdered(Table table)
+        {
+            return tabledDb.GetLastOrdered(table);
+        }
+        public bool TableHasOrdered(Table table)
+        {
+            return tabledDb.TableHasOrdered(table);
+        }
     }
 }

@@ -23,23 +23,26 @@ namespace View.Forms
             InitializeComponent();
         }
 
+        //zoeken van een reservering op naam
         private void btnZoekReserveringOpNaam_Click(object sender, EventArgs e)
         {
             reservation.Name = txtboxNaam.Text;
             List<Reservation> reservationList = reservationController.GetReservationByName(reservation);
             listViewReserveringen.Items.Clear();
-            loadListview(reservationList);
+            LoadListview(reservationList);
         }
 
+        //zoeken van een reservering op datum
         private void btnZoekReserveringOpDatum_Click(object sender, EventArgs e)
         {
             reservation.DateTime = DateTime.Parse(dateTimePicker.Value.ToString("yyyy/MM/dd"));
             List<Reservation> reservationList = reservationController.GetReservationByTime(reservation);
             listViewReserveringen.Items.Clear();
-            loadListview(reservationList);
+            LoadListview(reservationList);
         }
 
-        private void loadListview(List<Reservation> reservationList)
+        //laden van de listview met reserveringen
+        private void LoadListview(List<Reservation> reservationList)
         {
             foreach (Reservation r in reservationList)
             {
@@ -52,6 +55,7 @@ namespace View.Forms
             }
         }
 
+        //verwijderen van een reservering 
         private void btnReserveringVerwijderen_Click(object sender, EventArgs e)
         {
             try

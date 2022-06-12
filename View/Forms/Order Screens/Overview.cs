@@ -14,12 +14,14 @@ namespace View.Forms.Order_Screens
 {
     public partial class Overview : Form
     {
+
+        //OrderScreenParent
+        OrderScreenParent orderScreenParent;
         // fields     
         private Staff staff;
         private Bill bill;
         private int amount;
         private Panel activePanel;
-        private int amountTest { get; set; }
 
         // Lists
         private List<OrderItem> orderItems = new List<OrderItem>();
@@ -33,20 +35,21 @@ namespace View.Forms.Order_Screens
         private MenuController menuController = new MenuController();
         private OrderController orderController = new OrderController();
         private BillController billController = new BillController();
+        private StockController stockController = new StockController();
+
         private Label title;
 
         // constructor
-        public Overview(List<OrderItem> orderItems, Bill bill, Staff staff, Label tableNumberLabel)
+        public Overview(List<OrderItem> orderItems, Bill bill, Staff staff, Label tableNumberLabel, OrderScreenParent orderScreenParent)
         {
             InitializeComponent();
             // set fields
             this.orderItems = orderItems;
             this.staff = staff;
             this.bill = bill;
-            this.orders = orderController.GetOrdersByTable(bill);
             this.menuItems = menuController.GetAllMenuItems();
             this.rearrangedList = billController.GetOrderItems(bill);
-            this.title = tableNumberLabel;
+            title = tableNumberLabel;
 
             // Init
             if (orderItems != null)
@@ -59,6 +62,7 @@ namespace View.Forms.Order_Screens
             }
             FillMenuListView(menuItems);
             SetActivePanel(overViewPanel);
+            this.orderScreenParent = orderScreenParent;
         }
 
         // method for setting panel
@@ -71,6 +75,8 @@ namespace View.Forms.Order_Screens
             activePanel = panel;
             panel.Show();
         }
+
+
 
         // Panel Overview
         private void FillBillOverView(List<OrderItem> orderItems)
@@ -89,7 +95,7 @@ namespace View.Forms.Order_Screens
             }
         }
 
-        public void UpdateBillOverview()
+        private void UpdateBillOverview()
         {
             FillBillOverView((orderItems = orderController.GetOrderItemsForOverview(bill)));
             FillNewOrderListView(newOrderItems);
@@ -113,6 +119,7 @@ namespace View.Forms.Order_Screens
                     orderController.DeleteOrderItem(orderItem);
                 }
                 UpdateBillOverview();
+                // hide buttons
                 ChangeOrderButton.Hide();
                 commentAndAmountPanel.Hide();
                 deleteOrderInPreperationButton.Hide();
@@ -181,7 +188,15 @@ namespace View.Forms.Order_Screens
             GetAmount();
             //  update items
             if (orderItem.Amount == 0) { orderController.DeleteOrderItem(orderItem); }
-            else { orderController.UpdateOrderItem(orderItem); }
+            else 
+            { 
+                orderController.UpdateOrderItem(orderItem);
+                // Update Stock
+                orderItem.MenuItem.Stock = (orderItem.MenuItem.Stock - orderItem.Amount);
+                stockController.AdjustStock(orderItem.MenuItem);
+            }
+
+
 
             // show buttons
             ChangeOrderButton.Show();
@@ -199,6 +214,7 @@ namespace View.Forms.Order_Screens
         private void backToTablesButton_Click(object sender, EventArgs e)
         {
             title.Text = "Tafels";
+            orderScreenParent.UpdateForm();
             Close(); 
         }
 
@@ -231,7 +247,7 @@ namespace View.Forms.Order_Screens
         {
             newOrderItemsListView.Items.Clear();
             foreach (OrderItem item in newOrderItems)
-            {
+            {                
                 ListViewItem listViewItem = new ListViewItem(item.MenuItem.ShortName.ToString());
                 listViewItem.SubItems.Add(item.Amount.ToString());
                 listViewItem.SubItems.Add(item.Comment.ToString());
@@ -300,6 +316,7 @@ namespace View.Forms.Order_Screens
                 MessageBox.Show("Er is geen item aangeklikt!");
                 return;
             }
+
             GetAmount();
             if (amount > menuItem.Stock)
             {
@@ -428,7 +445,6 @@ namespace View.Forms.Order_Screens
             deleteOrderItemFromList();
         }
 
-
         private void changeButton_Click(object sender, EventArgs e)
         {
             changeOrderItem();
@@ -464,13 +480,21 @@ namespace View.Forms.Order_Screens
             SetAmount();
         }
 
+        // insert Order
         private void insertOrderButton_Click(object sender, EventArgs e)
         {
             if (newOrderItems != null)
             {
+                // insert order into DB
                 Order order = new Order(staff.Id, DateTime.Now);
-                order.OrderItems = newOrderItems;
-                orderController.InsertOrder(bill, order);
+                InsertOrder(order);              
+                // update Stock into DB
+                foreach (OrderItem orderItem in order.OrderItems)
+                {
+                    orderItem.MenuItem.Stock = (orderItem.MenuItem.Stock - orderItem.Amount);
+                    stockController.AdjustStock(orderItem.MenuItem);
+                }
+
                 SetActivePanel(overViewPanel);
                 UpdateBillOverview();
                 newOrderItems.Clear();
@@ -478,6 +502,15 @@ namespace View.Forms.Order_Screens
                 ChangeOrderButton.Show();
             }
         }
+
+        // insert Order into DB
+        private void InsertOrder(Order order)
+        {
+            order.OrderItems = newOrderItems;
+            orderController.InsertOrder(bill, order);
+        }
+
+
 
         // navigation methods
         private List<Model.MenuItem> DistinctMenuByCategory(Category category)
@@ -496,7 +529,7 @@ namespace View.Forms.Order_Screens
         private List<Model.MenuItem> DistinctMenuBySubCategory(SubCategory subCategory)
         {
             List<Model.MenuItem> items = new List<Model.MenuItem>();
-            foreach (var item in menuItems)
+            foreach (Model.MenuItem item in menuItems)
             {
                 if (item.SubCategory == subCategory)
                 {
@@ -506,36 +539,38 @@ namespace View.Forms.Order_Screens
             return items;
         }
 
-        private void lunchButton_Click(object sender, EventArgs e)
+        private void LoadMenuByCategory(Panel panel, Category category)
         {
-            List<Model.MenuItem> menuItems = DistinctMenuByCategory(Category.Lunch);
+            List<Model.MenuItem> menuItems = DistinctMenuByCategory(category);
             FillMenuListView(menuItems);
             hideSubNavPanels();
-            lunchSubPanel.Show();
+            panel.Show();
+        }
+
+        private void LoadMenuBySubcategories(SubCategory subcategory)
+        {
+            List<Model.MenuItem> menuItems = DistinctMenuBySubCategory(subcategory);
+            FillMenuListView(menuItems);
+        }
+
+        private void lunchButton_Click(object sender, EventArgs e)
+        {
+            LoadMenuByCategory(lunchSubPanel, Category.Lunch);
         }
 
         private void dinerButton_Click(object sender, EventArgs e)
         {
-            List<Model.MenuItem> menuItems = DistinctMenuByCategory(Category.Diner);
-            FillMenuListView(menuItems);
-            hideSubNavPanels();
-            dinerSubPanel.Show();
+            LoadMenuByCategory(lunchSubPanel, Category.Diner);
         }
 
         private void drankenButton_Click(object sender, EventArgs e)
         {
-            List<Model.MenuItem> menuItems = DistinctMenuByCategory(Category.NonAlcoholDrinks);
-            FillMenuListView(menuItems);
-            hideSubNavPanels();
-            drankenSubPanel.Show();
+            LoadMenuByCategory(lunchSubPanel, Category.NonAlcoholDrinks);
         }
 
         private void alcoholButton_Click(object sender, EventArgs e)
         {
-            List<Model.MenuItem> menuItems = DistinctMenuByCategory(Category.AlcoholDrinks);
-            FillMenuListView(menuItems);
-            hideSubNavPanels();
-            alchoholSubPanel.Show();
+            LoadMenuByCategory(lunchSubPanel, Category.AlcoholDrinks);
         }
 
         private void hideSubNavPanels()
@@ -546,77 +581,68 @@ namespace View.Forms.Order_Screens
             dinerSubPanel.Hide();
         }
 
+
         // nav buttons subcategories
+
+
         private void bierButton_Click(object sender, EventArgs e)
         {
-            List<Model.MenuItem> menuItems = DistinctMenuBySubCategory(SubCategory.Bier);
-            FillMenuListView(menuItems);
+            LoadMenuBySubcategories(SubCategory.Bier);
         }
 
         private void wijnButton_Click(object sender, EventArgs e)
         {
-            List<Model.MenuItem> menuItems = DistinctMenuBySubCategory(SubCategory.Wijn);
-            FillMenuListView(menuItems);
+            LoadMenuBySubcategories(SubCategory.Wijn);
         }
 
         private void gedestilleerdButton_Click(object sender, EventArgs e)
         {
-            List<Model.MenuItem> menuItems = DistinctMenuBySubCategory(SubCategory.GedistilleerdeDranken);
-            FillMenuListView(menuItems);
+            LoadMenuBySubcategories(SubCategory.GedistilleerdeDranken);
         }
 
         private void warmeDrankenButton_Click(object sender, EventArgs e)
         {
-            List<Model.MenuItem> menuItems = DistinctMenuBySubCategory(SubCategory.WarmeDranken);
-            FillMenuListView(menuItems);
+            LoadMenuBySubcategories(SubCategory.WarmeDranken);
         }
 
         private void frisdrankButton_Click(object sender, EventArgs e)
         {
-            List<Model.MenuItem> menuItems = DistinctMenuBySubCategory(SubCategory.Frisdrank);
-            FillMenuListView(menuItems);
+            LoadMenuBySubcategories(SubCategory.Frisdrank);
         }
 
         private void lunchStarterButton_Click(object sender, EventArgs e)
         {
-            List<Model.MenuItem> menuItems = DistinctMenuBySubCategory(SubCategory.LunchStarter);
-            FillMenuListView(menuItems);
+            LoadMenuBySubcategories(SubCategory.LunchStarter);
         }
 
         private void lunchMainButton_Click(object sender, EventArgs e)
         {
-            List<Model.MenuItem> menuItems = DistinctMenuBySubCategory(SubCategory.LunchMain);
-            FillMenuListView(menuItems);
+            LoadMenuBySubcategories(SubCategory.LunchMain);
         }
 
         private void lunchDesertButton_Click(object sender, EventArgs e)
         {
-            List<Model.MenuItem> menuItems = DistinctMenuBySubCategory(SubCategory.LunchDesert);
-            FillMenuListView(menuItems);
+            LoadMenuBySubcategories(SubCategory.LunchDesert);
         }
 
         private void dinerStarterButton_Click(object sender, EventArgs e)
         {
-            List<Model.MenuItem> menuItems = DistinctMenuBySubCategory(SubCategory.Starter);
-            FillMenuListView(menuItems);
+            LoadMenuBySubcategories(SubCategory.Starter);
         }
 
         private void dinerSideButton_Click(object sender, EventArgs e)
         {
-            List<Model.MenuItem> menuItems = DistinctMenuBySubCategory(SubCategory.Side);
-            FillMenuListView(menuItems);
+            LoadMenuBySubcategories(SubCategory.Side);
         }
 
         private void dinerMainButton_Click(object sender, EventArgs e)
         {
-            List<Model.MenuItem> menuItems = DistinctMenuBySubCategory(SubCategory.Main);
-            FillMenuListView(menuItems);
+            LoadMenuBySubcategories(SubCategory.Main);
         }
 
         private void dinerDesertButton_Click(object sender, EventArgs e)
         {
-            List<Model.MenuItem> menuItems = DistinctMenuBySubCategory(SubCategory.Desert);
-            FillMenuListView(menuItems);
+            LoadMenuBySubcategories(SubCategory.Desert);
         }
 
         private void backToOverviewButton_Click(object sender, EventArgs e)
@@ -626,15 +652,12 @@ namespace View.Forms.Order_Screens
             else
             {
                 DialogResult result = MessageBox.Show("Er zijn nog ongeplaatste bestellingen in de lijst. Wilt u deze annuleren?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (result == DialogResult.No)
-                {
-                    return;
-                }
+                if (result == DialogResult.No)  { return; }
                 else
                 {
                     newOrderItems.Clear();
                     SetActivePanel(overViewPanel);
-
+                    // checken
                     FillMenuListView((menuItems = menuController.GetAllMenuItems()));
                 }
             }

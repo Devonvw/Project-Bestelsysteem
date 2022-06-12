@@ -19,6 +19,7 @@ namespace View.Forms
         private List<OrderItem> orderItems;
         private Bill bill;
         private Table table;
+        private TableController tableController;
 
         private void Reload()
         {
@@ -38,6 +39,7 @@ namespace View.Forms
             this.table = table;
             this.billController = billController;
             orderItems = new List<OrderItem>();
+            tableController = new TableController();
 
             InitializeComponent();
         }
@@ -64,7 +66,11 @@ namespace View.Forms
             try
             {
                 billController.CloseBill(bill);
+                table.Id = bill.TableId;
+                table.Occupied = false;
+                tableController.ChangeOccupied(table);
                 MessageBox.Show("Rekening succesvol gesloten, de tafel is weer open.");
+                
             }
             catch (Exception err)
             {
@@ -75,6 +81,21 @@ namespace View.Forms
         {
             if (numSplit.Value == 1) lblSplitPrice.Text = "";
             else lblSplitPrice.Text = $"€{Math.Round(bill.TotalPrice / (float)numSplit.Value, 2)}";
+        }
+
+        private void lblRekening_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblOpmerkingen_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

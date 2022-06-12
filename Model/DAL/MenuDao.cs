@@ -26,7 +26,7 @@ namespace Model
         }
         public void AddMenuItem(MenuItem menuItem)
         {
-            string query = "INSERT INTO MenuItems (shortName, fullName, categoryId, subcategoryId, priceEx, stock, inMenu) VALUES(@shortName, @fullName, @categoryId, @subcategoryId, @priceEx, @stock, @inMenu)";
+            string query = "INSERT INTO MenuItems (shortName, fullName, category, subcategory, priceEx, stock, inMenu) VALUES(@shortName, @fullName, @categoryId, @subcategoryId, @priceEx, @stock, @inMenu)";
             SqlParameter[] sqlParameters = new SqlParameter[]
             {
                 new SqlParameter("@shortName", SqlDbType.VarChar) { Value = menuItem.ShortName },
@@ -60,7 +60,7 @@ namespace Model
         public void UpdateMenuItem(MenuItem menuItem)
         {
             Debug.WriteLine("update");
-            string query = "UPDATE MenuItems SET shortName = @shortName, fullName = @fullName, categoryId = @categoryId, subcategoryId = @subcategoryId, priceEx = @priceEx, inMenu = @inMenu WHERE id = @id";
+            string query = "UPDATE MenuItems SET shortName = @shortName, fullName = @fullName, category = @categoryId, subcategory = @subcategoryId, priceEx = @priceEx, inMenu = @inMenu WHERE id = @id";
             SqlParameter[] sqlParameters = new SqlParameter[]
             {
                 new SqlParameter("@id", SqlDbType.Int) { Value = menuItem.Id },
@@ -84,8 +84,8 @@ namespace Model
                     Id = (int)dr["id"],
                     ShortName = (string)dr["shortName"],
                     FullName = (string)dr["fullName"],
-                    Category = (Category)(int)dr["categoryId"],
-                    SubCategory = (SubCategory)(int)dr["subcategoryId"],
+                    Category = (Category)(int)dr["category"],
+                    SubCategory = (SubCategory)(int)dr["subcategory"],
                     PriceEx = float.Parse(dr["priceEx"].ToString()),
                     Stock = (int)dr["stock"],
                     InMenu = (bool)dr["inMenu"]

@@ -39,18 +39,18 @@
             this.btnTable8 = new System.Windows.Forms.Button();
             this.btnTable10 = new System.Windows.Forms.Button();
             this.pnlReservations = new System.Windows.Forms.Panel();
+            this.btnBetalen = new System.Windows.Forms.Button();
             this.lblTafelBezetVanaf = new System.Windows.Forms.Label();
             this.btnBevestigen = new System.Windows.Forms.Button();
             this.listViewTable1 = new System.Windows.Forms.ListView();
             this.Naam = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Personen = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Tijd = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.lblTafel1 = new System.Windows.Forms.Label();
+            this.lblTafel = new System.Windows.Forms.Label();
             this.btnReserveringToevoegen = new System.Windows.Forms.Button();
             this.btnReserveringVerwijderen = new System.Windows.Forms.Button();
             this.btnReserveringAanpassen = new System.Windows.Forms.Button();
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.btnBetalen = new System.Windows.Forms.Button();
             this.pnlReservations.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -65,7 +65,7 @@
             this.btnTable1.TabIndex = 0;
             this.btnTable1.Text = "1";
             this.btnTable1.UseVisualStyleBackColor = false;
-            this.btnTable1.Click += new System.EventHandler(this.btnTable1_Click);
+            this.btnTable1.Click += new System.EventHandler(this.btnTable_Click);
             // 
             // btnTable2
             // 
@@ -78,7 +78,7 @@
             this.btnTable2.TabIndex = 1;
             this.btnTable2.Text = "2";
             this.btnTable2.UseVisualStyleBackColor = false;
-            this.btnTable2.Click += new System.EventHandler(this.btnTable2_Click);
+            this.btnTable2.Click += new System.EventHandler(this.btnTable_Click);
             // 
             // btnTable3
             // 
@@ -91,7 +91,7 @@
             this.btnTable3.TabIndex = 2;
             this.btnTable3.Text = "3";
             this.btnTable3.UseVisualStyleBackColor = false;
-            this.btnTable3.Click += new System.EventHandler(this.btnTable3_Click);
+            this.btnTable3.Click += new System.EventHandler(this.btnTable_Click);
             // 
             // btnTable5
             // 
@@ -104,7 +104,7 @@
             this.btnTable5.TabIndex = 3;
             this.btnTable5.Text = "5";
             this.btnTable5.UseVisualStyleBackColor = false;
-            this.btnTable5.Click += new System.EventHandler(this.btnTable5_Click);
+            this.btnTable5.Click += new System.EventHandler(this.btnTable_Click);
             // 
             // btnTable7
             // 
@@ -117,7 +117,7 @@
             this.btnTable7.TabIndex = 4;
             this.btnTable7.Text = "7";
             this.btnTable7.UseVisualStyleBackColor = false;
-            this.btnTable7.Click += new System.EventHandler(this.btnTable7_Click);
+            this.btnTable7.Click += new System.EventHandler(this.btnTable_Click);
             // 
             // btnTable9
             // 
@@ -130,7 +130,7 @@
             this.btnTable9.TabIndex = 5;
             this.btnTable9.Text = "9";
             this.btnTable9.UseVisualStyleBackColor = false;
-            this.btnTable9.Click += new System.EventHandler(this.btnTable9_Click);
+            this.btnTable9.Click += new System.EventHandler(this.btnTable_Click);
             // 
             // btnTable4
             // 
@@ -143,7 +143,7 @@
             this.btnTable4.TabIndex = 6;
             this.btnTable4.Text = "4";
             this.btnTable4.UseVisualStyleBackColor = false;
-            this.btnTable4.Click += new System.EventHandler(this.btnTable4_Click);
+            this.btnTable4.Click += new System.EventHandler(this.btnTable_Click);
             // 
             // btnTable6
             // 
@@ -156,7 +156,7 @@
             this.btnTable6.TabIndex = 7;
             this.btnTable6.Text = "6";
             this.btnTable6.UseVisualStyleBackColor = false;
-            this.btnTable6.Click += new System.EventHandler(this.btnTable6_Click);
+            this.btnTable6.Click += new System.EventHandler(this.btnTable_Click);
             // 
             // btnTable8
             // 
@@ -169,7 +169,7 @@
             this.btnTable8.TabIndex = 8;
             this.btnTable8.Text = "8";
             this.btnTable8.UseVisualStyleBackColor = false;
-            this.btnTable8.Click += new System.EventHandler(this.btnTable8_Click);
+            this.btnTable8.Click += new System.EventHandler(this.btnTable_Click);
             // 
             // btnTable10
             // 
@@ -182,7 +182,7 @@
             this.btnTable10.TabIndex = 9;
             this.btnTable10.Text = "10";
             this.btnTable10.UseVisualStyleBackColor = false;
-            this.btnTable10.Click += new System.EventHandler(this.btnTable10_Click);
+            this.btnTable10.Click += new System.EventHandler(this.btnTable_Click);
             // 
             // pnlReservations
             // 
@@ -191,11 +191,23 @@
             this.pnlReservations.Controls.Add(this.lblTafelBezetVanaf);
             this.pnlReservations.Controls.Add(this.btnBevestigen);
             this.pnlReservations.Controls.Add(this.listViewTable1);
-            this.pnlReservations.Controls.Add(this.lblTafel1);
+            this.pnlReservations.Controls.Add(this.lblTafel);
             this.pnlReservations.Location = new System.Drawing.Point(396, 44);
             this.pnlReservations.Name = "pnlReservations";
             this.pnlReservations.Size = new System.Drawing.Size(300, 468);
             this.pnlReservations.TabIndex = 10;
+            // 
+            // btnBetalen
+            // 
+            this.btnBetalen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.btnBetalen.ForeColor = System.Drawing.Color.White;
+            this.btnBetalen.Location = new System.Drawing.Point(15, 276);
+            this.btnBetalen.Name = "btnBetalen";
+            this.btnBetalen.Size = new System.Drawing.Size(270, 55);
+            this.btnBetalen.TabIndex = 5;
+            this.btnBetalen.Text = "Betalen";
+            this.btnBetalen.UseVisualStyleBackColor = false;
+            this.btnBetalen.Click += new System.EventHandler(this.btnBetalen_Click);
             // 
             // lblTafelBezetVanaf
             // 
@@ -249,14 +261,14 @@
             this.Tijd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Tijd.Width = 90;
             // 
-            // lblTafel1
+            // lblTafel
             // 
-            this.lblTafel1.AutoSize = true;
-            this.lblTafel1.Font = new System.Drawing.Font("Myanmar Text", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTafel1.Location = new System.Drawing.Point(101, 18);
-            this.lblTafel1.Name = "lblTafel1";
-            this.lblTafel1.Size = new System.Drawing.Size(0, 41);
-            this.lblTafel1.TabIndex = 0;
+            this.lblTafel.AutoSize = true;
+            this.lblTafel.Font = new System.Drawing.Font("Myanmar Text", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTafel.Location = new System.Drawing.Point(101, 18);
+            this.lblTafel.Name = "lblTafel";
+            this.lblTafel.Size = new System.Drawing.Size(0, 41);
+            this.lblTafel.TabIndex = 0;
             // 
             // btnReserveringToevoegen
             // 
@@ -306,17 +318,6 @@
             this.dateTimePicker.Size = new System.Drawing.Size(157, 39);
             this.dateTimePicker.TabIndex = 43;
             // 
-            // btnBetalen
-            // 
-            this.btnBetalen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.btnBetalen.ForeColor = System.Drawing.Color.White;
-            this.btnBetalen.Location = new System.Drawing.Point(15, 276);
-            this.btnBetalen.Name = "btnBetalen";
-            this.btnBetalen.Size = new System.Drawing.Size(270, 55);
-            this.btnBetalen.TabIndex = 5;
-            this.btnBetalen.Text = "Betalen";
-            this.btnBetalen.UseVisualStyleBackColor = false;
-            // 
             // ReservationScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -339,6 +340,7 @@
             this.Controls.Add(this.btnTable2);
             this.Controls.Add(this.btnTable1);
             this.Name = "ReservationScreen";
+            this.Text = " ";
             this.pnlReservations.ResumeLayout(false);
             this.pnlReservations.PerformLayout();
             this.ResumeLayout(false);
@@ -359,7 +361,7 @@
         private System.Windows.Forms.Button btnTable10;
         private System.Windows.Forms.Panel pnlReservations;
         private System.Windows.Forms.ListView listViewTable1;
-        private System.Windows.Forms.Label lblTafel1;
+        private System.Windows.Forms.Label lblTafel;
         private System.Windows.Forms.ColumnHeader Naam;
         private System.Windows.Forms.ColumnHeader Personen;
         private System.Windows.Forms.ColumnHeader Tijd;

@@ -11,6 +11,7 @@ namespace Controller
 {
     public class StaffController
     {
+        private LoginController loginController;
         static Regex validate_emailaddress = new Regex(@"^(?!\.)(""([^""\r\\]|\\[""\r\\])*""|"
                 + @"([-a-z0-9!#$%&'*+/=?^_`{|}~]|(?<!\.)\.)*)(?<!\.)"
                 + @"@[a-z0-9][\w\.-]*[a-z0-9]\.[a-z][a-z\.]*[a-z]$", RegexOptions.IgnoreCase);
@@ -20,38 +21,30 @@ namespace Controller
         public StaffController()
         {
             menuDb = new StaffDao();
+            loginController = new LoginController();
         }
         public List<Staff> GetAllStaff()
         {
             return menuDb.GetAllStaff();
         }
+        public bool StaffExists(Staff staff)
+        {
+            return menuDb.StaffExists(staff);
+        }
         public void AddStaff(Staff staff)
         {
-            if (validate_emailaddress.IsMatch(staff.Email) != true) throw new Exception("Dit is geen geldige email");
-            List<Staff> currentStaff = new List<Staff>();
-            currentStaff = GetAllStaff();
-            bool currentlyEmployed = false;
-            LoginController loginController = new LoginController();
-            staff.Password = loginController.HashAndSalt("password");
-            foreach (Staff s in currentStaff)
+            if (!StaffExists(staff))
             {
-                if(s.FirstName == staff.FirstName && s.LastName == staff.LastName && s.BirthDate == staff.BirthDate)
-                {
-                    currentlyEmployed = true;
-                }
-            }
-            if (currentlyEmployed)
-            {
-                menuDb.UpdateEmployed(staff);
-            }
-            else
-            {
+                if (validate_emailaddress.IsMatch(staff.Email) != true) throw new Exception("Dit is geen geldige email");
+                staff.Password = loginController.HashAndSalt("password");
                 menuDb.AddStaff(staff);
             }
+            else throw new Exception("Er bestaat al een werknemer met deze naam.");
         }
         public void RemoveStaff(Staff staff)
         {
-            menuDb.RemoveStaff(staff);
+            if (!StaffExists(staff)) ; //menuDb.AddStaff(staff);
+            else throw new Exception("Er bestaat al een werknemer met deze naam.");
         }
         public void UpdateStaff(Staff staff)
         {
@@ -60,6 +53,10 @@ namespace Controller
             if (string.IsNullOrEmpty(staff.Email)) throw new Exception("De email is nog niet ingevuld");
             if (validate_emailaddress.IsMatch(staff.Email) != true) throw new Exception("Dit is geen geldige email");
             menuDb.UpdateStaff(staff);
+        }
+        public Staff GetStaffByEmail(Staff staff)
+        {
+            return menuDb.GetStaffByEmail(staff);
         }
     }
 }

@@ -47,12 +47,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BestelsysteemUI.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="BestelsysteemUI.Designer.cs">
-      <DependentUpon>BestelsysteemUI.cs</DependentUpon>
-    </Compile>
     <Compile Include="CustomControls\CustomButton.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -149,17 +143,14 @@
     <Compile Include="Forms\ReservationScreens\ReserveringVerwijderenScreen.designer.cs">
       <DependentUpon>ReserveringVerwijderenScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Reservering.cs">
+    <Compile Include="Forms\Tablet.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Reservering.Designer.cs">
-      <DependentUpon>Reservering.cs</DependentUpon>
+    <Compile Include="Forms\Tablet.Designer.cs">
+      <DependentUpon>Tablet.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="BestelsysteemUI.resx">
-      <DependentUpon>BestelsysteemUI.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\BillScreen.resx">
       <DependentUpon>BillScreen.cs</DependentUpon>
     </EmbeddedResource>
@@ -205,8 +196,8 @@
     <EmbeddedResource Include="Forms\ReservationScreens\ReserveringVerwijderenScreen.resx">
       <DependentUpon>ReserveringVerwijderenScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Reservering.resx">
-      <DependentUpon>Reservering.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Tablet.resx">
+      <DependentUpon>Tablet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

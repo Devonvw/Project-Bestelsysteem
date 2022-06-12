@@ -77,27 +77,27 @@
             // Naam
             // 
             this.Naam.Text = "Naam";
-            this.Naam.Width = 70;
+            this.Naam.Width = 120;
             // 
             // datum
             // 
             this.datum.Text = "Datum";
-            this.datum.Width = 70;
+            this.datum.Width = 100;
             // 
             // tijd
             // 
             this.tijd.Text = "Tijd";
-            this.tijd.Width = 50;
+            this.tijd.Width = 100;
             // 
             // personen
             // 
             this.personen.Text = "Personen";
-            this.personen.Width = 80;
+            this.personen.Width = 100;
             // 
             // tafel
             // 
             this.tafel.Text = "Tafel";
-            this.tafel.Width = 45;
+            this.tafel.Width = 100;
             // 
             // txtboxNaam
             // 
@@ -174,6 +174,7 @@
             this.dateTimePicker.Font = new System.Drawing.Font("Myanmar Text", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker.Location = new System.Drawing.Point(12, 219);
+            this.dateTimePicker.MinDate = new System.DateTime(2022, 6, 12, 0, 0, 0, 0);
             this.dateTimePicker.Name = "dateTimePicker";
             this.dateTimePicker.Size = new System.Drawing.Size(238, 39);
             this.dateTimePicker.TabIndex = 24;
