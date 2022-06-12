@@ -257,11 +257,12 @@
             // 
             this.lblRekening.Font = new System.Drawing.Font("Myanmar Text", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRekening.ForeColor = System.Drawing.Color.White;
-            this.lblRekening.Location = new System.Drawing.Point(293, 9);
+            this.lblRekening.Location = new System.Drawing.Point(34, 9);
             this.lblRekening.Name = "lblRekening";
-            this.lblRekening.Size = new System.Drawing.Size(246, 67);
+            this.lblRekening.Size = new System.Drawing.Size(713, 67);
             this.lblRekening.TabIndex = 12;
             this.lblRekening.Text = "Rekening";
+            this.lblRekening.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnSave
             // 

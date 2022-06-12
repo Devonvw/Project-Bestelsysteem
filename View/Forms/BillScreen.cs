@@ -50,7 +50,7 @@ namespace View.Forms
         }
         private void BillScreen_Load(object sender, EventArgs e)
         {
-            lblRekening.Text = $"{lblRekening.Text} {table.Id}";
+            lblRekening.Text = $"{lblRekening.Text} tafel {table.Id}";
             bill = billController.GetCurrentBillByTable(table);
             Reload();
 
