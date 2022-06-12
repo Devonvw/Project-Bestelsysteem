@@ -9,6 +9,6 @@ namespace Model
 {
     public enum SubCategory
     {
-        Bier = 1, Wijn, GedistilleerdeDranken, WarmeDranken, Frisdrank, LunchStarter, LunchMain, LunchDesert, Starter, Side, Main, Desert
+        None, Bier, Wijn, GedistilleerdeDranken, WarmeDranken, Frisdrank, LunchStarter, LunchMain, LunchDesert, Starter, Side, Main, Desert
     }
 }

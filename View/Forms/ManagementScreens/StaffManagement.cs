@@ -17,6 +17,8 @@ namespace View.Forms.ManagementScreens
         private StaffController staffController;
         private List<Staff> staffList;
         private Staff selectedStaff;
+
+        //Load the staff
         private void Reload()
         {
             staffList = staffController.GetAllStaff();
@@ -42,6 +44,36 @@ namespace View.Forms.ManagementScreens
         {
             Reload();
         }
+        //Load the inputs into the selected staff
+        private void UpdateSelectedStaff()
+        {
+            selectedStaff.FirstName = tbxFirstName.Text;
+            selectedStaff.LastName = tbxLastname.Text;
+            selectedStaff.Email = tbxEmail.Text;
+            selectedStaff.BirthDate = dtpBirthdate.Value;
+            selectedStaff.Role = rbtnManager.Checked ? Roles.Manager : rbtnBartender.Checked ? Roles.Bartender : rbtnWaiter.Checked ? Roles.Waiter : Roles.Chef;
+            selectedStaff.Employed = cbxEmployed.Checked;
+        }
+        //Translate the role of the selected staff into the radio buttons
+        private void loadRole()
+        {
+            switch (selectedStaff.Role)
+            {
+                case Roles.Manager:
+                    rbtnManager.Checked = true;
+                    break;
+                case Roles.Bartender:
+                    rbtnBartender.Checked = true;
+                    break;
+                case Roles.Waiter:
+                    rbtnWaiter.Checked = true;
+                    break;
+                case Roles.Chef:
+                    rbtnChef.Checked = true;
+                    break;
+            }
+        }
+        //Load the selected staff into the inputs
         private void ltvStaff_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (ltvStaff.SelectedItems.Count > 0)
@@ -52,81 +84,30 @@ namespace View.Forms.ManagementScreens
                 tbxEmail.Text = selectedStaff.Email;
                 dtpBirthdate.Value = selectedStaff.BirthDate;
                 cbxEmployed.Checked = selectedStaff.Employed;
-                switch (selectedStaff.Role)
-                {
-                    case Roles.Manager:
-                        rbtnManager.Checked = true;
-                        break;
-                    case Roles.Bartender:
-                        rbtnBartender.Checked = true;
-                        break;
-                    case Roles.Waiter:
-                        rbtnWaiter.Checked = true;
-                        break;
-                    case Roles.Chef:
-                        rbtnChef.Checked = true;
-                        break;
-                }
+                loadRole();
             }
         }
+        //Save the selected staff
         private void btnSave_Click(object sender, EventArgs e)
         {
             try
             {
                 if (ltvStaff.SelectedItems.Count > 0)
                 {
-                    selectedStaff.FirstName = tbxFirstName.Text;
-                    selectedStaff.LastName = tbxLastname.Text;
-                    selectedStaff.Email = tbxEmail.Text;
-                    selectedStaff.BirthDate = dtpBirthdate.Value;
-                    selectedStaff.Role = rbtnManager.Checked ? Roles.Manager : rbtnBartender.Checked ? Roles.Bartender : rbtnWaiter.Checked ? Roles.Waiter : Roles.Chef;
-                    selectedStaff.Employed = cbxEmployed.Checked;
+                    UpdateSelectedStaff();
                     staffController.UpdateStaff(selectedStaff);
-                    Reload();
                     MessageBox.Show("Werknemer succesvol aangepast");
                 }
                 else
                 {
                     staffController.AddStaff(new Staff(tbxFirstName.Text, tbxLastname.Text, dtpBirthdate.Value, rbtnManager.Checked ? Roles.Manager : rbtnBartender.Checked ? Roles.Bartender : rbtnWaiter.Checked ? Roles.Waiter : rbtnChef.Checked ? Roles.Chef : Roles.None, tbxEmail.Text, cbxEmployed.Checked));
-                    Reload();
                     MessageBox.Show("Werknemer succesvol toegevoegd");
                 }
+                Reload();
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
-        private void lblRole_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void rbtnChef_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void rbtnWaiter_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void rbtnBartender_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pnlInputs_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void rbtnManager_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
+        //Clear inputs
         private void btnClear_Click(object sender, EventArgs e)
         {
             ltvStaff.SelectedItems.Clear();

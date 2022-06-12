@@ -23,6 +23,8 @@ namespace View.Forms.ManagementScreens
         private MenuController menuController;
         private List<Model.MenuItem> menuItemList;
         private Model.MenuItem selectedMenuItem;
+        
+        //Load all menuItems
         private void Reload()
         {
             menuItemList = menuController.GetAllMenuItems();
@@ -39,6 +41,7 @@ namespace View.Forms.ManagementScreens
                 ltvMenuItems.Items.Add(listViewItem);
             });
         }
+        //Get the subcategories that belong to the chosen category
         private void LoadSubCategories(Category category)
         {
             cbxSubcategory.Items.Clear();
@@ -64,6 +67,7 @@ namespace View.Forms.ManagementScreens
                     break;
             }
         }
+        //Translate the subcategory of the selected menuItem into the combobox index
         private void TranslateSubCatIndex(Category category)
         {
             switch (category)
@@ -100,6 +104,7 @@ namespace View.Forms.ManagementScreens
 
             rbtnInMenuTrue.Checked = true;
         }
+        //Load the selected menuItem into the inputs
         private void ltvMenuItems_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (ltvMenuItems.SelectedItems.Count > 0)
@@ -108,44 +113,42 @@ namespace View.Forms.ManagementScreens
                 tbxShortName.Text = selectedMenuItem.ShortName;
                 tbxFullName.Text = selectedMenuItem.FullName;
                 cbxCategory.SelectedIndex = (int)selectedMenuItem.Category - 1;
-
                 TranslateSubCatIndex(selectedMenuItem.Category);
-
                 numPriceEx.Value = (decimal)selectedMenuItem.PriceEx;
                 if (selectedMenuItem.InMenu) rbtnInMenuTrue.Checked = true;
                 else rbtnInMenuFalse.Checked = true;
             }
         }
-
+        //Load the inputs in the selected menuItem
+        private void UpdateSelectedMenuItem()
+        {
+            selectedMenuItem.ShortName = tbxShortName.Text;
+            selectedMenuItem.FullName = tbxFullName.Text;
+            selectedMenuItem.Category = (Category)(cbxCategory.SelectedIndex + 1);
+            selectedMenuItem.SubCategory = (SubCategory)Enum.Parse(typeof(SubCategory), cbxSubcategory.SelectedItem.ToString());
+            selectedMenuItem.PriceEx = (float)numPriceEx.Value;
+            selectedMenuItem.InMenu = rbtnInMenuTrue.Checked;
+        }
+        //Add the menuItem to the database
         private void btnSave_Click(object sender, EventArgs e)
         {
             try
             {
                 if (ltvMenuItems.SelectedItems.Count > 0)
                 {
-                    selectedMenuItem.ShortName = tbxShortName.Text;
-                    selectedMenuItem.FullName = tbxFullName.Text;
-                    selectedMenuItem.Category = (Category)(cbxCategory.SelectedIndex + 1);
-                    selectedMenuItem.SubCategory = (SubCategory)(cbxSubcategory.SelectedIndex + 1);
-                    selectedMenuItem.PriceEx = (float)numPriceEx.Value;
-                    selectedMenuItem.InMenu = rbtnInMenuTrue.Checked;
-                    menuController.UpdateMenuItem(selectedMenuItem);
-                    Reload();
+                    UpdateSelectedMenuItem();
                     MessageBox.Show("Menu item succesvol aangepast.");
                 }
                 else
                 {
-                    menuController.AddMenuItem(new Model.MenuItem(tbxShortName.Text, tbxFullName.Text, (Category)(cbxCategory.SelectedIndex + 1), (SubCategory)(cbxSubcategory.SelectedIndex + 1), (float)numPriceEx.Value, rbtnInMenuTrue.Checked));
-                    Reload();
+                    menuController.AddMenuItem(new Model.MenuItem(tbxShortName.Text, tbxFullName.Text, (Category)(cbxCategory.SelectedIndex + 1), cbxSubcategory.SelectedItem != null ? (SubCategory)Enum.Parse(typeof(SubCategory), cbxSubcategory.SelectedItem.ToString()) : SubCategory.None, (float)numPriceEx.Value, rbtnInMenuTrue.Checked));
                     MessageBox.Show("Menu item succesvol toegevoegd.");
                 }
+                Reload();
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
+        //Clear the inputs and selected menuItem
         private void btnClear_Click(object sender, EventArgs e)
         {
             ltvMenuItems.SelectedItems.Clear();
@@ -157,6 +160,7 @@ namespace View.Forms.ManagementScreens
             numPriceEx.Value = 0;
             rbtnInMenuTrue.Checked = true;
         }
+        //Load the subcategories that belong to the selected category
         private void cbxCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
             LoadSubCategories((Category)(cbxCategory.SelectedIndex + 1));

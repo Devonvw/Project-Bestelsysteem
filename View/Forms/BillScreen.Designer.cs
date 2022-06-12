@@ -262,7 +262,6 @@
             this.lblRekening.Size = new System.Drawing.Size(246, 67);
             this.lblRekening.TabIndex = 12;
             this.lblRekening.Text = "Rekening";
-            this.lblRekening.Click += new System.EventHandler(this.lblRekening_Click);
             // 
             // btnSave
             // 
@@ -301,7 +300,7 @@
             // 
             this.lblSplitPrice.AutoSize = true;
             this.lblSplitPrice.Font = new System.Drawing.Font("Myanmar Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSplitPrice.Location = new System.Drawing.Point(334, 37);
+            this.lblSplitPrice.Location = new System.Drawing.Point(244, 44);
             this.lblSplitPrice.Name = "lblSplitPrice";
             this.lblSplitPrice.Size = new System.Drawing.Size(0, 43);
             this.lblSplitPrice.TabIndex = 4;
@@ -323,6 +322,7 @@
             0,
             0,
             0});
+            this.numSplit.ValueChanged += new System.EventHandler(this.numSplit_ValueChanged);
             // 
             // label2
             // 
@@ -390,7 +390,6 @@
             this.label5.Size = new System.Drawing.Size(126, 36);
             this.label5.TabIndex = 2;
             this.label5.Text = "Totaal";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label4
             // 

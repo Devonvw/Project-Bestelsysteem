@@ -59,7 +59,6 @@ namespace Model
         }
         public void UpdateMenuItem(MenuItem menuItem)
         {
-            Debug.WriteLine("update");
             string query = "UPDATE MenuItems SET shortName = @shortName, fullName = @fullName, category = @categoryId, subcategory = @subcategoryId, priceEx = @priceEx, inMenu = @inMenu WHERE id = @id";
             SqlParameter[] sqlParameters = new SqlParameter[]
             {

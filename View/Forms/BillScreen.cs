@@ -15,12 +15,15 @@ namespace View.Forms
 {
     public partial class BillScreen : Form
     {
+        private Tablet mainForm;
         private BillController billController;
         private List<OrderItem> orderItems;
         private Bill bill;
         private Table table;
         private TableController tableController;
+        private Staff currentUser;
 
+        //For reloading the bill list
         private void Reload()
         {
             orderItems = billController.GetOrderItems(bill);
@@ -34,12 +37,14 @@ namespace View.Forms
                 ltvBillItems.Items.Add(listViewItem);
             });
         }
-        public BillScreen(Table table, BillController billController)
+        public BillScreen(Table table, BillController billController, Tablet mainform, Staff currentUser)
         {
             this.table = table;
             this.billController = billController;
+            mainForm = mainform;       
             orderItems = new List<OrderItem>();
             tableController = new TableController();
+            this.currentUser = currentUser;
 
             InitializeComponent();
         }
@@ -48,54 +53,31 @@ namespace View.Forms
             lblRekening.Text = $"{lblRekening.Text} {table.Id}";
             bill = billController.GetCurrentBillByTable(table);
             Reload();
+
             lblLowBtwOutput.Text = $"€{bill.LowBtwPrice.ToString("0.00")}";
             lblHighBtwOutput.Text = $"€{bill.HighBtwPrice.ToString("0.00")}";
             lblTotalOutput.Text = $"€{bill.TotalPrice.ToString("0.00")}";
         }
+        //Close the bill
         private void btnSave_Click(object sender, EventArgs e)
         {
-            bill.Comment = string.IsNullOrEmpty(txtOpmerkingInput.Text) ? "" : txtOpmerkingInput.Text;
-            bill.Tip = (float)numTip.Value;
-            if (rbContant.Checked) bill.PaymentMethod = PaymentMethod.Cash;
-            else if (rbPin.Checked) bill.PaymentMethod = PaymentMethod.Pin;
-            else if (rbCreditcard.Checked) bill.PaymentMethod = PaymentMethod.Creditcard;
-            else if (rbCashPin.Checked) bill.PaymentMethod = PaymentMethod.CashPin;
-            else if (rbCashCreditcard.Checked) bill.PaymentMethod = PaymentMethod.CashCreditcard;
-            else bill.PaymentMethod = PaymentMethod.None;
-
             try
             {
+                bill.Comment = string.IsNullOrEmpty(txtOpmerkingInput.Text) ? "" : txtOpmerkingInput.Text;
+                bill.Tip = (float)numTip.Value;
+                bill.PaymentMethod = rbContant.Checked ? PaymentMethod.Cash : rbPin.Checked ? PaymentMethod.Pin : rbCreditcard.Checked ? PaymentMethod.Creditcard : rbCashPin.Checked ? PaymentMethod.CashPin : rbCashCreditcard.Checked ? PaymentMethod.CashCreditcard : PaymentMethod.None;
+
                 billController.CloseBill(bill);
-                table.Id = bill.TableId;
-                table.Occupied = false;
-                tableController.ChangeOccupied(table);
                 MessageBox.Show("Rekening succesvol gesloten, de tafel is weer open.");
-                
+                mainForm.OpenChildForm(new ReservationScreen(mainForm, billController, currentUser), sender);
             }
-            catch (Exception err)
-            {
-                MessageBox.Show("Het was niet gelukt om de rekening te sluiten: " + err.Message);
-            }
+            catch (Exception err) { MessageBox.Show("Het was niet gelukt om de rekening te sluiten: " + err.Message); }
         }
+        //Handle splitting the bill
         private void numSplit_ValueChanged(object sender, EventArgs e)
         {
             if (numSplit.Value == 1) lblSplitPrice.Text = "";
             else lblSplitPrice.Text = $"€{Math.Round(bill.TotalPrice / (float)numSplit.Value, 2)}";
-        }
-
-        private void lblRekening_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblOpmerkingen_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

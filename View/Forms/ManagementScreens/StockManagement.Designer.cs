@@ -153,7 +153,8 @@
             this.numStock.Size = new System.Drawing.Size(236, 99);
             this.numStock.TabIndex = 27;
             this.numStock.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.numStock.ValueChanged += new System.EventHandler(this.numStock_ValueChanged);
+            this.numStock.ValueChanged += new System.EventHandler(this.numStock_ValueChanged_1);
+            this.numStock.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numStock_KeyPress);
             // 
             // btnSave
             // 

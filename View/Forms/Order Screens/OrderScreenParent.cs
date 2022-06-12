@@ -18,6 +18,7 @@ namespace View.Forms
     {
         private BillController billController;
         private OrderController orderController = new OrderController();
+        private TableController tableController;
         private Bill bill;
         private Staff staff;             
         private Form activeForm;
@@ -27,7 +28,8 @@ namespace View.Forms
         public OrderScreenParent(BillController billController, Staff currentUser) // staff moet meegegeven vanuit UI / login
         {
             this.billController = billController;
-            billController.AddObserver(this);
+            this.billController.AddObserver(this);
+            tableController = new TableController();
             InitializeComponent();
             this.staff = currentUser;
             staffNameLabel.Text = $"Medewerker: {staff.FirstName}";
@@ -61,12 +63,7 @@ namespace View.Forms
             // check for more open bills that arent closed yet
             try
             {
-                Debug.WriteLine("kaas");
-
-                Bill bill = billController.GetCurrentBillByTable(table);
-                this.bill = bill;
-                Debug.WriteLine("kaas1");
-
+                this.bill = billController.GetCurrentBillByTable(table);
             }
             catch
             {
@@ -118,8 +115,8 @@ namespace View.Forms
         private void TableOccupied()
         {
             List<Button> buttons = FillButtonList();
-            TableController tableController = new TableController();
             List<Table> tables = tableController.GetAllTables();
+            
 
             foreach (Table t in tables)
             {
@@ -132,8 +129,9 @@ namespace View.Forms
                             b.Enabled = false;
                             LastOrderedLabels[t.Id-1].Enabled = false;
                         }
-                        else if(t.Occupied == true)
+                        else if (t.Occupied == true)
                         {
+                            b.Enabled = true;
                             if (tableController.TableHasOrdered(t) == true)
                             {
                                 LastOrderedLabels[t.Id - 1].Enabled = true;

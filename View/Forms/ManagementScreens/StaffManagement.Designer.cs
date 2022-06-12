@@ -144,7 +144,6 @@
             this.pnlInputs.Name = "pnlInputs";
             this.pnlInputs.Size = new System.Drawing.Size(479, 741);
             this.pnlInputs.TabIndex = 8;
-            this.pnlInputs.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlInputs_Paint);
             // 
             // btnClear
             // 
@@ -237,7 +236,6 @@
             this.rbtnChef.TabStop = true;
             this.rbtnChef.Text = "Chef";
             this.rbtnChef.UseVisualStyleBackColor = true;
-            this.rbtnChef.CheckedChanged += new System.EventHandler(this.rbtnChef_CheckedChanged);
             // 
             // rbtnWaiter
             // 
@@ -250,7 +248,6 @@
             this.rbtnWaiter.TabStop = true;
             this.rbtnWaiter.Text = "Serveren";
             this.rbtnWaiter.UseVisualStyleBackColor = true;
-            this.rbtnWaiter.CheckedChanged += new System.EventHandler(this.rbtnWaiter_CheckedChanged);
             // 
             // rbtnBartender
             // 
@@ -262,7 +259,6 @@
             this.rbtnBartender.TabStop = true;
             this.rbtnBartender.Text = "Bar";
             this.rbtnBartender.UseVisualStyleBackColor = true;
-            this.rbtnBartender.CheckedChanged += new System.EventHandler(this.rbtnBartender_CheckedChanged);
             // 
             // lblRole
             // 
@@ -273,7 +269,6 @@
             this.lblRole.Size = new System.Drawing.Size(276, 30);
             this.lblRole.TabIndex = 17;
             this.lblRole.Text = "Functie";
-            this.lblRole.Click += new System.EventHandler(this.lblRole_Click);
             // 
             // rbtnManager
             // 
@@ -285,7 +280,6 @@
             this.rbtnManager.TabStop = true;
             this.rbtnManager.Text = "Manager";
             this.rbtnManager.UseVisualStyleBackColor = true;
-            this.rbtnManager.CheckedChanged += new System.EventHandler(this.rbtnManager_CheckedChanged);
             // 
             // lblBirthdate
             // 

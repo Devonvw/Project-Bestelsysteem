@@ -13,16 +13,15 @@ namespace View.Forms
     public partial class Management : Form
     {
         private Form activeForm;
-        
         public Management()
         {
             InitializeComponent();
         }
-
         private void Management_Load(object sender, EventArgs e)
         {
             OpenChildForm(new ManagementScreens.OverviewManagement(this), sender);
         }
+        //Open child form
         public void OpenChildForm(Form childForm, object btnSender)
         {
             if (activeForm != null)
@@ -36,8 +35,8 @@ namespace View.Forms
             childForm.BringToFront();
             childForm.Show();
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        //Back button
+        private void btnBack_Click(object sender, EventArgs e)
         {
             OpenChildForm(new ManagementScreens.OverviewManagement(this), sender);
         }

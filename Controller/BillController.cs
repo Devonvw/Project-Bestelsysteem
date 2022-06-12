@@ -12,11 +12,13 @@ namespace Controller
     {
         BillDao billDB;
         public List<IObserver> Observers;
+        private TableController tableController;
 
         public BillController()
         {
             billDB = new BillDao();
             Observers = new List<IObserver>();
+            tableController = new TableController();
         }
         public void AddObserver(IObserver observer)
         {
@@ -44,16 +46,17 @@ namespace Controller
         }
         public void CloseBill(Bill bill)
         {
-            if (bill.Comment.Length > 255) throw new Exception("De opmerking is langer dan 255 letters");
             if (bill.PaymentMethod == PaymentMethod.None) throw new Exception("Kies een betaalmethode");
 
             billDB.CloseBill(bill);
+            tableController.ChangeOccupied(new Table(bill.TableId, false));
             AlertObservers();
         }
 
         public void CreateBill(Table table, Staff staff)
         {            
             billDB.CreateBill(table, staff);
+            AlertObservers();
         }
 
         public Bill CheckForOpenBillOnTable(Table table)

@@ -45,7 +45,6 @@ namespace Model
 
         private (float totalPrice, float lowBtwPrice, float highBtwPrice) GetTotalBillPrice(int billId)
         {
-            Debug.WriteLine(billId);
             string query = "SELECT Cast(SUM(MI.priceEx * OI.amount * CASE WHEN SC.highBtw = 'true' THEN @highBtw ELSE @lowBtw END) AS DECIMAL(5, 2)) as totalPrice, Cast(SUM(MI.priceEx * OI.amount * CASE WHEN SC.highBtw = 'true' THEN 0 ELSE @lowBtwPer END) AS DECIMAL(5, 2)) as lowBtwPrice, Cast(SUM(MI.priceEx * OI.amount * CASE WHEN SC.highBtw = 'true' THEN @highBtwPer ELSE 0 END) AS DECIMAL(5, 2)) as highBtwPrice FROM BillItems AS BI INNER JOIN Orders AS O ON BI.orderId = O.id INNER JOIN OrderItems AS OI ON O.id = OI.orderId INNER JOIN MenuItems AS MI ON OI.menuItemId = MI.id INNER JOIN Subcategory AS SC ON MI.subcategory = SC.id WHERE BI.billId = @id";
             SqlParameter[] sqlParameters = new SqlParameter[]
             {
@@ -66,7 +65,7 @@ namespace Model
         {
             /*Close the bill (Update)*/
 
-            string query = "UPDATE Bills SET payed = 'true', paymentMethodId = @paymentMethodId, tip = @tip, comment = @comment WHERE id = @id";
+            string query = "UPDATE Bills SET payed = 'true', paymentMethod = @paymentMethodId, tip = @tip, comment = @comment WHERE id = @id";
             SqlParameter[] sqlParameters = new SqlParameter[]
             {
                 new SqlParameter("@paymentMethodId", SqlDbType.Int) { Value = bill.PaymentMethod },

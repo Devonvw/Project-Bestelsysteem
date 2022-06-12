@@ -151,11 +151,10 @@ namespace View.Forms
                     string[] tableName = lblTafel.Text.Split(' ');
                     table.Id = int.Parse(tableName[1]);
                     table.Occupied = true;
-                    BillController billController = new BillController();
 
                     //Aanpassen naar goede staff id 
-                    billController.CreateBill(table, currentUser);
                     tableController.ChangeOccupied(table);
+                    billController.CreateBill(table, currentUser);
                     TableOccupied();
                     TimeSeated(table.Id);
                     LoadTableInfo(table.Id);
@@ -184,7 +183,7 @@ namespace View.Forms
 
         private void btnBetalen_Click(object sender, EventArgs e)
         {
-            mainForm.OpenChildForm(new BillScreen(new Table(1, true), billController), sender);
+            mainForm.OpenChildForm(new BillScreen(new Table(1, true), billController, mainForm, currentUser), sender);
         }
     }
 }

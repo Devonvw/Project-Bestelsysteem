@@ -30,7 +30,6 @@ namespace Model
             catch (Exception e)
             {
                 //Print.ErrorLog(e);
-                Debug.WriteLine(e);
                 throw;
             }
             return conn;
