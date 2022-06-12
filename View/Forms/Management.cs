@@ -13,8 +13,11 @@ namespace View.Forms
     public partial class Management : Form
     {
         private Form activeForm;
-        public Management()
+        private LoginScreen loginScreen;
+        
+        public Management(LoginScreen loginScreen)
         {
+            this.loginScreen = loginScreen; 
             InitializeComponent();
         }
         private void Management_Load(object sender, EventArgs e)
@@ -39,6 +42,11 @@ namespace View.Forms
         private void btnBack_Click(object sender, EventArgs e)
         {
             OpenChildForm(new ManagementScreens.OverviewManagement(this), sender);
+        }
+
+        private void btn_Logout_Click(object sender, EventArgs e)
+        {
+            loginScreen.Logout();
         }
     }
 }

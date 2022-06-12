@@ -24,18 +24,19 @@ namespace View.Forms
         private Form activeForm;
         private List<OrderItem> orderItems;
         private Label[] LastOrderedLabels;
+        private LoginScreen loginScreen;
 
-        public OrderScreenParent(BillController billController, Staff currentUser) // staff moet meegegeven vanuit UI / login
+        public OrderScreenParent(BillController billController, Staff currentUser, LoginScreen loginScreen) // staff moet meegegeven vanuit UI / login
         {
             this.billController = billController;
-            this.billController.AddObserver(this);
-            tableController = new TableController();
+            billController.AddObserver(this);
             InitializeComponent();
             this.staff = currentUser;
             staffNameLabel.Text = $"Medewerker: {staff.FirstName}";
             LastOrderedLabels = new Label[10];
             FillLabelList();
             TableOccupied();
+            this.loginScreen = loginScreen;
         }
         public void UpdateForm()
         {
@@ -72,6 +73,7 @@ namespace View.Forms
             return true;
         }
 
+        //openen van een tafel
         private void OpenTable(Table table)
         {
             if (TableHasBill(table))
@@ -83,7 +85,7 @@ namespace View.Forms
                 billController.CreateBill(table, staff); 
                 this.bill = billController.GetCurrentBillByTable(table);               
             }
-            OpenChildForm(new Order_Screens.Overview(orderItems, bill, staff, tableNumberLabel));
+            OpenChildForm(new Order_Screens.Overview(orderItems, bill, staff, tableNumberLabel, this));
         }
 
 
@@ -112,6 +114,7 @@ namespace View.Forms
             OpenTable(table);
         }
 
+        //checken of een tafel bezet is en wanneer laatste order is gedaan
         private void TableOccupied()
         {
             List<Button> buttons = FillButtonList();
@@ -146,7 +149,7 @@ namespace View.Forms
             }
         }
         
-        
+        //vult de lijst met labels
         private void FillLabelList()
         {
             LastOrderedLabels[0] = lblLaatsteBestelling1;
@@ -160,6 +163,8 @@ namespace View.Forms
             LastOrderedLabels[8] = lblLaatsteBestelling9;
             LastOrderedLabels[9] = lblLaatsteBestelling10;
         }
+
+        //wanneer de laatste bestelling is gedaan van deze tafel 
         private void LastOrderPerTable(Table table)
         {
             TableController tableController = new TableController();
@@ -172,6 +177,8 @@ namespace View.Forms
                 }
             }    
         }
+
+        //vult een lijst met buttons
         private List<Button> FillButtonList()
         {
             List<Button> buttons = new List<Button>();
@@ -188,5 +195,10 @@ namespace View.Forms
             return buttons;
         }
 
+        //uitloggen
+        private void btn_Logout_Click(object sender, EventArgs e)
+        {
+            loginScreen.Logout();
+        }
     }
 }

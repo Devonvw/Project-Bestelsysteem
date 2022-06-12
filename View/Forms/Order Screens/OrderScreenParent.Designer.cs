@@ -32,7 +32,17 @@
             this.staffNameLabel = new System.Windows.Forms.Label();
             this.tableNumberLabel = new System.Windows.Forms.Label();
             this.childFormPanel = new System.Windows.Forms.Panel();
+            this.lblLaatsteBestelling10 = new System.Windows.Forms.Label();
+            this.lblLaatsteBestelling9 = new System.Windows.Forms.Label();
+            this.lblLaatsteBestelling8 = new System.Windows.Forms.Label();
+            this.lblLaatsteBestelling7 = new System.Windows.Forms.Label();
+            this.lblLaatsteBestelling6 = new System.Windows.Forms.Label();
+            this.lblLaatsteBestelling5 = new System.Windows.Forms.Label();
+            this.lblLaatsteBestelling4 = new System.Windows.Forms.Label();
+            this.lblLaatsteBestelling2 = new System.Windows.Forms.Label();
+            this.lblLaatsteBestelling3 = new System.Windows.Forms.Label();
             this.lblLaatsteBestelling1 = new System.Windows.Forms.Label();
+            this.btn_Logout = new System.Windows.Forms.Button();
             this.table10Button = new View.CustomControls.CustomButton();
             this.table9Button = new View.CustomControls.CustomButton();
             this.table8Button = new View.CustomControls.CustomButton();
@@ -43,15 +53,6 @@
             this.table3Button = new View.CustomControls.CustomButton();
             this.table2Button = new View.CustomControls.CustomButton();
             this.table1Button = new View.CustomControls.CustomButton();
-            this.lblLaatsteBestelling3 = new System.Windows.Forms.Label();
-            this.lblLaatsteBestelling2 = new System.Windows.Forms.Label();
-            this.lblLaatsteBestelling4 = new System.Windows.Forms.Label();
-            this.lblLaatsteBestelling5 = new System.Windows.Forms.Label();
-            this.lblLaatsteBestelling6 = new System.Windows.Forms.Label();
-            this.lblLaatsteBestelling7 = new System.Windows.Forms.Label();
-            this.lblLaatsteBestelling8 = new System.Windows.Forms.Label();
-            this.lblLaatsteBestelling9 = new System.Windows.Forms.Label();
-            this.lblLaatsteBestelling10 = new System.Windows.Forms.Label();
             this.topPanel.SuspendLayout();
             this.childFormPanel.SuspendLayout();
             this.SuspendLayout();
@@ -59,6 +60,7 @@
             // topPanel
             // 
             this.topPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(0)))), ((int)(((byte)(77)))));
+            this.topPanel.Controls.Add(this.btn_Logout);
             this.topPanel.Controls.Add(this.staffNameLabel);
             this.topPanel.Controls.Add(this.tableNumberLabel);
             this.topPanel.Dock = System.Windows.Forms.DockStyle.Top;
@@ -124,6 +126,96 @@
             this.childFormPanel.Size = new System.Drawing.Size(571, 977);
             this.childFormPanel.TabIndex = 2;
             // 
+            // lblLaatsteBestelling10
+            // 
+            this.lblLaatsteBestelling10.AutoSize = true;
+            this.lblLaatsteBestelling10.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.lblLaatsteBestelling10.Font = new System.Drawing.Font("Myanmar Text", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLaatsteBestelling10.Location = new System.Drawing.Point(381, 771);
+            this.lblLaatsteBestelling10.Name = "lblLaatsteBestelling10";
+            this.lblLaatsteBestelling10.Size = new System.Drawing.Size(0, 30);
+            this.lblLaatsteBestelling10.TabIndex = 25;
+            // 
+            // lblLaatsteBestelling9
+            // 
+            this.lblLaatsteBestelling9.AutoSize = true;
+            this.lblLaatsteBestelling9.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.lblLaatsteBestelling9.Font = new System.Drawing.Font("Myanmar Text", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLaatsteBestelling9.Location = new System.Drawing.Point(129, 771);
+            this.lblLaatsteBestelling9.Name = "lblLaatsteBestelling9";
+            this.lblLaatsteBestelling9.Size = new System.Drawing.Size(0, 30);
+            this.lblLaatsteBestelling9.TabIndex = 24;
+            // 
+            // lblLaatsteBestelling8
+            // 
+            this.lblLaatsteBestelling8.AutoSize = true;
+            this.lblLaatsteBestelling8.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.lblLaatsteBestelling8.Font = new System.Drawing.Font("Myanmar Text", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLaatsteBestelling8.Location = new System.Drawing.Point(381, 616);
+            this.lblLaatsteBestelling8.Name = "lblLaatsteBestelling8";
+            this.lblLaatsteBestelling8.Size = new System.Drawing.Size(0, 30);
+            this.lblLaatsteBestelling8.TabIndex = 23;
+            // 
+            // lblLaatsteBestelling7
+            // 
+            this.lblLaatsteBestelling7.AutoSize = true;
+            this.lblLaatsteBestelling7.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.lblLaatsteBestelling7.Font = new System.Drawing.Font("Myanmar Text", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLaatsteBestelling7.Location = new System.Drawing.Point(129, 616);
+            this.lblLaatsteBestelling7.Name = "lblLaatsteBestelling7";
+            this.lblLaatsteBestelling7.Size = new System.Drawing.Size(0, 30);
+            this.lblLaatsteBestelling7.TabIndex = 22;
+            // 
+            // lblLaatsteBestelling6
+            // 
+            this.lblLaatsteBestelling6.AutoSize = true;
+            this.lblLaatsteBestelling6.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.lblLaatsteBestelling6.Font = new System.Drawing.Font("Myanmar Text", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLaatsteBestelling6.Location = new System.Drawing.Point(381, 456);
+            this.lblLaatsteBestelling6.Name = "lblLaatsteBestelling6";
+            this.lblLaatsteBestelling6.Size = new System.Drawing.Size(0, 30);
+            this.lblLaatsteBestelling6.TabIndex = 21;
+            // 
+            // lblLaatsteBestelling5
+            // 
+            this.lblLaatsteBestelling5.AutoSize = true;
+            this.lblLaatsteBestelling5.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.lblLaatsteBestelling5.Font = new System.Drawing.Font("Myanmar Text", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLaatsteBestelling5.Location = new System.Drawing.Point(129, 456);
+            this.lblLaatsteBestelling5.Name = "lblLaatsteBestelling5";
+            this.lblLaatsteBestelling5.Size = new System.Drawing.Size(0, 30);
+            this.lblLaatsteBestelling5.TabIndex = 20;
+            // 
+            // lblLaatsteBestelling4
+            // 
+            this.lblLaatsteBestelling4.AutoSize = true;
+            this.lblLaatsteBestelling4.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.lblLaatsteBestelling4.Font = new System.Drawing.Font("Myanmar Text", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLaatsteBestelling4.Location = new System.Drawing.Point(381, 291);
+            this.lblLaatsteBestelling4.Name = "lblLaatsteBestelling4";
+            this.lblLaatsteBestelling4.Size = new System.Drawing.Size(0, 30);
+            this.lblLaatsteBestelling4.TabIndex = 19;
+            // 
+            // lblLaatsteBestelling2
+            // 
+            this.lblLaatsteBestelling2.AutoSize = true;
+            this.lblLaatsteBestelling2.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.lblLaatsteBestelling2.Font = new System.Drawing.Font("Myanmar Text", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLaatsteBestelling2.Location = new System.Drawing.Point(381, 132);
+            this.lblLaatsteBestelling2.Name = "lblLaatsteBestelling2";
+            this.lblLaatsteBestelling2.Size = new System.Drawing.Size(0, 30);
+            this.lblLaatsteBestelling2.TabIndex = 18;
+            // 
+            // lblLaatsteBestelling3
+            // 
+            this.lblLaatsteBestelling3.AutoSize = true;
+            this.lblLaatsteBestelling3.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.lblLaatsteBestelling3.Font = new System.Drawing.Font("Myanmar Text", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLaatsteBestelling3.Location = new System.Drawing.Point(129, 291);
+            this.lblLaatsteBestelling3.Name = "lblLaatsteBestelling3";
+            this.lblLaatsteBestelling3.Size = new System.Drawing.Size(0, 30);
+            this.lblLaatsteBestelling3.TabIndex = 17;
+            // 
             // lblLaatsteBestelling1
             // 
             this.lblLaatsteBestelling1.AutoSize = true;
@@ -133,6 +225,19 @@
             this.lblLaatsteBestelling1.Name = "lblLaatsteBestelling1";
             this.lblLaatsteBestelling1.Size = new System.Drawing.Size(0, 30);
             this.lblLaatsteBestelling1.TabIndex = 16;
+            // 
+            // btn_Logout
+            // 
+            this.btn_Logout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.btn_Logout.Font = new System.Drawing.Font("Myanmar Text", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Logout.ForeColor = System.Drawing.Color.White;
+            this.btn_Logout.Location = new System.Drawing.Point(429, 37);
+            this.btn_Logout.Name = "btn_Logout";
+            this.btn_Logout.Size = new System.Drawing.Size(120, 53);
+            this.btn_Logout.TabIndex = 2;
+            this.btn_Logout.Text = "Logout";
+            this.btn_Logout.UseVisualStyleBackColor = false;
+            this.btn_Logout.Click += new System.EventHandler(this.btn_Logout_Click);
             // 
             // table10Button
             // 
@@ -344,96 +449,6 @@
             this.table1Button.UseVisualStyleBackColor = false;
             this.table1Button.Click += new System.EventHandler(this.btnTable_Click);
             // 
-            // lblLaatsteBestelling3
-            // 
-            this.lblLaatsteBestelling3.AutoSize = true;
-            this.lblLaatsteBestelling3.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.lblLaatsteBestelling3.Font = new System.Drawing.Font("Myanmar Text", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLaatsteBestelling3.Location = new System.Drawing.Point(129, 291);
-            this.lblLaatsteBestelling3.Name = "lblLaatsteBestelling3";
-            this.lblLaatsteBestelling3.Size = new System.Drawing.Size(0, 30);
-            this.lblLaatsteBestelling3.TabIndex = 17;
-            // 
-            // lblLaatsteBestelling2
-            // 
-            this.lblLaatsteBestelling2.AutoSize = true;
-            this.lblLaatsteBestelling2.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.lblLaatsteBestelling2.Font = new System.Drawing.Font("Myanmar Text", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLaatsteBestelling2.Location = new System.Drawing.Point(381, 132);
-            this.lblLaatsteBestelling2.Name = "lblLaatsteBestelling2";
-            this.lblLaatsteBestelling2.Size = new System.Drawing.Size(0, 30);
-            this.lblLaatsteBestelling2.TabIndex = 18;
-            // 
-            // lblLaatsteBestelling4
-            // 
-            this.lblLaatsteBestelling4.AutoSize = true;
-            this.lblLaatsteBestelling4.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.lblLaatsteBestelling4.Font = new System.Drawing.Font("Myanmar Text", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLaatsteBestelling4.Location = new System.Drawing.Point(381, 291);
-            this.lblLaatsteBestelling4.Name = "lblLaatsteBestelling4";
-            this.lblLaatsteBestelling4.Size = new System.Drawing.Size(0, 30);
-            this.lblLaatsteBestelling4.TabIndex = 19;
-            // 
-            // lblLaatsteBestelling5
-            // 
-            this.lblLaatsteBestelling5.AutoSize = true;
-            this.lblLaatsteBestelling5.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.lblLaatsteBestelling5.Font = new System.Drawing.Font("Myanmar Text", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLaatsteBestelling5.Location = new System.Drawing.Point(129, 456);
-            this.lblLaatsteBestelling5.Name = "lblLaatsteBestelling5";
-            this.lblLaatsteBestelling5.Size = new System.Drawing.Size(0, 30);
-            this.lblLaatsteBestelling5.TabIndex = 20;
-            // 
-            // lblLaatsteBestelling6
-            // 
-            this.lblLaatsteBestelling6.AutoSize = true;
-            this.lblLaatsteBestelling6.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.lblLaatsteBestelling6.Font = new System.Drawing.Font("Myanmar Text", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLaatsteBestelling6.Location = new System.Drawing.Point(381, 456);
-            this.lblLaatsteBestelling6.Name = "lblLaatsteBestelling6";
-            this.lblLaatsteBestelling6.Size = new System.Drawing.Size(0, 30);
-            this.lblLaatsteBestelling6.TabIndex = 21;
-            // 
-            // lblLaatsteBestelling7
-            // 
-            this.lblLaatsteBestelling7.AutoSize = true;
-            this.lblLaatsteBestelling7.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.lblLaatsteBestelling7.Font = new System.Drawing.Font("Myanmar Text", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLaatsteBestelling7.Location = new System.Drawing.Point(129, 616);
-            this.lblLaatsteBestelling7.Name = "lblLaatsteBestelling7";
-            this.lblLaatsteBestelling7.Size = new System.Drawing.Size(0, 30);
-            this.lblLaatsteBestelling7.TabIndex = 22;
-            // 
-            // lblLaatsteBestelling8
-            // 
-            this.lblLaatsteBestelling8.AutoSize = true;
-            this.lblLaatsteBestelling8.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.lblLaatsteBestelling8.Font = new System.Drawing.Font("Myanmar Text", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLaatsteBestelling8.Location = new System.Drawing.Point(381, 616);
-            this.lblLaatsteBestelling8.Name = "lblLaatsteBestelling8";
-            this.lblLaatsteBestelling8.Size = new System.Drawing.Size(0, 30);
-            this.lblLaatsteBestelling8.TabIndex = 23;
-            // 
-            // lblLaatsteBestelling9
-            // 
-            this.lblLaatsteBestelling9.AutoSize = true;
-            this.lblLaatsteBestelling9.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.lblLaatsteBestelling9.Font = new System.Drawing.Font("Myanmar Text", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLaatsteBestelling9.Location = new System.Drawing.Point(129, 771);
-            this.lblLaatsteBestelling9.Name = "lblLaatsteBestelling9";
-            this.lblLaatsteBestelling9.Size = new System.Drawing.Size(0, 30);
-            this.lblLaatsteBestelling9.TabIndex = 24;
-            // 
-            // lblLaatsteBestelling10
-            // 
-            this.lblLaatsteBestelling10.AutoSize = true;
-            this.lblLaatsteBestelling10.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.lblLaatsteBestelling10.Font = new System.Drawing.Font("Myanmar Text", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLaatsteBestelling10.Location = new System.Drawing.Point(381, 771);
-            this.lblLaatsteBestelling10.Name = "lblLaatsteBestelling10";
-            this.lblLaatsteBestelling10.Size = new System.Drawing.Size(0, 30);
-            this.lblLaatsteBestelling10.TabIndex = 25;
-            // 
             // OrderScreenParent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -479,5 +494,6 @@
         private System.Windows.Forms.Label lblLaatsteBestelling7;
         private System.Windows.Forms.Label lblLaatsteBestelling6;
         private System.Windows.Forms.Label lblLaatsteBestelling5;
+        private System.Windows.Forms.Button btn_Logout;
     }
 }

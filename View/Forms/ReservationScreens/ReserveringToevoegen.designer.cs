@@ -102,27 +102,27 @@
             // Naam
             // 
             this.Naam.Text = "Naam";
-            this.Naam.Width = 70;
+            this.Naam.Width = 120;
             // 
             // datum
             // 
             this.datum.Text = "Datum";
-            this.datum.Width = 70;
+            this.datum.Width = 100;
             // 
             // tijd
             // 
             this.tijd.Text = "Tijd";
-            this.tijd.Width = 50;
+            this.tijd.Width = 100;
             // 
             // personen
             // 
             this.personen.Text = "Personen";
-            this.personen.Width = 80;
+            this.personen.Width = 100;
             // 
             // tafel
             // 
             this.tafel.Text = "Tafel";
-            this.tafel.Width = 45;
+            this.tafel.Width = 100;
             // 
             // lblBestaandeReserveringen
             // 
@@ -140,6 +140,7 @@
             this.dateTimePicker1.Font = new System.Drawing.Font("Myanmar Text", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker1.Location = new System.Drawing.Point(18, 86);
+            this.dateTimePicker1.MinDate = new System.DateTime(2022, 6, 12, 0, 0, 0, 0);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(237, 39);
             this.dateTimePicker1.TabIndex = 5;
@@ -193,6 +194,7 @@
             // 
             // comboBoxPersonen
             // 
+            this.comboBoxPersonen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxPersonen.Font = new System.Drawing.Font("Myanmar Text", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxPersonen.FormattingEnabled = true;
             this.comboBoxPersonen.Location = new System.Drawing.Point(278, 500);
@@ -202,6 +204,7 @@
             // 
             // comboBoxTafel
             // 
+            this.comboBoxTafel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxTafel.Font = new System.Drawing.Font("Myanmar Text", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxTafel.FormattingEnabled = true;
             this.comboBoxTafel.Location = new System.Drawing.Point(12, 500);
@@ -224,6 +227,7 @@
             // 
             // comboBoxMinuten
             // 
+            this.comboBoxMinuten.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxMinuten.Font = new System.Drawing.Font("Myanmar Text", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxMinuten.FormattingEnabled = true;
             this.comboBoxMinuten.Location = new System.Drawing.Point(407, 86);
@@ -233,6 +237,7 @@
             // 
             // comboBoxUren
             // 
+            this.comboBoxUren.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxUren.Font = new System.Drawing.Font("Myanmar Text", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxUren.FormattingEnabled = true;
             this.comboBoxUren.Location = new System.Drawing.Point(275, 86);

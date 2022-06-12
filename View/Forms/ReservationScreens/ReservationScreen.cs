@@ -17,11 +17,15 @@ namespace View.Forms
         private BillController billController;
         private List<Table> tables;
         private Staff currentUser;
+        private Table currentTable;
+        private Table table;
         public ReservationScreen(Tablet mainForm, BillController billController, Staff staff)
         {
             reservationController = new ReservationController();
             tableController = new TableController();
             reservation = new Reservation();
+            currentTable = new Table();
+            table = new Table();
             this.currentUser = staff;
             this.mainForm = mainForm;
             this.billController = billController;
@@ -30,33 +34,36 @@ namespace View.Forms
             HidePanels();
             TableOccupied();  
         }
+
+        //Update de form
         public void UpdateForm()
         {
             TableOccupied();
         }
          
+        //checkt of een tafel bezet is
         private void TableOccupied()
         {
             List<Button> buttons = FillButtonList();
             tables = tableController.GetAllTables();
-            
             foreach (Table t in tables)
             {
                 foreach (Button b in buttons)
-
                 if (b.Text == t.Id.ToString())
                 {
-                        if (t.Occupied)
-                        {
-                            b.BackColor = Color.Red;
-                        }
+                    if (t.Occupied)
+                    {
+                        b.BackColor = Color.Red;
+                    }
                     else if (t.Occupied == false)
-                        {
-                            b.BackColor = Color.Green;
-                        }
+                    {
+                        b.BackColor = Color.Green;
+                    }
                 }
             }       
         }
+
+        //vult een lijst met alle buttons
         private List<Button> FillButtonList()
         {
             List<Button> buttons = new List<Button>();           
@@ -73,12 +80,12 @@ namespace View.Forms
             return buttons;
         }
       
+        //vult de listview met reserveringen van een tafel
         private void fillListViewTables(Reservation reservation)
         {
             pnlReservations.Show();
             lblTafel.Text = $"Tafel {reservation.TableId}";
             List<Reservation> reservationList = reservationController.GetReservationsForTable(reservation);
-
             listViewTable1.Items.Clear();
             foreach (Reservation r in reservationList)
             {
@@ -91,22 +98,25 @@ namespace View.Forms
                 }   
             }
         }
+
+        //hide de panel met de reserveringen
         private void HidePanels()
         {
             pnlReservations.Hide();
         }
-
+        
+        //Laat zien vanaf wanneer een tafel is bezet
         private void TimeSeated(int button)
         {
-            Table table = new Table();
             tables = tableController.GetAllTables();
+            int UTC2Timezone = 2;
             foreach (Table t in tables)
             {
                 if (t.Id == button)
                 {
                     if (t.Occupied)
                     {
-                        lblTafelBezetVanaf.Text = $"Bezet vanaf: {t.TimeSeated.ToString("HH:mm")}";
+                        lblTafelBezetVanaf.Text = $"Bezet vanaf: {t.TimeSeated.AddHours(UTC2Timezone):HH:mm}";
                     }
                     else
                     {
@@ -115,18 +125,19 @@ namespace View.Forms
                 }
             }
         }
+        //alle button clicks
         private void btnTable_Click(object sender, EventArgs e)
         {
-            LoadTableInfo(int.Parse((sender as Button).Text));
+            currentTable.Id = int.Parse((sender as Button).Text);
+            LoadTableInfo(currentTable.Id);
         }
+
+        //laadt de info van het overzicht van een tafel
         private void LoadTableInfo(int tafelId)
         {
             reservation.TableId = tafelId;
             fillListViewTables(reservation);
             TimeSeated(reservation.TableId);
-
-            BillController billController = new BillController();
-            Table table = new Table();
             table.Id = tafelId;
             bool billExists = billController.BillExist(table);
             if (billExists)
@@ -141,13 +152,13 @@ namespace View.Forms
             }
         }
 
+        //bevestigen van het bezetten van een tafel;
         private void btnBevestigen_Click(object sender, EventArgs e)
         {
             DialogResult dr = MessageBox.Show("Weet u zeker dat u de tafel wilt bezetten?", "Tafel Bezetten", MessageBoxButtons.YesNo);
             switch (dr)
             {
                 case DialogResult.Yes:
-                    Table table = new Table();
                     string[] tableName = lblTafel.Text.Split(' ');
                     table.Id = int.Parse(tableName[1]);
                     table.Occupied = true;
@@ -166,24 +177,28 @@ namespace View.Forms
             
         }
 
+        //openen childform reservering toevoegen
         private void btnReserveringToevoegen_Click(object sender, EventArgs e)
         {
             mainForm.OpenChildForm(new ReserveringToevoegen(), sender);
         }
 
+        //openen childform reservering verwijderen
         private void btnReserveringVerwijderen_Click(object sender, EventArgs e)
         {
             mainForm.OpenChildForm(new ReserveringVerwijderenScreen(), sender); 
         }
 
+        //openen childform reservering aanpassen
         private void btnReserveringAanpassen_Click(object sender, EventArgs e)
         {
             mainForm.OpenChildForm(new ReserveringAanpassenScreen(), sender);
         }
-
+         
+        //openen childform betalen
         private void btnBetalen_Click(object sender, EventArgs e)
         {
-            mainForm.OpenChildForm(new BillScreen(new Table(1, true), billController, mainForm, currentUser), sender);
+            mainForm.OpenChildForm(new BillScreen(new Table(currentTable.Id, true), billController), sender);
         }
     }
 }

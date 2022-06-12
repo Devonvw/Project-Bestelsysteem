@@ -19,25 +19,28 @@ namespace Controller
             logindb = new LoginDao();
         }
 
+        //checkt of een user in de database staat 
         public bool LoginCheck(Login userLogin)
         {
             List<Login> allUsers = GetAllUsers();
 
             foreach (Login user in allUsers)
             {
-                if(user.UserName == userLogin.UserName && user.Password == HashAndSalt(userLogin.Password))
+                if(user.UserName.ToLower() == userLogin.UserName.ToLower() && user.Password == HashAndSalt(userLogin.Password))
                 {
                     return true;
                 }
             }
             return false;
         }
+
         public List<Login> GetAllUsers()
         {
             List<Login> allUsers = logindb.GetAllUsers();
             return allUsers;
         }
 
+        //hashed het password
         public string HashAndSalt(string password)
         {
             byte[] noSalt = new byte[0];

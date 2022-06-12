@@ -18,17 +18,13 @@ namespace View.Forms
         private Form activeForm;
         private BillController billController;
         private Staff currentUser;
-        public Tablet(Staff currentUser)
+        private LoginScreen loginScreen;
+        public Tablet(Staff currentUser, LoginScreen loginScreen)
         {
-            billController = new BillController();
             InitializeComponent();
+            this.billController = new BillController();
             this.currentUser = currentUser;
-
-            OrderScreenParent orderScreenParent = new OrderScreenParent(billController, currentUser);
-            orderScreenParent.Show();
-
-            Management management = new Management();
-            management.Show();
+            this.loginScreen = loginScreen;
         }
         // option to drag the screen by topPanel (eigk alleen voor gebruik op pc handig ofcourse maar werkt lekker tijdens developen)
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -63,6 +59,12 @@ namespace View.Forms
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        //uitloggen
+        private void button1_Click(object sender, EventArgs e)
+        {
+            loginScreen.Logout();
         }
     }
 }

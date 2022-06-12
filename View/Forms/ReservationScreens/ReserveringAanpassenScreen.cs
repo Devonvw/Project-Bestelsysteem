@@ -25,11 +25,25 @@ namespace View.Forms
             HideAllBoxes();
         }
 
+        //button voor het opzoeken op naam
         private void btnZoekReserveringOpNaam_Click(object sender, EventArgs e)
         {
-            reservation.Name = txtBoxZoekNaam.Text;  
-            LoadListViewOpNaam(reservation);
+            try
+            {
+                reservation.Name = txtBoxZoekNaam.Text;
+                if (string.IsNullOrEmpty(reservation.Name))
+                {
+                    throw new Exception("Er is geen naam ingevuld om de reservering van op te kunnen zoeken, vul een ander naam in");
+                }
+                LoadListViewOpNaam(reservation);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Geen geldige naam ingevuld");
+            }
         }
+
+        //laadt de listview met reserveringen van de ingevulde naam
         private void LoadListViewOpNaam(Reservation reservation)
         {
             listViewReserveringen.Enabled = true;
@@ -38,7 +52,7 @@ namespace View.Forms
             LoadListview(reservationList);
         }
 
-
+        //laadt de listview
         private void LoadListview(List<Reservation> reservationList)
         {
             foreach (Reservation r in reservationList)
@@ -52,8 +66,7 @@ namespace View.Forms
             }
         }
 
-
-
+        //Zoekt een reservering op datum
         private void btnZoekReserveringOpDatum_Click(object sender, EventArgs e)
         {
             listViewReserveringen.Enabled = true;
@@ -84,6 +97,8 @@ namespace View.Forms
                 MessageBox.Show("Niet alle velden zijn ingevuld, vul alle velden in om de reserveringen in het gewenste tijdslot te bekijken.");
             }
         }
+
+        //enabled alle boxes
         private void ShowAllBoxes()
         {
             listViewReserveringen.Enabled = true;
@@ -95,6 +110,7 @@ namespace View.Forms
             btnBevestigen.Enabled = true;
         }
 
+        //invullen van de velden met de informatie van de geselecteerde reservering 
         private void listViewReserveringen_Click(object sender, EventArgs e)
         {
             ShowAllBoxes();
@@ -103,7 +119,6 @@ namespace View.Forms
             string time = listViewReserveringen.SelectedItems[0].SubItems[2].Text;
             string[] timeSplit = time.Split(':');
             comboBoxUren.SelectedIndex = int.Parse(timeSplit[0]) - 10;
-
             if (timeSplit[1] == "00")
             {
                 comboBoxMinuten.SelectedIndex = 0;
@@ -122,6 +137,8 @@ namespace View.Forms
             comboBoxPersonen.SelectedIndex = int.Parse(listViewReserveringen.SelectedItems[0].SubItems[3].Text)-1;
             comboBoxTafel.SelectedIndex = int.Parse(listViewReserveringen.SelectedItems[0].SubItems[4].Text)-1;
         }
+        
+        //laad alle velden
         private void LoadForms()
         {
             FillComboBoxMinuten();
@@ -132,6 +149,7 @@ namespace View.Forms
             FillComboboxTijdMinutenZoeken();
         }
         
+        //hide alle velden
         private void HideAllBoxes()
         { 
             listViewReserveringen.Enabled=false;
@@ -142,6 +160,8 @@ namespace View.Forms
             comboBoxPersonen.Enabled=false;
             btnBevestigen.Enabled = false;
         }
+
+        //vult de comboboc met de tafels 
         private void FillComboboxTafel()
         {
             TableController tableController = new TableController();
@@ -151,6 +171,8 @@ namespace View.Forms
                 comboBoxTafel.Items.Add(t.Id);
             }
         }
+        
+        //vult de combox met het aantal personen
         private void FillComboBoxPersonen()
         {
             for (int i = 1; i <= 4; i++)
@@ -158,6 +180,8 @@ namespace View.Forms
                 comboBoxPersonen.Items.Add(i);
             }
         }
+
+        //vult de combobox met de uren
         public void FillComboBoxUren()
         {
             for (int i = 10; i <= 21; i++)
@@ -165,6 +189,8 @@ namespace View.Forms
                 comboBoxUren.Items.Add(i.ToString());
             }
         }
+
+        //vult de combobox met de minuten
         public void FillComboBoxMinuten()
         {
             for (int i = 0; i <= 45; i += 15)
@@ -172,6 +198,8 @@ namespace View.Forms
                 comboBoxMinuten.Items.Add(i.ToString());
             }
         }
+        
+        //vult de combobox met uren
         private void FillComboboxTijdUrenZoeken()
         {
             for (int i = 10; i <= 21; i++)
@@ -180,6 +208,7 @@ namespace View.Forms
             }
         }
 
+        //vult de combobox met minuten
         private void FillComboboxTijdMinutenZoeken()
         {
             for (int i = 0; i <= 45; i += 15)
@@ -188,6 +217,7 @@ namespace View.Forms
             }
         }
 
+        //verwijderd de oude reservering en voegt de nieuwe toe
         private void btnBevestigen_Click(object sender, EventArgs e)
         {
             ReserveringVerwijderen();
@@ -195,6 +225,8 @@ namespace View.Forms
             reservation.Name = txtboxNaam.Text;
             LoadListViewOpNaam(reservation);
         }
+
+        //voegt een nieuwe reservering toe 
         private void ReserveringToevoegen()
         {
             try
@@ -211,6 +243,8 @@ namespace View.Forms
                 MessageBox.Show("Niet alle velden zijn ingevuld, vul alle velden in om de reservering toe te kunnen voegen");
             }
         }
+
+        //verwijderd een reservering
         private void ReserveringVerwijderen()
         {
             reservation.Name = listViewReserveringen.SelectedItems[0].SubItems[0].Text;

@@ -58,6 +58,7 @@
             // 
             // comboBoxMinuten
             // 
+            this.comboBoxMinuten.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxMinuten.Font = new System.Drawing.Font("Myanmar Text", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxMinuten.FormattingEnabled = true;
             this.comboBoxMinuten.Location = new System.Drawing.Point(410, 432);
@@ -67,6 +68,7 @@
             // 
             // comboBoxUren
             // 
+            this.comboBoxUren.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxUren.Font = new System.Drawing.Font("Myanmar Text", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxUren.FormattingEnabled = true;
             this.comboBoxUren.Location = new System.Drawing.Point(281, 432);
@@ -76,6 +78,7 @@
             // 
             // comboBoxTafel
             // 
+            this.comboBoxTafel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxTafel.Font = new System.Drawing.Font("Myanmar Text", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxTafel.FormattingEnabled = true;
             this.comboBoxTafel.Location = new System.Drawing.Point(10, 517);
@@ -85,6 +88,7 @@
             // 
             // comboBoxPersonen
             // 
+            this.comboBoxPersonen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxPersonen.Font = new System.Drawing.Font("Myanmar Text", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxPersonen.FormattingEnabled = true;
             this.comboBoxPersonen.Location = new System.Drawing.Point(281, 517);
@@ -170,27 +174,27 @@
             // Naam
             // 
             this.Naam.Text = "Naam";
-            this.Naam.Width = 70;
+            this.Naam.Width = 120;
             // 
             // datum
             // 
             this.datum.Text = "Datum";
-            this.datum.Width = 70;
+            this.datum.Width = 100;
             // 
             // tijd
             // 
             this.tijd.Text = "Tijd";
-            this.tijd.Width = 50;
+            this.tijd.Width = 100;
             // 
             // personen
             // 
             this.personen.Text = "Personen";
-            this.personen.Width = 80;
+            this.personen.Width = 100;
             // 
             // tafel
             // 
             this.tafel.Text = "Tafel";
-            this.tafel.Width = 45;
+            this.tafel.Width = 100;
             // 
             // txtboxNaam
             // 
@@ -229,6 +233,7 @@
             this.dateTimePicker.Font = new System.Drawing.Font("Myanmar Text", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker.Location = new System.Drawing.Point(10, 174);
+            this.dateTimePicker.MinDate = new System.DateTime(2022, 6, 12, 0, 0, 0, 0);
             this.dateTimePicker.Name = "dateTimePicker";
             this.dateTimePicker.Size = new System.Drawing.Size(157, 39);
             this.dateTimePicker.TabIndex = 42;
@@ -293,6 +298,7 @@
             // 
             // comboBoxTijdMinutenZoeken
             // 
+            this.comboBoxTijdMinutenZoeken.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxTijdMinutenZoeken.Font = new System.Drawing.Font("Myanmar Text", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxTijdMinutenZoeken.FormattingEnabled = true;
             this.comboBoxTijdMinutenZoeken.Location = new System.Drawing.Point(276, 177);
@@ -302,6 +308,7 @@
             // 
             // comboBoxTijdUrenZoeken
             // 
+            this.comboBoxTijdUrenZoeken.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxTijdUrenZoeken.Font = new System.Drawing.Font("Myanmar Text", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxTijdUrenZoeken.FormattingEnabled = true;
             this.comboBoxTijdUrenZoeken.Location = new System.Drawing.Point(202, 177);

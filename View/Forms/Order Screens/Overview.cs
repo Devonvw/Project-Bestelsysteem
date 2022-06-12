@@ -14,6 +14,9 @@ namespace View.Forms.Order_Screens
 {
     public partial class Overview : Form
     {
+
+        //OrderScreenParent
+        OrderScreenParent orderScreenParent;
         // fields     
         private Staff staff;
         private Bill bill;
@@ -37,7 +40,7 @@ namespace View.Forms.Order_Screens
         private Label title;
 
         // constructor
-        public Overview(List<OrderItem> orderItems, Bill bill, Staff staff, Label tableNumberLabel)
+        public Overview(List<OrderItem> orderItems, Bill bill, Staff staff, Label tableNumberLabel, OrderScreenParent orderScreenParent)
         {
             InitializeComponent();
             // set fields
@@ -59,6 +62,7 @@ namespace View.Forms.Order_Screens
             }
             FillMenuListView(menuItems);
             SetActivePanel(overViewPanel);
+            this.orderScreenParent = orderScreenParent;
         }
 
         // method for setting panel
@@ -210,6 +214,7 @@ namespace View.Forms.Order_Screens
         private void backToTablesButton_Click(object sender, EventArgs e)
         {
             title.Text = "Tafels";
+            orderScreenParent.UpdateForm();
             Close(); 
         }
 

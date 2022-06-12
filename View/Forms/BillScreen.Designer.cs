@@ -262,6 +262,7 @@
             this.lblRekening.Size = new System.Drawing.Size(246, 67);
             this.lblRekening.TabIndex = 12;
             this.lblRekening.Text = "Rekening";
+            this.lblRekening.Click += new System.EventHandler(this.lblRekening_Click);
             // 
             // btnSave
             // 
@@ -390,6 +391,7 @@
             this.label5.Size = new System.Drawing.Size(126, 36);
             this.label5.TabIndex = 2;
             this.label5.Text = "Totaal";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label4
             // 

@@ -62,6 +62,7 @@
             // 
             this.txtBoxUsername.Font = new System.Drawing.Font("Myanmar Text", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBoxUsername.Location = new System.Drawing.Point(51, 62);
+            this.txtBoxUsername.MaxLength = 100;
             this.txtBoxUsername.Name = "txtBoxUsername";
             this.txtBoxUsername.Size = new System.Drawing.Size(266, 58);
             this.txtBoxUsername.TabIndex = 2;
@@ -70,6 +71,7 @@
             // 
             this.txtBoxPassword.Font = new System.Drawing.Font("Myanmar Text", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBoxPassword.Location = new System.Drawing.Point(51, 223);
+            this.txtBoxPassword.MaxLength = 100;
             this.txtBoxPassword.Name = "txtBoxPassword";
             this.txtBoxPassword.Size = new System.Drawing.Size(266, 58);
             this.txtBoxPassword.TabIndex = 3;
@@ -91,7 +93,7 @@
             this.lblWachtwoordVergeten.AutoSize = true;
             this.lblWachtwoordVergeten.Font = new System.Drawing.Font("Myanmar Text", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblWachtwoordVergeten.ForeColor = System.Drawing.Color.White;
-            this.lblWachtwoordVergeten.Location = new System.Drawing.Point(74, 298);
+            this.lblWachtwoordVergeten.Location = new System.Drawing.Point(102, 298);
             this.lblWachtwoordVergeten.Name = "lblWachtwoordVergeten";
             this.lblWachtwoordVergeten.Size = new System.Drawing.Size(210, 36);
             this.lblWachtwoordVergeten.TabIndex = 5;

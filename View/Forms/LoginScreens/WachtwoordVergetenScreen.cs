@@ -19,6 +19,7 @@ namespace View.Forms
             InitializeComponent();
         }
 
+        //checken of het email adres bekend is en mail versturen
         private void btnHerstelWachtwoord_Click(object sender, EventArgs e)
         {
             string email = txtBoxEmail.Text;
@@ -34,6 +35,8 @@ namespace View.Forms
                 MessageBox.Show("Het opgegeven email adres is niet bekend bij ons, controleer uw email adres en probeer het opnieuw");
             }
         }
+
+        //kijkt of de email in de database staat
         private bool EmailIsKnown(List <Login> allUsers, string email)
         {
             foreach (Login l in allUsers)
