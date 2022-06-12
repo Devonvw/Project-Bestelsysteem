@@ -32,6 +32,7 @@ namespace View.Forms
             billController.AddObserver(this);
             InitializeComponent();
             this.staff = currentUser;
+            tableController = new TableController();
             staffNameLabel.Text = $"Medewerker: {staff.FirstName}";
             LastOrderedLabels = new Label[10];
             FillLabelList();
@@ -119,7 +120,7 @@ namespace View.Forms
         {
             List<Button> buttons = FillButtonList();
             List<Table> tables = tableController.GetAllTables();
-            
+            Debug.WriteLine("kaas");
 
             foreach (Table t in tables)
             {
@@ -131,6 +132,7 @@ namespace View.Forms
                         {
                             b.Enabled = false;
                             LastOrderedLabels[t.Id-1].Enabled = false;
+                            LastOrderedLabels[t.Id - 1].Text = "";
                         }
                         else if (t.Occupied == true)
                         {
@@ -173,7 +175,7 @@ namespace View.Forms
             {
                 if (table.Id-1 == i)
                 {
-                    LastOrderedLabels[i].Text = tableLastOrdered.LastOrdered.ToString("HH:mm");
+                    LastOrderedLabels[i].Text = tableLastOrdered?.LastOrdered.ToString("HH:mm");
                 }
             }    
         }

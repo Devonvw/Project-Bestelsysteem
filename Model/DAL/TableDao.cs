@@ -55,7 +55,7 @@ namespace Model
         }
         public Table GetLastOrdered(Table table)
         {
-            string query = "SELECT TOP 1 O.[datetime], B.[tableId] FROM orders AS O JOIN BillItems AS BI ON O.[id] = BI.orderId JOIN bills AS B ON B.[id] = BI.billId WHERE b.tableId = @tableId ORDER BY O.[datetime] DESC";
+            string query = "SELECT TOP 1 O.[datetime], B.[tableId] FROM orders AS O JOIN BillItems AS BI ON O.[id] = BI.orderId JOIN bills AS B ON B.[id] = BI.billId WHERE b.tableId = @tableId AND b.payed = 'false' ORDER BY O.[datetime] DESC";
             SqlParameter[] sqlParameters = new SqlParameter[]
             {
                 new SqlParameter("@tableId", table.Id),
@@ -64,17 +64,16 @@ namespace Model
         }
         private Table ReadTableLastOrder(DataTable dataTable)
         {
-            List<Table> tables = new List<Table>();  
-            foreach (DataRow dr in dataTable.Rows)
+            if (dataTable.Rows.Count > 0)
             {
                 Table table = new Table()
                 {
-                    Id = (int)dr["tableId"],
-                    LastOrdered = (DateTime)dr["datetime"],
-                }; 
-                tables.Add(table);
+                    Id = (int)dataTable.Rows[0]["tableId"],
+                    LastOrdered = (DateTime)dataTable.Rows[0]["datetime"],
+                };
+                return table;
             }
-            return tables[0];
+            return null;
         }
         public bool TableHasOrdered(Table table)
         {

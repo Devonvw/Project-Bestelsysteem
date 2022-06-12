@@ -19,10 +19,10 @@ namespace View.Forms
         private BillController billController;
         private Staff currentUser;
         private LoginScreen loginScreen;
-        public Tablet(Staff currentUser, LoginScreen loginScreen)
+        public Tablet(Staff currentUser, LoginScreen loginScreen, BillController billController)
         {
             InitializeComponent();
-            this.billController = new BillController();
+            this.billController = billController;
             this.currentUser = currentUser;
             this.loginScreen = loginScreen;
         }

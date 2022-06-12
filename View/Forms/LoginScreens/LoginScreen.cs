@@ -78,7 +78,7 @@ namespace View.Forms
         //het opnene van de verschillende schermen na inloggen
         private void OpenScreens()
         {
-            tablet = new Tablet(currentUser, this);
+            tablet = new Tablet(currentUser, this, billController);
             orderScreenParent = new OrderScreenParent(billController, currentUser, this);
             orderScreenParent.Show();
             management.Show();

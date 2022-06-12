@@ -38,7 +38,7 @@
             // 
             this.pnlChild.Location = new System.Drawing.Point(57, 45);
             this.pnlChild.Name = "pnlChild";
-            this.pnlChild.Size = new System.Drawing.Size(818, 1112);
+            this.pnlChild.Size = new System.Drawing.Size(818, 1160);
             this.pnlChild.TabIndex = 0;
             // 
             // btnBack
@@ -83,7 +83,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(0)))), ((int)(((byte)(77)))));
-            this.ClientSize = new System.Drawing.Size(852, 1055);
+            this.ClientSize = new System.Drawing.Size(852, 1255);
             this.Controls.Add(this.btn_Logout);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnBack);

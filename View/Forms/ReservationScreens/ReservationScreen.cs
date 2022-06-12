@@ -198,7 +198,7 @@ namespace View.Forms
         //openen childform betalen
         private void btnBetalen_Click(object sender, EventArgs e)
         {
-            mainForm.OpenChildForm(new BillScreen(new Table(currentTable.Id, true), billController), sender);
+            mainForm.OpenChildForm(new BillScreen(new Table(currentTable.Id, true), billController, mainForm, currentUser), sender);
         }
     }
 }
