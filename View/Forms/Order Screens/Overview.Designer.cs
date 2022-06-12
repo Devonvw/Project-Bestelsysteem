@@ -113,6 +113,7 @@
             this.billOverViewListView.TabIndex = 3;
             this.billOverViewListView.UseCompatibleStateImageBehavior = false;
             this.billOverViewListView.View = System.Windows.Forms.View.Details;
+            this.billOverViewListView.SelectedIndexChanged += new System.EventHandler(this.billOverViewListView_SelectedIndexChanged);
             // 
             // MenuItem
             // 
@@ -884,6 +885,7 @@
             this.menuItemsListView.UseCompatibleStateImageBehavior = false;
             this.menuItemsListView.View = System.Windows.Forms.View.Details;
             this.menuItemsListView.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.menuItemsListView_ItemSelectionChanged);
+            this.menuItemsListView.SelectedIndexChanged += new System.EventHandler(this.menuItemsListView_SelectedIndexChanged);
             // 
             // Item
             // 
@@ -931,6 +933,7 @@
             this.newOrderItemsListView.UseCompatibleStateImageBehavior = false;
             this.newOrderItemsListView.View = System.Windows.Forms.View.Details;
             this.newOrderItemsListView.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.newOrderItemsListView_ItemSelectionChanged);
+            this.newOrderItemsListView.SelectedIndexChanged += new System.EventHandler(this.newOrderItemsListView_SelectedIndexChanged);
             // 
             // columnHeader1
             // 
