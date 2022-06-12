@@ -81,7 +81,8 @@ namespace View.Forms
             tablet = new Tablet(currentUser, this, billController);
             orderScreenParent = new OrderScreenParent(billController, currentUser, this);
             orderScreenParent.Show();
-            management.Show();
+            if (currentUser.Role == Roles.Manager) 
+                management.Show();
             tablet.Show();
         }
     }
