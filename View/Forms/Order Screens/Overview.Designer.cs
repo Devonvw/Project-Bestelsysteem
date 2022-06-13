@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.billOverViewListView = new System.Windows.Forms.ListView();
-            this.OrderItemId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.MenuItem = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Amount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Comment = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -38,13 +37,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this.overViewPanel = new System.Windows.Forms.Panel();
             this.deleteOrderInPreperationButton = new View.CustomControls.CustomButton();
+            this.updateItemButton = new View.CustomControls.CustomButton();
             this.togglePanel = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.groupItemsToggle = new View.CustomControls.ToggleButton();
             this.ChangeOrderButton = new View.CustomControls.CustomButton();
             this.backToTablesButton = new View.CustomControls.CustomButton();
             this.newOrderButton = new View.CustomControls.CustomButton();
-            this.updateItemButton = new View.CustomControls.CustomButton();
             this.addOrderPanel = new System.Windows.Forms.Panel();
             this.lunchSubPanel = new System.Windows.Forms.Panel();
             this.lunchMainButton = new View.CustomControls.CustomButton();
@@ -80,7 +79,6 @@
             this.dinerButton = new View.CustomControls.CustomButton();
             this.lunchButton = new View.CustomControls.CustomButton();
             this.menuItemsListView = new System.Windows.Forms.ListView();
-            this.ID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Item = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.stock = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.backToOverviewButton = new View.CustomControls.CustomButton();
@@ -103,7 +101,6 @@
             // billOverViewListView
             // 
             this.billOverViewListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.OrderItemId,
             this.MenuItem,
             this.Amount,
             this.Comment});
@@ -116,11 +113,7 @@
             this.billOverViewListView.TabIndex = 3;
             this.billOverViewListView.UseCompatibleStateImageBehavior = false;
             this.billOverViewListView.View = System.Windows.Forms.View.Details;
-            // 
-            // OrderItemId
-            // 
-            this.OrderItemId.Text = "ID";
-            this.OrderItemId.Width = 25;
+            this.billOverViewListView.SelectedIndexChanged += new System.EventHandler(this.billOverViewListView_SelectedIndexChanged);
             // 
             // MenuItem
             // 
@@ -168,12 +161,12 @@
             // overViewPanel
             // 
             this.overViewPanel.Controls.Add(this.deleteOrderInPreperationButton);
+            this.overViewPanel.Controls.Add(this.updateItemButton);
             this.overViewPanel.Controls.Add(this.togglePanel);
             this.overViewPanel.Controls.Add(this.ChangeOrderButton);
             this.overViewPanel.Controls.Add(this.bonOverzichtLabel);
             this.overViewPanel.Controls.Add(this.backToTablesButton);
             this.overViewPanel.Controls.Add(this.billOverViewListView);
-            this.overViewPanel.Controls.Add(this.updateItemButton);
             this.overViewPanel.Controls.Add(this.newOrderButton);
             this.overViewPanel.Location = new System.Drawing.Point(0, 0);
             this.overViewPanel.Name = "overViewPanel";
@@ -200,6 +193,26 @@
             this.deleteOrderInPreperationButton.UseVisualStyleBackColor = false;
             this.deleteOrderInPreperationButton.Visible = false;
             this.deleteOrderInPreperationButton.Click += new System.EventHandler(this.deleteOrderInPreperationButton_Click);
+            // 
+            // updateItemButton
+            // 
+            this.updateItemButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(58)))), ((int)(((byte)(118)))));
+            this.updateItemButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(58)))), ((int)(((byte)(118)))));
+            this.updateItemButton.BorderColor = System.Drawing.Color.PaleGreen;
+            this.updateItemButton.BorderRadius = 20;
+            this.updateItemButton.BorderSize = 3;
+            this.updateItemButton.FlatAppearance.BorderSize = 0;
+            this.updateItemButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.updateItemButton.ForeColor = System.Drawing.Color.White;
+            this.updateItemButton.Location = new System.Drawing.Point(223, 697);
+            this.updateItemButton.Name = "updateItemButton";
+            this.updateItemButton.Size = new System.Drawing.Size(193, 70);
+            this.updateItemButton.TabIndex = 31;
+            this.updateItemButton.Text = "Wijzig Item";
+            this.updateItemButton.TextColor = System.Drawing.Color.White;
+            this.updateItemButton.UseVisualStyleBackColor = false;
+            this.updateItemButton.Visible = false;
+            this.updateItemButton.Click += new System.EventHandler(this.updateItemButton_Click);
             // 
             // togglePanel
             // 
@@ -293,26 +306,6 @@
             this.newOrderButton.TextColor = System.Drawing.Color.White;
             this.newOrderButton.UseVisualStyleBackColor = false;
             this.newOrderButton.Click += new System.EventHandler(this.newOrderButton_Click);
-            // 
-            // updateItemButton
-            // 
-            this.updateItemButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(58)))), ((int)(((byte)(118)))));
-            this.updateItemButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(58)))), ((int)(((byte)(118)))));
-            this.updateItemButton.BorderColor = System.Drawing.Color.PaleGreen;
-            this.updateItemButton.BorderRadius = 20;
-            this.updateItemButton.BorderSize = 3;
-            this.updateItemButton.FlatAppearance.BorderSize = 0;
-            this.updateItemButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.updateItemButton.ForeColor = System.Drawing.Color.White;
-            this.updateItemButton.Location = new System.Drawing.Point(223, 697);
-            this.updateItemButton.Name = "updateItemButton";
-            this.updateItemButton.Size = new System.Drawing.Size(193, 70);
-            this.updateItemButton.TabIndex = 31;
-            this.updateItemButton.Text = "Wijzig Item";
-            this.updateItemButton.TextColor = System.Drawing.Color.White;
-            this.updateItemButton.UseVisualStyleBackColor = false;
-            this.updateItemButton.Visible = false;
-            this.updateItemButton.Click += new System.EventHandler(this.updateItemButton_Click);
             // 
             // addOrderPanel
             // 
@@ -452,7 +445,7 @@
             this.minusButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.minusButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.minusButton.ForeColor = System.Drawing.Color.Black;
-            this.minusButton.Location = new System.Drawing.Point(152, 9);
+            this.minusButton.Location = new System.Drawing.Point(160, 9);
             this.minusButton.Name = "minusButton";
             this.minusButton.Size = new System.Drawing.Size(44, 37);
             this.minusButton.TabIndex = 16;
@@ -466,7 +459,7 @@
             this.amountLabel.AutoSize = true;
             this.amountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.amountLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.amountLabel.Location = new System.Drawing.Point(194, 7);
+            this.amountLabel.Location = new System.Drawing.Point(203, 9);
             this.amountLabel.Name = "amountLabel";
             this.amountLabel.Size = new System.Drawing.Size(37, 39);
             this.amountLabel.TabIndex = 17;
@@ -476,7 +469,6 @@
             // 
             this.addCommentTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.addCommentTextBox.Location = new System.Drawing.Point(12, 22);
-            this.addCommentTextBox.MaxLength = 255;
             this.addCommentTextBox.Name = "addCommentTextBox";
             this.addCommentTextBox.Size = new System.Drawing.Size(130, 20);
             this.addCommentTextBox.TabIndex = 18;
@@ -880,7 +872,6 @@
             // menuItemsListView
             // 
             this.menuItemsListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.ID,
             this.Item,
             this.stock});
             this.menuItemsListView.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -894,11 +885,7 @@
             this.menuItemsListView.UseCompatibleStateImageBehavior = false;
             this.menuItemsListView.View = System.Windows.Forms.View.Details;
             this.menuItemsListView.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.menuItemsListView_ItemSelectionChanged);
-            // 
-            // ID
-            // 
-            this.ID.Text = "ID";
-            this.ID.Width = 29;
+            this.menuItemsListView.SelectedIndexChanged += new System.EventHandler(this.menuItemsListView_SelectedIndexChanged);
             // 
             // Item
             // 
@@ -946,6 +933,7 @@
             this.newOrderItemsListView.UseCompatibleStateImageBehavior = false;
             this.newOrderItemsListView.View = System.Windows.Forms.View.Details;
             this.newOrderItemsListView.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.newOrderItemsListView_ItemSelectionChanged);
+            this.newOrderItemsListView.SelectedIndexChanged += new System.EventHandler(this.newOrderItemsListView_SelectedIndexChanged);
             // 
             // columnHeader1
             // 
@@ -1080,7 +1068,6 @@
         private CustomControls.CustomButton dinerButton;
         private CustomControls.CustomButton lunchButton;
         private System.Windows.Forms.ListView menuItemsListView;
-        private System.Windows.Forms.ColumnHeader ID;
         private System.Windows.Forms.ColumnHeader Item;
         private CustomControls.CustomButton backToOverviewButton;
         private System.Windows.Forms.ListView newOrderItemsListView;
@@ -1094,7 +1081,6 @@
         private System.Windows.Forms.Label label2;
         private CustomControls.ToggleButton groupItemsToggle;
         private CustomControls.CustomButton updateItemButton;
-        private System.Windows.Forms.ColumnHeader OrderItemId;
         private CustomControls.CustomButton deleteOrderInPreperationButton;
         private System.Windows.Forms.ColumnHeader stock;
     }

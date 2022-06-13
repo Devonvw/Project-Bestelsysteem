@@ -238,6 +238,7 @@
             this.tbxFullName.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.tbxFullName.Font = new System.Drawing.Font("Myanmar Text", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxFullName.Location = new System.Drawing.Point(17, 222);
+            this.tbxFullName.MaxLength = 255;
             this.tbxFullName.Name = "tbxFullName";
             this.tbxFullName.Size = new System.Drawing.Size(444, 41);
             this.tbxFullName.TabIndex = 9;
@@ -247,6 +248,7 @@
             this.tbxShortName.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.tbxShortName.Font = new System.Drawing.Font("Myanmar Text", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxShortName.Location = new System.Drawing.Point(17, 124);
+            this.tbxShortName.MaxLength = 40;
             this.tbxShortName.Name = "tbxShortName";
             this.tbxShortName.Size = new System.Drawing.Size(444, 41);
             this.tbxShortName.TabIndex = 0;
@@ -295,12 +297,12 @@
             // 
             // columnHeader4
             // 
-            this.columnHeader4.Text = "Categorie";
+            this.columnHeader4.Text = "Category";
             this.columnHeader4.Width = 161;
             // 
             // columnHeader5
             // 
-            this.columnHeader5.Text = "Subcategorie";
+            this.columnHeader5.Text = "Subcategory";
             this.columnHeader5.Width = 166;
             // 
             // columnHeader6

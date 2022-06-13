@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Cryptography.KeyDerivation;
+﻿
+using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 using Model;
 using System;
 using System.Collections.Generic;
@@ -6,6 +7,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using DAL;
 
 namespace Controller
 {
@@ -18,25 +20,28 @@ namespace Controller
             logindb = new LoginDao();
         }
 
+        //checkt of een user in de database staat 
         public bool LoginCheck(Login userLogin)
         {
             List<Login> allUsers = GetAllUsers();
 
             foreach (Login user in allUsers)
             {
-                if(user.UserName == userLogin.UserName && user.Password == HashAndSalt(userLogin.Password))
+                if(user.UserName.ToLower() == userLogin.UserName.ToLower() && user.Password == HashAndSalt(userLogin.Password) && user.Employed)
                 {
                     return true;
                 }
             }
             return false;
         }
+
         public List<Login> GetAllUsers()
         {
             List<Login> allUsers = logindb.GetAllUsers();
             return allUsers;
         }
 
+        //hashed het password
         public string HashAndSalt(string password)
         {
             byte[] noSalt = new byte[0];

@@ -9,16 +9,21 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Model;
 using Controller;
+using System.Diagnostics;
 
 namespace View.Forms
 {
     public partial class BillScreen : Form
     {
+        private Tablet mainForm;
         private BillController billController;
         private List<OrderItem> orderItems;
         private Bill bill;
         private Table table;
+        private TableController tableController;
+        private Staff currentUser;
 
+        //For reloading the bill list
         private void Reload()
         {
             orderItems = billController.GetOrderItems(bill);
@@ -28,52 +33,51 @@ namespace View.Forms
                 ListViewItem listViewItem = new ListViewItem(menuItem.MenuItem.ShortName);
                 listViewItem.SubItems.Add(menuItem.Amount.ToString());
                 listViewItem.SubItems.Add(menuItem.TotalPrice.ToString());
-                listViewItem.Tag = menuItem.Id;
+                listViewItem.Tag = menuItem;
                 ltvBillItems.Items.Add(listViewItem);
             });
         }
-        public BillScreen(Table table)
+        public BillScreen(Table table, BillController billController, Tablet mainform, Staff currentUser)
         {
             this.table = table;
-            billController = new BillController();
+            this.billController = billController;
+            mainForm = mainform;       
             orderItems = new List<OrderItem>();
+            tableController = new TableController();
+            this.currentUser = currentUser;
 
             InitializeComponent();
         }
         private void BillScreen_Load(object sender, EventArgs e)
         {
-            lblRekening.Text = $"{lblRekening.Text} {table.Id}";
+            lblRekening.Text = $"{lblRekening.Text} tafel {table.Id}";
             bill = billController.GetCurrentBillByTable(table);
             Reload();
+
             lblLowBtwOutput.Text = $"€{bill.LowBtwPrice.ToString("0.00")}";
             lblHighBtwOutput.Text = $"€{bill.HighBtwPrice.ToString("0.00")}";
             lblTotalOutput.Text = $"€{bill.TotalPrice.ToString("0.00")}";
         }
-        private void btnSave_Click_1(object sender, EventArgs e)
+        //Close the bill
+        private void btnSave_Click(object sender, EventArgs e)
         {
-            bill.Comment = string.IsNullOrEmpty(txtOpmerkingInput.Text) ? "" : txtOpmerkingInput.Text;
-            bill.Tip = (float)numTip.Value;
-            if (rbContant.Checked) bill.PaymentMethod = PaymentMethod.Cash;
-            else if (rbPin.Checked) bill.PaymentMethod = PaymentMethod.Pin;
-            else if (rbCreditcard.Checked) bill.PaymentMethod = PaymentMethod.Creditcard;
-            else if (rbCashPin.Checked) bill.PaymentMethod = PaymentMethod.CashPin;
-            else if (rbCashCreditcard.Checked) bill.PaymentMethod = PaymentMethod.CashCreditcard;
-            else bill.PaymentMethod = PaymentMethod.None;
-
             try
             {
+                bill.Comment = string.IsNullOrEmpty(txtOpmerkingInput.Text) ? "" : txtOpmerkingInput.Text;
+                bill.Tip = (float)numTip.Value;
+                bill.PaymentMethod = rbContant.Checked ? PaymentMethod.Cash : rbPin.Checked ? PaymentMethod.Pin : rbCreditcard.Checked ? PaymentMethod.Creditcard : rbCashPin.Checked ? PaymentMethod.CashPin : rbCashCreditcard.Checked ? PaymentMethod.CashCreditcard : PaymentMethod.None;
+
                 billController.CloseBill(bill);
                 MessageBox.Show("Rekening succesvol gesloten, de tafel is weer open.");
+                mainForm.OpenChildForm(new ReservationScreen(mainForm, billController, currentUser), sender);
             }
-            catch (Exception err)
-            {
-                MessageBox.Show("Het was niet gelukt om de rekening te sluiten: " + err.Message);
-            }
+            catch (Exception err) { MessageBox.Show("Het was niet gelukt om de rekening te sluiten: " + err.Message); }
         }
+        //Handle splitting the bill
         private void numSplit_ValueChanged(object sender, EventArgs e)
         {
             if (numSplit.Value == 1) lblSplitPrice.Text = "";
-            else lblSplitPrice.Text = $"€{Math.Round(bill.TotalPrice / (float)numSplit.Value, 2).ToString()}";   
+            else lblSplitPrice.Text = $"€{Math.Round(bill.TotalPrice / (float)numSplit.Value, 2)}";
         }
     }
 }

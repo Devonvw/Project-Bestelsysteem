@@ -5,18 +5,37 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Model;
+using DAL;
 
 namespace Controller
 {
     public class BillController
     {
         BillDao billDB;
+        public List<IObserver> Observers;
+        private TableController tableController;
 
         public BillController()
         {
             billDB = new BillDao();
+            Observers = new List<IObserver>();
+            tableController = new TableController();
         }
-
+        public void AddObserver(IObserver observer)
+        {
+            Observers.Add(observer);
+        }
+        public void RemoveObserver(IObserver observer)
+        {
+            Observers.Remove(observer);
+        }
+        private void AlertObservers()
+        {
+            foreach (IObserver observer in Observers)
+            {
+                observer.UpdateForm();
+            }
+        }
         public List<OrderItem> GetOrderItems(Bill bill)
         {
             return billDB.GetOrderItems(bill);
@@ -26,34 +45,24 @@ namespace Controller
         {
             return billDB.GetCurrentBillByTable(table);
         }
-
-        public Bill GetCurrentOpenBillByTable(Table table)
-        {
-            return billDB.GetCurrentOpenBillByTable(table);
-        }
-
         public void CloseBill(Bill bill)
         {
-            if (bill.Comment.Length > 255) throw new Exception("De opmerking is langer dan 255 letters");
             if (bill.PaymentMethod == PaymentMethod.None) throw new Exception("Kies een betaalmethode");
 
             billDB.CloseBill(bill);
+            tableController.ChangeOccupied(new Table(bill.TableId, false));
+            AlertObservers();
         }
 
         public void CreateBill(Table table, Staff staff)
         {            
             billDB.CreateBill(table, staff);
+            AlertObservers();
         }
 
-        public Bill CheckForOpenBillOnTable(Table table)
+        public bool BillExist(Table table)
         {
-            Bill bill = billDB.CheckForOpenBillOnTable(table);
-            return bill;
+            return billDB.BillExist(table);
         }
-
-        //public List<OrderItem> GetLastOrderItems(Bill bill)
-        //{
-        //    billDB.GetLastOrderItems(Bill bill);
-        //}
     }
 }

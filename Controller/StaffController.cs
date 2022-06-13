@@ -5,12 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using Model;
 using System.Text.RegularExpressions;
+using DAL;
 
 
 namespace Controller
 {
     public class StaffController
     {
+        private LoginController loginController;
         static Regex validate_emailaddress = new Regex(@"^(?!\.)(""([^""\r\\]|\\[""\r\\])*""|"
                 + @"([-a-z0-9!#$%&'*+/=?^_`{|}~]|(?<!\.)\.)*)(?<!\.)"
                 + @"@[a-z0-9][\w\.-]*[a-z0-9]\.[a-z][a-z\.]*[a-z]$", RegexOptions.IgnoreCase);
@@ -20,18 +22,25 @@ namespace Controller
         public StaffController()
         {
             menuDb = new StaffDao();
+            loginController = new LoginController();
         }
         public List<Staff> GetAllStaff()
         {
             return menuDb.GetAllStaff();
         }
+        public bool StaffExists(Staff staff)
+        {
+            return menuDb.StaffExists(staff);
+        }
         public void AddStaff(Staff staff)
         {
-            menuDb.AddStaff(staff);
-        }
-        public void RemoveStaff(Staff staff)
-        {
-            menuDb.RemoveStaff(staff);
+            if (!StaffExists(staff))
+            {
+                if (validate_emailaddress.IsMatch(staff.Email) != true) throw new Exception("Dit is geen geldige email");
+                staff.Password = loginController.HashAndSalt("password");
+                menuDb.AddStaff(staff);
+            }
+            else throw new Exception("Er bestaat al een werknemer met deze naam.");
         }
         public void UpdateStaff(Staff staff)
         {
@@ -39,8 +48,11 @@ namespace Controller
             if (string.IsNullOrEmpty(staff.LastName)) throw new Exception("De achternaam is nog niet ingevuld");
             if (string.IsNullOrEmpty(staff.Email)) throw new Exception("De email is nog niet ingevuld");
             if (validate_emailaddress.IsMatch(staff.Email) != true) throw new Exception("Dit is geen geldige email");
-
             menuDb.UpdateStaff(staff);
+        }
+        public Staff GetStaffByEmail(Staff staff)
+        {
+            return menuDb.GetStaffByEmail(staff);
         }
     }
 }
