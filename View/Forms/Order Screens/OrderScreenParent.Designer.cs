@@ -65,9 +65,9 @@
             this.topPanel.Controls.Add(this.tableNumberLabel);
             this.topPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.topPanel.Location = new System.Drawing.Point(0, 0);
-            this.topPanel.Margin = new System.Windows.Forms.Padding(4);
+            this.topPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.topPanel.Name = "topPanel";
-            this.topPanel.Size = new System.Drawing.Size(571, 97);
+            this.topPanel.Size = new System.Drawing.Size(642, 121);
             this.topPanel.TabIndex = 0;
             this.topPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.topPanel_Paint);
             // 
@@ -76,9 +76,10 @@
             this.btn_Logout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
             this.btn_Logout.Font = new System.Drawing.Font("Myanmar Text", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Logout.ForeColor = System.Drawing.Color.White;
-            this.btn_Logout.Location = new System.Drawing.Point(429, 37);
+            this.btn_Logout.Location = new System.Drawing.Point(483, 46);
+            this.btn_Logout.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_Logout.Name = "btn_Logout";
-            this.btn_Logout.Size = new System.Drawing.Size(120, 53);
+            this.btn_Logout.Size = new System.Drawing.Size(135, 66);
             this.btn_Logout.TabIndex = 2;
             this.btn_Logout.Text = "Logout";
             this.btn_Logout.UseVisualStyleBackColor = false;
@@ -89,10 +90,10 @@
             this.staffNameLabel.AutoSize = true;
             this.staffNameLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(0)))), ((int)(((byte)(77)))));
             this.staffNameLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.staffNameLabel.Location = new System.Drawing.Point(16, 11);
+            this.staffNameLabel.Location = new System.Drawing.Point(18, 14);
             this.staffNameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.staffNameLabel.Name = "staffNameLabel";
-            this.staffNameLabel.Size = new System.Drawing.Size(85, 16);
+            this.staffNameLabel.Size = new System.Drawing.Size(100, 20);
             this.staffNameLabel.TabIndex = 1;
             this.staffNameLabel.Text = "Medewerker:";
             // 
@@ -101,10 +102,10 @@
             this.tableNumberLabel.AutoSize = true;
             this.tableNumberLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tableNumberLabel.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.tableNumberLabel.Location = new System.Drawing.Point(204, 36);
+            this.tableNumberLabel.Location = new System.Drawing.Point(230, 45);
             this.tableNumberLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.tableNumberLabel.Name = "tableNumberLabel";
-            this.tableNumberLabel.Size = new System.Drawing.Size(151, 54);
+            this.tableNumberLabel.Size = new System.Drawing.Size(185, 65);
             this.tableNumberLabel.TabIndex = 0;
             this.tableNumberLabel.Text = "Tafels";
             // 
@@ -132,10 +133,10 @@
             this.childFormPanel.Controls.Add(this.table3Button);
             this.childFormPanel.Controls.Add(this.table2Button);
             this.childFormPanel.Controls.Add(this.table1Button);
-            this.childFormPanel.Location = new System.Drawing.Point(0, 97);
-            this.childFormPanel.Margin = new System.Windows.Forms.Padding(4);
+            this.childFormPanel.Location = new System.Drawing.Point(0, 121);
+            this.childFormPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.childFormPanel.Name = "childFormPanel";
-            this.childFormPanel.Size = new System.Drawing.Size(571, 1021);
+            this.childFormPanel.Size = new System.Drawing.Size(642, 1276);
             this.childFormPanel.TabIndex = 2;
             // 
             // lblLaatsteBestelling10
@@ -143,9 +144,9 @@
             this.lblLaatsteBestelling10.AutoSize = true;
             this.lblLaatsteBestelling10.BackColor = System.Drawing.Color.MediumSlateBlue;
             this.lblLaatsteBestelling10.Font = new System.Drawing.Font("Myanmar Text", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLaatsteBestelling10.Location = new System.Drawing.Point(381, 771);
+            this.lblLaatsteBestelling10.Location = new System.Drawing.Point(429, 964);
             this.lblLaatsteBestelling10.Name = "lblLaatsteBestelling10";
-            this.lblLaatsteBestelling10.Size = new System.Drawing.Size(0, 30);
+            this.lblLaatsteBestelling10.Size = new System.Drawing.Size(0, 37);
             this.lblLaatsteBestelling10.TabIndex = 25;
             // 
             // lblLaatsteBestelling9
@@ -153,9 +154,9 @@
             this.lblLaatsteBestelling9.AutoSize = true;
             this.lblLaatsteBestelling9.BackColor = System.Drawing.Color.MediumSlateBlue;
             this.lblLaatsteBestelling9.Font = new System.Drawing.Font("Myanmar Text", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLaatsteBestelling9.Location = new System.Drawing.Point(129, 771);
+            this.lblLaatsteBestelling9.Location = new System.Drawing.Point(145, 964);
             this.lblLaatsteBestelling9.Name = "lblLaatsteBestelling9";
-            this.lblLaatsteBestelling9.Size = new System.Drawing.Size(0, 30);
+            this.lblLaatsteBestelling9.Size = new System.Drawing.Size(0, 37);
             this.lblLaatsteBestelling9.TabIndex = 24;
             // 
             // lblLaatsteBestelling8
@@ -163,9 +164,9 @@
             this.lblLaatsteBestelling8.AutoSize = true;
             this.lblLaatsteBestelling8.BackColor = System.Drawing.Color.MediumSlateBlue;
             this.lblLaatsteBestelling8.Font = new System.Drawing.Font("Myanmar Text", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLaatsteBestelling8.Location = new System.Drawing.Point(381, 616);
+            this.lblLaatsteBestelling8.Location = new System.Drawing.Point(429, 770);
             this.lblLaatsteBestelling8.Name = "lblLaatsteBestelling8";
-            this.lblLaatsteBestelling8.Size = new System.Drawing.Size(0, 30);
+            this.lblLaatsteBestelling8.Size = new System.Drawing.Size(0, 37);
             this.lblLaatsteBestelling8.TabIndex = 23;
             // 
             // lblLaatsteBestelling7
@@ -173,9 +174,9 @@
             this.lblLaatsteBestelling7.AutoSize = true;
             this.lblLaatsteBestelling7.BackColor = System.Drawing.Color.MediumSlateBlue;
             this.lblLaatsteBestelling7.Font = new System.Drawing.Font("Myanmar Text", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLaatsteBestelling7.Location = new System.Drawing.Point(129, 616);
+            this.lblLaatsteBestelling7.Location = new System.Drawing.Point(145, 770);
             this.lblLaatsteBestelling7.Name = "lblLaatsteBestelling7";
-            this.lblLaatsteBestelling7.Size = new System.Drawing.Size(0, 30);
+            this.lblLaatsteBestelling7.Size = new System.Drawing.Size(0, 37);
             this.lblLaatsteBestelling7.TabIndex = 22;
             // 
             // lblLaatsteBestelling6
@@ -183,9 +184,9 @@
             this.lblLaatsteBestelling6.AutoSize = true;
             this.lblLaatsteBestelling6.BackColor = System.Drawing.Color.MediumSlateBlue;
             this.lblLaatsteBestelling6.Font = new System.Drawing.Font("Myanmar Text", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLaatsteBestelling6.Location = new System.Drawing.Point(381, 456);
+            this.lblLaatsteBestelling6.Location = new System.Drawing.Point(429, 570);
             this.lblLaatsteBestelling6.Name = "lblLaatsteBestelling6";
-            this.lblLaatsteBestelling6.Size = new System.Drawing.Size(0, 30);
+            this.lblLaatsteBestelling6.Size = new System.Drawing.Size(0, 37);
             this.lblLaatsteBestelling6.TabIndex = 21;
             // 
             // lblLaatsteBestelling5
@@ -193,9 +194,9 @@
             this.lblLaatsteBestelling5.AutoSize = true;
             this.lblLaatsteBestelling5.BackColor = System.Drawing.Color.MediumSlateBlue;
             this.lblLaatsteBestelling5.Font = new System.Drawing.Font("Myanmar Text", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLaatsteBestelling5.Location = new System.Drawing.Point(129, 456);
+            this.lblLaatsteBestelling5.Location = new System.Drawing.Point(145, 570);
             this.lblLaatsteBestelling5.Name = "lblLaatsteBestelling5";
-            this.lblLaatsteBestelling5.Size = new System.Drawing.Size(0, 30);
+            this.lblLaatsteBestelling5.Size = new System.Drawing.Size(0, 37);
             this.lblLaatsteBestelling5.TabIndex = 20;
             // 
             // lblLaatsteBestelling4
@@ -203,9 +204,9 @@
             this.lblLaatsteBestelling4.AutoSize = true;
             this.lblLaatsteBestelling4.BackColor = System.Drawing.Color.MediumSlateBlue;
             this.lblLaatsteBestelling4.Font = new System.Drawing.Font("Myanmar Text", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLaatsteBestelling4.Location = new System.Drawing.Point(381, 291);
+            this.lblLaatsteBestelling4.Location = new System.Drawing.Point(429, 364);
             this.lblLaatsteBestelling4.Name = "lblLaatsteBestelling4";
-            this.lblLaatsteBestelling4.Size = new System.Drawing.Size(0, 30);
+            this.lblLaatsteBestelling4.Size = new System.Drawing.Size(0, 37);
             this.lblLaatsteBestelling4.TabIndex = 19;
             // 
             // lblLaatsteBestelling2
@@ -213,9 +214,9 @@
             this.lblLaatsteBestelling2.AutoSize = true;
             this.lblLaatsteBestelling2.BackColor = System.Drawing.Color.MediumSlateBlue;
             this.lblLaatsteBestelling2.Font = new System.Drawing.Font("Myanmar Text", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLaatsteBestelling2.Location = new System.Drawing.Point(381, 132);
+            this.lblLaatsteBestelling2.Location = new System.Drawing.Point(429, 165);
             this.lblLaatsteBestelling2.Name = "lblLaatsteBestelling2";
-            this.lblLaatsteBestelling2.Size = new System.Drawing.Size(0, 30);
+            this.lblLaatsteBestelling2.Size = new System.Drawing.Size(0, 37);
             this.lblLaatsteBestelling2.TabIndex = 18;
             // 
             // lblLaatsteBestelling3
@@ -223,9 +224,9 @@
             this.lblLaatsteBestelling3.AutoSize = true;
             this.lblLaatsteBestelling3.BackColor = System.Drawing.Color.MediumSlateBlue;
             this.lblLaatsteBestelling3.Font = new System.Drawing.Font("Myanmar Text", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLaatsteBestelling3.Location = new System.Drawing.Point(129, 291);
+            this.lblLaatsteBestelling3.Location = new System.Drawing.Point(145, 364);
             this.lblLaatsteBestelling3.Name = "lblLaatsteBestelling3";
-            this.lblLaatsteBestelling3.Size = new System.Drawing.Size(0, 30);
+            this.lblLaatsteBestelling3.Size = new System.Drawing.Size(0, 37);
             this.lblLaatsteBestelling3.TabIndex = 17;
             // 
             // lblLaatsteBestelling1
@@ -233,9 +234,9 @@
             this.lblLaatsteBestelling1.AutoSize = true;
             this.lblLaatsteBestelling1.BackColor = System.Drawing.Color.MediumSlateBlue;
             this.lblLaatsteBestelling1.Font = new System.Drawing.Font("Myanmar Text", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLaatsteBestelling1.Location = new System.Drawing.Point(129, 132);
+            this.lblLaatsteBestelling1.Location = new System.Drawing.Point(145, 165);
             this.lblLaatsteBestelling1.Name = "lblLaatsteBestelling1";
-            this.lblLaatsteBestelling1.Size = new System.Drawing.Size(0, 30);
+            this.lblLaatsteBestelling1.Size = new System.Drawing.Size(0, 37);
             this.lblLaatsteBestelling1.TabIndex = 16;
             // 
             // table10Button
@@ -249,10 +250,10 @@
             this.table10Button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.table10Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.table10Button.ForeColor = System.Drawing.Color.White;
-            this.table10Button.Location = new System.Drawing.Point(315, 691);
+            this.table10Button.Location = new System.Drawing.Point(354, 864);
             this.table10Button.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.table10Button.Name = "table10Button";
-            this.table10Button.Size = new System.Drawing.Size(187, 131);
+            this.table10Button.Size = new System.Drawing.Size(210, 164);
             this.table10Button.TabIndex = 15;
             this.table10Button.Text = "10";
             this.table10Button.TextColor = System.Drawing.Color.White;
@@ -270,10 +271,10 @@
             this.table9Button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.table9Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.table9Button.ForeColor = System.Drawing.Color.White;
-            this.table9Button.Location = new System.Drawing.Point(62, 691);
+            this.table9Button.Location = new System.Drawing.Point(70, 864);
             this.table9Button.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.table9Button.Name = "table9Button";
-            this.table9Button.Size = new System.Drawing.Size(187, 131);
+            this.table9Button.Size = new System.Drawing.Size(210, 164);
             this.table9Button.TabIndex = 14;
             this.table9Button.Text = "9";
             this.table9Button.TextColor = System.Drawing.Color.White;
@@ -291,10 +292,10 @@
             this.table8Button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.table8Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.table8Button.ForeColor = System.Drawing.Color.White;
-            this.table8Button.Location = new System.Drawing.Point(315, 527);
+            this.table8Button.Location = new System.Drawing.Point(354, 659);
             this.table8Button.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.table8Button.Name = "table8Button";
-            this.table8Button.Size = new System.Drawing.Size(187, 131);
+            this.table8Button.Size = new System.Drawing.Size(210, 164);
             this.table8Button.TabIndex = 13;
             this.table8Button.Text = "8";
             this.table8Button.TextColor = System.Drawing.Color.White;
@@ -312,10 +313,10 @@
             this.table7Button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.table7Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.table7Button.ForeColor = System.Drawing.Color.White;
-            this.table7Button.Location = new System.Drawing.Point(62, 527);
+            this.table7Button.Location = new System.Drawing.Point(70, 659);
             this.table7Button.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.table7Button.Name = "table7Button";
-            this.table7Button.Size = new System.Drawing.Size(187, 131);
+            this.table7Button.Size = new System.Drawing.Size(210, 164);
             this.table7Button.TabIndex = 12;
             this.table7Button.Text = "7";
             this.table7Button.TextColor = System.Drawing.Color.White;
@@ -333,10 +334,10 @@
             this.table6Button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.table6Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.table6Button.ForeColor = System.Drawing.Color.White;
-            this.table6Button.Location = new System.Drawing.Point(315, 367);
+            this.table6Button.Location = new System.Drawing.Point(354, 459);
             this.table6Button.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.table6Button.Name = "table6Button";
-            this.table6Button.Size = new System.Drawing.Size(187, 131);
+            this.table6Button.Size = new System.Drawing.Size(210, 164);
             this.table6Button.TabIndex = 11;
             this.table6Button.Text = "6";
             this.table6Button.TextColor = System.Drawing.Color.White;
@@ -354,10 +355,10 @@
             this.table5Button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.table5Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.table5Button.ForeColor = System.Drawing.Color.White;
-            this.table5Button.Location = new System.Drawing.Point(62, 367);
+            this.table5Button.Location = new System.Drawing.Point(70, 459);
             this.table5Button.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.table5Button.Name = "table5Button";
-            this.table5Button.Size = new System.Drawing.Size(187, 131);
+            this.table5Button.Size = new System.Drawing.Size(210, 164);
             this.table5Button.TabIndex = 10;
             this.table5Button.Text = "5";
             this.table5Button.TextColor = System.Drawing.Color.White;
@@ -375,10 +376,10 @@
             this.table4Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.table4Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.table4Button.ForeColor = System.Drawing.Color.White;
-            this.table4Button.Location = new System.Drawing.Point(315, 209);
+            this.table4Button.Location = new System.Drawing.Point(354, 261);
             this.table4Button.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.table4Button.Name = "table4Button";
-            this.table4Button.Size = new System.Drawing.Size(187, 131);
+            this.table4Button.Size = new System.Drawing.Size(210, 164);
             this.table4Button.TabIndex = 3;
             this.table4Button.Text = "4";
             this.table4Button.TextColor = System.Drawing.Color.White;
@@ -396,10 +397,10 @@
             this.table3Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.table3Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.table3Button.ForeColor = System.Drawing.Color.White;
-            this.table3Button.Location = new System.Drawing.Point(62, 209);
+            this.table3Button.Location = new System.Drawing.Point(70, 261);
             this.table3Button.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.table3Button.Name = "table3Button";
-            this.table3Button.Size = new System.Drawing.Size(187, 131);
+            this.table3Button.Size = new System.Drawing.Size(210, 164);
             this.table3Button.TabIndex = 2;
             this.table3Button.Text = "3";
             this.table3Button.TextColor = System.Drawing.Color.White;
@@ -417,10 +418,10 @@
             this.table2Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.table2Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.table2Button.ForeColor = System.Drawing.Color.White;
-            this.table2Button.Location = new System.Drawing.Point(315, 48);
+            this.table2Button.Location = new System.Drawing.Point(354, 60);
             this.table2Button.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.table2Button.Name = "table2Button";
-            this.table2Button.Size = new System.Drawing.Size(187, 131);
+            this.table2Button.Size = new System.Drawing.Size(210, 164);
             this.table2Button.TabIndex = 1;
             this.table2Button.Text = "2";
             this.table2Button.TextColor = System.Drawing.Color.White;
@@ -438,10 +439,10 @@
             this.table1Button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.table1Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.table1Button.ForeColor = System.Drawing.Color.White;
-            this.table1Button.Location = new System.Drawing.Point(62, 48);
+            this.table1Button.Location = new System.Drawing.Point(70, 60);
             this.table1Button.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.table1Button.Name = "table1Button";
-            this.table1Button.Size = new System.Drawing.Size(187, 131);
+            this.table1Button.Size = new System.Drawing.Size(210, 164);
             this.table1Button.TabIndex = 0;
             this.table1Button.Text = "1";
             this.table1Button.TextColor = System.Drawing.Color.White;
@@ -450,13 +451,14 @@
             // 
             // OrderScreenParent
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(571, 1055);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(0)))), ((int)(((byte)(77)))));
+            this.ClientSize = new System.Drawing.Size(642, 1319);
             this.Controls.Add(this.childFormPanel);
             this.Controls.Add(this.topPanel);
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "OrderScreenParent";
             this.Text = "Handheld";
             this.topPanel.ResumeLayout(false);

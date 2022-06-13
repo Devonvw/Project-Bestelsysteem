@@ -252,6 +252,7 @@
             // columnHeader5
             // 
             this.columnHeader5.Text = "Totaal";
+            this.columnHeader5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.columnHeader5.Width = 133;
             // 
             // lblRekening
