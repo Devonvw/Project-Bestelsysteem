@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.topPanel = new System.Windows.Forms.Panel();
+            this.btn_Logout = new System.Windows.Forms.Button();
             this.staffNameLabel = new System.Windows.Forms.Label();
             this.tableNumberLabel = new System.Windows.Forms.Label();
             this.childFormPanel = new System.Windows.Forms.Panel();
@@ -42,7 +43,6 @@
             this.lblLaatsteBestelling2 = new System.Windows.Forms.Label();
             this.lblLaatsteBestelling3 = new System.Windows.Forms.Label();
             this.lblLaatsteBestelling1 = new System.Windows.Forms.Label();
-            this.btn_Logout = new System.Windows.Forms.Button();
             this.table10Button = new View.CustomControls.CustomButton();
             this.table9Button = new View.CustomControls.CustomButton();
             this.table8Button = new View.CustomControls.CustomButton();
@@ -67,9 +67,22 @@
             this.topPanel.Location = new System.Drawing.Point(0, 0);
             this.topPanel.Margin = new System.Windows.Forms.Padding(4);
             this.topPanel.Name = "topPanel";
-            this.topPanel.Size = new System.Drawing.Size(571, 123);
+            this.topPanel.Size = new System.Drawing.Size(571, 97);
             this.topPanel.TabIndex = 0;
-            this.topPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.topPanel_MouseDown);
+            this.topPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.topPanel_Paint);
+            // 
+            // btn_Logout
+            // 
+            this.btn_Logout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.btn_Logout.Font = new System.Drawing.Font("Myanmar Text", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Logout.ForeColor = System.Drawing.Color.White;
+            this.btn_Logout.Location = new System.Drawing.Point(429, 37);
+            this.btn_Logout.Name = "btn_Logout";
+            this.btn_Logout.Size = new System.Drawing.Size(120, 53);
+            this.btn_Logout.TabIndex = 2;
+            this.btn_Logout.Text = "Logout";
+            this.btn_Logout.UseVisualStyleBackColor = false;
+            this.btn_Logout.Click += new System.EventHandler(this.btn_Logout_Click);
             // 
             // staffNameLabel
             // 
@@ -94,10 +107,10 @@
             this.tableNumberLabel.Size = new System.Drawing.Size(151, 54);
             this.tableNumberLabel.TabIndex = 0;
             this.tableNumberLabel.Text = "Tafels";
-            this.tableNumberLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.topPanel_MouseDown);
             // 
             // childFormPanel
             // 
+            this.childFormPanel.AutoSize = true;
             this.childFormPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(0)))), ((int)(((byte)(77)))));
             this.childFormPanel.Controls.Add(this.lblLaatsteBestelling10);
             this.childFormPanel.Controls.Add(this.lblLaatsteBestelling9);
@@ -119,11 +132,10 @@
             this.childFormPanel.Controls.Add(this.table3Button);
             this.childFormPanel.Controls.Add(this.table2Button);
             this.childFormPanel.Controls.Add(this.table1Button);
-            this.childFormPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.childFormPanel.Location = new System.Drawing.Point(0, 123);
+            this.childFormPanel.Location = new System.Drawing.Point(0, 97);
             this.childFormPanel.Margin = new System.Windows.Forms.Padding(4);
             this.childFormPanel.Name = "childFormPanel";
-            this.childFormPanel.Size = new System.Drawing.Size(571, 977);
+            this.childFormPanel.Size = new System.Drawing.Size(571, 1021);
             this.childFormPanel.TabIndex = 2;
             // 
             // lblLaatsteBestelling10
@@ -225,19 +237,6 @@
             this.lblLaatsteBestelling1.Name = "lblLaatsteBestelling1";
             this.lblLaatsteBestelling1.Size = new System.Drawing.Size(0, 30);
             this.lblLaatsteBestelling1.TabIndex = 16;
-            // 
-            // btn_Logout
-            // 
-            this.btn_Logout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.btn_Logout.Font = new System.Drawing.Font("Myanmar Text", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Logout.ForeColor = System.Drawing.Color.White;
-            this.btn_Logout.Location = new System.Drawing.Point(429, 37);
-            this.btn_Logout.Name = "btn_Logout";
-            this.btn_Logout.Size = new System.Drawing.Size(120, 53);
-            this.btn_Logout.TabIndex = 2;
-            this.btn_Logout.Text = "Logout";
-            this.btn_Logout.UseVisualStyleBackColor = false;
-            this.btn_Logout.Click += new System.EventHandler(this.btn_Logout_Click);
             // 
             // table10Button
             // 
@@ -453,18 +452,19 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(571, 1100);
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(571, 1055);
             this.Controls.Add(this.childFormPanel);
             this.Controls.Add(this.topPanel);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "OrderScreenParent";
-            this.Text = "        ";
+            this.Text = "Handheld";
             this.topPanel.ResumeLayout(false);
             this.topPanel.PerformLayout();
             this.childFormPanel.ResumeLayout(false);
             this.childFormPanel.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

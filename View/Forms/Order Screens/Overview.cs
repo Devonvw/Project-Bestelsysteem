@@ -19,7 +19,7 @@ namespace View.Forms.Order_Screens
         // fields     
         private Staff staff;
         private Bill bill;
-        private int amount = 1;
+         private int amount = 1;
         private int duplicateItemAmount;
         private Panel activePanel;
         private Label title;

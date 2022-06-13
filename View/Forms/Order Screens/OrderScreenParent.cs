@@ -90,18 +90,7 @@ namespace View.Forms
         }
 
 
-        // option to drag the screen by topPanel (eigk alleen voor gebruik op pc handig ofcourse maar werkt lekker tijdens developen)
-        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
-        private extern static void ReleaseCapture();
-
-        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
-        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
-
-        private void topPanel_MouseDown(object sender, MouseEventArgs e)
-        {
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
-        }
+     
 
         // table clicks
         private void btnTable_Click(object sender, EventArgs e)
@@ -200,6 +189,11 @@ namespace View.Forms
         private void btn_Logout_Click(object sender, EventArgs e)
         {
             loginScreen.Logout();
+        }
+
+        private void topPanel_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

@@ -107,9 +107,10 @@
             this.billOverViewListView.FullRowSelect = true;
             this.billOverViewListView.GridLines = true;
             this.billOverViewListView.HideSelection = false;
-            this.billOverViewListView.Location = new System.Drawing.Point(10, 25);
+            this.billOverViewListView.Location = new System.Drawing.Point(13, 31);
+            this.billOverViewListView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.billOverViewListView.Name = "billOverViewListView";
-            this.billOverViewListView.Size = new System.Drawing.Size(406, 456);
+            this.billOverViewListView.Size = new System.Drawing.Size(540, 560);
             this.billOverViewListView.TabIndex = 3;
             this.billOverViewListView.UseCompatibleStateImageBehavior = false;
             this.billOverViewListView.View = System.Windows.Forms.View.Details;
@@ -134,18 +135,20 @@
             // 
             this.bonOverzichtLabel.AutoSize = true;
             this.bonOverzichtLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.bonOverzichtLabel.Location = new System.Drawing.Point(10, 9);
+            this.bonOverzichtLabel.Location = new System.Drawing.Point(13, 11);
+            this.bonOverzichtLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.bonOverzichtLabel.Name = "bonOverzichtLabel";
-            this.bonOverzichtLabel.Size = new System.Drawing.Size(74, 13);
+            this.bonOverzichtLabel.Size = new System.Drawing.Size(89, 16);
             this.bonOverzichtLabel.TabIndex = 4;
             this.bonOverzichtLabel.Text = "Bon Overzicht";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(10, 501);
+            this.label1.Location = new System.Drawing.Point(13, 617);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 13);
+            this.label1.Size = new System.Drawing.Size(0, 16);
             this.label1.TabIndex = 12;
             // 
             // label3
@@ -153,9 +156,10 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.Control;
-            this.label3.Location = new System.Drawing.Point(12, 526);
+            this.label3.Location = new System.Drawing.Point(16, 647);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(0, 20);
+            this.label3.Size = new System.Drawing.Size(0, 25);
             this.label3.TabIndex = 14;
             // 
             // overViewPanel
@@ -169,8 +173,9 @@
             this.overViewPanel.Controls.Add(this.billOverViewListView);
             this.overViewPanel.Controls.Add(this.newOrderButton);
             this.overViewPanel.Location = new System.Drawing.Point(0, 0);
+            this.overViewPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.overViewPanel.Name = "overViewPanel";
-            this.overViewPanel.Size = new System.Drawing.Size(428, 795);
+            this.overViewPanel.Size = new System.Drawing.Size(571, 978);
             this.overViewPanel.TabIndex = 19;
             this.overViewPanel.Visible = false;
             // 
@@ -184,9 +189,10 @@
             this.deleteOrderInPreperationButton.FlatAppearance.BorderSize = 0;
             this.deleteOrderInPreperationButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.deleteOrderInPreperationButton.ForeColor = System.Drawing.Color.White;
-            this.deleteOrderInPreperationButton.Location = new System.Drawing.Point(14, 621);
+            this.deleteOrderInPreperationButton.Location = new System.Drawing.Point(19, 764);
+            this.deleteOrderInPreperationButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.deleteOrderInPreperationButton.Name = "deleteOrderInPreperationButton";
-            this.deleteOrderInPreperationButton.Size = new System.Drawing.Size(192, 70);
+            this.deleteOrderInPreperationButton.Size = new System.Drawing.Size(256, 86);
             this.deleteOrderInPreperationButton.TabIndex = 32;
             this.deleteOrderInPreperationButton.Text = "Verwijder bestelling";
             this.deleteOrderInPreperationButton.TextColor = System.Drawing.Color.White;
@@ -204,9 +210,10 @@
             this.updateItemButton.FlatAppearance.BorderSize = 0;
             this.updateItemButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.updateItemButton.ForeColor = System.Drawing.Color.White;
-            this.updateItemButton.Location = new System.Drawing.Point(223, 697);
+            this.updateItemButton.Location = new System.Drawing.Point(297, 858);
+            this.updateItemButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.updateItemButton.Name = "updateItemButton";
-            this.updateItemButton.Size = new System.Drawing.Size(193, 70);
+            this.updateItemButton.Size = new System.Drawing.Size(257, 86);
             this.updateItemButton.TabIndex = 31;
             this.updateItemButton.Text = "Wijzig Item";
             this.updateItemButton.TextColor = System.Drawing.Color.White;
@@ -218,9 +225,10 @@
             // 
             this.togglePanel.Controls.Add(this.label2);
             this.togglePanel.Controls.Add(this.groupItemsToggle);
-            this.togglePanel.Location = new System.Drawing.Point(10, 487);
+            this.togglePanel.Location = new System.Drawing.Point(13, 599);
+            this.togglePanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.togglePanel.Name = "togglePanel";
-            this.togglePanel.Size = new System.Drawing.Size(406, 73);
+            this.togglePanel.Size = new System.Drawing.Size(541, 90);
             this.togglePanel.TabIndex = 30;
             // 
             // label2
@@ -228,9 +236,10 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.Control;
-            this.label2.Location = new System.Drawing.Point(0, 26);
+            this.label2.Location = new System.Drawing.Point(0, 32);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(184, 20);
+            this.label2.Size = new System.Drawing.Size(224, 25);
             this.label2.TabIndex = 13;
             this.label2.Text = "Groepeer dezelfde items";
             // 
@@ -238,14 +247,15 @@
             // 
             this.groupItemsToggle.Checked = true;
             this.groupItemsToggle.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.groupItemsToggle.Location = new System.Drawing.Point(303, 24);
-            this.groupItemsToggle.MinimumSize = new System.Drawing.Size(45, 22);
+            this.groupItemsToggle.Location = new System.Drawing.Point(404, 30);
+            this.groupItemsToggle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupItemsToggle.MinimumSize = new System.Drawing.Size(60, 27);
             this.groupItemsToggle.Name = "groupItemsToggle";
             this.groupItemsToggle.OffBackColor = System.Drawing.Color.Gray;
             this.groupItemsToggle.OffToggleColor = System.Drawing.Color.Gainsboro;
             this.groupItemsToggle.OnBackColor = System.Drawing.Color.MediumSlateBlue;
             this.groupItemsToggle.OnToggleColor = System.Drawing.Color.WhiteSmoke;
-            this.groupItemsToggle.Size = new System.Drawing.Size(101, 23);
+            this.groupItemsToggle.Size = new System.Drawing.Size(135, 28);
             this.groupItemsToggle.TabIndex = 17;
             this.groupItemsToggle.UseVisualStyleBackColor = true;
             this.groupItemsToggle.CheckedChanged += new System.EventHandler(this.groupItemsToggle_CheckedChanged);
@@ -260,9 +270,10 @@
             this.ChangeOrderButton.FlatAppearance.BorderSize = 0;
             this.ChangeOrderButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ChangeOrderButton.ForeColor = System.Drawing.Color.White;
-            this.ChangeOrderButton.Location = new System.Drawing.Point(223, 621);
+            this.ChangeOrderButton.Location = new System.Drawing.Point(297, 764);
+            this.ChangeOrderButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ChangeOrderButton.Name = "ChangeOrderButton";
-            this.ChangeOrderButton.Size = new System.Drawing.Size(193, 70);
+            this.ChangeOrderButton.Size = new System.Drawing.Size(257, 86);
             this.ChangeOrderButton.TabIndex = 18;
             this.ChangeOrderButton.Text = "Wijzig bestelling";
             this.ChangeOrderButton.TextColor = System.Drawing.Color.White;
@@ -279,9 +290,10 @@
             this.backToTablesButton.FlatAppearance.BorderSize = 0;
             this.backToTablesButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backToTablesButton.ForeColor = System.Drawing.Color.White;
-            this.backToTablesButton.Location = new System.Drawing.Point(13, 697);
+            this.backToTablesButton.Location = new System.Drawing.Point(17, 858);
+            this.backToTablesButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.backToTablesButton.Name = "backToTablesButton";
-            this.backToTablesButton.Size = new System.Drawing.Size(192, 70);
+            this.backToTablesButton.Size = new System.Drawing.Size(256, 86);
             this.backToTablesButton.TabIndex = 10;
             this.backToTablesButton.Text = "Terug naar tafels";
             this.backToTablesButton.TextColor = System.Drawing.Color.White;
@@ -298,9 +310,10 @@
             this.newOrderButton.FlatAppearance.BorderSize = 0;
             this.newOrderButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.newOrderButton.ForeColor = System.Drawing.Color.White;
-            this.newOrderButton.Location = new System.Drawing.Point(223, 697);
+            this.newOrderButton.Location = new System.Drawing.Point(297, 858);
+            this.newOrderButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.newOrderButton.Name = "newOrderButton";
-            this.newOrderButton.Size = new System.Drawing.Size(193, 70);
+            this.newOrderButton.Size = new System.Drawing.Size(257, 86);
             this.newOrderButton.TabIndex = 7;
             this.newOrderButton.Text = "Nieuwe bestelling";
             this.newOrderButton.TextColor = System.Drawing.Color.White;
@@ -327,8 +340,9 @@
             this.addOrderPanel.Controls.Add(this.insertOrderButton);
             this.addOrderPanel.Controls.Add(this.addItemButton);
             this.addOrderPanel.Location = new System.Drawing.Point(0, 0);
+            this.addOrderPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.addOrderPanel.Name = "addOrderPanel";
-            this.addOrderPanel.Size = new System.Drawing.Size(428, 795);
+            this.addOrderPanel.Size = new System.Drawing.Size(571, 978);
             this.addOrderPanel.TabIndex = 18;
             this.addOrderPanel.Visible = false;
             // 
@@ -338,9 +352,10 @@
             this.lunchSubPanel.Controls.Add(this.lunchDesertButton);
             this.lunchSubPanel.Controls.Add(this.lunchStarterButton);
             this.lunchSubPanel.Controls.Add(this.label6);
-            this.lunchSubPanel.Location = new System.Drawing.Point(305, 55);
+            this.lunchSubPanel.Location = new System.Drawing.Point(407, 68);
+            this.lunchSubPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.lunchSubPanel.Name = "lunchSubPanel";
-            this.lunchSubPanel.Size = new System.Drawing.Size(102, 326);
+            this.lunchSubPanel.Size = new System.Drawing.Size(136, 401);
             this.lunchSubPanel.TabIndex = 23;
             this.lunchSubPanel.Visible = false;
             // 
@@ -354,9 +369,10 @@
             this.lunchMainButton.FlatAppearance.BorderSize = 0;
             this.lunchMainButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lunchMainButton.ForeColor = System.Drawing.Color.White;
-            this.lunchMainButton.Location = new System.Drawing.Point(3, 73);
+            this.lunchMainButton.Location = new System.Drawing.Point(4, 90);
+            this.lunchMainButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.lunchMainButton.Name = "lunchMainButton";
-            this.lunchMainButton.Size = new System.Drawing.Size(92, 40);
+            this.lunchMainButton.Size = new System.Drawing.Size(123, 49);
             this.lunchMainButton.TabIndex = 26;
             this.lunchMainButton.Text = "Main";
             this.lunchMainButton.TextColor = System.Drawing.Color.White;
@@ -373,9 +389,10 @@
             this.lunchDesertButton.FlatAppearance.BorderSize = 0;
             this.lunchDesertButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lunchDesertButton.ForeColor = System.Drawing.Color.White;
-            this.lunchDesertButton.Location = new System.Drawing.Point(3, 119);
+            this.lunchDesertButton.Location = new System.Drawing.Point(4, 146);
+            this.lunchDesertButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.lunchDesertButton.Name = "lunchDesertButton";
-            this.lunchDesertButton.Size = new System.Drawing.Size(92, 40);
+            this.lunchDesertButton.Size = new System.Drawing.Size(123, 49);
             this.lunchDesertButton.TabIndex = 25;
             this.lunchDesertButton.Text = "Desert";
             this.lunchDesertButton.TextColor = System.Drawing.Color.White;
@@ -392,9 +409,10 @@
             this.lunchStarterButton.FlatAppearance.BorderSize = 0;
             this.lunchStarterButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lunchStarterButton.ForeColor = System.Drawing.Color.White;
-            this.lunchStarterButton.Location = new System.Drawing.Point(3, 27);
+            this.lunchStarterButton.Location = new System.Drawing.Point(4, 33);
+            this.lunchStarterButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.lunchStarterButton.Name = "lunchStarterButton";
-            this.lunchStarterButton.Size = new System.Drawing.Size(92, 40);
+            this.lunchStarterButton.Size = new System.Drawing.Size(123, 49);
             this.lunchStarterButton.TabIndex = 24;
             this.lunchStarterButton.Text = "Starter";
             this.lunchStarterButton.TextColor = System.Drawing.Color.White;
@@ -405,9 +423,10 @@
             // 
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.SystemColors.Control;
-            this.label6.Location = new System.Drawing.Point(29, 10);
+            this.label6.Location = new System.Drawing.Point(39, 12);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(37, 13);
+            this.label6.Size = new System.Drawing.Size(42, 16);
             this.label6.TabIndex = 0;
             this.label6.Text = "Lunch";
             // 
@@ -418,9 +437,10 @@
             this.commentAndAmountPanel.Controls.Add(this.amountLabel);
             this.commentAndAmountPanel.Controls.Add(this.addCommentTextBox);
             this.commentAndAmountPanel.Controls.Add(this.plusButton);
-            this.commentAndAmountPanel.Location = new System.Drawing.Point(10, 387);
+            this.commentAndAmountPanel.Location = new System.Drawing.Point(13, 476);
+            this.commentAndAmountPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.commentAndAmountPanel.Name = "commentAndAmountPanel";
-            this.commentAndAmountPanel.Size = new System.Drawing.Size(288, 52);
+            this.commentAndAmountPanel.Size = new System.Drawing.Size(384, 64);
             this.commentAndAmountPanel.TabIndex = 28;
             this.commentAndAmountPanel.Visible = false;
             // 
@@ -428,9 +448,10 @@
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.SystemColors.Control;
-            this.label5.Location = new System.Drawing.Point(12, 5);
+            this.label5.Location = new System.Drawing.Point(16, 6);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(61, 13);
+            this.label5.Size = new System.Drawing.Size(76, 16);
             this.label5.TabIndex = 19;
             this.label5.Text = "Opmerking:";
             // 
@@ -445,9 +466,10 @@
             this.minusButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.minusButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.minusButton.ForeColor = System.Drawing.Color.Black;
-            this.minusButton.Location = new System.Drawing.Point(160, 9);
+            this.minusButton.Location = new System.Drawing.Point(213, 11);
+            this.minusButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.minusButton.Name = "minusButton";
-            this.minusButton.Size = new System.Drawing.Size(44, 37);
+            this.minusButton.Size = new System.Drawing.Size(59, 46);
             this.minusButton.TabIndex = 16;
             this.minusButton.Text = "-";
             this.minusButton.TextColor = System.Drawing.Color.Black;
@@ -459,18 +481,20 @@
             this.amountLabel.AutoSize = true;
             this.amountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.amountLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.amountLabel.Location = new System.Drawing.Point(203, 9);
+            this.amountLabel.Location = new System.Drawing.Point(271, 11);
+            this.amountLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.amountLabel.Name = "amountLabel";
-            this.amountLabel.Size = new System.Drawing.Size(37, 39);
+            this.amountLabel.Size = new System.Drawing.Size(47, 52);
             this.amountLabel.TabIndex = 17;
             this.amountLabel.Text = "1";
             // 
             // addCommentTextBox
             // 
             this.addCommentTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.addCommentTextBox.Location = new System.Drawing.Point(12, 22);
+            this.addCommentTextBox.Location = new System.Drawing.Point(16, 27);
+            this.addCommentTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.addCommentTextBox.Name = "addCommentTextBox";
-            this.addCommentTextBox.Size = new System.Drawing.Size(130, 20);
+            this.addCommentTextBox.Size = new System.Drawing.Size(172, 22);
             this.addCommentTextBox.TabIndex = 18;
             // 
             // plusButton
@@ -484,9 +508,10 @@
             this.plusButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.plusButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.plusButton.ForeColor = System.Drawing.Color.Black;
-            this.plusButton.Location = new System.Drawing.Point(241, 9);
+            this.plusButton.Location = new System.Drawing.Point(321, 11);
+            this.plusButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.plusButton.Name = "plusButton";
-            this.plusButton.Size = new System.Drawing.Size(44, 37);
+            this.plusButton.Size = new System.Drawing.Size(59, 46);
             this.plusButton.TabIndex = 15;
             this.plusButton.Text = "+";
             this.plusButton.TextColor = System.Drawing.Color.Black;
@@ -504,9 +529,10 @@
             this.changeItemButton.FlatAppearance.BorderSize = 0;
             this.changeItemButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.changeItemButton.ForeColor = System.Drawing.Color.White;
-            this.changeItemButton.Location = new System.Drawing.Point(308, 638);
+            this.changeItemButton.Location = new System.Drawing.Point(411, 785);
+            this.changeItemButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.changeItemButton.Name = "changeItemButton";
-            this.changeItemButton.Size = new System.Drawing.Size(103, 37);
+            this.changeItemButton.Size = new System.Drawing.Size(137, 46);
             this.changeItemButton.TabIndex = 27;
             this.changeItemButton.Text = "Wijzig Item";
             this.changeItemButton.TextColor = System.Drawing.Color.White;
@@ -525,9 +551,10 @@
             this.clearOrderButton.FlatAppearance.BorderSize = 0;
             this.clearOrderButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.clearOrderButton.ForeColor = System.Drawing.Color.Black;
-            this.clearOrderButton.Location = new System.Drawing.Point(14, 638);
+            this.clearOrderButton.Location = new System.Drawing.Point(19, 785);
+            this.clearOrderButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.clearOrderButton.Name = "clearOrderButton";
-            this.clearOrderButton.Size = new System.Drawing.Size(109, 37);
+            this.clearOrderButton.Size = new System.Drawing.Size(145, 46);
             this.clearOrderButton.TabIndex = 26;
             this.clearOrderButton.Text = "Leeg Order";
             this.clearOrderButton.TextColor = System.Drawing.Color.Black;
@@ -542,9 +569,10 @@
             this.dinerSubPanel.Controls.Add(this.dinerSideButton);
             this.dinerSubPanel.Controls.Add(this.dinerStarterButton);
             this.dinerSubPanel.Controls.Add(this.dinerSubLabel);
-            this.dinerSubPanel.Location = new System.Drawing.Point(305, 55);
+            this.dinerSubPanel.Location = new System.Drawing.Point(407, 68);
+            this.dinerSubPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dinerSubPanel.Name = "dinerSubPanel";
-            this.dinerSubPanel.Size = new System.Drawing.Size(102, 326);
+            this.dinerSubPanel.Size = new System.Drawing.Size(136, 401);
             this.dinerSubPanel.TabIndex = 24;
             this.dinerSubPanel.Visible = false;
             // 
@@ -558,9 +586,10 @@
             this.dinerDesertButton.FlatAppearance.BorderSize = 0;
             this.dinerDesertButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.dinerDesertButton.ForeColor = System.Drawing.Color.White;
-            this.dinerDesertButton.Location = new System.Drawing.Point(3, 165);
+            this.dinerDesertButton.Location = new System.Drawing.Point(4, 203);
+            this.dinerDesertButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dinerDesertButton.Name = "dinerDesertButton";
-            this.dinerDesertButton.Size = new System.Drawing.Size(92, 40);
+            this.dinerDesertButton.Size = new System.Drawing.Size(123, 49);
             this.dinerDesertButton.TabIndex = 28;
             this.dinerDesertButton.Text = "Desert";
             this.dinerDesertButton.TextColor = System.Drawing.Color.White;
@@ -577,9 +606,10 @@
             this.dinerMainButton.FlatAppearance.BorderSize = 0;
             this.dinerMainButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.dinerMainButton.ForeColor = System.Drawing.Color.White;
-            this.dinerMainButton.Location = new System.Drawing.Point(3, 119);
+            this.dinerMainButton.Location = new System.Drawing.Point(4, 146);
+            this.dinerMainButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dinerMainButton.Name = "dinerMainButton";
-            this.dinerMainButton.Size = new System.Drawing.Size(92, 40);
+            this.dinerMainButton.Size = new System.Drawing.Size(123, 49);
             this.dinerMainButton.TabIndex = 27;
             this.dinerMainButton.Text = "Main";
             this.dinerMainButton.TextColor = System.Drawing.Color.White;
@@ -596,9 +626,10 @@
             this.dinerSideButton.FlatAppearance.BorderSize = 0;
             this.dinerSideButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.dinerSideButton.ForeColor = System.Drawing.Color.White;
-            this.dinerSideButton.Location = new System.Drawing.Point(3, 73);
+            this.dinerSideButton.Location = new System.Drawing.Point(4, 90);
+            this.dinerSideButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dinerSideButton.Name = "dinerSideButton";
-            this.dinerSideButton.Size = new System.Drawing.Size(92, 40);
+            this.dinerSideButton.Size = new System.Drawing.Size(123, 49);
             this.dinerSideButton.TabIndex = 26;
             this.dinerSideButton.Text = "Side";
             this.dinerSideButton.TextColor = System.Drawing.Color.White;
@@ -615,9 +646,10 @@
             this.dinerStarterButton.FlatAppearance.BorderSize = 0;
             this.dinerStarterButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.dinerStarterButton.ForeColor = System.Drawing.Color.White;
-            this.dinerStarterButton.Location = new System.Drawing.Point(3, 27);
+            this.dinerStarterButton.Location = new System.Drawing.Point(4, 33);
+            this.dinerStarterButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dinerStarterButton.Name = "dinerStarterButton";
-            this.dinerStarterButton.Size = new System.Drawing.Size(92, 40);
+            this.dinerStarterButton.Size = new System.Drawing.Size(123, 49);
             this.dinerStarterButton.TabIndex = 25;
             this.dinerStarterButton.Text = "Starter";
             this.dinerStarterButton.TextColor = System.Drawing.Color.White;
@@ -628,9 +660,10 @@
             // 
             this.dinerSubLabel.AutoSize = true;
             this.dinerSubLabel.ForeColor = System.Drawing.Color.White;
-            this.dinerSubLabel.Location = new System.Drawing.Point(29, 11);
+            this.dinerSubLabel.Location = new System.Drawing.Point(39, 14);
+            this.dinerSubLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.dinerSubLabel.Name = "dinerSubLabel";
-            this.dinerSubLabel.Size = new System.Drawing.Size(35, 13);
+            this.dinerSubLabel.Size = new System.Drawing.Size(42, 16);
             this.dinerSubLabel.TabIndex = 0;
             this.dinerSubLabel.Text = "Diner:";
             // 
@@ -645,9 +678,10 @@
             this.deleteItemFromOrderButton.FlatAppearance.BorderSize = 0;
             this.deleteItemFromOrderButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.deleteItemFromOrderButton.ForeColor = System.Drawing.Color.Black;
-            this.deleteItemFromOrderButton.Location = new System.Drawing.Point(128, 638);
+            this.deleteItemFromOrderButton.Location = new System.Drawing.Point(171, 785);
+            this.deleteItemFromOrderButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.deleteItemFromOrderButton.Name = "deleteItemFromOrderButton";
-            this.deleteItemFromOrderButton.Size = new System.Drawing.Size(109, 37);
+            this.deleteItemFromOrderButton.Size = new System.Drawing.Size(145, 46);
             this.deleteItemFromOrderButton.TabIndex = 25;
             this.deleteItemFromOrderButton.Text = "Verwijder Item";
             this.deleteItemFromOrderButton.TextColor = System.Drawing.Color.Black;
@@ -660,9 +694,10 @@
             this.drankenSubPanel.Controls.Add(this.frisdrankButton);
             this.drankenSubPanel.Controls.Add(this.warmeDrankenButton);
             this.drankenSubPanel.Controls.Add(this.drankenSubLabel);
-            this.drankenSubPanel.Location = new System.Drawing.Point(305, 55);
+            this.drankenSubPanel.Location = new System.Drawing.Point(407, 68);
+            this.drankenSubPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.drankenSubPanel.Name = "drankenSubPanel";
-            this.drankenSubPanel.Size = new System.Drawing.Size(102, 326);
+            this.drankenSubPanel.Size = new System.Drawing.Size(136, 401);
             this.drankenSubPanel.TabIndex = 22;
             this.drankenSubPanel.Visible = false;
             // 
@@ -676,9 +711,10 @@
             this.frisdrankButton.FlatAppearance.BorderSize = 0;
             this.frisdrankButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.frisdrankButton.ForeColor = System.Drawing.Color.White;
-            this.frisdrankButton.Location = new System.Drawing.Point(7, 84);
+            this.frisdrankButton.Location = new System.Drawing.Point(9, 103);
+            this.frisdrankButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.frisdrankButton.Name = "frisdrankButton";
-            this.frisdrankButton.Size = new System.Drawing.Size(92, 51);
+            this.frisdrankButton.Size = new System.Drawing.Size(123, 63);
             this.frisdrankButton.TabIndex = 24;
             this.frisdrankButton.Text = "Frisdrank";
             this.frisdrankButton.TextColor = System.Drawing.Color.White;
@@ -695,9 +731,10 @@
             this.warmeDrankenButton.FlatAppearance.BorderSize = 0;
             this.warmeDrankenButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.warmeDrankenButton.ForeColor = System.Drawing.Color.White;
-            this.warmeDrankenButton.Location = new System.Drawing.Point(7, 27);
+            this.warmeDrankenButton.Location = new System.Drawing.Point(9, 33);
+            this.warmeDrankenButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.warmeDrankenButton.Name = "warmeDrankenButton";
-            this.warmeDrankenButton.Size = new System.Drawing.Size(92, 51);
+            this.warmeDrankenButton.Size = new System.Drawing.Size(123, 63);
             this.warmeDrankenButton.TabIndex = 23;
             this.warmeDrankenButton.Text = "Warme Dranken";
             this.warmeDrankenButton.TextColor = System.Drawing.Color.White;
@@ -708,9 +745,10 @@
             // 
             this.drankenSubLabel.AutoSize = true;
             this.drankenSubLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.drankenSubLabel.Location = new System.Drawing.Point(29, 10);
+            this.drankenSubLabel.Location = new System.Drawing.Point(39, 12);
+            this.drankenSubLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.drankenSubLabel.Name = "drankenSubLabel";
-            this.drankenSubLabel.Size = new System.Drawing.Size(51, 13);
+            this.drankenSubLabel.Size = new System.Drawing.Size(61, 16);
             this.drankenSubLabel.TabIndex = 0;
             this.drankenSubLabel.Text = "Dranken:";
             // 
@@ -720,9 +758,10 @@
             this.alchoholSubPanel.Controls.Add(this.wijnButton);
             this.alchoholSubPanel.Controls.Add(this.bierButton);
             this.alchoholSubPanel.Controls.Add(this.label7);
-            this.alchoholSubPanel.Location = new System.Drawing.Point(305, 55);
+            this.alchoholSubPanel.Location = new System.Drawing.Point(407, 68);
+            this.alchoholSubPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.alchoholSubPanel.Name = "alchoholSubPanel";
-            this.alchoholSubPanel.Size = new System.Drawing.Size(102, 326);
+            this.alchoholSubPanel.Size = new System.Drawing.Size(136, 401);
             this.alchoholSubPanel.TabIndex = 21;
             this.alchoholSubPanel.Visible = false;
             // 
@@ -736,9 +775,10 @@
             this.gedestilleerdButton.FlatAppearance.BorderSize = 0;
             this.gedestilleerdButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.gedestilleerdButton.ForeColor = System.Drawing.Color.White;
-            this.gedestilleerdButton.Location = new System.Drawing.Point(7, 123);
+            this.gedestilleerdButton.Location = new System.Drawing.Point(9, 151);
+            this.gedestilleerdButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gedestilleerdButton.Name = "gedestilleerdButton";
-            this.gedestilleerdButton.Size = new System.Drawing.Size(86, 40);
+            this.gedestilleerdButton.Size = new System.Drawing.Size(115, 49);
             this.gedestilleerdButton.TabIndex = 24;
             this.gedestilleerdButton.Text = "Gedestilleerde Dranken";
             this.gedestilleerdButton.TextColor = System.Drawing.Color.White;
@@ -755,9 +795,10 @@
             this.wijnButton.FlatAppearance.BorderSize = 0;
             this.wijnButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.wijnButton.ForeColor = System.Drawing.Color.White;
-            this.wijnButton.Location = new System.Drawing.Point(7, 73);
+            this.wijnButton.Location = new System.Drawing.Point(9, 90);
+            this.wijnButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.wijnButton.Name = "wijnButton";
-            this.wijnButton.Size = new System.Drawing.Size(86, 44);
+            this.wijnButton.Size = new System.Drawing.Size(115, 54);
             this.wijnButton.TabIndex = 23;
             this.wijnButton.Text = "Wijn";
             this.wijnButton.TextColor = System.Drawing.Color.White;
@@ -774,9 +815,10 @@
             this.bierButton.FlatAppearance.BorderSize = 0;
             this.bierButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bierButton.ForeColor = System.Drawing.Color.White;
-            this.bierButton.Location = new System.Drawing.Point(7, 26);
+            this.bierButton.Location = new System.Drawing.Point(9, 32);
+            this.bierButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bierButton.Name = "bierButton";
-            this.bierButton.Size = new System.Drawing.Size(86, 41);
+            this.bierButton.Size = new System.Drawing.Size(115, 50);
             this.bierButton.TabIndex = 22;
             this.bierButton.Text = "Bier";
             this.bierButton.TextColor = System.Drawing.Color.White;
@@ -787,9 +829,10 @@
             // 
             this.label7.AutoSize = true;
             this.label7.ForeColor = System.Drawing.SystemColors.Control;
-            this.label7.Location = new System.Drawing.Point(29, 10);
+            this.label7.Location = new System.Drawing.Point(39, 12);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(45, 13);
+            this.label7.Size = new System.Drawing.Size(55, 16);
             this.label7.TabIndex = 20;
             this.label7.Text = "Alcohol:";
             // 
@@ -803,9 +846,10 @@
             this.alcoholButton.FlatAppearance.BorderSize = 0;
             this.alcoholButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.alcoholButton.ForeColor = System.Drawing.Color.White;
-            this.alcoholButton.Location = new System.Drawing.Point(308, 9);
+            this.alcoholButton.Location = new System.Drawing.Point(411, 11);
+            this.alcoholButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.alcoholButton.Name = "alcoholButton";
-            this.alcoholButton.Size = new System.Drawing.Size(99, 40);
+            this.alcoholButton.Size = new System.Drawing.Size(132, 49);
             this.alcoholButton.TabIndex = 18;
             this.alcoholButton.Text = "Alcohol";
             this.alcoholButton.TextColor = System.Drawing.Color.White;
@@ -822,9 +866,10 @@
             this.drankenButton.FlatAppearance.BorderSize = 0;
             this.drankenButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.drankenButton.ForeColor = System.Drawing.Color.White;
-            this.drankenButton.Location = new System.Drawing.Point(211, 9);
+            this.drankenButton.Location = new System.Drawing.Point(281, 11);
+            this.drankenButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.drankenButton.Name = "drankenButton";
-            this.drankenButton.Size = new System.Drawing.Size(92, 40);
+            this.drankenButton.Size = new System.Drawing.Size(123, 49);
             this.drankenButton.TabIndex = 17;
             this.drankenButton.Text = "Dranken";
             this.drankenButton.TextColor = System.Drawing.Color.White;
@@ -841,9 +886,10 @@
             this.dinerButton.FlatAppearance.BorderSize = 0;
             this.dinerButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.dinerButton.ForeColor = System.Drawing.Color.White;
-            this.dinerButton.Location = new System.Drawing.Point(113, 9);
+            this.dinerButton.Location = new System.Drawing.Point(151, 11);
+            this.dinerButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dinerButton.Name = "dinerButton";
-            this.dinerButton.Size = new System.Drawing.Size(92, 40);
+            this.dinerButton.Size = new System.Drawing.Size(123, 49);
             this.dinerButton.TabIndex = 16;
             this.dinerButton.Text = "Diner";
             this.dinerButton.TextColor = System.Drawing.Color.White;
@@ -860,9 +906,10 @@
             this.lunchButton.FlatAppearance.BorderSize = 0;
             this.lunchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lunchButton.ForeColor = System.Drawing.Color.White;
-            this.lunchButton.Location = new System.Drawing.Point(10, 9);
+            this.lunchButton.Location = new System.Drawing.Point(13, 11);
+            this.lunchButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.lunchButton.Name = "lunchButton";
-            this.lunchButton.Size = new System.Drawing.Size(92, 40);
+            this.lunchButton.Size = new System.Drawing.Size(123, 49);
             this.lunchButton.TabIndex = 15;
             this.lunchButton.Text = "Lunch";
             this.lunchButton.TextColor = System.Drawing.Color.White;
@@ -878,9 +925,10 @@
             this.menuItemsListView.FullRowSelect = true;
             this.menuItemsListView.GridLines = true;
             this.menuItemsListView.HideSelection = false;
-            this.menuItemsListView.Location = new System.Drawing.Point(10, 55);
+            this.menuItemsListView.Location = new System.Drawing.Point(13, 68);
+            this.menuItemsListView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.menuItemsListView.Name = "menuItemsListView";
-            this.menuItemsListView.Size = new System.Drawing.Size(397, 326);
+            this.menuItemsListView.Size = new System.Drawing.Size(528, 400);
             this.menuItemsListView.TabIndex = 0;
             this.menuItemsListView.UseCompatibleStateImageBehavior = false;
             this.menuItemsListView.View = System.Windows.Forms.View.Details;
@@ -907,9 +955,10 @@
             this.backToOverviewButton.FlatAppearance.BorderSize = 0;
             this.backToOverviewButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backToOverviewButton.ForeColor = System.Drawing.Color.White;
-            this.backToOverviewButton.Location = new System.Drawing.Point(10, 713);
+            this.backToOverviewButton.Location = new System.Drawing.Point(13, 878);
+            this.backToOverviewButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.backToOverviewButton.Name = "backToOverviewButton";
-            this.backToOverviewButton.Size = new System.Drawing.Size(195, 70);
+            this.backToOverviewButton.Size = new System.Drawing.Size(260, 86);
             this.backToOverviewButton.TabIndex = 12;
             this.backToOverviewButton.Text = "Annuleer bestelling";
             this.backToOverviewButton.TextColor = System.Drawing.Color.White;
@@ -926,9 +975,10 @@
             this.newOrderItemsListView.FullRowSelect = true;
             this.newOrderItemsListView.GridLines = true;
             this.newOrderItemsListView.HideSelection = false;
-            this.newOrderItemsListView.Location = new System.Drawing.Point(10, 453);
+            this.newOrderItemsListView.Location = new System.Drawing.Point(13, 558);
+            this.newOrderItemsListView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.newOrderItemsListView.Name = "newOrderItemsListView";
-            this.newOrderItemsListView.Size = new System.Drawing.Size(397, 179);
+            this.newOrderItemsListView.Size = new System.Drawing.Size(528, 219);
             this.newOrderItemsListView.TabIndex = 5;
             this.newOrderItemsListView.UseCompatibleStateImageBehavior = false;
             this.newOrderItemsListView.View = System.Windows.Forms.View.Details;
@@ -960,9 +1010,10 @@
             this.insertOrderButton.FlatAppearance.BorderSize = 0;
             this.insertOrderButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.insertOrderButton.ForeColor = System.Drawing.Color.White;
-            this.insertOrderButton.Location = new System.Drawing.Point(226, 713);
+            this.insertOrderButton.Location = new System.Drawing.Point(301, 878);
+            this.insertOrderButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.insertOrderButton.Name = "insertOrderButton";
-            this.insertOrderButton.Size = new System.Drawing.Size(190, 70);
+            this.insertOrderButton.Size = new System.Drawing.Size(253, 86);
             this.insertOrderButton.TabIndex = 11;
             this.insertOrderButton.Text = "Plaats bestelling";
             this.insertOrderButton.TextColor = System.Drawing.Color.White;
@@ -979,9 +1030,10 @@
             this.addItemButton.FlatAppearance.BorderSize = 0;
             this.addItemButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addItemButton.ForeColor = System.Drawing.Color.White;
-            this.addItemButton.Location = new System.Drawing.Point(304, 392);
+            this.addItemButton.Location = new System.Drawing.Point(405, 482);
+            this.addItemButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.addItemButton.Name = "addItemButton";
-            this.addItemButton.Size = new System.Drawing.Size(103, 47);
+            this.addItemButton.Size = new System.Drawing.Size(137, 58);
             this.addItemButton.TabIndex = 6;
             this.addItemButton.Text = "Voeg toe";
             this.addItemButton.TextColor = System.Drawing.Color.White;
@@ -990,16 +1042,16 @@
             // 
             // Overview
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(0)))), ((int)(((byte)(77)))));
-            this.ClientSize = new System.Drawing.Size(428, 795);
+            this.ClientSize = new System.Drawing.Size(571, 978);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.addOrderPanel);
             this.Controls.Add(this.overViewPanel);
+            this.Controls.Add(this.addOrderPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Overview";
             this.Text = "Overview";
             this.overViewPanel.ResumeLayout(false);

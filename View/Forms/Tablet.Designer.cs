@@ -36,9 +36,10 @@
             // 
             // pnlChild
             // 
-            this.pnlChild.Location = new System.Drawing.Point(57, 45);
+            this.pnlChild.Location = new System.Drawing.Point(51, 36);
+            this.pnlChild.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlChild.Name = "pnlChild";
-            this.pnlChild.Size = new System.Drawing.Size(818, 1160);
+            this.pnlChild.Size = new System.Drawing.Size(727, 1168);
             this.pnlChild.TabIndex = 0;
             // 
             // btnBack
@@ -48,10 +49,10 @@
             this.btnBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBack.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(0)))), ((int)(((byte)(77)))));
-            this.btnBack.Location = new System.Drawing.Point(58, 31);
+            this.btnBack.Location = new System.Drawing.Point(52, 25);
             this.btnBack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(93, 74);
+            this.btnBack.Size = new System.Drawing.Size(83, 59);
             this.btnBack.TabIndex = 6;
             this.btnBack.UseVisualStyleBackColor = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
@@ -61,7 +62,7 @@
             this.panel1.Location = new System.Drawing.Point(0, -2);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(854, 32);
+            this.panel1.Size = new System.Drawing.Size(759, 26);
             this.panel1.TabIndex = 7;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
@@ -70,9 +71,10 @@
             this.btn_Logout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
             this.btn_Logout.Font = new System.Drawing.Font("Myanmar Text", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Logout.ForeColor = System.Drawing.Color.White;
-            this.btn_Logout.Location = new System.Drawing.Point(680, 35);
+            this.btn_Logout.Location = new System.Drawing.Point(604, 28);
+            this.btn_Logout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_Logout.Name = "btn_Logout";
-            this.btn_Logout.Size = new System.Drawing.Size(123, 49);
+            this.btn_Logout.Size = new System.Drawing.Size(109, 39);
             this.btn_Logout.TabIndex = 0;
             this.btn_Logout.Text = "Logout";
             this.btn_Logout.UseVisualStyleBackColor = false;
@@ -80,15 +82,16 @@
             // 
             // Tablet
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(0)))), ((int)(((byte)(77)))));
-            this.ClientSize = new System.Drawing.Size(902, 1255);
+            this.ClientSize = new System.Drawing.Size(802, 1002);
             this.Controls.Add(this.btn_Logout);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.pnlChild);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Tablet";
             this.Text = "Reservering";
             this.Load += new System.EventHandler(this.Reservering_Load);
